@@ -10,7 +10,7 @@
 //
 //## Main colors, notification colors, and grays for use across Bootstrap.
 
-$primary-color:         #000   ;
+$primary-color:         #2B271E;
 $secondary-color:       #5e5e5e;
 $tertiary-color:        #a2a2a2;
 $other-color:           #ffd800;
@@ -35,14 +35,14 @@ $brand-danger:          #d9534f;
 //** Background color for `<body>`.
 $body-bg:               #fff;
 //** Global text color on `<body>`.
-$text-color:            $gray-base;
+$text-color:            $primary-color;
 
 //** Global textual link color.
-$link-color:            #3077fc;
+$link-color:            $primary-color;
 //** Link hover color set via `darken()` function.
 $link-hover-color:      darken($link-color, 15%);
 //** Link hover decoration.
-$link-hover-decoration: underline;
+$link-hover-decoration: none;
 
 
 //== Typography
@@ -55,9 +55,15 @@ $font-family-serif:       Georgia, "Times New Roman", Times, serif;
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
 $font-family-base:        $font-family-sans-serif;
 
-$font-size-base:          14px;
-$font-size-large:         ceil(($font-size-base * 1.25)); // ~18px
-$font-size-small:         ceil(($font-size-base * 0.85)); // ~12px
+$font-size-base:          16px;
+$font-size-large:         22px;
+$font-size-medium:        18px;
+$font-size-small:         14px;
+
+$fw-normal:      400;
+$fw-medium:      500;
+$fw-bold:        700;
+$fw-black:       900;
 
 $font-size-h1:            floor(($font-size-base * 2.6)); // ~36px
 $font-size-h2:            floor(($font-size-base * 2.15)); // ~30px

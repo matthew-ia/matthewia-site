@@ -11,3 +11,48 @@ if you want to use your custom sass variables */
 //== Your custom classes and overwrites can go here
 //
 //##
+li {list-style-type: none;}
+
+#info {
+  margin: 10%;
+
+  h1{
+    font-size: 145px;
+    font-weight: $fw-black;
+  }
+
+  h2 {
+    font-size: 60px;
+    font-weight: $fw-medium;
+    margin-top: 11px;
+    margin-bottom: 65px;
+  }
+
+  p {
+    font-size: $font-size-large;
+    font-weight: $fw-medium;
+    max-width: 65%;
+  }
+}
+
+//== Media queries
+//
+//##
+@media screen and (max-width: $screen-phone) {
+  #info {
+    margin: 6%;
+    h1 {
+      font-size: 60px;
+    }
+    h2 {
+      font-size: 28px;
+    }
+    p {
+      max-width: 100%;
+      font-size: $font-size-medium;
+    }
+  }
+}
+@media screen and (max-width: $screen-tablet) {}
+@media screen and (max-width: $screen-desktop) {}
+@media screen and (max-width: $screen-lg-desktop) {} // might be unnecessary
