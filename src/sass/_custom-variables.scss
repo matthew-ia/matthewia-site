@@ -109,8 +109,10 @@ $border-radius-base: 4px;
 //== Media queries breakpoints
 //
 //## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+// link: https://medium.com/@uiuxlab/the-most-used-responsive-breakpoints-in-2017-of-mine-9588e9bd3a8a
 
-// Extra small screen / phone
+
+// Extra small screen
 //** Deprecated `$screen-xs` as of v3.0.1
 $screen-xs:                  480px;
 //** Deprecated `$screen-xs-min` as of v3.2.0
@@ -118,31 +120,39 @@ $screen-xs-min:              $screen-xs;
 //** Deprecated `$screen-phone` as of v3.0.1
 $screen-phone:               $screen-xs-min;
 
-// Small screen / tablet
+// Small screen
 //** Deprecated `$screen-sm` as of v3.0.1
-$screen-sm:                  768px;
+$screen-sm:                  736px;
 $screen-sm-min:              $screen-sm;
 //** Deprecated `$screen-tablet` as of v3.0.1
 $screen-tablet:              $screen-sm-min;
 
-// Medium screen / desktop
+// Medium screen
 //** Deprecated `$screen-md` as of v3.0.1
-$screen-md:                  992px;
+$screen-md:                  980px;
 $screen-md-min:              $screen-md;
 //** Deprecated `$screen-desktop` as of v3.0.1
 $screen-desktop:             $screen-md-min;
 
-// Large screen / wide desktop
+// Large screen
 //** Deprecated `$screen-lg` as of v3.0.1
-$screen-lg:                  1200px;
+$screen-lg:                  1280px;
 $screen-lg-min:              $screen-lg;
 //** Deprecated `$screen-lg-desktop` as of v3.0.1
 $screen-lg-desktop:          $screen-lg-min;
+
+// Extra Large screen
+//** Deprecated `$screen-lg` as of v3.0.1
+$screen-xl:                  1690px;
+$screen-xl-min:              $screen-xl;
+//** Deprecated `$screen-lg-desktop` as of v3.0.1
+$screen-xl-desktop:          $screen-xl-min;
 
 // So media queries don't overlap when required, provide a maximum
 $screen-xs-max:              ($screen-sm-min - 1);
 $screen-sm-max:              ($screen-md-min - 1);
 $screen-md-max:              ($screen-lg-min - 1);
+$screen-lg-max:              ($screen-xl-min - 1);
 
 
 //== Grid system

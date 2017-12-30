@@ -1,8 +1,8 @@
 {
-  "name": "citrus-css",
-  "version": "1.0.0",
-  "description": "Citrus CSS is a slim css/js framework based on Bootstrap",
-  "main": "pub/assets/js/bootstrap.js",
+  "name": "matthew.ia",
+  "version": "0.1.0",
+  "description": "Matthew Alicea's personal portfolio site",
+  "main": "pub/assets/js/",
   "style": "pub/css/style.scss",
   "sass": "src/sass/style.scss",
   "files": [
