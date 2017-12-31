@@ -24,10 +24,17 @@ $(window).resize(function() {
 // Setup
 $('#expandedMessage').hide();
 $('#message').attr('data-collapsed', 'true');
-$('#message').on('click', function() {
+
+$('#message').click(function() {
   expandMessage();
 });
 
+$('#back-btn').click(function() {
+  collapseMessage();
+  setTimeout(function(){
+    $('#message').click(function() {expandMessage();});
+  }, 1);
+});
 
 function expandMessage() {
   if ($('#message').attr('data-collapsed') === 'false'
@@ -42,15 +49,18 @@ function expandMessage() {
   }
 }
 
-$('#close-msg').on({
-  click: function() {
-    console.log("am closing");
-    $('#message').removeClass('expanded-msg');
-    $('#expandedMessage').hide();
-    $('#collapsedMessage').show();
-    $('#message').attr('data-collapsed', 'true');
-  },
-  mouseleave: function() {
+$('#send-msg').click(function() {
+  collapseMessage();
+  // Send the message
+  setTimeout(function(){
     $('#message').on('click', function() {expandMessage();});
-  }  
+  }, 1);
 });
+
+function collapseMessage() {
+  console.log("am closing");
+  $('#message').removeClass('expanded-msg');
+  $('#expandedMessage').hide();
+  $('#collapsedMessage').show();
+  $('#message').attr('data-collapsed', 'true');
+}

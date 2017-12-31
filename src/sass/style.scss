@@ -98,7 +98,6 @@ if you want to use your custom sass variables */
   transition: all 0.2s ease-in-out;
   padding: 10px 16px;
   &:hover { box-shadow: 0px 0px 0px $primary-color; }
-  span {width: 100%;}
   background-color: white;
 }
 
@@ -117,13 +116,40 @@ if you want to use your custom sass variables */
     width: 100%;
     padding: 5px 10px;
     margin-bottom: 5px;
-    outline: none !important;
+    //outline: none !important;
     border: none;
     border-bottom: 4px solid $primary-color;
   }
   input:first-of-type { margin-top: 0px; }
+
+  textarea {
+    resize: none;
+    height: 100px;
+  }
 }
 
+#msg-controls {
+
+}
+
+#msg-controls div {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin: 10px 0px;
+}
+
+#msg-controls span {
+    padding: 0px 12px;
+}
+
+#message #close-btn {
+  float: left;
+}
+#message #send-msg {
+  float: right;
+}
 
 //== Media queries
 //

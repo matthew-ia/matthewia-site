@@ -1414,8 +1414,6 @@ if you want to use your custom sass variables */
   background-color: white; }
   #message:hover {
     box-shadow: 0px 0px 0px #2B271E; }
-  #message span {
-    width: 100%; }
 
 #message.expanded-msg {
   height: 310px !important;
@@ -1428,11 +1426,29 @@ if you want to use your custom sass variables */
   width: 100%;
   padding: 5px 10px;
   margin-bottom: 5px;
-  outline: none !important;
   border: none;
   border-bottom: 4px solid #2B271E; }
 #expandedMessage input:first-of-type {
   margin-top: 0px; }
+#expandedMessage textarea {
+  resize: none;
+  height: 100px; }
+
+#msg-controls div {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin: 10px 0px; }
+
+#msg-controls span {
+  padding: 0px 12px; }
+
+#message #close-btn {
+  float: left; }
+
+#message #send-msg {
+  float: right; }
 
 @media screen and (max-width: 1690px) {
   #info p {
