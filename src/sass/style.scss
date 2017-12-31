@@ -87,15 +87,43 @@ if you want to use your custom sass variables */
   position: fixed;
   bottom: 0;
   right: 0;
-  margin: 0 10% 6% 0;
+  margin: 0 10% 5% 0;
+  width: 172px;
+  height: 54px;
   font-size: $font-size-medium;
   font-weight: $fw-bold;
-  span {
-    border: 4px solid $primary-color;
-    box-shadow: 4px 4px 0px black;
-    padding: 10px 16px;
+  cursor: pointer;
+  border: 4px solid $primary-color;
+  box-shadow: 5px 5px 0px $primary-color;
+  transition: all 0.2s ease-in-out;
+  padding: 10px 16px;
+  &:hover { box-shadow: 0px 0px 0px $primary-color; }
+  span {width: 100%;}
+  background-color: white;
+}
+
+#message.expanded-msg {
+  height: 310px !important;
+  width: 295px !important;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: 0px 0px 0px $primary-color;
   }
 }
+
+#expandedMessage {
+  input, textarea {
+    width: 100%;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    outline: none !important;
+    border: none;
+    border-bottom: 4px solid $primary-color;
+  }
+  input:first-of-type { margin-top: 0px; }
+}
+
 
 //== Media queries
 //

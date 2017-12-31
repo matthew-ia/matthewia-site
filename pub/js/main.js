@@ -18,5 +18,39 @@ function displayWindowSize() {
 };*/
 
 $(window).resize(function() {
-    $("#dimensions").html($(window).width() + "x" + $(window).height());
+    $('#dimensions').html($(window).width() + "x" + $(window).height());
 }).resize();
+
+// Setup
+$('#expandedMessage').hide();
+$('#message').attr('data-collapsed', 'true');
+$('#message').on('click', function() {
+  expandMessage();
+});
+
+
+function expandMessage() {
+  if ($('#message').attr('data-collapsed') === 'false'
+    || $('#expandedMessage').attr('display') === 'hidden') return;
+  if (!$('#message').hasClass('expanded-msg')) {
+    console.log("am adding class");
+    $('#message').addClass('expanded-msg');
+    $('#collapsedMessage').hide();
+    $('#expandedMessage').fadeIn(500);
+    $('#message').attr('data-collapsed', 'false');
+    $('#message').off('click');
+  }
+}
+
+$('#close-msg').on({
+  click: function() {
+    console.log("am closing");
+    $('#message').removeClass('expanded-msg');
+    $('#expandedMessage').hide();
+    $('#collapsedMessage').show();
+    $('#message').attr('data-collapsed', 'true');
+  },
+  mouseleave: function() {
+    $('#message').on('click', function() {expandMessage();});
+  }  
+});
