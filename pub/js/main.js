@@ -43,7 +43,10 @@ function expandMessage() {
     console.log("am adding class");
     $('#message').addClass('expanded-msg');
     $('#collapsedMessage').hide();
-    $('#expandedMessage').fadeIn(500);
+    setTimeout(function(){
+      $('#expandedMessage').fadeIn(500);
+    }, 100);
+
     $('#message').attr('data-collapsed', 'false');
     $('#message').off('click');
   }

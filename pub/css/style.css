@@ -1418,7 +1418,7 @@ if you want to use your custom sass variables */
 #message.expanded-msg {
   height: 310px !important;
   width: 295px !important;
-  transition: all 0.2s ease-in-out; }
+  transition: 0.2s ease-in-out; }
   #message.expanded-msg:hover {
     box-shadow: 0px 0px 0px #2B271E; }
 
