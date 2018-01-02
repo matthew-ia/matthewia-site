@@ -126,10 +126,34 @@ if you want to use your custom sass variables */
     resize: none;
     height: 100px;
   }
+
+  ::-webkit-input-placeholder {
+    color: $secondary-color;
+  }
+  ::-moz-placeholder {
+    color: $secondary-color;
+  }
+  :-ms-input-placeholder {
+  color: $secondary-color;
+  }
+  :-moz-placeholder {
+    color: $secondary-color;
+  }
+  ::placeholder {
+    color: $secondary-color;
+  }
 }
 
-#msg-controls {
-
+#sub-msg {
+  font-size: $font-size-small;
+  a {
+    padding-bottom: 1px;
+    border-bottom: 0px solid transparent;
+    transition: all 0.1s ease-in-out;
+  }
+  a:hover {
+    border-bottom: 2px solid $tertiary-color;
+  }
 }
 
 #msg-controls div {

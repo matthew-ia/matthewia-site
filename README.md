@@ -6,6 +6,13 @@ Self-brand website for Matthew Alicea
 
 
 
+### //TODO:
+
+- tranisition for nav links
+- rework JS message animation code (?)
+  - reevaluate the current message UI; is it necessary?
+- ​
+
 ### Sitemap
 
 ```

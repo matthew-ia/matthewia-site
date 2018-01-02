@@ -1433,6 +1433,25 @@ if you want to use your custom sass variables */
 #expandedMessage textarea {
   resize: none;
   height: 100px; }
+#expandedMessage ::-webkit-input-placeholder {
+  color: #5e5e5e; }
+#expandedMessage ::-moz-placeholder {
+  color: #5e5e5e; }
+#expandedMessage :-ms-input-placeholder {
+  color: #5e5e5e; }
+#expandedMessage :-moz-placeholder {
+  color: #5e5e5e; }
+#expandedMessage ::placeholder {
+  color: #5e5e5e; }
+
+#sub-msg {
+  font-size: 14px; }
+  #sub-msg a {
+    padding-bottom: 1px;
+    border-bottom: 0px solid transparent;
+    transition: all 0.1s ease-in-out; }
+  #sub-msg a:hover {
+    border-bottom: 2px solid #7B7070; }
 
 #msg-controls div {
   position: absolute;
