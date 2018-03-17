@@ -1219,6 +1219,19 @@ dd {
   font-weight: 400;
   display: inline-block; }
 
+#detail .title {
+  font-weight: 900; }
+
+#detail .tags {
+  color: #5F5F5F;
+  text-transform: uppercase; }
+
+#detail .content {
+  margin-top: 10px; }
+
+#detail #main-image.image {
+  margin-top: 10px; }
+
 #dimensions {
   position: fixed;
   top: 0;

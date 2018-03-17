@@ -26,7 +26,10 @@
   font-weight: $fw-bold;
   // Animation
   transition: all 0.2s ease-in-out;
-  &:hover { box-shadow: 0 0 0 $brand-primary; }
+  &:hover {
+    box-shadow: 0 0 0 $brand-primary;
+    //background-color: $brand-primary;
+  }
 }
 
 #message.expanded-msg {

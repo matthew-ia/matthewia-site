@@ -19,7 +19,7 @@ class ProjectList extends Component {
     return (
       <div id="projects">
         <Helmet>
-          <title>Project List</title>
+          <title>matthew.ia > projects</title>
         </Helmet>
         <h1>matthew.ia</h1>
         <li><Link to='/projects/1'>{ p.number1 }</Link></li>

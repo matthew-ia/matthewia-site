@@ -7,3 +7,22 @@
 //== Style
 //
 //## A group of styles
+
+#detail {
+}
+#detail .title {
+  font-weight: $fw-black;
+}
+
+#detail .tags {
+  color: $brand-gray;
+  text-transform: uppercase;
+}
+
+#detail .content {
+  margin-top: 10px;
+}
+
+#detail #main-image.image {
+  margin-top: 10px;
+}
