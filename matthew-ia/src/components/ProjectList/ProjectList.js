@@ -7,11 +7,24 @@
  */
 
 import React, {Component} from "react";
+import { Link } from "react-router-dom"
+import { Helmet } from "react-helmet";
 
 class ProjectList extends Component {
   render() {
+    const p = {
+      number1: 1,
+      number2: 2
+    };
     return (
-      <div><h1>Project List</h1></div>
+      <div id="projects">
+        <Helmet>
+          <title>Project List</title>
+        </Helmet>
+        <h1>matthew.ia</h1>
+        <li><Link to='/projects/1'>{ p.number1 }</Link></li>
+        <li><Link to='/projects/2'>{ p.number2 }</Link></li>
+      </div>
     );
   }
 }

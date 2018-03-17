@@ -10,10 +10,11 @@
 //
 //## Main colors, notification colors, and grays for use across Bootstrap.
 
-$primary-color:         #2B271E;
-$secondary-color:       #5e5e5e;
-$tertiary-color:        #7B7070;
-$other-color:           #ffd800;
+$brand-primary:         #2B271E;
+$brand-secondary:       #7B7070;
+$brand-gray:            #5F5F5F;
+$brand-gray-light:      #95989A;
+$brand-gray-lighter:    #D0D0D0;
 
 $gray-base:             #000;
 $gray-darker:           lighten($gray-base, 13.5%); // #222
@@ -35,10 +36,10 @@ $brand-danger:          #d9534f;
 //** Background color for `<body>`.
 $body-bg:               #fff;
 //** Global text color on `<body>`.
-$text-color:            $primary-color;
+$text-color:            $brand-primary;
 
 //** Global textual link color.
-$link-color:            $primary-color;
+$link-color:            $brand-primary;
 //** Link hover color set via `darken()` function.
 $link-hover-color:      darken($link-color, 15%);
 //** Link hover decoration.
@@ -66,12 +67,12 @@ $fw-medium:               500;
 $fw-bold:                 700;
 $fw-black:                900;
 
-$font-size-h1:            floor(($font-size-base * 2.6)); // ~36px
-$font-size-h2:            floor(($font-size-base * 2.15)); // ~30px
-$font-size-h3:            ceil(($font-size-base * 1.7)); // ~24px
-$font-size-h4:            ceil(($font-size-base * 1.25)); // ~18px
+$font-size-h1:            40px;
+$font-size-h2:            32px;
+$font-size-h3:            24px;
+$font-size-h4:            18px;
 $font-size-h5:            $font-size-base;
-$font-size-h6:            ceil(($font-size-base * 0.85)); // ~12px
+$font-size-h6:            12px;
 
 //** Unit-less `line-height` for use in components like buttons.
 $line-height-base:        1.428571429; // 20/14

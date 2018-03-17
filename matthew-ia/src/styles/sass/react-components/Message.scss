@@ -1,0 +1,107 @@
+/*
+ * Message Component Stylesheet
+ * --------------------------------------------------
+ */
+@import '../custom-variables';
+
+//== Message
+//
+//## Style for Message button.
+#message {
+  // Position & Spacing
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 0 10% 5% 0;
+  padding: 10px 16px;
+  // Size & Color
+  width: 172px;
+  height: 54px;
+  background-color: white;
+  border: 4px solid $brand-primary;
+  box-shadow: 5px 5px 0px $brand-primary;
+  // Font
+  text-align: center;
+  font-size: $font-size-medium;
+  font-weight: $fw-bold;
+  // Animation
+  transition: all 0.2s ease-in-out;
+  &:hover { box-shadow: 0 0 0 $brand-primary; }
+}
+
+#message.expanded-msg {
+  height: 310px !important;
+  width: 295px !important;
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 0 0 $brand-primary;
+  }
+}
+
+/** Old Styles for expanded message form
+
+#expandedMessage {
+  input, textarea {
+    width: 100%;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    border: none;
+    border-bottom: 4px solid $brand-primary;
+  }
+  input:first-of-type { margin-top: 0px; }
+
+  textarea {
+    resize: none;
+    height: 100px;
+  }
+
+  ::-webkit-input-placeholder {
+    color: $brand-secondary;
+  }
+  ::-moz-placeholder {
+    color: $brand-secondary;
+  }
+  :-ms-input-placeholder {
+    color: $brand-secondary;
+  }
+  :-moz-placeholder {
+    color: $brand-secondary;
+  }
+  ::placeholder {
+    color: $brand-secondary;
+  }
+}
+
+#sub-msg {
+  font-size: $font-size-small;
+  a {
+    padding-bottom: 1px;
+    border-bottom: 0px solid transparent;
+    transition: all 0.1s ease-in-out;
+  }
+  a:hover {
+    border-bottom: 2px solid $tertiary-color;
+  }
+}
+
+#msg-controls div {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin: 10px 0px;
+}
+
+#msg-controls span {
+  padding: 0px 12px;
+}
+
+#message #close-btn {
+  float: left;
+}
+#message #send-msg {
+  float: right;
+}
+
+*/

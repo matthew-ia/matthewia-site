@@ -7,15 +7,19 @@
  */
 
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 class Nav extends Component {
   render() {
     return (
       <nav id="bottom-nav">
         <ul>
-          <li className="selected"><Link to='/'>Home</Link></li>
-          <li><Link to='/projects'>Projects</Link></li>
+          <li><NavLink activeClassName="selected"
+                       to='/info'>info</NavLink></li>
+          <li><NavLink activeClassName="selected"
+                       to='/projects'>projects</NavLink></li>
+          <li><NavLink activeClassName="selected"
+                       to='/resume'>resume</NavLink></li>
         </ul>
       </nav>
     );

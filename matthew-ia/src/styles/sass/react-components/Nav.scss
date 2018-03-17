@@ -1,0 +1,46 @@
+/*
+ * Nav Component Stylesheet
+ * --------------------------------------------------
+ */
+@import '../custom-variables';
+
+//== Bottom Navigation
+//
+//## Main navbar for navigating routes.
+#bottom-nav {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  margin: 0 0 6% 10%;
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    list-style-type: none;
+    display: inline;
+    margin-right: 42px;
+  }
+  a {
+    font-size: $font-size-large;
+    font-weight: $fw-medium;
+    padding: 4px 8px 4px;
+    border: 4px solid transparent;
+  }
+  a:hover {
+    background-color: $brand-primary;
+    border: 4px solid $brand-primary;
+    color: white;
+  }
+}
+
+.selected {
+  border: 4px solid $brand-primary !important;
+}
+
+.collapse-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}

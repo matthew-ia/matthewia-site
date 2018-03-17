@@ -1,0 +1,30 @@
+/*
+ * Home Component Stylesheet
+ * --------------------------------------------------
+ */
+@import '../custom-variables';
+
+//== Info
+//
+//## Info block in Home component
+#info {
+  margin: 10% 0;
+  h1{
+    font-size: 145px;
+    font-weight: $fw-black;
+    margin-bottom: 0;
+  }
+
+  h2 {
+    font-size: 60px;
+    font-weight: $fw-medium;
+    margin-top: 14px;
+    margin-bottom: 65px;
+  }
+
+  p {
+    font-size: $font-size-large;
+    font-weight: $fw-medium;
+    max-width: 65%;
+  }
+}

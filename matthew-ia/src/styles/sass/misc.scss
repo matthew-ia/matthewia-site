@@ -1,0 +1,75 @@
+/*
+ * Miscellaneous Styles
+ * --------------------------------------------------
+ */
+@import 'custom-variables';
+
+
+//== Utility
+//
+//## Small utility classes to help here and there
+
+//** Utility class just to display current screen size in top right.
+#dimensions {
+  position: fixed;
+  top: 0;
+  right:0;
+  padding: 5px;
+  font-size: 12px;
+  color: $brand-gray-lighter;
+}
+
+//== Media queries
+//
+//##
+
+//** <= 1690px
+@media screen and (max-width: $screen-xl) {
+  #info p { max-width: 85%; }
+}
+//** <= 1280px
+@media screen and (max-width: $screen-lg) {
+}
+//** <= 980px
+@media screen and (max-width: $screen-md) {
+  #info {
+    margin: 8%;
+    p { max-width: 100%; }
+    h1 { font-size: 90px;}
+    h2 {
+      font-size: 36px;
+      margin-top: 8px;
+      margin-bottom: 45px;
+    }
+  }
+}
+//** <= 736px
+@media screen and (max-width: $screen-sm) {
+  #info {
+    margin: 7%;
+    h1 {
+      font-size: 75px;
+    }
+    h2 {
+      font-size: 32px;
+      margin-top: 4px;
+    }
+  }
+}
+//** <= 480px
+@media screen and (max-width: $screen-xs) {
+  #info {
+    margin: 6%;
+    h1 {
+      font-size: 60px;
+    }
+    h2 {
+      font-size: 28px;
+      // margin-top: 4px;
+    }
+    p {
+      // max-width: 100%;
+      font-size: $font-size-medium;
+    }
+  }
+}

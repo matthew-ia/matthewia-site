@@ -1,0 +1,24 @@
+/*
+ * ProjectList Component Stylesheet
+ * --------------------------------------------------
+ */
+@import '../custom-variables';
+
+//== Style
+//
+//## A group of styles
+
+#projects {
+
+  h1 {
+    font-size: $font-size-large;
+    font-weight: $fw-black;
+    display: inline-block;
+  }
+  h2 {
+    color: $brand-gray-light;
+    font-size: $font-size-large;
+    font-weight: $fw-normal;
+    display: inline-block;
+  }
+}

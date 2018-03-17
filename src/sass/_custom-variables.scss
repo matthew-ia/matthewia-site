@@ -10,8 +10,8 @@
 //
 //## Main colors, notification colors, and grays for use across Bootstrap.
 
-$primary-color:         #2B271E;
-$secondary-color:       #5e5e5e;
+$brand-primary:         #2B271E;
+$brand-secondary:       #5e5e5e;
 $tertiary-color:        #7B7070;
 $other-color:           #ffd800;
 
@@ -35,10 +35,10 @@ $brand-danger:          #d9534f;
 //** Background color for `<body>`.
 $body-bg:               #fff;
 //** Global text color on `<body>`.
-$text-color:            $primary-color;
+$text-color:            $brand-primary;
 
 //** Global textual link color.
-$link-color:            $primary-color;
+$link-color:            $brand-primary;
 //** Link hover color set via `darken()` function.
 $link-hover-color:      darken($link-color, 15%);
 //** Link hover decoration.
