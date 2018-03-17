@@ -60,10 +60,11 @@ $font-size-large:         22px;
 $font-size-medium:        18px;
 $font-size-small:         14px;
 
-$fw-normal:      400;
-$fw-medium:      500;
-$fw-bold:        700;
-$fw-black:       900;
+//** Font weights
+$fw-normal:               400;
+$fw-medium:               500;
+$fw-bold:                 700;
+$fw-black:                900;
 
 $font-size-h1:            floor(($font-size-base * 2.6)); // ~36px
 $font-size-h2:            floor(($font-size-base * 2.15)); // ~30px

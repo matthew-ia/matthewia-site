@@ -5,15 +5,11 @@
 
 @import 'react/App';
 @import 'react/index';
-
 @import "citrus";
-/* uncomment 'custom-variables' import in citrus.scss
-if you want to use your custom sass variables */
 
 
-//== Your custom classes and overwrites can go here
-//
-//##
+
+//** Utility class just to display current screen size in top right.
 #dimensions {
   position: fixed;
   top: 0;
@@ -23,12 +19,15 @@ if you want to use your custom sass variables */
   color: $secondary-color;
 }
 
+//== Info
+//
+//## Info block in Home component
 #info {
   margin: 10%;
   h1{
     font-size: 145px;
     font-weight: $fw-black;
-    margin-bottom: 0px;
+    margin-bottom: 0;
   }
 
   h2 {
@@ -45,20 +44,26 @@ if you want to use your custom sass variables */
   }
 }
 
+
+//== Bottom Navigation
+//
+//## Main navbar for navigating routes.
 #bottom-nav {
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
+  display: inline-block;
   margin: 0 0 6% 10%;
   ul {
     padding: 0;
     margin: 0;
+    width: auto;
   }
   li {
     list-style-type: none;
     display: inline;
-    padding: 4px 8px;
+    padding: 6px 8px 4px;
     margin-right: 20px;
     border: 4px solid transparent;
     cursor: pointer;
@@ -86,6 +91,10 @@ if you want to use your custom sass variables */
   right: 0;
 }
 
+
+//== Message
+//
+//## Style for Message button.
 #message {
   position: fixed;
   bottom: 0;
@@ -100,8 +109,10 @@ if you want to use your custom sass variables */
   box-shadow: 5px 5px 0px $primary-color;
   transition: all 0.2s ease-in-out;
   padding: 10px 16px;
-  &:hover { box-shadow: 0px 0px 0px $primary-color; }
+  &:hover { box-shadow: 0 0 0 $primary-color; }
   background-color: white;
+  text-align: center;
+  z-index: 1;
 }
 
 #message.expanded-msg {
@@ -181,14 +192,15 @@ if you want to use your custom sass variables */
 //== Media queries
 //
 //##
-// <= 1690px
+
+//** <= 1690px
 @media screen and (max-width: $screen-xl) {
   #info p { max-width: 85%; }
 }
-// <= 1280px
+//** <= 1280px
 @media screen and (max-width: $screen-lg) {
 }
-// <= 980px
+//** <= 980px
 @media screen and (max-width: $screen-md) {
   #info {
     margin: 8%;
@@ -201,7 +213,7 @@ if you want to use your custom sass variables */
     }
   }
 }
-// <= 736px
+//** <= 736px
 @media screen and (max-width: $screen-sm) {
   #info {
     margin: 7%;
@@ -214,7 +226,7 @@ if you want to use your custom sass variables */
     }
   }
 }
-// <= 480px
+//** <= 480px
 @media screen and (max-width: $screen-xs) {
   #info {
     margin: 6%;
@@ -223,10 +235,10 @@ if you want to use your custom sass variables */
     }
     h2 {
       font-size: 28px;
-      //margin-top: 4px;
+      // margin-top: 4px;
     }
     p {
-      //max-width: 100%;
+      // max-width: 100%;
       font-size: $font-size-medium;
     }
   }

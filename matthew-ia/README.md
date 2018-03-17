@@ -448,7 +448,7 @@ export { moduleA };
 import React, { Component } from 'react';
 
 class App extends Component {
-  handleClick = () => {
+  toggleMessageContent = () => {
     import('./moduleA')
       .then(({ moduleA }) => {
         // Use moduleA
@@ -461,7 +461,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.handleClick}>Load</button>
+        <button onClick={this.toggleMessageContent}>Load</button>
       </div>
     );
   }
