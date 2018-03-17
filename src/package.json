@@ -19,11 +19,13 @@
   "license": "MIT",
   "devDependencies": {
     "ejs": "2.5.5",
-    "grunt": "^1.0.1",
-    "grunt-contrib-sass": "^1.0.0",
-    "grunt-contrib-watch": "^1.0.0",
     "mincer": "~1.4.0",
-    "node-sass": "^3.8.0"
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.0"
   },
   "eyeglass": {
     "exports": "eyeglass-exports.js",
