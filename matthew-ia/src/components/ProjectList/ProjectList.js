@@ -10,9 +10,13 @@ import React, {Component} from "react";
 import { Link } from "react-router-dom"
 import { Helmet } from "react-helmet";
 
+import FloatingList from "FloatingList";
+import ProjectFrame from "ProjectFrame";
+
 class ProjectList extends Component {
+  // eslint-disable-next-line require-jsdoc
   render() {
-    const p = {
+    const projects = {
       number1: 1,
       number2: 2
     };
@@ -22,8 +26,8 @@ class ProjectList extends Component {
           <title>matthew.ia > projects</title>
         </Helmet>
         <h1>matthew.ia</h1>
-        <li><Link to='/projects/1'>{ p.number1 }</Link></li>
-        <li><Link to='/projects/2'>{ p.number2 }</Link></li>
+        <FloatingList projects={projects}/>
+        <ProjectFrame projects={projects}/>
       </div>
     );
   }
