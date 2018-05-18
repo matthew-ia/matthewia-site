@@ -7,27 +7,40 @@
  */
 
 import React, {Component} from "react";
-import { Link } from "react-router-dom"
 import { Helmet } from "react-helmet";
 
-import FloatingList from "FloatingList";
-import ProjectFrame from "ProjectFrame";
+import FloatingList from "./FloatingList";
+import ProjectFrame from "./ProjectFrame";
+
+const plist = require("../../projectlist.json");
 
 class ProjectList extends Component {
   // eslint-disable-next-line require-jsdoc
   render() {
+    /**
     const projects = {
       number1: 1,
       number2: 2
     };
+     */
+
+    /**
+     * Generate array of ProjectFrames for the ProjectCarousel
+     *
+    let projectFrames = plist.map((project) => {
+        return <ProjectFrame project={project} />;
+     });
+     */
+
+    // console.log(projectFrames);
+
     return (
       <div id="projects">
         <Helmet>
           <title>matthew.ia > projects</title>
         </Helmet>
         <h1>matthew.ia</h1>
-        <FloatingList projects={projects}/>
-        <ProjectFrame projects={projects}/>
+        <FloatingList projects={plist}/>
       </div>
     );
   }

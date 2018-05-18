@@ -1,0 +1,12 @@
+{
+  "plist": {
+    "p1": {
+      "name": "Project 1",
+      "desc": "This is project 1."
+    },
+    "p2": {
+      "name": "Project 2",
+      "desc": "This is project 2."
+    }
+  }
+}

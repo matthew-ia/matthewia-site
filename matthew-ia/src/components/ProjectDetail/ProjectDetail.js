@@ -9,6 +9,8 @@
 import React, {Component} from "react";
 import { Helmet } from "react-helmet";
 
+const plist = require("../../projectlist.json");
+
 class ProjectDetail extends Component {
 
   constructor(props) {
@@ -39,6 +41,10 @@ class ProjectDetail extends Component {
 
   render() {
     const projectId = this.padNum(this.state.projectId);
+    let pnum = "p" + this.state.projectId;
+    const p = plist[pnum];
+    console.log(pnum);
+    console.log(p);
     return (
       <div id="detail">
         <Helmet>
