@@ -9,11 +9,14 @@
 //## A group of styles
 
 #projects {
+  margin: 120px 0 0 0;
 
   h1 {
     font-size: $font-size-large;
     font-weight: $fw-black;
     display: inline-block;
+    position: fixed;
+    top: 15px;
   }
   h2 {
     color: $brand-gray-light;

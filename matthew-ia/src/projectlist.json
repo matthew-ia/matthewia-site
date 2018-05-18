@@ -2,11 +2,33 @@
   "plist": {
     "p1": {
       "name": "Project 1",
+      "tags": ["tag_0", "tag_1", "tag_2"],
       "desc": "This is project 1."
     },
     "p2": {
       "name": "Project 2",
+      "tags": ["tag_3", "tag_4", "tag_5"],
       "desc": "This is project 2."
+    },
+    "p3": {
+      "name": "Project 3",
+      "tags": ["tag_0", "tag_1", "tag_2"],
+      "desc": "This is project 3."
+    },
+    "p4": {
+      "name": "Project 4",
+      "tags": ["tag_3", "tag_4", "tag_5"],
+      "desc": "This is project 4."
+    },
+    "p5": {
+      "name": "Project 5",
+      "tags": ["tag_3", "tag_4", "tag_5"],
+      "desc": "This is project 5."
+    },
+    "p6": {
+      "name": "Project 6",
+      "tags": ["tag_3", "tag_4", "tag_5"],
+      "desc": "This is project 6."
     }
   }
 }

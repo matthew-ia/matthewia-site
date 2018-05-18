@@ -1102,6 +1102,16 @@ dd {
 #root > div {
   margin: 0 0 0 10%; }
 
+.p-item {
+  display: inline-block;
+  height: 550px;
+  width: 650px;
+  border: 1px solid black;
+  margin-right: 64px; }
+
+#projects {
+  width: 100000px; }
+
 .App {
   text-align: center; }
 
@@ -1208,10 +1218,15 @@ dd {
   left: 0;
   right: 0; }
 
+#projects {
+  margin: 120px 0 0 0; }
+
 #projects h1 {
   font-size: 22px;
   font-weight: 900;
-  display: inline-block; }
+  display: inline-block;
+  position: fixed;
+  top: 15px; }
 
 #projects h2 {
   color: #95989A;

@@ -52,9 +52,9 @@ class ProjectDetail extends Component {
           <title>matthew.ia > projects > { projectId }</title>
         </Helmet>
         <div>Showing project { projectId }</div>
-        <h1 className="title">Project Name</h1>
-        <span className="tags">Some tags</span>
-        <p className="content">Some content</p>
+        <h1 className="title">{ p.name }</h1>
+        <span className="tags">{ p.tags.join(" // ") }</span>
+        <p className="content">{ p.desc }</p>
         <div id="main-image" className="image">
           Main image
         </div>

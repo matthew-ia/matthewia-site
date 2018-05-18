@@ -12,10 +12,30 @@ import { Helmet } from "react-helmet";
 import FloatingList from "./FloatingList";
 import ProjectFrame from "./ProjectFrame";
 
-const plist = require("../../projectlist.json");
+const data = require("../../projectlist.json");
+const plist = data.plist;
 
 class ProjectList extends Component {
   // eslint-disable-next-line require-jsdoc
+  constructor(props) {
+    super(props);
+
+    let counter = 0;
+    Object.keys(plist).forEach(function() {
+      counter++;
+    });
+    console.log(counter);
+    this.state = {
+      count: counter
+    };
+  }
+  // eslint-disable-next-line require-jsdoc
+  componentDidMount() {
+    let width = ((this.state.count * (650 + 64)) + 100);
+    console.log("" + width);
+    document.getElementById('projects').style.width = "" + width + "px";
+  }
+
   render() {
     /**
     const projects = {
@@ -32,15 +52,17 @@ class ProjectList extends Component {
      });
      */
 
-    // console.log(projectFrames);
+    console.log(plist);
 
     return (
-      <div id="projects">
-        <Helmet>
-          <title>matthew.ia > projects</title>
-        </Helmet>
-        <h1>matthew.ia</h1>
-        <FloatingList projects={plist}/>
+      <div>
+        <div id="projects">
+          <Helmet>
+            <title>matthew.ia > projects</title>
+          </Helmet>
+          <h1>matthew.ia</h1>
+          <FloatingList projects={plist}/>
+        </div>
       </div>
     );
   }
