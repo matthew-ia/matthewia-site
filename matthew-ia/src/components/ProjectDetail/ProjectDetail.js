@@ -9,7 +9,8 @@
 import React, {Component} from "react";
 import { Helmet } from "react-helmet";
 
-const plist = require("../../projectlist.json");
+const data = require("../../projectlist.json");
+const plist = data.plist;
 
 class ProjectDetail extends Component {
 
