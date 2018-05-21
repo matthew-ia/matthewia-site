@@ -12,6 +12,8 @@ import { Helmet } from "react-helmet";
 import FloatingList from "./FloatingList";
 import ProjectFrame from "./ProjectFrame";
 
+import { getScrollBarSizes } from '../../tools';
+
 const data = require("../../projectlist.json");
 const plist = data.plist;
 
@@ -34,6 +36,15 @@ class ProjectList extends Component {
     let width = ((this.state.count * (650 + 64)) + 100);
     console.log("" + width);
     document.getElementById('projects').style.width = "" + width + "px";
+
+    let scrollBarHeight = getScrollBarSizes()[0];
+    let marginBottom = 115 - scrollBarHeight;
+    document.getElementById('bottom-nav').style.marginBottom = marginBottom +  "px";
+  }
+
+  componentWillUnmount() {
+    let marginBottom = 115; // Reset to default
+    document.getElementById('bottom-nav').style.marginBottom = marginBottom +  "px";
   }
 
   render() {

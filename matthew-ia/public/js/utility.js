@@ -2,7 +2,6 @@ window.onload = () => {
   document.getElementById('dimensions').textContent =
     window.innerWidth + "x" + window.innerHeight;
 
-
   // Scroll to specific values
   // scrollTo is the same
   window.scroll({
@@ -10,10 +9,11 @@ window.onload = () => {
     left: 0,
     behavior: 'smooth'
   });
+  
   // Horizontal Scrolling
   document.addEventListener('wheel', function(e)
   {
-    if(e.type != 'wheel')
+    if(e.type !== 'wheel')
     {
       return;
     }
