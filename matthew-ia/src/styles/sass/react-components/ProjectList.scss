@@ -24,4 +24,46 @@
     font-weight: $fw-normal;
     display: inline-block;
   }
+
+  .p-item {
+    display: inline-block;
+    border: 1px solid black;
+    margin-right: 64px;
+    position: relative;
+    text-align: center;
+  }
+
+  .p-image {
+    height: 550px;
+    width: 650px;
+  }
+
+  .p-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+}
+
+#floating-list {
+  position: fixed;
+  left: 50px;
+  top: 40%;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.9);
+
+  ul {
+    list-style: none;
+    padding: 20px 24px;
+  }
+}
+
+#filter-button {
+  position: fixed;
+  top: 15px;
+  right: 10%;
+  margin-top: 22px;
+  cursor: pointer;
 }

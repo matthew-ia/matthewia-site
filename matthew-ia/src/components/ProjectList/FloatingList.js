@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from "react";
-import { Link } from 'react-router-dom'
+import ProjectList from "./ProjectList";
 
 
 class FloatingList extends Component {
@@ -15,9 +15,8 @@ class FloatingList extends Component {
     super(props);
 
     let projects = [];
-    Object.keys(this.props.projects).forEach(function(key) {
-      // console.log(key);
-      projects.push(<li className="p-item"><Link to='/projects/1'>{ props.projects[key].name }</Link></li>)
+    this.props.plistNames.forEach(function(p) {
+      projects.push(<li><a href={ p.id }>{ p.name }</a></li>)
     });
 
     this.state = {
@@ -25,11 +24,12 @@ class FloatingList extends Component {
     }
   }
 
+  // TODO: write a clickHandler function to add an animation to whichever project is jumped to using the floating list
+
   render() {
-    console.log(Object.keys(this.props.projects));
     return (
-      <div>
-        <ul id="p-list">
+      <div id='floating-list'>
+        <ul>
           { this.state.plist }
         </ul>
       </div>
@@ -38,7 +38,7 @@ class FloatingList extends Component {
 }
 
 FloatingList.defaultProps = {
-  projects: undefined
+  plistNames: undefined
 };
 
 export default FloatingList;

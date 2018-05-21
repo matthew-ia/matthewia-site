@@ -9,7 +9,7 @@ window.onload = () => {
     left: 0,
     behavior: 'smooth'
   });
-  
+
   // Horizontal Scrolling
   document.addEventListener('wheel', function(e)
   {

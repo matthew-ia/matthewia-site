@@ -1102,13 +1102,6 @@ dd {
 #root > div {
   margin: 0 0 0 10%; }
 
-.p-item {
-  display: inline-block;
-  height: 550px;
-  width: 650px;
-  border: 1px solid black;
-  margin-right: 64px; }
-
 .App {
   text-align: center; }
 
@@ -1230,6 +1223,41 @@ dd {
   font-size: 22px;
   font-weight: 400;
   display: inline-block; }
+
+#projects .p-item {
+  display: inline-block;
+  border: 1px solid black;
+  margin-right: 64px;
+  position: relative;
+  text-align: center; }
+
+#projects .p-image {
+  height: 550px;
+  width: 650px; }
+
+#projects .p-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
+#floating-list {
+  position: fixed;
+  left: 50px;
+  top: 40%;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.9); }
+
+#floating-list ul {
+  list-style: none;
+  padding: 20px 24px; }
+
+#filter-button {
+  position: fixed;
+  top: 15px;
+  right: 10%;
+  margin-top: 22px;
+  cursor: pointer; }
 
 #detail .title {
   font-weight: 900; }
