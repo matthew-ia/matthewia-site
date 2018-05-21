@@ -1,4 +1,22 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700");
+@import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700");
+@import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700");
+@import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700");
+@import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700");
+@import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700");
+@import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700");
+@import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700");
+@import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700");
+@import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -155,7 +173,7 @@ html {
   -webkit-tap-highlight-color: transparent; }
 
 body {
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 16px;
   line-height: 1.42857;
   color: #2B271E;
@@ -1102,6 +1120,9 @@ dd {
 #root > div {
   margin: 0 0 0 10%; }
 
+.content {
+  margin-left: 100px; }
+
 .App {
   text-align: center; }
 
@@ -1224,6 +1245,18 @@ dd {
   font-weight: 400;
   display: inline-block; }
 
+#projects #p-list {
+  padding: 0; }
+
+#projects #p-id {
+  font-family: Inconsolata,Menlo,Monaco,Consolas,"Courier New",monospace;
+  padding: 10px 12px;
+  background-color: #2B271E;
+  color: white;
+  z-index: 1;
+  position: absolute;
+  margin: -20px -6px; }
+
 #projects .p-item {
   display: inline-block;
   border: 1px solid black;
@@ -1240,6 +1273,9 @@ dd {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); }
+
+#projects .p-label p {
+  font-family: Inconsolata,Menlo,Monaco,Consolas,"Courier New",monospace; }
 
 #floating-list {
   position: fixed;
@@ -1259,18 +1295,49 @@ dd {
   margin-top: 22px;
   cursor: pointer; }
 
-#detail .title {
-  font-weight: 900; }
+#detail .p-title {
+  font-weight: 900;
+  font-size: 64px;
+  margin-top: 172px; }
 
-#detail .tags {
+#detail .p-tags {
+  font-family: Inconsolata,Menlo,Monaco,Consolas,"Courier New",monospace;
+  font-weight: 700;
+  font-size: 20px;
   color: #5F5F5F;
   text-transform: uppercase; }
 
-#detail .content {
-  margin-top: 10px; }
+#detail .p-content {
+  margin-top: 10px;
+  font-size: 20px;
+  width: 550px; }
 
-#detail #main-image.image {
-  margin-top: 10px; }
+#p-id {
+  font-family: Inconsolata,Menlo,Monaco,Consolas,"Courier New",monospace;
+  position: fixed;
+  top: 15px;
+  margin-top: 22px;
+  padding: 10px 12px;
+  background-color: #2B271E;
+  color: white; }
+
+.main-image {
+  margin-top: -40px;
+  float: right;
+  width: 1000px;
+  height: 635px;
+  border: 1px solid black; }
+
+.image {
+  float: right;
+  margin-top: 140px;
+  width: 1000px;
+  border: 1px solid black; }
+
+.spacer-big {
+  width: 100%;
+  margin-top: 40%;
+  border: 1px solid blue; }
 
 #dimensions {
   position: fixed;

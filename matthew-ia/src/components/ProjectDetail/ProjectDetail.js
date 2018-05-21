@@ -9,6 +9,10 @@
 import React, {Component} from "react";
 import { Helmet } from "react-helmet";
 
+import Content from "./Content";
+
+import { padNum } from "../../tools";
+
 const data = require("../../projectlist.json");
 const plist = data.plist;
 
@@ -35,13 +39,8 @@ class ProjectDetail extends Component {
     this.setState({projectId: id});
   }
 
-  padNum(number) {
-    if (number<=99) number = ("000"+number).slice(-2);
-    return number;
-  }
-
   render() {
-    const projectId = this.padNum(this.state.projectId);
+    const projectId = padNum(this.state.projectId);
     let pnum = "p" + this.state.projectId;
     const p = plist[pnum];
     console.log(pnum);
@@ -51,12 +50,12 @@ class ProjectDetail extends Component {
         <Helmet>
           <title>matthew.ia > projects > { projectId }</title>
         </Helmet>
-        <div>Showing project { projectId }</div>
-        <h1 className="title">{ p.name }</h1>
-        <span className="tags">{ p.tags.join(" // ") }</span>
-        <p className="content">{ p.desc }</p>
-        <div id="main-image" className="image">
-          Main image
+        <div id="p-id">{ projectId }</div>
+        <div className="main-image">Main image.</div>
+        <div className="content">
+          <h1 className="p-title">{ p.name }</h1>
+          <span className="p-tags">{ p.tags.join(" // ") }</span>
+          <p className="p-content">{ p.desc }</p>
         </div>
       </div>
     );

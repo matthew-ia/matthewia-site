@@ -8,3 +8,8 @@ export function getScrollBarSizes() { // call after document is finished loading
   document.body.removeChild(el);
   return new Array(w, h);
 }
+
+export function padNum(number) {
+  if (number<=99) number = ("000"+number).slice(-2);
+  return number;
+}

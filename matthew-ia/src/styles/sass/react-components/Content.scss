@@ -1,0 +1,30 @@
+/*
+ * Content Component Stylesheet
+ * --------------------------------------------------
+ */
+@import '../custom-variables';
+
+//== Style
+//
+//## A group of styles
+
+.main-image {
+  margin-top: -40px;
+  float: right;
+  width: 1000px;
+  height: 635px;
+  border: 1px solid black;
+}
+
+.image {
+  float: right;
+  margin-top: 140px;
+  width: 1000px;
+  border: 1px solid black;
+}
+
+.spacer-big {
+  width: 100%;
+  margin-top: 40%;
+  border: 1px solid blue;
+}

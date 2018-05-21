@@ -8,21 +8,32 @@
 //
 //## A group of styles
 
-#detail {
-}
-#detail .title {
+#detail .p-title {
   font-weight: $fw-black;
+  font-size: 64px;
+  margin-top: 172px;
 }
 
-#detail .tags {
+#detail .p-tags {
+  font-family: $font-inconsolata;
+  font-weight: $fw-inconsolata-bold;
+  font-size: 20px;
   color: $brand-gray;
   text-transform: uppercase;
 }
 
-#detail .content {
+#detail .p-content {
   margin-top: 10px;
+  font-size: 20px;
+  width: 550px;
 }
 
-#detail #main-image.image {
-  margin-top: 10px;
+#p-id {
+  font-family: $font-inconsolata;
+  position: fixed;
+  top: 15px;
+  margin-top: 22px;
+  padding: 10px 12px;
+  background-color: $brand-primary;
+  color: white;
 }
