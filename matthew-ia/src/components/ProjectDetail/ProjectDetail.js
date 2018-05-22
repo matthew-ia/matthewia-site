@@ -46,17 +46,20 @@ class ProjectDetail extends Component {
     console.log(pnum);
     console.log(p);
     return (
-      <div id="detail">
-        <Helmet>
-          <title>matthew.ia > projects > { projectId }</title>
-        </Helmet>
-        <div id="p-id">{ projectId }</div>
-        <div className="main-image">Main image.</div>
-        <div className="content">
-          <h1 className="p-title">{ p.name }</h1>
-          <span className="p-tags">{ p.tags.join(" // ") }</span>
-          <p className="p-content">{ p.desc }</p>
+      <div>
+        <div id="detail">
+          <Helmet>
+            <title>matthew.ia > projects > { projectId }</title>
+          </Helmet>
+          <div id="p-id">{ projectId }</div>
+          <div className="main-image">Main image.</div>
+          <div className="content">
+            <h1 className="p-title">{ p.name }</h1>
+            <span className="p-tags">{ p.tags.join(" // ") }</span>
+            <p className="p-content">{ p.desc }</p>
+          </div>
         </div>
+        <Content/>
       </div>
     );
   }

@@ -1295,6 +1295,9 @@ dd {
   margin-top: 22px;
   cursor: pointer; }
 
+#detail {
+  overflow: auto; }
+
 #detail .p-title {
   font-weight: 900;
   font-size: 64px;
@@ -1322,16 +1325,16 @@ dd {
   color: white; }
 
 .main-image {
-  margin-top: -40px;
+  margin-top: 120px;
   float: right;
   width: 1000px;
   height: 635px;
   border: 1px solid black; }
 
 .image {
-  float: right;
-  margin-top: 140px;
+  margin: 180px auto;
   width: 1000px;
+  height: 300px;
   border: 1px solid black; }
 
 .spacer-big {

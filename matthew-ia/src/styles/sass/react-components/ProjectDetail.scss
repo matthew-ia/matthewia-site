@@ -7,6 +7,9 @@
 //== Style
 //
 //## A group of styles
+#detail {
+  overflow: auto;
+}
 
 #detail .p-title {
   font-weight: $fw-black;

@@ -12,7 +12,7 @@ class Content extends Component {
   render() {
     return (
       <div>
-
+        <div className="image">Image.</div>
       </div>
     );
   }
