@@ -8,8 +8,11 @@
 
 import React, {Component} from "react";
 import { Helmet } from "react-helmet";
+import { Redirect} from "react-router-dom";
 
 import Content from "./Content";
+import FloatingList from "../ProjectList/FloatingList";
+
 
 import { padNum } from "../../tools";
 
@@ -20,37 +23,52 @@ class ProjectDetail extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      projectId: undefined
-    }
-  }
 
-  componentWillMount() {
-    this.getProjectInfo();
-  }
+    // Generate names and links for jump table for FloatingList
+    let projectLinks = [];  // Holds elements of projects with their proper detail page links
+    let pid = ""; // Temporary variable to hold each object's id for the link location
+    let p = { }; // Temporary object for the the elements of projectLinks
+    Object.keys(this.props.projects).forEach(function(key) { // Iterates over project list to define the above vars
+      pid = key.substr(1);
+      p = {
+        name: props.projects[key].name,
+        loc: '/projects/' + pid
+      };
+      projectLinks.push(p);
+    });
 
-  getProjectInfo() {
     let path = this.props.location.pathname;
     let id = path.substr((path.lastIndexOf('/')+1), path.length);
     //let name = projects.id.name;
     //let tags = projects.id.tags;
     //let content = projects.id.content;
     //let images = projects.id.images;
-    this.setState({projectId: id});
+
+    this.state = {
+      currentPath: this.props.location.pathname,
+      projectId: id,
+      plistJumpTable: projectLinks
+    };
   }
 
   render() {
+    // Updates the page if a jump table link was clicked
+    if (this.props.location.pathname !== this.state.currentPath) {
+      let path = this.props.location.pathname;
+      let id = path.substr((path.lastIndexOf('/')+1), path.length);
+      return <Redirect to={'/projects/' + id } />
+    }
+
     const projectId = padNum(this.state.projectId);
     let pnum = "p" + this.state.projectId;
     const p = plist[pnum];
-    console.log(pnum);
-    console.log(p);
     return (
       <div>
         <div id="detail">
           <Helmet>
             <title>matthew.ia > projects > { projectId }</title>
           </Helmet>
+          <FloatingList plist={ this.state.plistJumpTable } currentProjectPath={ this.props.location.pathname }/>
           <div id="p-id">{ projectId }</div>
           <div className="container-fluid content">
             <div className="row">
@@ -65,10 +83,14 @@ class ProjectDetail extends Component {
             </div>
           </div>
         </div>
-        <Content/>
+        <Content pid={ this.state.projectId }/>
       </div>
     );
   }
 }
+
+ProjectDetail.defaultProps = {
+  projects: plist
+};
 
 export default ProjectDetail;

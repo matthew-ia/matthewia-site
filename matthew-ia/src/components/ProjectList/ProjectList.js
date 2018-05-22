@@ -34,7 +34,7 @@ class ProjectList extends Component {
       projects.push(<li id={ "" + key } className="p-item">
         <Link to={ '/projects/' + pid }>
           <div id="p-id">{ padNum(pid)} </div>
-          <img className="p-image" src={ window.location.origin + '/images/p-placeholder.png'} />
+          <img className="p-image" src={ window.location.origin + '/images/p-placeholder.png'} alt={ "Project " + pid } />
           <div className="p-label">
             <h3>{ props.projects[key].name }</h3>
             <p> { props.projects[key].tags.join(" // ") }</p>
@@ -42,7 +42,7 @@ class ProjectList extends Component {
         </Link></li>);
       p = {
         name: props.projects[key].name,
-        id: "#" + key
+        loc: "#" + key
       };
       projectNames.push(p);
     });
@@ -52,10 +52,6 @@ class ProjectList extends Component {
       plistNames: projectNames,
       count: counter
     }
-  }
-
-  getProjectInfo(pKey) {
-    this.props.projects[pKey]
   }
 
   componentDidMount() {
@@ -83,7 +79,7 @@ class ProjectList extends Component {
         </Helmet>
         <h1>matthew.ia</h1>
         <div id='filter-button'>Filter</div>
-        <FloatingList plistNames={this.state.plistNames}/>
+        <FloatingList plist={this.state.plistNames}/>
         <div className="content">
           <ul id="p-list">
             { this.state.plist }

@@ -1,4 +1,5 @@
 export function getScrollBarSizes() { // call after document is finished loading
+  let sizes = [];
   let el= document.createElement('div');
   el.style.visibility= 'hidden';
   el.style.overflow= 'scroll';
@@ -6,7 +7,8 @@ export function getScrollBarSizes() { // call after document is finished loading
   let w= el.offsetWidth-el.clientWidth;
   let h= el.offsetHeight-el.clientHeight;
   document.body.removeChild(el);
-  return new Array(w, h);
+  sizes = [w, h];
+  return sizes;
 }
 
 export function padNum(number) {
