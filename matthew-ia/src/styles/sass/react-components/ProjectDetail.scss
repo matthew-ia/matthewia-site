@@ -28,7 +28,6 @@
 #detail .p-content {
   margin-top: 10px;
   font-size: 20px;
-  width: 550px;
 }
 
 #p-id {
@@ -39,4 +38,5 @@
   padding: 10px 12px;
   background-color: $brand-primary;
   color: white;
+  z-index: 10;
 }

@@ -19,6 +19,20 @@
   color: $brand-gray-lighter;
 }
 
+.no-pad {
+  padding: 0;
+}
+.rmargin-20 {
+  margin-right: 20px;
+}
+
+.lpad-20 {
+  padding: 0 0 0 20px;
+}
+.rpad-20 {
+  padding: 0 20px 0 0;
+}
+
 //== Media queries
 //
 //##

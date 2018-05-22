@@ -1312,8 +1312,7 @@ dd {
 
 #detail .p-content {
   margin-top: 10px;
-  font-size: 20px;
-  width: 550px; }
+  font-size: 20px; }
 
 #p-id {
   font-family: Inconsolata,Menlo,Monaco,Consolas,"Courier New",monospace;
@@ -1322,25 +1321,26 @@ dd {
   margin-top: 22px;
   padding: 10px 12px;
   background-color: #2B271E;
-  color: white; }
+  color: white;
+  z-index: 10; }
 
 .main-image {
   margin-top: 120px;
-  float: right;
-  width: 1000px;
   height: 635px;
   border: 1px solid black; }
 
-.image {
+.sub-content {
   margin: 180px auto;
-  width: 1000px;
-  height: 300px;
   border: 1px solid black; }
 
 .spacer-big {
   width: 100%;
   margin-top: 40%;
   border: 1px solid blue; }
+
+.image {
+  height: 300px;
+  border: 1px solid red; }
 
 #dimensions {
   position: fixed;
@@ -1349,6 +1349,18 @@ dd {
   padding: 5px;
   font-size: 12px;
   color: #D0D0D0; }
+
+.no-pad {
+  padding: 0; }
+
+.rmargin-20 {
+  margin-right: 20px; }
+
+.lpad-20 {
+  padding: 0 0 0 20px; }
+
+.rpad-20 {
+  padding: 0 20px 0 0; }
 
 @media screen and (max-width: 1690px) {
   #info p {

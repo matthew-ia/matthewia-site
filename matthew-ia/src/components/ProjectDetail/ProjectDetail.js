@@ -52,11 +52,17 @@ class ProjectDetail extends Component {
             <title>matthew.ia > projects > { projectId }</title>
           </Helmet>
           <div id="p-id">{ projectId }</div>
-          <div className="main-image">Main image.</div>
-          <div className="content">
-            <h1 className="p-title">{ p.name }</h1>
-            <span className="p-tags">{ p.tags.join(" // ") }</span>
-            <p className="p-content">{ p.desc }</p>
+          <div className="container-fluid content">
+            <div className="row">
+              <div className="col-md-4 rpad-20">
+                <h1 className="p-title">{ p.name }</h1>
+                <span className="p-tags">{ p.tags.join(" // ") }</span>
+                <p className="p-content">{ p.desc }</p>
+              </div>
+              <div className="col-md-8 lpad-20">
+                <div className="main-image">Main image.</div>
+              </div>
+            </div>
           </div>
         </div>
         <Content/>
