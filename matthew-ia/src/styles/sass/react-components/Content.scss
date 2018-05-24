@@ -10,10 +10,13 @@
 
 .main-image {
   margin-top: 120px;
-  //float: right;
+  float: right;
   //width: 1000px;
-  height: 635px;
+  //height: 635px;
   border: 1px solid black;
+  img {
+    max-height: 635px;
+  }
 }
 
 .sub-content {
@@ -28,7 +31,6 @@
 }
 
 .image {
-
-  height: 300px;
+  min-height: 300px;
   border: 1px solid red;
 }

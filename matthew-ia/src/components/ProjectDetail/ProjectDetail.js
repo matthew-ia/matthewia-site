@@ -42,12 +42,14 @@ class ProjectDetail extends Component {
     //let name = projects.id.name;
     //let tags = projects.id.tags;
     //let content = projects.id.content;
-    //let images = projects.id.images;
+    let images = this.props.projects["p"+id].images;
 
     this.state = {
       currentPath: this.props.location.pathname,
       projectId: id,
-      plistJumpTable: projectLinks
+      plistJumpTable: projectLinks,
+      projectInfo: this.props.projects["p"+id],
+      publicPath: window.location.origin + '/images/p' + id + "/"
     };
   }
 
@@ -59,17 +61,20 @@ class ProjectDetail extends Component {
       return <Redirect to={'/projects/' + id } />
     }
 
-    const projectId = padNum(this.state.projectId);
+    const pid = padNum(this.state.projectId);
     let pnum = "p" + this.state.projectId;
     const p = plist[pnum];
+    console.log(this.state.projectId);
+    console.log(this.state.projectInfo);
+    let pInfo = [this.state.projectInfo, this.state.publicPath];
     return (
       <div>
         <div id="detail">
           <Helmet>
-            <title>matthew.ia > projects > { projectId }</title>
+            <title>matthew.ia > projects > { pid }</title>
           </Helmet>
           <FloatingList plist={ this.state.plistJumpTable } currentProjectPath={ this.props.location.pathname }/>
-          <div id="p-id">{ projectId }</div>
+          <div id="p-id">{ pid }</div>
           <div className="container-fluid content">
             <div className="row">
               <div className="col-md-4 rpad-20">
@@ -78,12 +83,14 @@ class ProjectDetail extends Component {
                 <p className="p-content">{ p.desc }</p>
               </div>
               <div className="col-md-8 lpad-20">
-                <div className="main-image">Main image.</div>
+                <div className="main-image">
+                  <img src={this.state.publicPath + this.state.projectInfo.images[0] }/>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <Content pid={ this.state.projectId }/>
+        <Content pid={ this.state.projectId } info={ pInfo }/>
       </div>
     );
   }
