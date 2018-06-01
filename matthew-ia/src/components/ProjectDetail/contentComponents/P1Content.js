@@ -8,19 +8,47 @@
 
 import React, {Component} from "react";
 import ProjectDetail from "../ProjectDetail";
+import DetailHeader from "../DetailHeader";
 
 class P1Content extends Component {
   render() {
-    let images = this.props.info[0].images;
+    let p = this.props.info[0];
     let publicPath = this.props.info[1];
-    console.log(images);
-    console.log(publicPath);
     return (
-      <div className="sub-content container-fluid">
-        <div className="row">
-          <div className="col-sm-12 no-pad">
-            <div className="image">P1Content
-            <img src={ publicPath + images[1] }/></div>
+      <div>
+        <DetailHeader pInfo={this.props.info}/>
+        <div id="p1-content" className="content container-fluid">
+          <div className="row">
+            <div className="col-sm-8 nopad rpad">
+              <img className="image" src={ publicPath + p.images[2] }/>
+            </div>
+            <div className="col-sm-4 nopad rpad-20">
+              <p className="copy">{ p.desc }</p>
+            </div>
+          </div>
+          <div className="spacer" />
+          <div className="row">
+            <div className="col-sm-11 nopad">
+              <img className="image" src={ publicPath + p.images[3] }/>
+            </div>
+          </div>
+          <div className="spacer" />
+          <div className="row">
+            <div className="col-sm-8 nopad rpad-20">
+              <img className="image" src={ publicPath + p.images[4] }/>
+            </div>
+            <div className="col-sm-4 nopad rpad-20">
+              <p className="copy">{ p.desc }</p>
+            </div>
+          </div>
+          <div className="spacer" />
+          <div className="row">
+            <div className="col-sm-8 nopad rpad-20">
+              <img className="image" src={ publicPath + p.images[5] }/>
+            </div>
+            <div className="col-sm-4 nopad rpad-20">
+              <p className="copy">{ p.desc }</p>
+            </div>
           </div>
         </div>
       </div>

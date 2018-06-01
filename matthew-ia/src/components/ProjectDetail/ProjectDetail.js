@@ -62,34 +62,16 @@ class ProjectDetail extends Component {
     }
 
     const pid = padNum(this.state.projectId);
-    let pnum = "p" + this.state.projectId;
-    const p = plist[pnum];
     console.log(this.state.projectId);
     console.log(this.state.projectInfo);
     let pInfo = [this.state.projectInfo, this.state.publicPath];
     return (
-      <div>
-        <div id="detail">
-          <Helmet>
-            <title>matthew.ia > projects > { pid }</title>
-          </Helmet>
-          <FloatingList plist={ this.state.plistJumpTable } currentProjectPath={ this.props.location.pathname }/>
-          <div id="p-id">{ pid }</div>
-          <div className="container-fluid content">
-            <div className="row">
-              <div className="col-md-4 rpad-20">
-                <h1 className="p-title">{ p.name }</h1>
-                <span className="p-tags">{ p.tags.join(" // ") }</span>
-                <p className="p-content">{ p.desc }</p>
-              </div>
-              <div className="col-md-8 lpad-20">
-                <div className="main-image">
-                  <img src={this.state.publicPath + this.state.projectInfo.images[0] }/>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div id="detail">
+        <Helmet>
+          <title>matthew.ia > projects > { pid }</title>
+        </Helmet>
+        <FloatingList plist={ this.state.plistJumpTable } currentProjectPath={ this.props.location.pathname }/>
+        <div id="p-id">{ pid }</div>
         <Content pid={ this.state.projectId } info={ pInfo }/>
       </div>
     );

@@ -19,7 +19,7 @@ class P2Content extends Component {
       <div className="sub-content container-fluid">
         <div className="row">
           <div className="col-sm-12 no-pad">
-            <div className="image">P1Content
+            <div className="image">P2Content
               <img src={ publicPath + images[1] }/></div>
           </div>
         </div>

@@ -1120,9 +1120,6 @@ dd {
 #root > div {
   margin: 0 0 0 10%; }
 
-.content {
-  margin-left: 100px; }
-
 .App {
   text-align: center; }
 
@@ -1324,6 +1321,9 @@ dd {
   color: white;
   z-index: 10; }
 
+.detail-header {
+  margin-left: 100px; }
+
 .main-image {
   margin-top: 120px;
   float: right;
@@ -1332,18 +1332,25 @@ dd {
 .main-image img {
   max-height: 635px; }
 
-.sub-content {
-  margin: 180px auto;
-  border: 1px solid black; }
+#p1-content {
+  margin: 180px auto; }
 
-.spacer-big {
+.spacer {
   width: 100%;
-  margin-top: 40%;
-  border: 1px solid blue; }
+  margin-top: 8%; }
 
 .image {
   min-height: 300px;
-  border: 1px solid red; }
+  max-width: 100%;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background-color: lightgray; }
+
+.copy {
+  padding-right: 12%;
+  font-size: 18px;
+  line-height: 1.5; }
 
 #dimensions {
   position: fixed;
@@ -1353,7 +1360,7 @@ dd {
   font-size: 12px;
   color: #D0D0D0; }
 
-.no-pad {
+.nopad {
   padding: 0; }
 
 .rmargin-20 {
@@ -1364,6 +1371,12 @@ dd {
 
 .rpad-20 {
   padding: 0 20px 0 0; }
+
+.rpad {
+  padding: 0 5% 0 0; }
+
+.rpad-24pc {
+  padding: 0 24% 0 0; }
 
 @media screen and (max-width: 1690px) {
   #info p {
