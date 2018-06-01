@@ -48,8 +48,33 @@
 @media screen and (max-width: $screen-xl) {
   #info p { max-width: 85%; }
 }
+
+//** <= 1480px
+@media screen and (max-width: 1480px) {
+  .main-image {
+    width: 90%;
+  }
+}
+
 //** <= 1280px
 @media screen and (max-width: $screen-lg) {
+  .main-image {
+    width: auto;
+    img {
+      margin: 0 !important;
+    }
+  }
+  #detail {
+    .spacer {
+      margin: 0;
+    }
+    img {
+      margin-bottom: 5%;
+    }
+    .copy {
+      margin-bottom: 12%;
+    }
+  }
 }
 //** <= 980px
 @media screen and (max-width: $screen-md) {

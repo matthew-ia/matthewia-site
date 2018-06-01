@@ -15,12 +15,12 @@ class DetailHeader extends Component {
     return (
       <div className="container-fluid detail-header">
         <div className="row">
-          <div className="col-md-4 rpad-20">
+          <div className="col-lg-4 rpad-20">
             <h1 className="p-title">{ p.name }</h1>
             <span className="p-tags">{ p.tags.join(" // ") }</span>
             <p className="p-content">{ p.desc }</p>
           </div>
-          <div className="col-md-8 lpad-20">
+          <div className="col-lg-8 col-xs-12">
             <div className="main-image">
               <img src={publicPath + p.images[0] }/>
             </div>

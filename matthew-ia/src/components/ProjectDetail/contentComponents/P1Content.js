@@ -19,35 +19,27 @@ class P1Content extends Component {
         <DetailHeader pInfo={this.props.info}/>
         <div id="p1-content" className="content container-fluid">
           <div className="row">
-            <div className="col-sm-8 nopad rpad">
+            <div className="col-lg-8 nopad rpad">
               <img className="image" src={ publicPath + p.images[2] }/>
             </div>
-            <div className="col-sm-4 nopad rpad-20">
+            <div className="col-lg-4 nopad rpad">
               <p className="copy">{ p.desc }</p>
             </div>
           </div>
-          <div className="spacer" />
-          <div className="row">
-            <div className="col-sm-11 nopad">
+          <div className="row spacer">
+            <div className="col-lg-5 nopad rpad">
               <img className="image" src={ publicPath + p.images[3] }/>
             </div>
-          </div>
-          <div className="spacer" />
-          <div className="row">
-            <div className="col-sm-8 nopad rpad-20">
+            <div className="col-lg-5 nopad rpad">
               <img className="image" src={ publicPath + p.images[4] }/>
             </div>
-            <div className="col-sm-4 nopad rpad-20">
-              <p className="copy">{ p.desc }</p>
-            </div>
           </div>
-          <div className="spacer" />
-          <div className="row">
-            <div className="col-sm-8 nopad rpad-20">
+          <div className="row spacer">
+            <div className="col-lg-5 pull-right nopad rpad">
               <img className="image" src={ publicPath + p.images[5] }/>
             </div>
-            <div className="col-sm-4 nopad rpad-20">
-              <p className="copy">{ p.desc }</p>
+            <div className="col-lg-4 pull-right nopad rpad">
+              <p className="copy ralign">{ p.desc }</p>
             </div>
           </div>
         </div>

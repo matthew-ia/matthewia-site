@@ -1336,21 +1336,22 @@ dd {
   margin: 180px auto; }
 
 .spacer {
-  width: 100%;
-  margin-top: 8%; }
+  margin-top: 5%; }
 
 .image {
   min-height: 300px;
   max-width: 100%;
-  border: none;
   padding: 0;
-  margin: 0;
-  background-color: lightgray; }
+  background-color: lightgray;
+  border: 1px solid black; }
 
 .copy {
   padding-right: 12%;
   font-size: 18px;
   line-height: 1.5; }
+
+.ralign {
+  text-align: right; }
 
 #dimensions {
   position: fixed;
@@ -1381,6 +1382,22 @@ dd {
 @media screen and (max-width: 1690px) {
   #info p {
     max-width: 85%; } }
+
+@media screen and (max-width: 1480px) {
+  .main-image {
+    width: 90%; } }
+
+@media screen and (max-width: 1280px) {
+  .main-image {
+    width: auto; }
+  .main-image img {
+    margin: 0 !important; }
+  #detail .spacer {
+    margin: 0; }
+  #detail img {
+    margin-bottom: 5%; }
+  #detail .copy {
+    margin-bottom: 12%; } }
 
 @media screen and (max-width: 980px) {
   #info {
