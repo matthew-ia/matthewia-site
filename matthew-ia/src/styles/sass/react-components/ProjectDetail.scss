@@ -22,12 +22,13 @@
   font-weight: $fw-inconsolata-bold;
   font-size: 20px;
   color: $brand-gray;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 #detail .p-content {
   margin-top: 10px;
   font-size: 20px;
+  color: $brand-gray;
 }
 
 #p-id {
@@ -45,14 +46,22 @@
   margin-left: 100px;
 }
 
+.description {
+  display: inline-block;
+  width: 40%;
+  margin: 0;
+}
+
 .main-image {
-  margin-top: 120px;
+  display: inline-block;
+  color: $brand-gray;
+  margin: 120px 20px 0 0;
   float: right;
   //width: 1000px;
   //height: 635px;
-  border: 1px solid black;
   img {
     max-height: 635px;
+    border: 1px solid black;
     // box-shadow: -12px 12px 80px #a2a2a2;
   }
 }
@@ -78,7 +87,8 @@
 }
 
 .copy {
-  padding-right: 12%;
+  color: $brand-gray;
+  // padding-right: 12%;
   font-size: $font-size-medium;
   line-height: 1.5;
 }

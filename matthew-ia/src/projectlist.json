@@ -1,8 +1,8 @@
 {
   "plist": {
     "p1": {
-      "name": "Project 1",
-      "tags": ["tag_0", "tag_1", "tag_2"],
+      "name": "OS1 Brochure",
+      "tags": ["graphic", "print"],
       "desc": "Lorem ipsum dolor sit amet, eu rebum adipiscing per, stet magna audiam at sed. In nostrud officiis iracundia sit. Ea putant saperet duo, per agam everti ad. Officiis quaestio cu est, no duo affert dissentias. Vis ut probatus vulputate, per et soluta copiosae. Vel ea labore fabellas efficiendi, posse quodsi accusam at pri.",
       "images": ["main.png", "below.png", "ab.jpg", "cd.jpg", "dd.jpg", "bbb.jpg"]
     },

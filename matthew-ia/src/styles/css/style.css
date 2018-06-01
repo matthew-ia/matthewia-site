@@ -1305,11 +1305,12 @@ dd {
   font-weight: 700;
   font-size: 20px;
   color: #5F5F5F;
-  text-transform: uppercase; }
+  text-transform: capitalize; }
 
 #detail .p-content {
   margin-top: 10px;
-  font-size: 20px; }
+  font-size: 20px;
+  color: #5F5F5F; }
 
 #p-id {
   font-family: Inconsolata,Menlo,Monaco,Consolas,"Courier New",monospace;
@@ -1324,13 +1325,20 @@ dd {
 .detail-header {
   margin-left: 100px; }
 
+.description {
+  display: inline-block;
+  width: 40%;
+  margin: 0; }
+
 .main-image {
-  margin-top: 120px;
-  float: right;
-  border: 1px solid black; }
+  display: inline-block;
+  color: #5F5F5F;
+  margin: 120px 20px 0 0;
+  float: right; }
 
 .main-image img {
-  max-height: 635px; }
+  max-height: 635px;
+  border: 1px solid black; }
 
 #p1-content {
   margin: 180px auto; }
@@ -1346,7 +1354,7 @@ dd {
   border: 1px solid black; }
 
 .copy {
-  padding-right: 12%;
+  color: #5F5F5F;
   font-size: 18px;
   line-height: 1.5; }
 
@@ -1381,17 +1389,19 @@ dd {
 
 @media screen and (max-width: 1690px) {
   #info p {
-    max-width: 85%; } }
+    max-width: 85%; }
+  #detail .main-image {
+    width: 50%; } }
 
 @media screen and (max-width: 1480px) {
   .main-image {
-    width: 90%; } }
+    width: 40%; } }
+
+@media screen and (max-width: 1406px) {
+  .main-image {
+    width: 30%; } }
 
 @media screen and (max-width: 1280px) {
-  .main-image {
-    width: auto; }
-  .main-image img {
-    margin: 0 !important; }
   #detail .spacer {
     margin: 0; }
   #detail img {
