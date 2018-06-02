@@ -34,7 +34,7 @@
 }
 
 .rpad {
-  padding: 0 5% 0 0;
+  padding: 0 40px 0 0;
 }
 .rpad-24pc {
   padding: 0 24% 0 0;
@@ -59,20 +59,36 @@
 
 //** <= 1480px
 @media screen and (max-width: 1480px) {
-  .main-image {
-    width: 40%;
+  #detail .main-image {
+    //width: 40%;
   }
 }
 
 //** <= 1406px
 @media screen and (max-width: 1406px) {
-  .main-image {
-    width: 30%;
+  #detail .main-image {
+    //width: 30%;
   }
 }
-
+//   TABLETS
 //** <= 1280px
 @media screen and (max-width: $screen-lg) {
+  #detail {
+    .description {
+      display: block;
+      width: 80%;
+    }
+    .main-image {
+      width: auto;
+      padding-right: 40px;
+      img {
+        width: 60%;
+        float: right;
+      }
+      display: block;
+      margin: 60px 0 0 0;
+    }
+  }
   #detail {
     .spacer {
       margin: 0;
@@ -85,8 +101,29 @@
     }
   }
 }
+
+//   SMARTPHONES
 //** <= 980px
 @media screen and (max-width: $screen-md) {
+  #detail {
+    .detail-header {
+      margin-left: 60px;
+    }
+    .main-image {
+      img {
+        width: 100%;
+      }
+    }
+  }
+  #p1-content {
+    margin-top: 5%;
+  }
+  #floating-list {
+    visibility: hidden;
+  }
+  nav {
+    visibility: hidden;
+  }
   #info {
     margin: 8%;
     p { max-width: 100%; }

@@ -9,6 +9,7 @@
 //## A group of styles
 #detail {
   overflow: auto;
+  overflow-x: hidden;
 }
 
 #detail .p-title {
@@ -68,6 +69,7 @@
 
 .content {
   //border: 1px solid black;
+  padding: 0;
 }
 
 #p1-content {
@@ -79,7 +81,8 @@
 }
 
 .image {
-  min-height: 300px;
+  height: auto;
+  //min-height: 300px;
   max-width: 100%;
   padding: 0;
   background-color: lightgray;
@@ -95,4 +98,12 @@
 
 .ralign {
   text-align: right;
+}
+
+.li-node-selected {
+  background-color: $brand-primary;
+}
+
+.li-pname-selected {
+  color: $brand-primary;
 }

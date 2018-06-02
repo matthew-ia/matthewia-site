@@ -1276,14 +1276,44 @@ dd {
 
 #floating-list {
   position: fixed;
-  left: 50px;
+  left: 0;
   top: 40%;
   z-index: 10;
-  background-color: rgba(255, 255, 255, 0.9); }
+  transition: all 0.2s ease-out;
+  background-color: transparent;
+  font-size: 18px; }
 
 #floating-list ul {
   list-style: none;
-  padding: 20px 24px; }
+  padding: 20px 24px;
+  margin: 0; }
+
+#floating-list ul li {
+  margin-bottom: 10px; }
+
+#floating-list ul .li-pname {
+  transition: all 0.2s ease-out;
+  display: inline-block;
+  opacity: 0; }
+
+#floating-list ul li:last-child {
+  margin-bottom: 0; }
+
+#floating-list ul a {
+  font-weight: 500;
+  color: #D0D0D0; }
+
+#floating-list ul a:hover {
+  color: #2B271E; }
+
+#floating-list ul a:hover .li-node {
+  background-color: #2B271E; }
+
+#floating-list ul:hover .li-pname {
+  opacity: 1; }
+
+#floating-list:hover {
+  background-color: rgba(255, 255, 255, 0.9); }
 
 #filter-button {
   position: fixed;
@@ -1292,8 +1322,20 @@ dd {
   margin-top: 22px;
   cursor: pointer; }
 
+.li-node {
+  position: relative;
+  top: 3px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border: 3px solid #2B271E;
+  border-radius: 12px;
+  margin: 0 24px 0 0; }
+
 #detail {
-  overflow: auto; }
+  overflow: auto;
+  overflow-x: hidden; }
 
 #detail .p-title {
   font-weight: 900;
@@ -1340,6 +1382,9 @@ dd {
   max-height: 635px;
   border: 1px solid black; }
 
+.content {
+  padding: 0; }
+
 #p1-content {
   margin: 180px auto; }
 
@@ -1347,7 +1392,7 @@ dd {
   margin-top: 5%; }
 
 .image {
-  min-height: 300px;
+  height: auto;
   max-width: 100%;
   padding: 0;
   background-color: lightgray;
@@ -1360,6 +1405,12 @@ dd {
 
 .ralign {
   text-align: right; }
+
+.li-node-selected {
+  background-color: #2B271E; }
+
+.li-pname-selected {
+  color: #2B271E; }
 
 #dimensions {
   position: fixed;
@@ -1382,7 +1433,7 @@ dd {
   padding: 0 20px 0 0; }
 
 .rpad {
-  padding: 0 5% 0 0; }
+  padding: 0 40px 0 0; }
 
 .rpad-24pc {
   padding: 0 24% 0 0; }
@@ -1393,15 +1444,18 @@ dd {
   #detail .main-image {
     width: 50%; } }
 
-@media screen and (max-width: 1480px) {
-  .main-image {
-    width: 40%; } }
-
-@media screen and (max-width: 1406px) {
-  .main-image {
-    width: 30%; } }
-
 @media screen and (max-width: 1280px) {
+  #detail .description {
+    display: block;
+    width: 80%; }
+  #detail .main-image {
+    width: auto;
+    padding-right: 40px;
+    display: block;
+    margin: 60px 0 0 0; }
+  #detail .main-image img {
+    width: 60%;
+    float: right; }
   #detail .spacer {
     margin: 0; }
   #detail img {
@@ -1410,6 +1464,16 @@ dd {
     margin-bottom: 12%; } }
 
 @media screen and (max-width: 980px) {
+  #detail .detail-header {
+    margin-left: 60px; }
+  #detail .main-image img {
+    width: 100%; }
+  #p1-content {
+    margin-top: 5%; }
+  #floating-list {
+    visibility: hidden; }
+  nav {
+    visibility: hidden; }
   #info {
     margin: 8%; }
   #info p {

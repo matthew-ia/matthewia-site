@@ -31,7 +31,7 @@ class P1Content extends Component {
           </div>
         </div>
         <div id="p1-content" className="container-fluid content">
-          <div className="row">
+          <div className="row spacer">
             <div className="col-lg-8 nopad rpad">
               <img className="image" src={ publicPath + p.images[2] }/>
             </div>
