@@ -9,19 +9,6 @@ window.onload = () => {
     left: 0,
     behavior: 'smooth'
   });
-
-  // Horizontal Scrolling
-  document.addEventListener('wheel', function(e)
-  {
-    if(e.type !== 'wheel')
-    {
-      return;
-    }
-    let delta = ((e.deltaY || -e.wheelDelta || e.detail) >> 10) || 1;
-    delta = delta * (-300);
-    document.documentElement.scrollLeft -= delta;
-    e.preventDefault();
-  });
 };
 
 window.onresize = () => {

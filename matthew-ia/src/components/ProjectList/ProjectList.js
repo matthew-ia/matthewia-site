@@ -9,11 +9,13 @@
 import React, {Component} from "react";
 import { Helmet } from "react-helmet";
 import { Link } from 'react-router-dom'
+import HorizontalScroll from 'react-scroll-horizontal';
 
 import FloatingList from "./FloatingList";
 
 import { getScrollBarSizes } from '../../tools';
 import { padNum } from "../../tools";
+import { horizontalScroll } from "../../tools";
 
 const data = require("../../projectlist.json");
 const plist = data.plist;
@@ -66,12 +68,15 @@ class ProjectList extends Component {
   }
 
   componentWillUnmount() {
+    console.log("unmounting");
     // Reset the navbar and scrollbar height spacing when leaving to another page/route
     let marginBottom = 115; // Reset to default
     document.getElementById('bottom-nav').style.marginBottom = marginBottom +  "px";
   }
 
   render() {
+    const child   = { width: `30em`, height: `100%`}
+    const parent  = { width: `60em`, height: `100%`}
     return (
       <div id="projects">
         <Helmet>
@@ -81,9 +86,11 @@ class ProjectList extends Component {
         <div id='filter-button'>Filter</div>
         <FloatingList plist={this.state.plistNames}/>
         <div className="content">
-          <ul id="p-list">
-            { this.state.plist }
-          </ul>
+          <HorizontalScroll>
+            <ul id="p-list">
+              { this.state.plist }
+            </ul>
+          </HorizontalScroll>
         </div>
       </div>
     );

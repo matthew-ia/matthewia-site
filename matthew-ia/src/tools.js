@@ -15,3 +15,14 @@ export function padNum(number) {
   if (number<=99) number = ("000"+number).slice(-2);
   return number;
 }
+
+export function horizontalScroll(e) {
+  if(e.type !== 'wheel')
+  {
+    return;
+  }
+  let delta = ((e.deltaY || -e.wheelDelta || e.detail) >> 10) || 1;
+  delta = delta * (-300);
+  document.documentElement.scrollLeft -= delta;
+  e.preventDefault();
+}

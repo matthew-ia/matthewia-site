@@ -64,6 +64,10 @@
 
 }
 
+#scrollContainer > div {
+  overflow: hidden;
+}
+
 #floating-list {
   position: fixed;
   left: 0;

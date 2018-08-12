@@ -13,6 +13,7 @@ import DetailHeader from "../DetailHeader";
 class P1Content extends Component {
   render() {
     let p = this.props.info[0];
+    console.log("this is p: ", p);
     let publicPath = this.props.info[1];
     return (
       <div>
