@@ -83,11 +83,13 @@ class ProjectList extends Component {
   handleScroll(e) {
     console.log('the scroll things', e);
     if(e.type !== 'wheel') return; // If scrolling with scroll bar ignore this code
-    let delta = e.deltaY; // 1 or -1
+    let delta = e.deltaY;
+    if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+      delta = e.deltaX;
+    }
     console.log(delta);
-    delta = delta * (-10);
-    if (e.deltaX === 0)
-      document.documentElement.scrollLeft -= delta;
+    delta = delta * (-3);
+    document.documentElement.scrollLeft -= delta;
     e.preventDefault();
   }
 
