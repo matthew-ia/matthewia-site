@@ -53,7 +53,9 @@ class ProjectList extends Component {
       plist: projects,
       plistNames: projectNames,
       count: counter
-    }
+    };
+
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentDidMount() {
@@ -65,6 +67,9 @@ class ProjectList extends Component {
     let scrollBarHeight = getScrollBarSizes()[0];
     let marginBottom = 115 - scrollBarHeight;
     document.getElementById('bottom-nav').style.marginBottom = marginBottom +  "px";
+
+    // Replace mouse wheel vertical scrolling with horizontal scrolling
+    document.addEventListener('wheel', this.handleScroll);
   }
 
   componentWillUnmount() {
@@ -72,11 +77,20 @@ class ProjectList extends Component {
     // Reset the navbar and scrollbar height spacing when leaving to another page/route
     let marginBottom = 115; // Reset to default
     document.getElementById('bottom-nav').style.marginBottom = marginBottom +  "px";
+    document.removeEventListener('wheel', this.handleScroll);
+  }
+
+  handleScroll(e) {
+    console.log('the scroll things', e);
+    if(e.type !== 'wheel') return; // If scrolling with scroll bar ignore this code
+    let delta = ((e.deltaY || -e.wheelDelta || e.detail) >> 10) || 1; // 1 or -1
+    console.log(delta);
+    delta = delta * (-150);
+    document.documentElement.scrollLeft -= delta;
+    e.preventDefault();
   }
 
   render() {
-    const child   = { width: `30em`, height: `100%`}
-    const parent  = { width: `60em`, height: `100%`}
     return (
       <div id="projects">
         <Helmet>
@@ -86,11 +100,9 @@ class ProjectList extends Component {
         <div id='filter-button'>Filter</div>
         <FloatingList plist={this.state.plistNames}/>
         <div className="content">
-          <HorizontalScroll>
-            <ul id="p-list">
-              { this.state.plist }
-            </ul>
-          </HorizontalScroll>
+          <ul id="p-list">
+            { this.state.plist }
+          </ul>
         </div>
       </div>
     );
