@@ -73,10 +73,10 @@
   left: 0;
   top: 40%;
   z-index: 10;
-  transition: all 0.2s ease-out;
   background-color: transparent;
   font-size: $font-size-medium;
   ul {
+    transition: all 0.2s ease-out;
     list-style: none;
     padding: 20px 24px ;
     margin: 0;

@@ -9,13 +9,11 @@
 import React, {Component} from "react";
 import { Helmet } from "react-helmet";
 import { Link } from 'react-router-dom'
-import HorizontalScroll from 'react-scroll-horizontal';
 
 import FloatingList from "./FloatingList";
 
 import { getScrollBarSizes } from '../../tools';
 import { padNum } from "../../tools";
-import { horizontalScroll } from "../../tools";
 
 const data = require("../../projectlist.json");
 const plist = data.plist;
@@ -67,6 +65,13 @@ class ProjectList extends Component {
     let scrollBarHeight = getScrollBarSizes()[0];
     let marginBottom = 115 - scrollBarHeight;
     document.getElementById('bottom-nav').style.marginBottom = marginBottom +  "px";
+    let top = window.getComputedStyle(document.querySelector('#floating-list')).top;
+    console.log(top);
+    let newTop = parseFloat(top.slice(0, -2)) + 6;
+    document.getElementById('floating-list').style.top = newTop + "px";
+    console.log(window.getComputedStyle(document.querySelector('#floating-list')).top);
+    console.log(newTop);
+    console.log("scrollBarHeight", scrollBarHeight);
 
     // Replace mouse wheel vertical scrolling with horizontal scrolling
     document.addEventListener('wheel', this.handleScroll);
@@ -83,10 +88,11 @@ class ProjectList extends Component {
   handleScroll(e) {
     console.log('the scroll things', e);
     if(e.type !== 'wheel') return; // If scrolling with scroll bar ignore this code
-    let delta = e.deltaY;
+    let delta = 0;
+    // Trackpads will use X or Y delta depending on which one is greater.
     if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
       delta = e.deltaX;
-    }
+    } else delta = e.deltaY; // Mousewheel will always use the deltaY.
     console.log(delta);
     delta = delta * (-3);
     document.documentElement.scrollLeft -= delta;

@@ -170,7 +170,7 @@ td, th {
 
 html {
   font-size: 10px;
-  -webkit-tap-highlight-color: transparent; }
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
 body {
   font-family: Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -1274,16 +1274,19 @@ dd {
 #projects .p-label p {
   font-family: Inconsolata,Menlo,Monaco,Consolas,"Courier New",monospace; }
 
+#scrollContainer > div {
+  overflow: hidden; }
+
 #floating-list {
   position: fixed;
   left: 0;
   top: 40%;
   z-index: 10;
-  transition: all 0.2s ease-out;
   background-color: transparent;
   font-size: 18px; }
 
 #floating-list ul {
+  transition: all 0.2s ease-out;
   list-style: none;
   padding: 20px 24px;
   margin: 0; }
