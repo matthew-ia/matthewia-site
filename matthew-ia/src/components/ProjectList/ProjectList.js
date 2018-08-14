@@ -22,7 +22,6 @@ class ProjectList extends Component {
   // eslint-disable-next-line require-jsdoc
   constructor(props) {
     super(props);
-
     let counter = 0; // Counts the number of projects to properly size the project carousel
     let projects = [];  // Holds list items of projects with their proper detail page links
     let projectNames = []; // Holds the names & ids of all projects to send as a prop to the FloatingList
@@ -53,6 +52,7 @@ class ProjectList extends Component {
       count: counter
     };
 
+    this.handleSmoothScroll = this.handleSmoothScroll.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
   }
 
@@ -99,6 +99,18 @@ class ProjectList extends Component {
     e.preventDefault();
   }
 
+  handleSmoothScroll(e) {
+    let id = e.target.parentNode.getAttribute("href").slice(1,);
+    let anchorXPos = document.getElementById(id).getBoundingClientRect().x + window.scrollX - 60;
+    console.log(document.getElementById(id));
+    console.log("X: ", anchorXPos);
+    window.scroll({
+      left: anchorXPos,
+      behavior: "smooth"
+    });
+    e.preventDefault(); // This is very necessary so the normal anchor snapping doesn't occur.
+  }
+
   render() {
     return (
       <div id="projects">
@@ -107,7 +119,7 @@ class ProjectList extends Component {
         </Helmet>
         <h1>matthew.ia</h1>
         <div id='filter-button'>Filter</div>
-        <FloatingList plist={this.state.plistNames}/>
+        <FloatingList plist={this.state.plistNames} scroll={this.handleSmoothScroll}/>
         <div className="content">
           <ul id="p-list">
             { this.state.plist }

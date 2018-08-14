@@ -12,7 +12,6 @@ import { Link } from "react-router-dom";
 class FloatingList extends Component {
   constructor(props) {
     super(props);
-
     let projects = [];
     // This fires if FloatingList is being used on a page ProjectDetail component
     // If this is the case, the links should cause a redirect, therefore they should use the Link component
@@ -39,7 +38,7 @@ class FloatingList extends Component {
             nameStyle = "li-pname li-pname-selected";
           }
         projects.push(<li>
-          <a href={p.loc}><div className={nodeStyle}/>
+          <a href={p.loc} onClick={props.scroll}><div className={nodeStyle}/>
             <div className={nameStyle}>{p.name}</div></a></li>)
       });
     }
@@ -53,6 +52,9 @@ class FloatingList extends Component {
 
   // TODO: write a clickHandler function to add an animation to whichever project is jumped to using the floating list
   // This should only work for when user is viewing the ProjectList component, and be ignored when on a detail page
+  handleClick() {
+    //console.log(document.getElementById(#p6))
+  }
 
   render() {
     return (
@@ -68,7 +70,8 @@ class FloatingList extends Component {
 FloatingList.defaultProps = {
   plist: undefined,
   currentProjectPath: undefined,
-  shouldRedirect: false
+  shouldRedirect: false,
+  scroll: () => {}
 };
 
 export default FloatingList;
