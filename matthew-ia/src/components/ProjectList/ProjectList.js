@@ -85,6 +85,11 @@ class ProjectList extends Component {
     document.removeEventListener('wheel', this.handleScroll);
   }
 
+  /**
+   * Manages horizontal scroll behavior in the ProjectList view for both
+   * mousewheels and trackpads.
+   * @param e – event fired on scroll (mousewheel or trackpad)
+   */
   handleScroll(e) {
     console.log('the scroll things', e);
     if(e.type !== 'wheel') return; // If scrolling with scroll bar ignore this code
@@ -99,6 +104,11 @@ class ProjectList extends Component {
     e.preventDefault();
   }
 
+  /**
+   * Used as onClick behavior for FloatingList anchor tags in the ProjectList
+   * view.
+   * @param e – event fired from clicking on anchor
+   */
   handleSmoothScroll(e) {
     let id = e.target.parentNode.getAttribute("href").slice(1,);
     let anchorXPos = document.getElementById(id).getBoundingClientRect().x + window.scrollX - 60;
