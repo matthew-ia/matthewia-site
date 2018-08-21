@@ -32,12 +32,34 @@ class Brief extends Component {
    * @param e – event fired on scroll (mousewheel or trackpad)
    */
   handleScroll(e) {
-    if (e.deltaY >= 15 || e.type === 'click') {
+    console.log(e.deltaY);
+    if (e.deltaY >= 15) {
+      console.log("yeah");
+      document.getElementById("scroll-arrow").className = "top";
       document.getElementById("p-name").style.opacity = "1.0";
-      document.getElementById("scroll-arrow").style.opacity = "0";
       document.getElementById("gallery").scrollIntoView({
         behavior: "smooth",
       });
+      /**
+      if (e.deltaY > 40) {
+        console.log(">40");
+        setTimeout(() => {
+          document.getElementById("scroll-arrow").className = "top";
+        }, 600);
+      } else {
+        console.log("!<20");
+        setTimeout(() => {
+          document.getElementById("scroll-arrow").className = "top";
+        }, 1);
+      }
+       **/
+
+    } else if (e.type === 'click') {
+      document.getElementById("p-name").style.opacity = "1.0";
+      document.getElementById("gallery").scrollIntoView({
+        behavior: "smooth",
+      });
+      document.getElementById("scroll-arrow").className = "top";
     }
     e.preventDefault();
   }
