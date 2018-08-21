@@ -7,7 +7,7 @@
 // - Backface visibility
 // - Box shadow
 // - Box sizing
-// - Content columns
+// - Detail columns
 // - Hyphens
 // - Placeholder text
 // - Transformations
@@ -77,7 +77,7 @@
           box-sizing: $boxmodel;
 }
 
-// CSS3 Content Columns
+// CSS3 Detail Columns
 @mixin content-columns($column-count, $column-gap: $grid-gutter-width) {
   -webkit-column-count: $column-count;
      -moz-column-count: $column-count;

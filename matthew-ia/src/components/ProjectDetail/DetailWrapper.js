@@ -1,7 +1,8 @@
 /**
  * ProjectDetail Component
  *
- * Desc
+ * Wrapper for a project's Detail view. Includes defining which project content should
+ * be displayed, as well as managing static elements like the Floating List component.
  *
  * @extends Component
  */
@@ -10,8 +11,12 @@ import React, {Component} from "react";
 import { Helmet } from "react-helmet";
 import { Redirect} from "react-router-dom";
 
-import Content from "./Content";
+import Detail from "./Detail";
 import FloatingList from "../ProjectList/FloatingList";
+
+// Project detail Components
+import Spectra from "./projects/Spectra/Spectra";
+import OS1 from "./projects/OS1/OS1";
 
 
 import { padNum } from "../../tools";
@@ -19,7 +24,7 @@ import { padNum } from "../../tools";
 const data = require("../../projectlist.json");
 const plist = data.plist;
 
-class ProjectDetail extends Component {
+class DetailWrapper extends Component {
 
   constructor(props) {
     super(props);
@@ -48,7 +53,7 @@ class ProjectDetail extends Component {
       currentPath: this.props.location.pathname,
       projectId: id,
       plistJumpTable: projectLinks,
-      projectInfo: this.props.projects["p"+id],
+      projectInfo: this.props.projects["p"+id], // sets project info obj from json data
       publicPath: window.location.origin + '/images/p' + id + "/"
     };
   }
@@ -58,28 +63,41 @@ class ProjectDetail extends Component {
     if (this.props.location.pathname !== this.state.currentPath) {
       let path = this.props.location.pathname;
       let id = path.substr((path.lastIndexOf('/')+1), path.length);
-      return <Redirect to={'/projects/' + id } />
+      return <Redirect to={'/projects/' + id} />
     }
 
-    const pid = padNum(this.state.projectId);
-    console.log(this.state.projectId);
-    console.log(this.state.projectInfo);
-    let pInfo = [this.state.projectInfo, this.state.publicPath];
+    let projectData = {
+      id: padNum(this.state.projectId),
+      info: this.state.projectInfo, // name, tags
+      publicPath: this.state.publicPath,
+    };
     return (
-      <div id="detail">
+      <main id="detail">
         <Helmet>
-          <title>matthew.ia > projects > { pid }</title>
+          <title>matthew.ia > projects > {projectData.id}</title>
         </Helmet>
-        <FloatingList plist={ this.state.plistJumpTable } currentProjectPath={ this.props.location.pathname }/>
-        <div id="p-id">{ pid }</div>
-        <Content pid={ this.state.projectId } info={ pInfo }/>
-      </div>
+        <div id="p-id">
+          <span>{projectData.id}</span>
+          <span id="p-name">{projectData.info.name}</span>
+        </div>
+        {(() => {
+          switch(projectData.id) {
+            case '1':
+              return <Spectra p={projectData}/>;
+            case '2':
+              return <OS1 p={projectData}/>;
+            default:
+              return <Spectra p={projectData}/>;
+          }
+        })()}
+        <FloatingList plist={this.state.plistJumpTable} currentProjectPath={this.props.location.pathname}/>
+      </main>
     );
   }
 }
 
-ProjectDetail.defaultProps = {
-  projects: plist
+DetailWrapper.defaultProps = {
+  projects: plist // project list set using the json data; doesn't change state
 };
 
-export default ProjectDetail;
+export default DetailWrapper;

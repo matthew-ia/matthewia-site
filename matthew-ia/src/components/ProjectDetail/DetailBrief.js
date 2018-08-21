@@ -8,7 +8,7 @@
 
 import React, {Component} from "react";
 
-class DetailHeader extends Component {
+class DetailBrief extends Component {
   render() {
     let p = this.props.pInfo[0];
     let publicPath = this.props.pInfo[1];
@@ -31,8 +31,8 @@ class DetailHeader extends Component {
   }
 }
 
-DetailHeader.defaultProps = {
+DetailBrief.defaultProps = {
   pInfo: undefined
 };
 
-export default DetailHeader;
+export default DetailBrief;

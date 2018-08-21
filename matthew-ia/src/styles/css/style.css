@@ -1337,27 +1337,9 @@ dd {
   margin: 0 24px 0 0; }
 
 #detail {
-  overflow: auto;
-  overflow-x: hidden; }
+  overflow: auto; }
 
-#detail .p-title {
-  font-weight: 900;
-  font-size: 64px;
-  margin-top: 172px; }
-
-#detail .p-tags {
-  font-family: Inconsolata,Menlo,Monaco,Consolas,"Courier New",monospace;
-  font-weight: 700;
-  font-size: 20px;
-  color: #5F5F5F;
-  text-transform: capitalize; }
-
-#detail .p-content {
-  margin-top: 10px;
-  font-size: 20px;
-  color: #5F5F5F; }
-
-#p-id {
+#p-id span {
   font-family: Inconsolata,Menlo,Monaco,Consolas,"Courier New",monospace;
   position: fixed;
   top: 15px;
@@ -1367,29 +1349,55 @@ dd {
   color: white;
   z-index: 10; }
 
-.detail-header {
-  margin-left: 100px; }
+#p-id span#p-name {
+  transition: opacity 0.2s ease-in;
+  opacity: 0;
+  font-weight: 700;
+  margin-left: 40px;
+  background-color: transparent;
+  color: #2B271E;
+  text-transform: uppercase; }
 
-.description {
-  display: inline-block;
-  width: 40%;
-  margin: 0; }
+#brief {
+  height: 100vh; }
 
-.main-image {
-  display: inline-block;
+#brief .p-desc {
+  float: left;
+  width: 45%; }
+
+#brief h1.p-title {
+  font-weight: 900;
+  font-size: 64px;
+  margin-top: 172px; }
+
+#brief span.p-tags {
+  font-family: Inconsolata,Menlo,Monaco,Consolas,"Courier New",monospace;
+  font-weight: 700;
+  font-size: 20px;
   color: #5F5F5F;
-  margin: 120px 20px 0 0;
-  float: right; }
+  text-transform: capitalize; }
 
-.main-image img {
+#brief p.p-content {
+  margin: 10px 0 0;
+  font-size: 20px;
+  color: #5F5F5F; }
+
+#brief img.p-image {
+  margin: 172px 0 0 30px;
+  width: 50%;
   max-height: 635px;
+  color: #5F5F5F;
   border: 1px solid black; }
 
-.content {
-  padding: 0; }
+#brief a#scroll-arrow {
+  position: fixed;
+  bottom: 5%;
+  left: 50%;
+  cursor: pointer; }
 
-#p1-content {
-  margin: 180px auto; }
+#gallery {
+  height: 100vh;
+  background-color: #f3f3f3; }
 
 .spacer {
   margin-top: 5%; }
