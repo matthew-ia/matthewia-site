@@ -54,8 +54,20 @@ class DetailWrapper extends Component {
       projectId: id,
       plistJumpTable: projectLinks,
       projectInfo: this.props.projects["p"+id], // sets project info obj from json data
-      publicPath: window.location.origin + '/images/p' + id + "/"
+      publicPath: window.location.origin + '/images/p' + id + "/",
+      scrollPosX: 0,
     };
+
+    this.saveXScrollPosition = this.saveXScrollPosition.bind(this);
+    this.getXScrollPosition = this.getXScrollPosition.bind(this);
+  }
+
+  saveXScrollPosition(xPos) {
+    this.setState({scrollPosX: xPos});
+  }
+
+  getXScrollPosition() {
+    return this.state.scrollPosX;
   }
 
   render() {
@@ -70,9 +82,11 @@ class DetailWrapper extends Component {
       id: padNum(this.state.projectId),
       info: this.state.projectInfo, // name, tags
       publicPath: this.state.publicPath,
+      saveScrollX: this.saveXScrollPosition,
+      getScrollX: this.getXScrollPosition,
     };
     return (
-      <main id="detail">
+      <main id="detail" className="hidescroll">
         <Helmet>
           <title>matthew.ia > projects > {projectData.id}</title>
         </Helmet>

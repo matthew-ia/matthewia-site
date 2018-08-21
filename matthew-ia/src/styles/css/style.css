@@ -1337,7 +1337,10 @@ dd {
   margin: 0 24px 0 0; }
 
 #detail {
-  overflow: auto; }
+  overflow: visible; }
+
+#detail.showscroll {
+  overflow: visible; }
 
 #p-id span {
   font-family: Inconsolata,Menlo,Monaco,Consolas,"Courier New",monospace;
@@ -1392,16 +1395,22 @@ dd {
 #brief a#scroll-arrow {
   transition: all 0.55s ease-in-out;
   position: fixed;
-  bottom: 5%;
   left: 50%;
   cursor: pointer; }
 
 #brief a#scroll-arrow.top {
   bottom: 95%; }
 
+#brief a#scroll-arrow.bottom {
+  bottom: 5%; }
+
+.yeah {
+  display: inline-block; }
+
 #gallery {
   height: 100vh;
-  background-color: #f3f3f3; }
+  background-color: #f3f3f3;
+  width: 6000px; }
 
 .image {
   height: auto;
