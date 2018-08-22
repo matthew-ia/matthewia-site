@@ -21,11 +21,11 @@ class Brief extends Component {
 
   componentDidMount() {
     // Replace mouse wheel vertical scrolling with horizontal scrolling
-    document.addEventListener('wheel', this.handleScroll);
+    //document.addEventListener('wheel', this.handleScroll);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('wheel', this.handleScroll);
+    //document.removeEventListener('wheel', this.handleScroll);
   }
 
   /**
@@ -56,6 +56,8 @@ class Brief extends Component {
         console.log("windowScrollX: ", window.scrollX);
         this.props.p.saveScrollX(window.scrollX);
         console.log("Saving wsX: ", window.scrollX);
+
+        //document.addEventListener('wheel', this.handleScroll);
       }
       // If user clicks the scroll-arrow when they're in the BRIEF section
       else if (e.type === 'click') {
@@ -67,6 +69,7 @@ class Brief extends Component {
           left: this.props.p.getScrollX(),
           behavior: "smooth",
         });
+        //(document.removeEventListener('wheel', this.handleScroll), 1000);
       }
     }
     e.preventDefault();
@@ -75,7 +78,7 @@ class Brief extends Component {
   render() {
     let {p} = this.props;
     return (
-      <section id="brief">
+      <section id="brief" onWheel={this.handleScroll}>
         <div className="p-desc">
           <h1 className="p-title"> {p.info.name }</h1>
           <span className="p-tags">{p.info.tags.join(" // ") }</span>

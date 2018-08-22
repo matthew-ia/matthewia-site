@@ -34,6 +34,8 @@ class Gallery extends Component {
    */
   handleScrollUp(e) {
     let xPos = document.getElementById("1").getBoundingClientRect().x;
+    console.log("xPos: ", xPos);
+    console.log("xDefault: ", this.state.scrollLeftDefault);
     if (e.deltaY < 0 && (xPos === this.state.scrollLeftDefault)) {
       window.scroll({
         left: 0,
@@ -43,6 +45,7 @@ class Gallery extends Component {
       document.getElementById("p-name").style.opacity = "0";
       document.getElementById("scroll-arrow").className = "bottom";
       document.getElementById("detail").className = "hidescroll";
+      document.addEventListener('wheel', this.handleScroll);
     }
     e.preventDefault(); // This is very necessary so the normal anchor snapping doesn't occur.
   }
