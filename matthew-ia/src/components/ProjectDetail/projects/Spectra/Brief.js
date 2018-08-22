@@ -32,7 +32,7 @@ class Brief extends Component {
       document.getElementById("p-name").style.opacity = "1.0";
       window.scroll({
         top: document.body.scrollHeight,
-        left: 0,
+        left: this.props.p.getScrollX(),
         behavior: "smooth",
       });
       document.getElementById("detail").className = "showscroll";

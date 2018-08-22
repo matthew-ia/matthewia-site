@@ -37,6 +37,8 @@ class Gallery extends Component {
     let xPos = document.getElementById("1").getBoundingClientRect().x;
     let yPos = this.state.galleryPos;
     console.log("w.sY: ", window.scrollY, ", yPos: ", yPos);
+    this.props.p.saveScrollX(window.scrollX);
+    console.log("Saving wsX: ", window.scrollX);
     e.preventDefault();
     if (window.scrollY < yPos) return;
     console.log("handling");
