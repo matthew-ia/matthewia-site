@@ -92,12 +92,13 @@ class Gallery extends Component {
   }
 
   render() {
+    let {p} = this.props;
     return (
       <section id="gallery" onWheel={this.handleScroll}>Gallery
         <br/><br/><br/><br/><br/>
-        <img id="1" />
-        <img /><img />
-        <img /><img />
+        <img className="portrait sm" id="1" src={p.publicPath + "ab.jpg"}/>
+        <img className="portrait sm" src={p.publicPath + "bbb.jpg"}/><img className="portrait md" src={p.publicPath + "cd.jpg"}/>
+        <img className="portrait lg"  src={p.publicPath + "dd.jpg"}/><img />
         <img /><img />
         <img /><img />
         <img /><img />

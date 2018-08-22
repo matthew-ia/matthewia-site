@@ -28,6 +28,7 @@ class Brief extends Component {
     if (e.deltaY >= 15) {
       console.log("yeah");
       document.getElementById("scroll-arrow").className = "top";
+      document.getElementById("scroll-arrow").dataset.tip = "scroll up";
       document.getElementById("p-name").style.opacity = "1.0";
       window.scroll({
         top: document.body.scrollHeight,
@@ -39,6 +40,7 @@ class Brief extends Component {
       // If user clicks the scroll-arrow when they're in the GALLERY section
       if (e.type === 'click' && document.getElementById("scroll-arrow").className === 'top') {
         document.getElementById("scroll-arrow").className = 'bottom';
+        document.getElementById("scroll-arrow").dataset.tip = "scroll down";
         document.getElementById("p-name").style.opacity = "0";
         window.scroll({
           top: 0,
@@ -55,6 +57,7 @@ class Brief extends Component {
       else if (e.type === 'click') {
         console.log("getXScrollPos", this.props.p.getScrollX());
         document.getElementById("scroll-arrow").className = "top";
+        document.getElementById("scroll-arrow").dataset.tip = "scroll up";
         document.getElementById("p-name").style.opacity = "1.0";
         window.scroll({
           top: document.body.scrollHeight,
@@ -77,7 +80,7 @@ class Brief extends Component {
           <p className="p-content">Inspired by Spike Jonze’s film <i>Her</i>, I created a mock informational brochure documenting the fictional operating system, OS One (OS1). I took creative liberty in writing the copy for the document, as I imagined how the OS could be used. This project was the final product of a culmination of mini personal projects related to Her, as well as the starting point of my interest in technical writing.</p>
         </div>
         <img className="p-image" src={p.publicPath + "ab.jpg"}/>
-        <a data-tip="Scroll!" href="#" id="scroll-arrow" onClick={this.handleScroll} className="bottom">
+        <a data-tip="scroll down" href="#" id="scroll-arrow" onClick={this.handleScroll} className="bottom">
           <img src={window.location.origin + '/images/icons/2x/arrow.png'}/>
         </a>
         <ReactTooltip className="tooltip" effect="solid"/>

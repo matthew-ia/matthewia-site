@@ -41,6 +41,7 @@
   }
 }
 
+//** For the BRIEF section.
 #brief {
   height: 100vh;
   .p-desc {
@@ -98,10 +99,8 @@
   }
 }
 
-.yeah {
-  display: inline-block;
-}
 
+//** For the GALLERY section.
 #gallery {
   height: 100vh;
   padding-top: 172px;
@@ -109,36 +108,24 @@
   img {
     display: inline-block;
     margin-right: 40px;
-    width: 400px;
-    height: 400px;
+    width: auto;
     background-color: #f3f3f3;
+    border: 1px solid $brand-primary;
   }
-}
 
-.image {
-  height: auto;
-  //min-height: 300px;
-  max-width: 100%;
-  padding: 0;
-  background-color: lightgray;
-  border: 1px solid black;
-}
+  .portrait {
+    &.sm{
+      max-height: 20%;
+    }
+    &.md{
+      max-height: 40%;
+    }
+    &.lg{
+      max-height: 60%;
+    }
+  }
 
-.copy {
-  color: $brand-gray;
-  // padding-right: 12%;
-  font-size: $font-size-medium;
-  line-height: 1.5;
-}
+  .landscape {
 
-.ralign {
-  text-align: right;
-}
-
-.li-node-selected {
-  background-color: $brand-primary;
-}
-
-.li-pname-selected {
-  color: $brand-primary;
+  }
 }

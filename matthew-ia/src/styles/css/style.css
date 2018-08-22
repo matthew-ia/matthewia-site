@@ -1261,7 +1261,7 @@ dd {
 
 #projects .p-item {
   display: inline-block;
-  border: 1px solid black;
+  border: 1px solid #2B271E;
   margin-right: 64px;
   position: relative;
   text-align: center; }
@@ -1420,9 +1420,6 @@ dd {
 #brief a#scroll-arrow span {
   margin-right: 8px; }
 
-.yeah {
-  display: inline-block; }
-
 #gallery {
   height: 100vh;
   padding-top: 172px;
@@ -1431,30 +1428,18 @@ dd {
 #gallery img {
   display: inline-block;
   margin-right: 40px;
-  width: 400px;
-  height: 400px;
-  background-color: #f3f3f3; }
+  width: auto;
+  background-color: #f3f3f3;
+  border: 1px solid #2B271E; }
 
-.image {
-  height: auto;
-  max-width: 100%;
-  padding: 0;
-  background-color: lightgray;
-  border: 1px solid black; }
+#gallery .portrait.sm {
+  max-height: 20%; }
 
-.copy {
-  color: #5F5F5F;
-  font-size: 18px;
-  line-height: 1.5; }
+#gallery .portrait.md {
+  max-height: 40%; }
 
-.ralign {
-  text-align: right; }
-
-.li-node-selected {
-  background-color: #2B271E; }
-
-.li-pname-selected {
-  color: #2B271E; }
+#gallery .portrait.lg {
+  max-height: 60%; }
 
 #dimensions {
   position: fixed;
