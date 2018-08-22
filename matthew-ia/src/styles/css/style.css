@@ -1120,6 +1120,11 @@ dd {
 #root > div {
   margin: 0 0 0 10%; }
 
+.tooltip {
+  transition: visibility 0.2s ease-in-out, opacity 0.4s ease-in-out;
+  background-color: #2B271E;
+  font-family: Inconsolata,Menlo,Monaco,Consolas,"Courier New",monospace; }
+
 .App {
   text-align: center; }
 
@@ -1393,16 +1398,27 @@ dd {
   border: 1px solid black; }
 
 #brief a#scroll-arrow {
+  padding: 5px;
   transition: all 0.55s ease-in-out;
   position: fixed;
   left: 50%;
   cursor: pointer; }
 
+#brief a#scroll-arrow img {
+  width: 20px;
+  transition: transform 0.6s ease-in-out; }
+
 #brief a#scroll-arrow.top {
   bottom: 95%; }
 
+#brief a#scroll-arrow.top img {
+  transform: rotate(-180deg); }
+
 #brief a#scroll-arrow.bottom {
   bottom: 5%; }
+
+#brief a#scroll-arrow span {
+  margin-right: 8px; }
 
 .yeah {
   display: inline-block; }

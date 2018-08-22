@@ -9,6 +9,7 @@
 import React, {Component} from "react";
 import {getScrollBarSizes} from "../../../../tools";
 import {debounce} from "../../../../tools";
+import ReactTooltip from 'react-tooltip';
 
 class Brief extends Component {
   // eslint-disable-next-line require-jsdoc
@@ -17,15 +18,6 @@ class Brief extends Component {
     this.state = {};
 
     this.handleScroll = this.handleScroll.bind(this);
-  }
-
-  componentDidMount() {
-    // Replace mouse wheel vertical scrolling with horizontal scrolling
-    //document.addEventListener('wheel', this.handleScroll);
-  }
-
-  componentWillUnmount() {
-    //document.removeEventListener('wheel', this.handleScroll);
   }
 
   /**
@@ -85,10 +77,10 @@ class Brief extends Component {
           <p className="p-content">Inspired by Spike Jonze’s film <i>Her</i>, I created a mock informational brochure documenting the fictional operating system, OS One (OS1). I took creative liberty in writing the copy for the document, as I imagined how the OS could be used. This project was the final product of a culmination of mini personal projects related to Her, as well as the starting point of my interest in technical writing.</p>
         </div>
         <img className="p-image" src={p.publicPath + "ab.jpg"}/>
-        <a href="#" id="scroll-arrow" onClick={this.handleScroll} className="bottom">
-          <img src=""/>
-          Scroll V
+        <a data-tip="Scroll!" href="#" id="scroll-arrow" onClick={this.handleScroll} className="bottom">
+          <img src={window.location.origin + '/images/icons/2x/arrow.png'}/>
         </a>
+        <ReactTooltip className="tooltip" effect="solid"/>
       </section>
     );
   }
