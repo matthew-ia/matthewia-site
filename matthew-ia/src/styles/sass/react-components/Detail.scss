@@ -126,6 +126,14 @@
   }
 
   .landscape {
-
+    &.sm{
+      max-height: 20%;
+    }
+    &.md{
+      max-height: 40%;
+    }
+    &.lg{
+      max-height: 60%;
+    }
   }
 }

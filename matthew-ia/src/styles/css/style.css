@@ -1441,6 +1441,15 @@ dd {
 #gallery .portrait.lg {
   max-height: 60%; }
 
+#gallery .landscape.sm {
+  max-height: 20%; }
+
+#gallery .landscape.md {
+  max-height: 40%; }
+
+#gallery .landscape.lg {
+  max-height: 60%; }
+
 #dimensions {
   position: fixed;
   top: 0;
