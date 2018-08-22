@@ -29,13 +29,15 @@ class Gallery extends Component {
     // This helps determine the far left scroll position of the Gallery component
     this.setState({
       scrollLeftDefault: document.getElementById("1").getBoundingClientRect().x,
+      galleryPos: document.getElementById("gallery").getBoundingClientRect().y
     });
   }
 
   handleScroll(e) {
     let xPos = document.getElementById("1").getBoundingClientRect().x;
-    let yPos = document.getElementById("gallery").getBoundingClientRect().y;
-    console.log("wSY: ", window.scrollY, ", yPos: ", yPos);
+    let yPos = this.state.galleryPos;
+    console.log("w.sY: ", window.scrollY, ", yPos: ", yPos);
+    e.preventDefault();
     if (window.scrollY < yPos) return;
     console.log("handling");
     if (xPos === this.state.scrollLeftDefault) {
@@ -68,7 +70,7 @@ class Gallery extends Component {
     document.getElementById("p-name").style.opacity = "0";
     document.getElementById("scroll-arrow").className = "bottom";
     document.getElementById("detail").className = "hidescroll";
-    document.addEventListener('wheel', this.handleScroll);
+    //document.addEventListener('wheel', this.handleScroll);
     //e.preventDefault(); // This is very necessary so the normal anchor snapping doesn't occur.
   }
 
