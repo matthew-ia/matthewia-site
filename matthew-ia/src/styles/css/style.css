@@ -1353,7 +1353,7 @@ dd {
   z-index: 10; }
 
 #p-id span#p-name {
-  transition: opacity 0.2s ease-in;
+  transition: opacity 0.5s ease-in;
   opacity: 0;
   font-weight: 700;
   margin-left: 40px;
@@ -1409,8 +1409,15 @@ dd {
 
 #gallery {
   height: 100vh;
-  background-color: #f3f3f3;
+  padding-top: 172px;
   width: 6000px; }
+
+#gallery img {
+  display: inline-block;
+  margin-right: 40px;
+  width: 400px;
+  height: 400px;
+  background-color: #f3f3f3; }
 
 .image {
   height: auto;

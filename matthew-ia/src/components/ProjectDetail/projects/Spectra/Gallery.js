@@ -17,7 +17,11 @@ class Gallery extends Component {
       scrollPos: 0,
     };
 
+    //TODO: Dynamically set the gallery width based on the number of images to display
+
+    this.handleScroll = this.handleScroll.bind(this);
     this.handleScrollUp = this.handleScrollUp.bind(this);
+    this.handleScrollHorizontal = this.handleScrollHorizontal.bind(this);
   }
 
   componentDidMount() {
@@ -28,34 +32,73 @@ class Gallery extends Component {
     });
   }
 
+  handleScroll(e) {
+    let xPos = document.getElementById("1").getBoundingClientRect().x;
+    let yPos = document.getElementById("gallery").getBoundingClientRect().y;
+    console.log("wSY: ", window.scrollY, ", yPos: ", yPos);
+    if (window.scrollY < yPos) return;
+    console.log("handling");
+    if (xPos === this.state.scrollLeftDefault) {
+      if (e.deltaY < -40) {
+        this.handleScrollUp(e, xPos);
+      } else {
+        console.log("handleHorizontal1");
+        this.handleScrollHorizontal(e);
+      }
+    } else {
+      console.log("xpos is not ", this.state.scrollLeftDefault, ", its: ", xPos);
+      console.log("handleHorizontal2");
+      this.handleScrollHorizontal(e);
+    }
+    e.preventDefault();
+  }
+
   /**
    * TODO
    * @param e – event fired from clicking on anchor
    */
-  handleScrollUp(e) {
-    let xPos = document.getElementById("1").getBoundingClientRect().x;
+  handleScrollUp(e, xPos) {
     console.log("xPos: ", xPos);
     console.log("xDefault: ", this.state.scrollLeftDefault);
-    if (e.deltaY < 0 && (xPos === this.state.scrollLeftDefault)) {
-      window.scroll({
-        left: 0,
-        top: 0,
-        behavior: "smooth"
-      });
-      document.getElementById("p-name").style.opacity = "0";
-      document.getElementById("scroll-arrow").className = "bottom";
-      document.getElementById("detail").className = "hidescroll";
-      document.addEventListener('wheel', this.handleScroll);
-    }
-    e.preventDefault(); // This is very necessary so the normal anchor snapping doesn't occur.
+    window.scroll({
+      left: 0,
+      top: 0,
+      behavior: "smooth"
+    });
+    document.getElementById("p-name").style.opacity = "0";
+    document.getElementById("scroll-arrow").className = "bottom";
+    document.getElementById("detail").className = "hidescroll";
+    document.addEventListener('wheel', this.handleScroll);
+    //e.preventDefault(); // This is very necessary so the normal anchor snapping doesn't occur.
+  }
+
+  /**
+   * Manages horizontal scroll behavior in the Gallery view for both
+   * mousewheels and trackpads.
+   * @param e – event fired on scroll (mousewheel or trackpad)
+   */
+  handleScrollHorizontal(e) {
+    let delta = 0;
+    // Trackpads will use X or Y delta depending on which one is greater.
+    if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+      delta = e.deltaX;
+    } else delta = e.deltaY; // Mousewheel will always use the deltaY.
+    console.log(delta);
+    delta = delta * (-3);
+    document.documentElement.scrollLeft -= delta;
+    e.preventDefault();
   }
 
   render() {
     return (
-      <section id="gallery" onWheel={this.handleScrollUp}>Gallery
+      <section id="gallery" onWheel={this.handleScroll}>Gallery
         <br/><br/><br/><br/><br/>
-        <p className="yeah" id="1">Inspired by Spike Jonze’s film <i>Her</i>, I created a mock informational brochure documenting the fictional operating system, OS One (OS1). I took creative liberty in writing the copy for the document, as I imagined how the OS could be used. This project was the final product of a culmination of mini personal projects related to Her, as well as the starting point of my interest in technical writing.</p>
-        <p className="yeah" id="2">WHATWHATWHATWHATWHATWHATWHATWHATWHATWHATWHATWHATWHATWHATWHATWHATWHATWHATWHATWHATWHATWHATWHATWHATWHATWHATWHATWHAT</p>
+        <img id="1" />
+        <img /><img />
+        <img /><img />
+        <img /><img />
+        <img /><img />
+        <img /><img />
       </section>
 
     );
