@@ -34,14 +34,14 @@ class Gallery extends Component {
   }
 
   handleScroll(e) {
+    e.preventDefault();
     let xPos = document.getElementById("1").getBoundingClientRect().x;
     let yPos = this.state.galleryPos;
-    console.log("w.sY: ", window.scrollY, ", yPos: ", yPos);
+    //console.log("w.sY: ", window.scrollY, ", yPos: ", yPos);
     this.props.p.saveScrollX(window.scrollX);
-    console.log("Saving wsX: ", window.scrollX);
-    e.preventDefault();
+    //console.log("Saving wsX: ", window.scrollX);
     if (window.scrollY < yPos) return;
-    console.log("handling");
+    //console.log("handling");
     if (xPos === this.state.scrollLeftDefault) {
       if (e.deltaY < -40) {
         this.handleScrollUp(e, xPos);
@@ -96,14 +96,19 @@ class Gallery extends Component {
   render() {
     let {p} = this.props;
     return (
-      <section id="gallery" onWheel={this.handleScroll}>Gallery
-        <br/><br/><br/><br/><br/>
-        <img className="portrait sm" id="1" src={p.publicPath + "ab.jpg"}/>
-        <img className="portrait sm" src={p.publicPath + "bbb.jpg"}/><img className="portrait md" src={p.publicPath + "cd.jpg"}/>
-        <img className="portrait lg"  src={p.publicPath + "dd.jpg"}/><img />
-        <img /><img />
-        <img /><img />
-        <img /><img />
+      <section id="gallery" onWheel={this.handleScroll}>
+        <div className="col">
+          <img className="sm" id="1" src={p.publicPath + "ab.jpg"}/>
+          <img className="sm" src={p.publicPath + "bbb.jpg"}/>
+        </div>
+        <div className="col">
+          <img className="md" src={p.publicPath + "cd.jpg"}/>
+          <p className="stacked">I'm a full column of text. I'm a full column of text. I'm a full column of text. I'm a full column of text. I'm a full column of text. I'm a full column of text. I'm a full column of text.I'm a full column of text. I'm a full column of text. I'm a full column of text.</p>
+        </div>
+
+        <img className="lg"  src={p.publicPath + "dd.jpg"}/>
+        <img className="lg"  src={p.publicPath + "dd.jpg"}/>
+        <img className="md" src={p.publicPath + "cd.jpg"}/>
       </section>
 
     );
