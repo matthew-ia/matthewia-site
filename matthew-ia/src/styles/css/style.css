@@ -1448,7 +1448,8 @@ dd {
 #gallery p {
   padding: 0;
   margin: 0 35px 35px 0;
-  max-width: 500px; }
+  max-width: 500px;
+  color: #5F5F5F; }
 
 #gallery .col {
   vertical-align: top;
@@ -1457,6 +1458,42 @@ dd {
 #gallery .col img {
   vertical-align: baseline;
   display: block; }
+
+#gallery {
+  padding-top: 20vh; }
+
+#timeline {
+  position: fixed;
+  top: 15px;
+  width: 100vw;
+  margin-top: 100px;
+  border-bottom: 3px solid #2B271E;
+  margin-bottom: 40px;
+  font-size: 18px;
+  font-weight: 500; }
+
+#timeline ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+#timeline ul li {
+  display: inline-block;
+  padding: 5px;
+  margin-right: 20px; }
+
+#timeline ul li a {
+  transition: color 0.2s ease-in;
+  color: #D0D0D0; }
+
+#timeline ul li a:hover {
+  color: #5F5F5F; }
+
+#timeline ul li a.active {
+  color: #2B271E; }
+
+#timeline ul li:first-of-type {
+  padding-left: 6px; }
 
 #dimensions {
   position: fixed;

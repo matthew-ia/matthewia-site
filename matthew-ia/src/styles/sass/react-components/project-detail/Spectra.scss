@@ -1,0 +1,47 @@
+/*
+ * Spectra Detail  Component Stylesheet
+ * --------------------------------------------------
+ */
+@import '../../custom-variables';
+
+//== Style
+//
+//## A group of styles
+
+#gallery {
+  padding-top: 20vh;
+}
+
+#timeline {
+  position: fixed;
+  top: 15px;
+  width: 100vw;
+  margin-top: 100px;
+  border-bottom: 3px solid $brand-primary;
+  margin-bottom: 40px;
+  font-size: $font-size-medium;
+  font-weight: $fw-medium;
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      display: inline-block;
+      padding: 5px;
+      margin-right: 20px;
+      a {
+        transition: color 0.2s ease-in;
+        color: $brand-gray-lighter;
+        &:hover {
+          color: $brand-gray;
+        }
+      }
+      a.active {
+        color: $brand-primary;
+      }
+      &:first-of-type {
+        padding-left: 6px;
+      }
+    }
+  }
+}

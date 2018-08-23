@@ -14,7 +14,9 @@
 @import 'react-components/Nav';
 @import 'react-components/ProjectList';
 @import 'react-components/Detail';
-@import 'react-components/Content.scss';
+
+//** Detail view styles specific to a project
+@import 'react-components/project-detail/Spectra';
 
 //** Other
 @import 'misc';

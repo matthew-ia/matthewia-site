@@ -97,18 +97,26 @@ class Gallery extends Component {
     let {p} = this.props;
     return (
       <section id="gallery" onWheel={this.handleScroll}>
-        <div className="col">
-          <img className="sm" id="1" src={p.publicPath + "ab.jpg"}/>
-          <img className="sm" src={p.publicPath + "bbb.jpg"}/>
+        <div id="timeline">
+          <ul>
+            <li><a className="active" href="#">2016</a></li>
+            <li><a href="#">2017</a></li>
+            <li><a href="#">2018</a></li>
+          </ul>
         </div>
-        <div className="col">
+        <div>
+          <div className="col">
+            <img className="sm" id="1" src={p.publicPath + "ab.jpg"}/>
+            <img className="sm" src={p.publicPath + "bbb.jpg"}/>
+          </div>
+          <div className="col">
+            <img className="md" src={p.publicPath + "cd.jpg"}/>
+            <p className="stacked">I'm a full column of text. I'm a full column of text. I'm a full column of text. I'm a full column of text. I'm a full column of text. I'm a full column of text. I'm a full column of text.I'm a full column of text. I'm a full column of text. I'm a full column of text.</p>
+          </div>
+          <img className="lg"  src={p.publicPath + "dd.jpg"}/>
+          <img className="lg"  src={p.publicPath + "dd.jpg"}/>
           <img className="md" src={p.publicPath + "cd.jpg"}/>
-          <p className="stacked">I'm a full column of text. I'm a full column of text. I'm a full column of text. I'm a full column of text. I'm a full column of text. I'm a full column of text. I'm a full column of text.I'm a full column of text. I'm a full column of text. I'm a full column of text.</p>
         </div>
-
-        <img className="lg"  src={p.publicPath + "dd.jpg"}/>
-        <img className="lg"  src={p.publicPath + "dd.jpg"}/>
-        <img className="md" src={p.publicPath + "cd.jpg"}/>
       </section>
 
     );
