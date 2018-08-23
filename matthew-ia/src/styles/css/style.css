@@ -200,7 +200,7 @@ figure {
   margin: 0; }
 
 img {
-  vertical-align: middle; }
+  vertical-align: baseline; }
 
 .img-responsive {
   display: block;
@@ -1422,33 +1422,41 @@ dd {
 
 #gallery {
   height: 100vh;
-  padding-top: 172px;
+  padding-top: 15vh;
   width: 6000px; }
 
 #gallery img {
+  vertical-align: top;
   display: inline-block;
-  margin-right: 40px;
-  width: auto;
+  margin: 0 35px 35px 0;
   background-color: #f3f3f3;
   border: 1px solid #2B271E; }
 
-#gallery .portrait.sm {
-  max-height: 20%; }
+#gallery img.sm {
+  max-height: 30vh; }
 
-#gallery .portrait.md {
-  max-height: 40%; }
+#gallery img.md {
+  max-height: 50vh; }
 
-#gallery .portrait.lg {
-  max-height: 60%; }
+#gallery img.lg {
+  max-height: 65vh; }
 
-#gallery .landscape.sm {
-  max-height: 20%; }
+#gallery img.stacked {
+  vertical-align: baseline;
+  display: block; }
 
-#gallery .landscape.md {
-  max-height: 40%; }
+#gallery p {
+  padding: 0;
+  margin: 0 35px 35px 0;
+  max-width: 500px; }
 
-#gallery .landscape.lg {
-  max-height: 60%; }
+#gallery .col {
+  vertical-align: top;
+  display: inline-block; }
+
+#gallery .col img {
+  vertical-align: baseline;
+  display: block; }
 
 #dimensions {
   position: fixed;

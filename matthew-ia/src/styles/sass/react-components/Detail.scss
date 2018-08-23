@@ -103,37 +103,49 @@
 //** For the GALLERY section.
 #gallery {
   height: 100vh;
-  padding-top: 172px;
+  padding-top: 15vh;
   width: 6000px;
   img {
+    vertical-align: top;
     display: inline-block;
-    margin-right: 40px;
-    width: auto;
+    margin: 0 35px 35px 0;
     background-color: #f3f3f3;
     border: 1px solid $brand-primary;
-  }
 
-  .portrait {
     &.sm{
-      max-height: 20%;
+      max-height: 30vh;
     }
     &.md{
-      max-height: 40%;
+      max-height: 50vh;
     }
     &.lg{
-      max-height: 60%;
+      max-height: 65vh;
+    }
+    &.stacked {
+      vertical-align: baseline;
+      display: block;
+    }
+  }
+  p {
+    //vertical-align: top;
+    padding: 0;
+    margin: 0 35px 35px 0;
+    max-width: 500px;
+    &.full-column {
+      //display: inline-block;
+      //max-height: 70%;
+
+    }
+    &.stacked {
     }
   }
 
-  .landscape {
-    &.sm{
-      max-height: 20%;
-    }
-    &.md{
-      max-height: 40%;
-    }
-    &.lg{
-      max-height: 60%;
+  .col {
+    vertical-align: top;
+    display: inline-block;
+    img {
+      vertical-align: baseline;
+      display: block;
     }
   }
 }
