@@ -1,40 +1,28 @@
 {
   "plist": {
     "p1": {
-      "name": "OS1 Brochure",
-      "tags": ["graphic", "print"],
-      "desc": "Lorem ipsum dolor sit amet, eu rebum adipiscing per, stet magna audiam at sed. In nostrud officiis iracundia sit. Ea putant saperet duo, per agam everti ad. Officiis quaestio cu est, no duo affert dissentias. Vis ut probatus vulputate, per et soluta copiosae. Vel ea labore fabellas efficiendi, posse quodsi accusam at pri.",
-      "images": ["main.png", "below.png", "ab.jpg", "cd.jpg", "dd.jpg", "bbb.jpg"]
+      "name": "Spectra",
+      "tags": ["WIP", "UI", "Programming"]
     },
     "p2": {
-      "name": "Project 2",
-      "tags": ["tag_3", "tag_4", "tag_5"],
-      "desc": "This is project 2.",
-      "images": ["main.png", "below.png", "ab.jpg", "cd.jpg", "dd.jpg", "bbb.jpg"]
+      "name": "OS1 Brochure",
+      "tags": ["2015", "graphic", "print"]
     },
     "p3": {
       "name": "Project 3",
-      "tags": ["tag_0", "tag_1", "tag_2"],
-      "desc": "This is project 3.",
-      "images": ["main.png", "below.png", "ab.jpg", "cd.jpg", "dd.jpg", "bbb.jpg"]
+      "tags": ["tag_0", "tag_1", "tag_2"]
     },
     "p4": {
       "name": "Project 4",
-      "tags": ["tag_3", "tag_4", "tag_5"],
-      "desc": "This is project 4.",
-      "images": ["main.png", "below.png", "ab.jpg", "cd.jpg", "dd.jpg", "bbb.jpg"]
+      "tags": ["tag_3", "tag_4", "tag_5"]
     },
     "p5": {
       "name": "Project 5",
-      "tags": ["tag_3", "tag_4", "tag_5"],
-      "desc": "This is project 5.",
-      "images": ["main.png", "below.png", "ab.jpg", "cd.jpg", "dd.jpg", "bbb.jpg"]
+      "tags": ["tag_3", "tag_4", "tag_5"]
     },
     "p6": {
       "name": "Project 6",
-      "tags": ["tag_3", "tag_4", "tag_5"],
-      "desc": "This is project 6.",
-      "images": ["main.png", "below.png", "ab.jpg", "cd.jpg", "dd.jpg", "bbb.jpg"]
+      "tags": ["tag_3", "tag_4", "tag_5"]
     }
   }
 }

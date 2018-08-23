@@ -13,6 +13,7 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "^1.1.4",
     "react-scroll-horizontal": "^1.5.1",
+    "react-tooltip": "^3.6.1",
     "simplebar": "^2.6.1"
   },
   "scripts": {

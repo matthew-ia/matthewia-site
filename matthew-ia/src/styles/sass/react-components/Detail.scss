@@ -1,0 +1,151 @@
+/*
+ * ProjectDetail Component Stylesheet
+ * --------------------------------------------------
+ */
+@import '../custom-variables';
+
+//== Detail
+//
+//## For project detail pages
+
+#detail {
+  overflow: visible;
+  &.hidescroll {
+    //overflow: auto;
+  }
+  &.showscroll {
+    overflow: visible;
+  }
+}
+
+// Floating project ID
+#p-id {
+  span {
+    font-family: $font-inconsolata;
+    position: fixed;
+    top: 15px;
+    margin-top: 22px;
+    padding: 10px 12px;
+    background-color: $brand-primary;
+    color: white;
+    z-index: 10;
+  }
+  span#p-name {
+    transition: opacity 0.5s ease-in;
+    opacity: 0;
+    font-weight: $fw-inconsolata-bold;
+    margin-left: 40px;
+    background-color: transparent;
+    color: $brand-primary;
+    text-transform: uppercase;
+  }
+}
+
+//** For the BRIEF section.
+#brief {
+  height: 100vh;
+  .p-desc {
+    float: left;
+    width: 45%;
+  }
+  h1.p-title {
+    font-weight: $fw-black;
+    font-size: 64px;
+    margin-top: 172px;
+  }
+  span.p-tags {
+    font-family: $font-inconsolata;
+    font-weight: $fw-inconsolata-bold;
+    font-size: 20px;
+    color: $brand-gray;
+    text-transform: capitalize;
+  }
+  p.p-content {
+    margin: 10px 0 0;
+    font-size: 20px;
+    color: $brand-gray;
+  }
+
+  img.p-image {
+    margin: 172px 0 0 30px;
+    width: 50%;
+    max-height: 635px;
+    color: $brand-gray;
+    border: 1px solid black;
+  }
+
+  a#scroll-arrow {
+    padding: 5px;
+    transition: all 0.55s ease-in-out;
+    position: fixed;
+    left: 50%;
+    cursor: pointer;
+    img {
+      width: 20px;
+      transition: transform 0.6s ease-in-out;
+    }
+    &.top {
+      bottom: 95%;
+      img {
+        transform: rotate(-180deg);
+      }
+    }
+    &.bottom {
+      bottom: 5%;
+    }
+    span {
+      margin-right: 8px;
+    }
+  }
+}
+
+
+//** For the GALLERY section.
+#gallery {
+  height: 100vh;
+  padding-top: 15vh;
+  width: 6000px;
+  img {
+    vertical-align: top;
+    display: inline-block;
+    margin: 0 35px 35px 0;
+    background-color: #f3f3f3;
+    border: 1px solid $brand-primary;
+
+    &.sm{
+      max-height: 30vh;
+    }
+    &.md{
+      max-height: 50vh;
+    }
+    &.lg{
+      max-height: 65vh;
+    }
+    &.stacked {
+      vertical-align: baseline;
+      display: block;
+    }
+  }
+  p {
+    //vertical-align: top;
+    padding: 0;
+    margin: 0 35px 35px 0;
+    max-width: 500px;
+    &.full-column {
+      //display: inline-block;
+      //max-height: 70%;
+
+    }
+    &.stacked {
+    }
+  }
+
+  .col {
+    vertical-align: top;
+    display: inline-block;
+    img {
+      vertical-align: baseline;
+      display: block;
+    }
+  }
+}

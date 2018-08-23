@@ -11,3 +11,9 @@
 #root > div {
   margin: 0 0 0 10%;
 }
+
+.tooltip {
+  transition: visibility 0.2s ease-in-out, opacity 0.4s ease-in-out;
+  background-color: $brand-primary;
+  font-family: $font-family-monospace;
+}

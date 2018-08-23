@@ -7,8 +7,8 @@
  */
 
 import React, {Component} from "react";
-import P1Content from "./contentComponents/P1Content";
-import P2Content from "./contentComponents/P2Content";
+import P1Content from "./projects/P1Content";
+import P2Content from "./projects/P2Content";
 
 class Content extends Component {
   // eslint-disable-next-line require-jsdoc

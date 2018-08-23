@@ -9,7 +9,7 @@
 import React, {Component} from "react";
 import { Switch, Route, Redirect } from 'react-router-dom';
 import ProjectList from '../ProjectList/ProjectList';
-import ProjectDetail from '../ProjectDetail/ProjectDetail';
+import DetailWrapper from '../ProjectDetail/DetailWrapper';
 import Home from '../Home/Home';
 
 
@@ -22,7 +22,7 @@ class Main extends Component {
         )}/>
         <Route exact path='/info' component={Home} />
         <Route exact path='/projects' component={ProjectList} />
-        <Route path='/projects/:number' component={ProjectDetail} />
+        <Route path='/projects/:number' component={DetailWrapper} />
         <Route component={Home} /> {/* Handles garbage slugs */}
       </Switch>
     );

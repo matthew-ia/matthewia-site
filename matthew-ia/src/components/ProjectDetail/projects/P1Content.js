@@ -7,8 +7,8 @@
  */
 
 import React, {Component} from "react";
-import ProjectDetail from "../ProjectDetail";
-import DetailHeader from "../DetailHeader";
+import ProjectDetail from "../DetailWrapper";
+import DetailHeader from "../DetailBrief";
 
 class P1Content extends Component {
   render() {

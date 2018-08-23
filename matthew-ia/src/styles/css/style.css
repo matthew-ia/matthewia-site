@@ -200,7 +200,7 @@ figure {
   margin: 0; }
 
 img {
-  vertical-align: middle; }
+  vertical-align: baseline; }
 
 .img-responsive {
   display: block;
@@ -1120,6 +1120,11 @@ dd {
 #root > div {
   margin: 0 0 0 10%; }
 
+.tooltip {
+  transition: visibility 0.2s ease-in-out, opacity 0.4s ease-in-out;
+  background-color: #2B271E;
+  font-family: Inconsolata,Menlo,Monaco,Consolas,"Courier New",monospace; }
+
 .App {
   text-align: center; }
 
@@ -1256,7 +1261,7 @@ dd {
 
 #projects .p-item {
   display: inline-block;
-  border: 1px solid black;
+  border: 1px solid #2B271E;
   margin-right: 64px;
   position: relative;
   text-align: center; }
@@ -1337,27 +1342,12 @@ dd {
   margin: 0 24px 0 0; }
 
 #detail {
-  overflow: auto;
-  overflow-x: hidden; }
+  overflow: visible; }
 
-#detail .p-title {
-  font-weight: 900;
-  font-size: 64px;
-  margin-top: 172px; }
+#detail.showscroll {
+  overflow: visible; }
 
-#detail .p-tags {
-  font-family: Inconsolata,Menlo,Monaco,Consolas,"Courier New",monospace;
-  font-weight: 700;
-  font-size: 20px;
-  color: #5F5F5F;
-  text-transform: capitalize; }
-
-#detail .p-content {
-  margin-top: 10px;
-  font-size: 20px;
-  color: #5F5F5F; }
-
-#p-id {
+#p-id span {
   font-family: Inconsolata,Menlo,Monaco,Consolas,"Courier New",monospace;
   position: fixed;
   top: 15px;
@@ -1367,53 +1357,106 @@ dd {
   color: white;
   z-index: 10; }
 
-.detail-header {
-  margin-left: 100px; }
+#p-id span#p-name {
+  transition: opacity 0.5s ease-in;
+  opacity: 0;
+  font-weight: 700;
+  margin-left: 40px;
+  background-color: transparent;
+  color: #2B271E;
+  text-transform: uppercase; }
 
-.description {
-  display: inline-block;
-  width: 40%;
-  margin: 0; }
+#brief {
+  height: 100vh; }
 
-.main-image {
-  display: inline-block;
+#brief .p-desc {
+  float: left;
+  width: 45%; }
+
+#brief h1.p-title {
+  font-weight: 900;
+  font-size: 64px;
+  margin-top: 172px; }
+
+#brief span.p-tags {
+  font-family: Inconsolata,Menlo,Monaco,Consolas,"Courier New",monospace;
+  font-weight: 700;
+  font-size: 20px;
   color: #5F5F5F;
-  margin: 120px 20px 0 0;
-  float: right; }
+  text-transform: capitalize; }
 
-.main-image img {
+#brief p.p-content {
+  margin: 10px 0 0;
+  font-size: 20px;
+  color: #5F5F5F; }
+
+#brief img.p-image {
+  margin: 172px 0 0 30px;
+  width: 50%;
   max-height: 635px;
-  border: 1px solid black; }
-
-.content {
-  padding: 0; }
-
-#p1-content {
-  margin: 180px auto; }
-
-.spacer {
-  margin-top: 5%; }
-
-.image {
-  height: auto;
-  max-width: 100%;
-  padding: 0;
-  background-color: lightgray;
-  border: 1px solid black; }
-
-.copy {
   color: #5F5F5F;
-  font-size: 18px;
-  line-height: 1.5; }
+  border: 1px solid black; }
 
-.ralign {
-  text-align: right; }
+#brief a#scroll-arrow {
+  padding: 5px;
+  transition: all 0.55s ease-in-out;
+  position: fixed;
+  left: 50%;
+  cursor: pointer; }
 
-.li-node-selected {
-  background-color: #2B271E; }
+#brief a#scroll-arrow img {
+  width: 20px;
+  transition: transform 0.6s ease-in-out; }
 
-.li-pname-selected {
-  color: #2B271E; }
+#brief a#scroll-arrow.top {
+  bottom: 95%; }
+
+#brief a#scroll-arrow.top img {
+  transform: rotate(-180deg); }
+
+#brief a#scroll-arrow.bottom {
+  bottom: 5%; }
+
+#brief a#scroll-arrow span {
+  margin-right: 8px; }
+
+#gallery {
+  height: 100vh;
+  padding-top: 15vh;
+  width: 6000px; }
+
+#gallery img {
+  vertical-align: top;
+  display: inline-block;
+  margin: 0 35px 35px 0;
+  background-color: #f3f3f3;
+  border: 1px solid #2B271E; }
+
+#gallery img.sm {
+  max-height: 30vh; }
+
+#gallery img.md {
+  max-height: 50vh; }
+
+#gallery img.lg {
+  max-height: 65vh; }
+
+#gallery img.stacked {
+  vertical-align: baseline;
+  display: block; }
+
+#gallery p {
+  padding: 0;
+  margin: 0 35px 35px 0;
+  max-width: 500px; }
+
+#gallery .col {
+  vertical-align: top;
+  display: inline-block; }
+
+#gallery .col img {
+  vertical-align: baseline;
+  display: block; }
 
 #dimensions {
   position: fixed;
