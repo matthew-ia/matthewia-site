@@ -43,7 +43,7 @@ class Gallery extends Component {
     if (window.scrollY < yPos) return;
     //console.log("handling");
     if (xPos === this.state.scrollLeftDefault) {
-      if (e.deltaY < -40) {
+      if (e.deltaY < -30) {
         this.handleScrollUp(e, xPos);
       } else {
         console.log("handleHorizontal1");
