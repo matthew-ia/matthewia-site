@@ -73,6 +73,7 @@ class Gallery extends Component {
     document.getElementById("timeline").style.opacity = "0";
     document.getElementById("timeline").style.visibility = "hidden";
     document.getElementById("scroll-arrow").className = "bottom";
+    document.getElementById("scroll-arrow").dataset.tip = "scroll down";
     document.getElementById("detail").className = "hidescroll";
     //document.addEventListener('wheel', this.handleScroll);
     //e.preventDefault(); // This is very necessary so the normal anchor snapping doesn't occur.
