@@ -70,6 +70,8 @@ class Gallery extends Component {
       behavior: "smooth"
     });
     document.getElementById("p-name").style.opacity = "0";
+    document.getElementById("timeline").style.opacity = "0";
+    document.getElementById("timeline").style.visibility = "hidden";
     document.getElementById("scroll-arrow").className = "bottom";
     document.getElementById("detail").className = "hidescroll";
     //document.addEventListener('wheel', this.handleScroll);

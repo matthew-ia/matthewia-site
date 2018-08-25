@@ -30,6 +30,10 @@ class Brief extends Component {
       document.getElementById("scroll-arrow").className = "top";
       document.getElementById("scroll-arrow").dataset.tip = "scroll up";
       document.getElementById("p-name").style.opacity = "1.0";
+      setTimeout(()=>{
+        document.getElementById("timeline").style.visibility = "visible";
+        document.getElementById("timeline").style.opacity = "1.0";
+      }, 700);
       window.scroll({
         top: document.body.scrollHeight,
         left: this.props.p.getScrollX(),
@@ -42,6 +46,8 @@ class Brief extends Component {
         document.getElementById("scroll-arrow").className = 'bottom';
         document.getElementById("scroll-arrow").dataset.tip = "scroll down";
         document.getElementById("p-name").style.opacity = "0";
+        document.getElementById("timeline").style.opacity = "0";
+        document.getElementById("timeline").style.visibility = "hidden";
         window.scroll({
           top: 0,
           left: 0,
@@ -59,6 +65,10 @@ class Brief extends Component {
         document.getElementById("scroll-arrow").className = "top";
         document.getElementById("scroll-arrow").dataset.tip = "scroll up";
         document.getElementById("p-name").style.opacity = "1.0";
+        setTimeout(()=>{
+          document.getElementById("timeline").style.visibility = "visible";
+          document.getElementById("timeline").style.opacity = "1.0";
+        }, 700);
         window.scroll({
           top: document.body.scrollHeight,
           left: this.props.p.getScrollX(),
