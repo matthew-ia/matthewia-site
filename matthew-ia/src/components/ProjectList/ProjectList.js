@@ -49,7 +49,8 @@ class ProjectList extends Component {
     this.state = {
       plist: projects,
       plistNames: projectNames,
-      count: counter
+      count: counter,
+      navMargin: 0,
     };
 
     this.handleSmoothScroll = this.handleSmoothScroll.bind(this);
@@ -61,17 +62,29 @@ class ProjectList extends Component {
     let width = ((this.state.count * (650 + 64)) + 200);
     document.getElementById('projects').style.width = width + "px";
 
-    // Adjust the white space between the bottom navbar and the scrollbar. This prevents the offset content visual shift
+    // Adjust the white space between the bottom navbar and the scrollbar. This prevents
+    // the content from visually shifting upwards on load when the page has a scrollbar.
+    //
+    // Get scroll bar height using tools.getScrollBarSizes (works for all browsers).
     let scrollBarHeight = getScrollBarSizes()[0];
-    let marginBottom = 115 - scrollBarHeight;
-    document.getElementById('bottom-nav').style.marginBottom = marginBottom +  "px";
-    let top = window.getComputedStyle(document.querySelector('#floating-list')).top;
-    console.log(top);
-    let newTop = parseFloat(top.slice(0, -2)) + 6;
-    document.getElementById('floating-list').style.top = newTop + "px";
-    console.log(window.getComputedStyle(document.querySelector('#floating-list')).top);
-    console.log(newTop);
-    console.log("scrollBarHeight", scrollBarHeight);
+    // Store navbar element.
+    let navbar = document.querySelector('#bottom-nav');
+    // Get resolved value for bottom margin (excluding units, i.e. 'px').
+    let computedMarginBottom = window.getComputedStyle(navbar)
+      .getPropertyValue('margin-bottom').slice(0, -2);
+    // Calculate and store the new margin-bottom value.
+    let newMarginBottom = computedMarginBottom - scrollBarHeight;
+    this.setState({navMargin: computedMarginBottom});
+    // Set the new margin-bottom value on the navbar element.
+    navbar.style.marginBottom = newMarginBottom +  "px";
+
+    // Adjust the white space between the bottom of the Floating List of projects
+    // and the scrollbar. This prevents the list from from visually shifting upwards
+    // on load when the page has a scrollbar.
+    let floatingList = document.querySelector('#floating-list'); // Get element.
+    let top = window.getComputedStyle(floatingList).top; // Get current style value.
+    let newTop = parseFloat(top.slice(0, -2)) + 6; // Calculate new value.
+    floatingList.style.top = newTop + "px"; // Set style to new value.
 
     // Replace mouse wheel vertical scrolling with horizontal scrolling
     document.addEventListener('wheel', this.handleScroll);
@@ -80,8 +93,8 @@ class ProjectList extends Component {
   componentWillUnmount() {
     console.log("unmounting");
     // Reset the navbar and scrollbar height spacing when leaving to another page/route
-    let marginBottom = 115; // Reset to default
-    document.getElementById('bottom-nav').style.marginBottom = marginBottom +  "px";
+    let marginBottom = this.state.navMargin; // Reset to default
+    document.getElementById('bottom-nav').style.marginBottom = marginBottom + "px";
     document.removeEventListener('wheel', this.handleScroll);
   }
 
