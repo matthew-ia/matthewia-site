@@ -112,3 +112,29 @@ export function adjustFloatingList(defaultTop) {
   let newTop = parseFloat(top.slice(0, -2)) + 6; // Calculate new value.
   floatingList.style.top = newTop + "px"; // Set style to new value.
 }
+
+/**
+ * Dynamically sets the column container div's width to be the same width as the
+ * first image in the column if there is one.
+ * This allows the other children to utilize the max-width style and not have to
+ * hardcode a width on the .col class before runtime.
+ */
+export function setDynamicColumnWidth() {
+  let columns = document.getElementsByClassName('col');
+  if (columns) { // exists
+    for (let col of columns) {
+      let firstImage;
+      for (let child of col.childNodes) {
+        if (child.tagName === 'IMG') {
+          firstImage = child;
+          break;
+        }
+      }
+      if (firstImage) { // exists
+        let imgWidth = window.getComputedStyle(firstImage).getPropertyValue('width');
+        console.log("yolp!: ", col.style.width, imgWidth);
+        col.style.width = imgWidth;
+      }
+    }
+  }
+}

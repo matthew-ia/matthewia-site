@@ -18,7 +18,7 @@ import Spectra from "./projects/Spectra/Spectra";
 import OS1 from "./projects/OS1/OS1";
 
 
-import {adjustNavbar, padNum} from "../../tools";
+import {adjustNavbar, padNum, setDynamicColumnWidth} from "../../tools";
 const data = require("../../projectlist.json");
 const plist = data.plist;
 
@@ -65,11 +65,15 @@ class DetailWrapper extends Component {
     // Adjusts navbar with offset and saves the returned default value to state.
     // The state is used when the component unmounts to reset it.
     this.setState({navbarOffset: adjustNavbar()});
+    window.addEventListener('load', ()=> {
+      setDynamicColumnWidth();
+    });
   }
 
   componentWillUnmount() {
     // Reset the navbar and scrollbar height spacing when leaving to another route
     adjustNavbar(this.state.navbarOffset);
+    window.removeEventListener('load', setDynamicColumnWidth)
   }
 
   saveXScrollPosition(xPos) {

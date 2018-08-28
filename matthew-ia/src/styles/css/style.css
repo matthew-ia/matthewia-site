@@ -1445,19 +1445,22 @@ dd {
   vertical-align: baseline;
   display: block; }
 
-#gallery p {
-  padding: 0;
-  margin: 0 35px 35px 0;
-  max-width: 500px;
-  color: #5F5F5F; }
-
 #gallery .col {
   vertical-align: top;
-  display: inline-block; }
+  display: inline-block;
+  margin: 0 35px 0 0; }
 
 #gallery .col img {
+  max-width: 100%;
   vertical-align: baseline;
-  display: block; }
+  display: block;
+  margin: 0 0 35px 0; }
+
+#gallery .col p {
+  padding: 0;
+  margin: 0 0 35px 0;
+  color: #5F5F5F;
+  max-width: 100%; }
 
 #gallery {
   padding-top: 20vh; }

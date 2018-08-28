@@ -31,6 +31,7 @@ class Gallery extends Component {
       scrollLeftDefault: document.getElementById("1").getBoundingClientRect().x,
       galleryPos: document.getElementById("gallery").getBoundingClientRect().y
     });
+
   }
 
   handleScroll(e) {
@@ -119,6 +120,9 @@ class Gallery extends Component {
           <img className="lg"  src={p.publicPath + "dd.jpg"}/>
           <img className="lg"  src={p.publicPath + "dd.jpg"}/>
           <img className="md" src={p.publicPath + "cd.jpg"}/>
+          <div className="col">
+            <p>yeeeeeeet. yeeeeeeet.yeeeeeeet.</p>
+          </div>
         </div>
       </section>
 

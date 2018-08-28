@@ -126,19 +126,21 @@
       display: block;
     }
   }
-  p {
-    padding: 0;
-    margin: 0 35px 35px 0;
-    max-width: 500px;
-    color: $brand-gray;
-  }
-
   .col {
     vertical-align: top;
     display: inline-block;
+    margin: 0 35px 0 0;
     img {
+      max-width: 100%;
       vertical-align: baseline;
       display: block;
+      margin: 0 0 35px 0;
+    }
+    p {
+      padding: 0;
+      margin: 0 0 35px 0;
+      color: $brand-gray;
+      max-width: 100%;
     }
   }
 }
