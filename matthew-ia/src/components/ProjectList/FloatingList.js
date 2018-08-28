@@ -50,12 +50,6 @@ class FloatingList extends Component {
     }
   }
 
-  // TODO: write a clickHandler function to add an animation to whichever project is jumped to using the floating list
-  // This should only work for when user is viewing the ProjectList component, and be ignored when on a detail page
-  handleClick() {
-    //console.log(document.getElementById(#p6))
-  }
-
   render() {
     return (
       <div id='floating-list'>
