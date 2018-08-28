@@ -130,10 +130,20 @@ export function setDynamicColumnWidth() {
           break;
         }
       }
+      // If no images in column, check for p tag.
+      let text;
+      for (let child of col.childNodes) {
+        if (child.tagName === 'P') {
+          console.log("found a p tag: ", child);
+          text = child;
+        }
+      }
       if (firstImage) { // exists
         let imgWidth = window.getComputedStyle(firstImage).getPropertyValue('width');
         console.log("yolp!: ", col.style.width, imgWidth);
         col.style.width = imgWidth;
+      } else if (text) { // if text exists, a p tag was found, so set a max-width value.
+        col.style.maxWidth = "25vw";
       }
     }
   }

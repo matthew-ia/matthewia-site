@@ -8,7 +8,6 @@
 
 import React, {Component} from 'react';
 import { NavLink } from 'react-router-dom'
-import {getScrollBarSizes} from "../../tools";
 
 class Nav extends Component {
   render() {

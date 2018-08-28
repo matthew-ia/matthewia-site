@@ -11,7 +11,6 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import ProjectList from '../ProjectList/ProjectList';
 import DetailWrapper from '../ProjectDetail/DetailWrapper';
 import Home from '../Home/Home';
-import {getScrollBarSizes} from "../../tools";
 
 
 class Main extends Component {
