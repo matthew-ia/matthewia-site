@@ -48,3 +48,55 @@ export function debounce(func, wait, immediate) {
     if (callNow) func.apply(context, args);
   };
 }
+
+/**
+ * Adjust the white space between the bottom navbar and the scrollbar. This prevents
+ * the content from visually shifting upwards on load when the page has a scrollbar.
+ * @param defaultMargin (optional)
+ * @returns {string} – the margin value to set
+ */
+export function adjustNavbar(defaultMargin) {
+  // Adjust the white space between the bottom navbar and the scrollbar. This prevents
+  // the content from visually shifting upwards on load when the page has a scrollbar.
+  //
+
+  if (defaultMargin !== undefined) {
+    console.log("state: ", defaultMargin);
+    document.getElementById('bottom-nav').style.marginBottom = defaultMargin + "px";
+    return; // Return nothing, ignore rest of code.
+  }
+
+  // Get scroll bar height using tools.getScrollBarSizes (works for all browsers).
+  let scrollBarHeight = getScrollBarSizes()[0];
+  console.log("scrollBarHeight: ", scrollBarHeight);
+  if (scrollBarHeight === 0) return; // Return nothing, ignore rest of code.
+  // Store navbar element.
+  let navbar = document.querySelector('#bottom-nav');
+  // Get resolved value for bottom margin (excluding units, i.e. 'px').
+  let computedMarginBottom = window.getComputedStyle(navbar)
+    .getPropertyValue('margin-bottom').slice(0, -2);
+  // Calculate and store the new margin-bottom value.
+  let newMarginBottom = computedMarginBottom - scrollBarHeight;
+  // Set the new margin-bottom value on the navbar element.
+  navbar.style.marginBottom = newMarginBottom +  "px";
+
+  // Return the original margin-bottom value to be set as a state for unmounting in component
+  return computedMarginBottom;
+}
+
+/**
+ * FIXME: [DEPRECATED]
+ * Adjust the white space between the bottom of the Floating List of projects
+ * and the scrollbar. This prevents the list from from visually shifting upwards
+ * on load when the page has a scrollbar.
+ * @param defaultTop
+ */
+export function adjustFloatingList(defaultTop) {
+  // Adjust the white space between the bottom of the Floating List of projects
+  // and the scrollbar. This prevents the list from from visually shifting upwards
+  // on load when the page has a scrollbar.
+  let floatingList = document.querySelector('#floating-list'); // Get element.
+  let top = window.getComputedStyle(floatingList).top; // Get current style value.
+  let newTop = parseFloat(top.slice(0, -2)) + 6; // Calculate new value.
+  floatingList.style.top = newTop + "px"; // Set style to new value.
+}

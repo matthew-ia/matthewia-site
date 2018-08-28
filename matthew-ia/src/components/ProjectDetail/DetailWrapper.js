@@ -11,7 +11,6 @@ import React, {Component} from "react";
 import { Helmet } from "react-helmet";
 import { Redirect} from "react-router-dom";
 
-import Detail from "./Detail";
 import FloatingList from "../ProjectList/FloatingList";
 
 // Project detail Components
@@ -19,8 +18,7 @@ import Spectra from "./projects/Spectra/Spectra";
 import OS1 from "./projects/OS1/OS1";
 
 
-import { padNum } from "../../tools";
-
+import {adjustNavbar, padNum} from "../../tools";
 const data = require("../../projectlist.json");
 const plist = data.plist;
 
@@ -56,10 +54,22 @@ class DetailWrapper extends Component {
       projectInfo: this.props.projects["p"+id], // sets project info obj from json data
       publicPath: window.location.origin + '/images/p' + id + "/",
       scrollPosX: 0,
+      navbarOffset: 0,
     };
 
     this.saveXScrollPosition = this.saveXScrollPosition.bind(this);
     this.getXScrollPosition = this.getXScrollPosition.bind(this);
+  }
+
+  componentDidMount() {
+    // Adjusts navbar with offset and saves the returned default value to state.
+    // The state is used when the component unmounts to reset it.
+    this.setState({navbarOffset: adjustNavbar()});
+  }
+
+  componentWillUnmount() {
+    // Reset the navbar and scrollbar height spacing when leaving to another route
+    adjustNavbar(this.state.navbarOffset);
   }
 
   saveXScrollPosition(xPos) {
