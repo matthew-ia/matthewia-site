@@ -21,8 +21,7 @@ class Home extends Component {
           <h1>matthew.ia</h1>
           <h2>designer + programmer</h2>
           <p>
-            I’m Matthew Alicea, a multidisciplinary designer studying Computer Science at Appalachian State University.
-            I create digital interfaces, graphic designs, and print designs.
+            I’m Matthew Alicea, a multidisciplinary designer with a B.S. in Computer Science from Appalachian State University. I create digital interfaces and user experiences, graphic designs, and print designs.
           </p>
         </div>
         <MessageButton />
