@@ -70,7 +70,7 @@ class Gallery extends Component {
     // Check if the first element in Gallery is scrolled all the way to the left
     if (xPos === this.state.scrollLeftDefault) {
       if (e.deltaY < -30) { // If it is, scroll up (animate) when user scrolls up.
-        this.handleScrollUp(e, xPos);
+        this.handleScrollUp(e);
       } else { // Else scroll horizontally
         this.handleScrollHorizontal(e);
       }
@@ -83,8 +83,7 @@ class Gallery extends Component {
    * Handles scrolling the screen up (back to the Brief section)
    * @param e – event fired from clicking on anchor
    */
-  handleScrollUp(e, xPos) {
-    //console.log("xPos: ", xPos);
+  handleScrollUp(e) {
     //console.log("xDefault: ", this.state.scrollLeftDefault);
     // Smooth scroll up to Brief section.
     window.scroll({
@@ -138,13 +137,13 @@ class Gallery extends Component {
       behavior: "smooth"
     });
 
-    let timelineList = Array.prototype.slice.call(document.getElementsByClassName('timeline-link'));
+    let timelineList = Array.prototype.slice.call(document.getElementsByClassName('time-link'));
       for (let link of timelineList) {
         console.log("hmm: ", link.getAttribute('href').slice(1,), id);
         if (link.getAttribute('href').slice(1,) === id) {
-          link.className = 'timeline-link active';
+          link.className = 'time-link active';
         } else {
-          link.className = 'timeline-link';
+          link.className = 'time-link';
         }
       }
 
@@ -152,7 +151,8 @@ class Gallery extends Component {
   }
 
   /**
-   * Handles the timeline link updating behavior when scrolled to
+   * Handles the timeline link updating behavior so that when the user is scrolling
+   * through a period, the timeline links appropriately indicate they're in that period.
    */
   handleTimeline() {
     // Get the elements with class that indicates it starts a time period section.
@@ -191,9 +191,15 @@ class Gallery extends Component {
       <section id="gallery" onWheel={this.handleScroll}>
         <div id="timeline">
           <ul>
-            <li onClick={this.handleSmoothScroll}><a className="time-link active" href="#t2016">2016</a></li>
-            <li onClick={this.handleSmoothScroll}><a className="time-link" href="#t2017">2017</a></li>
-            <li onClick={this.handleSmoothScroll}><a className="time-link" href="#t2018">2018</a></li>
+            <li><a onClick={this.handleSmoothScroll}
+                   className="time-link active"
+                   href="#t2016">2016</a></li>
+            <li><a onClick={this.handleSmoothScroll}
+                   className="time-link"
+                   href="#t2017">2017</a></li>
+            <li><a onClick={this.handleSmoothScroll}
+                   className="time-link"
+                   href="#t2018">2018</a></li>
           </ul>
         </div>
         <div>
