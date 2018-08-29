@@ -1347,6 +1347,9 @@ dd {
 #detail.showscroll {
   overflow: visible; }
 
+.time-marker {
+  border: 1px solid red !important; }
+
 #detail #p-id span {
   font-family: Inconsolata,Menlo,Monaco,Consolas,"Courier New",monospace;
   position: fixed;

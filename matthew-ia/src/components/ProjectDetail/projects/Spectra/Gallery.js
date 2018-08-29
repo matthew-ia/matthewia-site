@@ -156,28 +156,29 @@ class Gallery extends Component {
    */
   handleTimeline() {
     // Get the elements with class that indicates it starts a time period section.
-    let timeMarkers = Array.prototype.slice.call(document.getElementsByClassName('time-marker'));
+    let periodStartElements = Array.prototype.slice.call(document.getElementsByClassName('time-marker'));
     // Calculate about 50% of the view width
     let halfWidth = this.state.windowWidth / 2;
 
     // For each time period-start element
-    for (let period of timeMarkers) {
+    for (let period of periodStartElements) {
       // Get the period-start element's X Position (relative to current view)
       let pX = period.getBoundingClientRect().x;
-      // Check if the X Position is within the left half of the screen (0-50%).
-      // Also check that its not off screen (but to the left, resulting in negative X)
-      if (pX <= halfWidth && pX > 0) {
+      // Check if the X Position is within the left half of the screen (0-50%) or
+      // off screen to the left (resulting in a negative X)
+      if (pX <= halfWidth) {
         // Get index of the period that is in view
-        let i = timeMarkers.indexOf(period);
+        let i = periodStartElements.indexOf(period);
         // Get an array of the timeline links (which jump to the period-start elements)
-        let timelineList = Array.prototype.slice.call(document.getElementsByClassName('timeline-link'));
+        let timelineList = Array.prototype.slice.call(document.getElementsByClassName('time-link'));
         // For each link in the timeline link list
         for (let link of timelineList) {
           // Match the link to the current period.
           if (timelineList.indexOf(link) === i) {
-            link.className = 'timeline-link active';
+            if (link.className !== 'time-link active') // only overwrite if not set
+              link.className = 'time-link active';
           } else { // Not a match, set to the the default style
-            link.className = 'timeline-link';
+            link.className = 'time-link';
           }
         }
       }
@@ -190,9 +191,9 @@ class Gallery extends Component {
       <section id="gallery" onWheel={this.handleScroll}>
         <div id="timeline">
           <ul>
-            <li onClick={this.handleSmoothScroll}><a className="timeline-link active" href="#t2016">2016</a></li>
-            <li onClick={this.handleSmoothScroll}><a className="timeline-link" href="#t2017">2017</a></li>
-            <li onClick={this.handleSmoothScroll}><a className="timeline-link" href="#t2018">2018</a></li>
+            <li onClick={this.handleSmoothScroll}><a className="time-link active" href="#t2016">2016</a></li>
+            <li onClick={this.handleSmoothScroll}><a className="time-link" href="#t2017">2017</a></li>
+            <li onClick={this.handleSmoothScroll}><a className="time-link" href="#t2018">2018</a></li>
           </ul>
         </div>
         <div>
