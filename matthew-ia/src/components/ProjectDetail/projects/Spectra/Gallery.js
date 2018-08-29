@@ -20,8 +20,6 @@ class Gallery extends Component {
       windowWidth: window.innerWidth,
     };
 
-    //TODO: Dynamically set the gallery width based on the number of images to display
-
     this.handleScroll = this.handleScroll.bind(this);
     this.handleScrollUp = this.handleScrollUp.bind(this);
     this.handleScrollHorizontal = this.handleScrollHorizontal.bind(this);
@@ -38,49 +36,63 @@ class Gallery extends Component {
       galleryPos: document.getElementById("gallery").getBoundingClientRect().y
     });
     window.addEventListener('resize', this.updateWindowSize);
+    //TODO: Dynamically set the gallery width based on the number of images to display
   }
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.updateWindowSize);
   }
 
+  /**
+   * Get current window size. Needs to be saved/used for the timeline nav updating.
+   */
   updateWindowSize() {
     this.setState({windowWidth: window.innerWidth});
   }
 
+  /**
+   * Handles scroll behavior, and when to fire the other scroll functions.
+   * @param e – the scroll event
+   */
   handleScroll(e) {
     e.preventDefault();
+    // X Position of the first element in the Gallery.
+    // TODO: update the element selector to not rely on an ID
     let xPos = document.getElementById("1").getBoundingClientRect().x;
+    // Y Position of the Gallery section (top left corner)
     let yPos = this.state.galleryPos;
     //console.log("w.sY: ", window.scrollY, ", yPos: ", yPos);
     this.props.p.saveScrollX(window.scrollX);
     //console.log("Saving wsX: ", window.scrollX);
+    // Ignore scroll events if we're in the middle of handleScrollUp's scroll behavior
     if (window.scrollY < yPos) return;
     //console.log("handling");
+    // Check if the first element in Gallery is scrolled all the way to the left
     if (xPos === this.state.scrollLeftDefault) {
-      if (e.deltaY < -30) {
+      if (e.deltaY < -30) { // If it is, scroll up (animate) when user scrolls up.
         this.handleScrollUp(e, xPos);
-      } else {
+      } else { // Else scroll horizontally
         this.handleScrollHorizontal(e);
       }
-    } else {
+    } else { // Otherwise scroll horizontally
       this.handleScrollHorizontal(e);
     }
-    e.preventDefault();
   }
 
   /**
-   * TODO
+   * Handles scrolling the screen up (back to the Brief section)
    * @param e – event fired from clicking on anchor
    */
   handleScrollUp(e, xPos) {
     //console.log("xPos: ", xPos);
     //console.log("xDefault: ", this.state.scrollLeftDefault);
+    // Smooth scroll up to Brief section.
     window.scroll({
       left: 0,
       top: 0,
       behavior: "smooth"
     });
+    // Set styles that need updating based on the section in view
     document.getElementById("p-name").style.opacity = "0";
     document.getElementById("timeline").style.opacity = "0";
     document.getElementById("timeline").style.visibility = "hidden";
@@ -102,8 +114,11 @@ class Gallery extends Component {
     if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
       delta = e.deltaX;
     } else delta = e.deltaY; // Mousewheel will always use the deltaY.
+    // Simulate a little extra force to scroll more significantly
     delta = delta * (-3);
+    // Scroll the view
     document.documentElement.scrollLeft -= delta;
+    // Call helper for timeline nav link updates
     this.handleTimeline();
     e.preventDefault();
   }
@@ -136,30 +151,35 @@ class Gallery extends Component {
     e.preventDefault(); // This is very necessary so the normal anchor snapping doesn't occur.
   }
 
+  /**
+   * Handles the timeline link updating behavior when scrolled to
+   */
   handleTimeline() {
-    let timeMarkers = document.getElementsByClassName('time-marker');
-    timeMarkers = Array.prototype.slice.call(timeMarkers);
+    // Get the elements with class that indicates it starts a time period section.
+    let timeMarkers = Array.prototype.slice.call(document.getElementsByClassName('time-marker'));
+    // Calculate about 50% of the view width
     let halfWidth = this.state.windowWidth / 2;
+
+    // For each time period-start element
     for (let period of timeMarkers) {
+      // Get the period-start element's X Position (relative to current view)
       let pX = period.getBoundingClientRect().x;
-      if (pX <= halfWidth) {
-        if (pX > 0) { // not negative, so it's in view
-          console.log(timeMarkers);
-          let i = timeMarkers.indexOf(period);
-          let timelineList = Array.prototype.slice.call(document.getElementsByClassName('timeline-link'));
-          for (let p of timeMarkers) {
-            if (p.id === timeMarkers[i].id) {
-              for (let link of timelineList) {
-                if (timelineList.indexOf(link) === i) {
-                  link.className = 'timeline-link active';
-                } else {
-                  link.className = 'timeline-link';
-                }
-              }
-            }
+      // Check if the X Position is within the left half of the screen (0-50%).
+      // Also check that its not off screen (but to the left, resulting in negative X)
+      if (pX <= halfWidth && pX > 0) {
+        // Get index of the period that is in view
+        let i = timeMarkers.indexOf(period);
+        // Get an array of the timeline links (which jump to the period-start elements)
+        let timelineList = Array.prototype.slice.call(document.getElementsByClassName('timeline-link'));
+        // For each link in the timeline link list
+        for (let link of timelineList) {
+          // Match the link to the current period.
+          if (timelineList.indexOf(link) === i) {
+            link.className = 'timeline-link active';
+          } else { // Not a match, set to the the default style
+            link.className = 'timeline-link';
           }
         }
-        //console.log(period.id + ": ", pX);
       }
     }
   }
