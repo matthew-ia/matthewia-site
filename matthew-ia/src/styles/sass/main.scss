@@ -12,25 +12,6 @@
   margin: 0 0 0 10%;
 }
 
-.hidden {
-  visibility: hidden;
-}
-.long-load {
-  visibility: hidden;
-  animation-delay: 10s;
-  animation: loadAnimation 1s;
-}
-
-.load {
-  visibility: hidden;
-  animation-delay: 1s;
-  animation: loadAnimation 1s;
-}
-
-.load-done {
-  visibility: visible;
-}
-
 @keyframes loadAnimation {
   0% {
     visibility: visible;
@@ -40,6 +21,24 @@
     opacity: 1.0;
   }
 }
+
+.long-load {
+  visibility: hidden;
+  animation: loadAnimation 1s;
+  //animation-delay: 2s;
+  animation-fill-mode: backwards;
+}
+
+.load {
+  visibility: hidden;
+  animation: loadAnimation 1s;
+}
+
+.load-done {
+  visibility: visible;
+}
+
+
 
 .tooltip {
   transition: visibility 0.2s ease-in-out, opacity 0.4s ease-in-out;
