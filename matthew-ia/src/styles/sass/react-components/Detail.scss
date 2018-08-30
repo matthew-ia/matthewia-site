@@ -9,6 +9,7 @@
 //## For project detail pages
 
 #detail {
+  //transition: opacity 0.5s ease-in-out;
   overflow: visible;
   &.hidescroll {
     //overflow: auto;
@@ -16,10 +17,6 @@
   &.showscroll {
     overflow: visible;
   }
-}
-
-.time-marker {
-  border: 1px solid red !important;
 }
 
 // Floating project ID
@@ -78,7 +75,7 @@
     border: 1px solid black;
   }
 
-  a#scroll-arrow {
+  button#scroll-arrow {
     padding: 5px;
     transition: all 0.55s ease-in-out;
     position: fixed;

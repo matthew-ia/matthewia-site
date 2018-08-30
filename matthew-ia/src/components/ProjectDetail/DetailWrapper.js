@@ -12,10 +12,8 @@ import { Helmet } from "react-helmet";
 import { Redirect} from "react-router-dom";
 
 import FloatingList from "../ProjectList/FloatingList";
-
-// Project detail Components
-import Spectra from "./projects/Spectra/Spectra";
-import OS1 from "./projects/OS1/OS1";
+import Brief from "./Brief";
+import Gallery from "./Gallery";
 
 
 import {adjustNavbar, padNum, setDynamicColumnWidth} from "../../tools";
@@ -65,19 +63,20 @@ class DetailWrapper extends Component {
     // Adjusts navbar with offset and saves the returned default value to state.
     // The state is used when the component unmounts to reset it.
     this.setState({navbarOffset: adjustNavbar()});
-    window.addEventListener('load', ()=> {
-      setDynamicColumnWidth();
-    });
+    window.addEventListener('load', setDynamicColumnWidth);
   }
 
   componentWillUnmount() {
     // Reset the navbar and scrollbar height spacing when leaving to another route
     adjustNavbar(this.state.navbarOffset);
-    window.removeEventListener('load', setDynamicColumnWidth)
+    window.removeEventListener('load', setDynamicColumnWidth);
   }
 
   saveXScrollPosition(xPos) {
-    this.setState({scrollPosX: xPos});
+    if (xPos !== this.state.scrollPosX) {
+      console.log("saving X");
+      this.setState({scrollPosX: xPos});
+    }
   }
 
   getXScrollPosition() {
@@ -108,16 +107,8 @@ class DetailWrapper extends Component {
           <span>{projectData.id}</span>
           <span id="p-name">{projectData.info.name}</span>
         </div>
-        {(() => {
-          switch(projectData.id) {
-            case '1':
-              return <Spectra p={projectData}/>;
-            case '2':
-              return <OS1 p={projectData}/>;
-            default:
-              return <Spectra p={projectData}/>;
-          }
-        })()}
+        <Brief p={projectData}/>
+        <Gallery p={projectData}/>
         <FloatingList plist={this.state.plistJumpTable} currentProjectPath={this.props.location.pathname}/>
       </main>
     );

@@ -7,9 +7,9 @@
  */
 
 import React, {Component} from "react";
-import Brief from "./Brief.js";
-import Gallery from "./Gallery.js";
-
+import Brief from "../../Brief.js";
+import Gallery from "../../Gallery.js";
+import SpectraContent from "../../SpectraGallery";
 class Spectra extends Component {
   // eslint-disable-next-line require-jsdoc
   constructor(props) {
@@ -21,8 +21,8 @@ class Spectra extends Component {
     let {p} = this.props;
     return (
       <div>
-        <Brief p={p}/>
-        <Gallery p={p}/>
+        <Brief p={p} />
+        <Gallery p={p} content={<SpectraContent p={p}/>}/>
       </div>
     );
   }

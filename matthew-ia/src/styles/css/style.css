@@ -1125,6 +1125,15 @@ dd {
   background-color: #2B271E;
   font-family: Inconsolata,Menlo,Monaco,Consolas,"Courier New",monospace; }
 
+button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0; }
+
+button:focus {
+  outline: none; }
+
 .App {
   text-align: center; }
 
@@ -1347,9 +1356,6 @@ dd {
 #detail.showscroll {
   overflow: visible; }
 
-.time-marker {
-  border: 1px solid red !important; }
-
 #detail #p-id span {
   font-family: Inconsolata,Menlo,Monaco,Consolas,"Courier New",monospace;
   position: fixed;
@@ -1400,27 +1406,27 @@ dd {
   color: #5F5F5F;
   border: 1px solid black; }
 
-#brief a#scroll-arrow {
+#brief button#scroll-arrow {
   padding: 5px;
   transition: all 0.55s ease-in-out;
   position: fixed;
   left: 50%;
   cursor: pointer; }
 
-#brief a#scroll-arrow img {
+#brief button#scroll-arrow img {
   width: 20px;
   transition: transform 0.6s ease-in-out; }
 
-#brief a#scroll-arrow.top {
+#brief button#scroll-arrow.top {
   bottom: 95%; }
 
-#brief a#scroll-arrow.top img {
+#brief button#scroll-arrow.top img {
   transform: rotate(-180deg); }
 
-#brief a#scroll-arrow.bottom {
+#brief button#scroll-arrow.bottom {
   bottom: 5%; }
 
-#brief a#scroll-arrow span {
+#brief button#scroll-arrow span {
   margin-right: 8px; }
 
 #gallery {

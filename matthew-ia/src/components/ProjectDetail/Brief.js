@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from "react";
-import ReactTooltip from 'react-tooltip';
+import SpectraBrief from "./SpectraBrief";
 
 class Brief extends Component {
   // eslint-disable-next-line require-jsdoc
@@ -23,8 +23,9 @@ class Brief extends Component {
    * @param e – event fired on scroll (mousewheel or trackpad)
    */
   handleScroll(e) {
+    console.log("Brief:handleScroll");
+    e.preventDefault();
     if (e.deltaY >= 15) {
-      console.log("yeah");
       document.getElementById("scroll-arrow").className = "top";
       document.getElementById("scroll-arrow").dataset.tip = "scroll up";
       document.getElementById("p-name").style.opacity = "1.0";
@@ -75,30 +76,28 @@ class Brief extends Component {
         //(document.removeEventListener('wheel', this.handleScroll), 1000);
       }
     }
-    e.preventDefault();
   }
 
   render() {
     let {p} = this.props;
     return (
       <section id="brief" onWheel={this.handleScroll}>
-        <div className="p-desc">
-          <h1 className="p-title"> {p.info.name }</h1>
-          <span className="p-tags">{p.info.tags.join(" // ") }</span>
-          <p className="p-content">Inspired by Spike Jonze’s film <i>Her</i>, I created a mock informational brochure documenting the fictional operating system, OS One (OS1). I took creative liberty in writing the copy for the document, as I imagined how the OS could be used. This project was the final product of a culmination of mini personal projects related to Her, as well as the starting point of my interest in technical writing.</p>
-        </div>
-        <img className="p-image" src={p.publicPath + "ab.jpg"}/>
-        <a data-tip="scroll down" href="#" id="scroll-arrow" onClick={this.handleScroll} className="bottom" >
-          <img alt="scroll down arrow" src={window.location.origin + '/images/icons/2x/arrow.png'}/>
-        </a>
-        <ReactTooltip className="tooltip" effect="solid"/>
+        {(() => {
+          switch(p.id) {
+            case '01':
+              console.log("it worked");
+              return <SpectraBrief p={p} handleScroll={this.handleScroll}/>;
+            default:
+              return <SpectraBrief p={p} handleScroll={this.handleScroll}/>;
+          }
+        })()}
       </section>
     );
   }
 }
 
 Brief.defaultProps = {
-  p: {}, // project data (object); id, info.name, info.tags, publicPath
+  p: {}, // project data (object); id, info.name, info.tags, publicPath,
 };
 
 export default Brief;
