@@ -76,6 +76,9 @@
   }
 
   button#scroll-arrow {
+    &.stopAnimation {
+      transition: none !important;
+    }
     padding: 5px;
     transition: all 0.55s ease-in-out;
     position: fixed;

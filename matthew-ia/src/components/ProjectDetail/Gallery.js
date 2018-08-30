@@ -15,9 +15,7 @@ class Gallery extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      scrollPos: 0,
-      scrollLeftDefault: 0,
-      galleryPos: 0,
+      galleryPosY: 0,
       windowWidth: window.innerWidth,
     };
 
@@ -28,57 +26,20 @@ class Gallery extends Component {
     this.handleTimeline = this.handleTimeline.bind(this);
     this.handleSmoothScroll = this.handleSmoothScroll.bind(this);
     this.setDynamicColumnWidth = this.setDynamicColumnWidth.bind(this);
-    this.refreshView = this.refreshView.bind(this);
   }
 
   componentDidMount() {
     // Saves the x position of the first child of Gallery on load
     // This helps determine the far left scroll position of the Gallery component
     this.setState({
-      scrollLeftDefault: document.getElementById("1").getBoundingClientRect().x,
-      galleryPos: document.getElementById("gallery").getBoundingClientRect().y
+      galleryPosY: document.getElementById("gallery").getBoundingClientRect().y
     });
     window.addEventListener('resize', this.updateWindowSize);
     //TODO: Dynamically set the gallery width based on the number of images to display
-
-    window.addEventListener('load', this.refreshView);
   }
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.updateWindowSize);
-    window.removeEventListener('load', this.refreshView);
-  }
-
-  refreshView() {
-    this.props.p.saveScrollX(window.scrollX);
-    document.getElementById('root').style.opacity = '0';
-    window.scroll({
-      top: 0,
-      left: 0,
-      behavior: "smooth"
-    });
-    setTimeout(()=> {
-      document.getElementById('root').style.transition = 'opacity 0.5s ease-in-out';
-      document.getElementById('root').style.opacity = '1.0';
-      this.setState({
-        scrollLeftDefault: document.getElementById("1").getBoundingClientRect().x,
-        galleryPos: document.getElementById("gallery").getBoundingClientRect().y
-      });
-    }, 1000);
-    //document.getElementById('detail').style.visibility = 'visible';
-    // Set styles that need updating based on the section in view
-    document.getElementById("p-name").style.opacity = "0";
-    document.getElementById("scroll-arrow").className = "bottom";
-    document.getElementById("scroll-arrow").dataset.tip = "scroll down";
-    document.getElementById("detail").className = "hidescroll";
-
-    // FIXME: project specific
-    document.getElementById("timeline").style.opacity = "0";
-    document.getElementById("timeline").style.visibility = "hidden";
-    this.setState({
-      scrollLeftDefault: document.getElementById("1").getBoundingClientRect().x,
-      galleryPos: document.getElementById("gallery").getBoundingClientRect().y
-    });
   }
 
   /**
@@ -89,7 +50,6 @@ class Gallery extends Component {
   }
 
   setDynamicColumnWidth() {
-    console.log("setDynamicColumnWidth");
     let columns = document.getElementsByClassName('col');
     if (columns) { // exists
       for (let col of columns) {
@@ -125,20 +85,19 @@ class Gallery extends Component {
    * @param e – the scroll event
    */
   handleScroll(e) {
-    console.log("Gallery:handleScroll");
     e.preventDefault();
     // X Position of the first element in the Gallery.
     // TODO: update the element selector to not rely on an ID
     let xPos = document.getElementById("1").getBoundingClientRect().x;
     // Y Position of the Gallery section (top left corner)
-    let yPos = this.state.galleryPos;
+    let yPos = this.state.galleryPosY;
     //console.log("w.sY: ", window.scrollY, ", yPos: ", yPos);
     //console.log("Saving wsX: ", window.scrollX);
     // Ignore scroll events if we're in the middle of handleScrollUp's scroll behavior
     if (window.scrollY < yPos) return;
     //console.log("handling");
     // Check if the first element in Gallery is scrolled all the way to the left
-    if (xPos === this.state.scrollLeftDefault) {
+    if (window.scrollX === 0) {
       if (e.deltaY < -30) { // If it is, scroll up (animate) when user scrolls up.
         this.props.p.saveScrollX(window.scrollX);
         this.handleScrollUp(e);
@@ -162,7 +121,9 @@ class Gallery extends Component {
       top: 0,
       behavior: "smooth"
     });
+    this.props.updateCurrentView(0);
     // Set styles that need updating based on the section in view
+    /*
     document.getElementById("p-name").style.opacity = "0";
     document.getElementById("scroll-arrow").className = "bottom";
     document.getElementById("scroll-arrow").dataset.tip = "scroll down";
@@ -171,6 +132,7 @@ class Gallery extends Component {
     // FIXME: project specific
     document.getElementById("timeline").style.opacity = "0";
     document.getElementById("timeline").style.visibility = "hidden";
+    */
     //document.addEventListener('wheel', this.handleScroll);
     //e.preventDefault(); // This is very necessary so the normal anchor snapping doesn't occur.
   }
@@ -201,9 +163,9 @@ class Gallery extends Component {
    * @param e – event fired from clicking on anchor
    */
   handleSmoothScroll(e) {
-    console.log(e.target);
     let id = e.target.getAttribute("href").slice(1,);
-    let anchorXPos = document.getElementById(id).getBoundingClientRect().x + window.scrollX - this.state.scrollLeftDefault;
+    let anchorXPos = document.getElementById(id).getBoundingClientRect().x
+      + window.scrollX - (this.state.windowWidth * .1);
     console.log(document.getElementById(id));
     console.log("X: ", anchorXPos);
     window.scroll({
@@ -279,13 +241,14 @@ class Gallery extends Component {
           }
         })()}
       </section>
-
     );
   }
 }
 
 Gallery.defaultProps = {
   p: {}, // project data (object); id, info.name, info.tags, publicPath,
+  currentView: 0,
+  updateCurrentView: ()=>{},
 };
 
 export default Gallery;

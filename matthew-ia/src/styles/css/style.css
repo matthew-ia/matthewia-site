@@ -1413,6 +1413,9 @@ button:focus {
   left: 50%;
   cursor: pointer; }
 
+#brief button#scroll-arrow.stopAnimation {
+  transition: none !important; }
+
 #brief button#scroll-arrow img {
   width: 20px;
   transition: transform 0.6s ease-in-out; }

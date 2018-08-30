@@ -59,5 +59,5 @@ _Gallery.defaultProps = {
    * image in a column container AND there's other content in the column.
    * Otherwise, it's unnecessary.
    */
-  setColumnWidth: ()=>{}
+  setColumnWidth: ()=>{},
 };

@@ -49,21 +49,27 @@ class DetailWrapper extends Component {
       publicPath: window.location.origin + '/images/p' + id + "/",
       scrollPosX: 0,
       navbarOffset: 0,
+      currentView: 0,
     };
 
     this.saveXScrollPosition = this.saveXScrollPosition.bind(this);
     this.getXScrollPosition = this.getXScrollPosition.bind(this);
+    this.refreshView = this.refreshView.bind(this);
+    this.updateCurrentView = this.updateCurrentView.bind(this);
   }
 
   componentDidMount() {
     // Adjusts navbar with offset and saves the returned default value to state.
     // The state is used when the component unmounts to reset it.
     this.setState({navbarOffset: adjustNavbar()});
+    window.scroll(0,0);
+    window.addEventListener('load', this.refreshView);
   }
 
   componentWillUnmount() {
     // Reset the navbar and scrollbar height spacing when leaving to another route
     adjustNavbar(this.state.navbarOffset);
+    window.removeEventListener('load', this.refreshView);
   }
 
   saveXScrollPosition(xPos) {
@@ -75,6 +81,61 @@ class DetailWrapper extends Component {
 
   getXScrollPosition() {
     return this.state.scrollPosX;
+  }
+
+  refreshView() {
+    let y = document.getElementById('gallery').getBoundingClientRect().y;
+    console.log("GALLERY Y: ", y);
+    if (y <= 0) {
+      this.updateCurrentView(1);
+    } else console.log("default: 0, also at 0");
+    /*
+    if (this.state.currentView === 0) {
+      console.log('gallery')
+    }
+    else if (this.state.currentView === 1) {
+      document.getElementById("p-name").style.opacity = "0";
+      document.getElementById("scroll-arrow").className = "bottom";
+      document.getElementById("scroll-arrow").dataset.tip = "scroll down";
+      document.getElementById("detail").className = "hidescroll";
+    }
+
+    // FIXME: project specific
+    //document.getElementById("timeline").style.opacity = "0";
+    //document.getElementById("timeline").style.visibility = "hidden";
+     */
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (nextState.currentView !== this.state.currentView) {
+      return false;
+    } // Don't re-render jfc
+    return true;
+  }
+
+  updateCurrentView(newState) {
+    let state;
+    if (newState) state = 'GALLERY';
+    else state = 'BRIEF';
+    console.log("==========================" +
+      "\nTHE NEW STATE IS: ", state);
+    setTimeout(this.setState({currentView: newState}) ,1000);
+    if (newState) {
+      let scrollArrow = document.getElementById('scroll-arrow');
+      scrollArrow.className = "top";
+      scrollArrow.dataset.tip = "scroll up";
+      document.getElementById("p-name").style.opacity = "1.0";
+      setTimeout(()=>{
+        document.getElementById("timeline").style.visibility = "visible";
+        document.getElementById("timeline").style.opacity = "1.0";
+      }, 700);
+    } else {
+      document.getElementById('scroll-arrow').className = 'bottom';
+      document.getElementById('scroll-arrow').dataset.tip = "scroll down";
+      document.getElementById("p-name").style.opacity = "0";
+      document.getElementById("timeline").style.opacity = "0";
+      document.getElementById("timeline").style.visibility = "hidden";
+    }
   }
 
   render() {
@@ -101,8 +162,14 @@ class DetailWrapper extends Component {
           <span>{projectData.id}</span>
           <span id="p-name">{projectData.info.name}</span>
         </div>
-        <Brief p={projectData}/>
-        <Gallery p={projectData}/>
+        <Brief p={projectData}
+               currentView={this.state.currentView}
+               updateCurrentView={this.updateCurrentView}/>
+        <Gallery p={projectData}
+                 currentView={this.state.currentView}
+                 updateCurrentView={this.updateCurrentView}
+                 galleryPos={this.state.galleryPos}
+                 setGalleryPos={this.setGalleryPos}/>
         <FloatingList plist={this.state.plistJumpTable} currentProjectPath={this.props.location.pathname}/>
       </main>
     );
