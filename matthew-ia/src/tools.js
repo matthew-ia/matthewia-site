@@ -137,8 +137,7 @@ export function setDynamicColumnWidth() {
         }
       }
       if (firstImage) { // exists
-        let imgWidth = window.getComputedStyle(firstImage).getPropertyValue('width');
-        col.style.width = imgWidth;
+        col.style.width = window.getComputedStyle(firstImage).getPropertyValue('width');;
       } else if (text) { // if text exists, a p tag was found, so set a max-width value.
         col.style.maxWidth = "25vw";
       }
@@ -146,18 +145,7 @@ export function setDynamicColumnWidth() {
   }
 }
 
-export function indexOf_HTMLNodes(node) {
-  let index = 0;
-  while ( (node = node.previousElementSibling) ) {
-    console.log(node.previousElementSibling);
-    index++;
-  }
-  return index;
-}
-
 export function loadPage() {
-  //setTimeout(console.log('.'),1000);
-  //console.log("========= >> > > > >>>> loading page...");
   let pageContent = document.getElementById('main-content');
   pageContent.classList.remove('load');
   pageContent.classList.remove('load-done');
@@ -167,4 +155,3 @@ export function loadPage() {
   pageContent.classList.add('load-done');
   console.log("yeah!");
 }
-

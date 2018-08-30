@@ -131,3 +131,11 @@
   border-radius: 12px;
   margin: 0 24px 0 0;
 }
+
+.li-node-selected {
+  background-color: $brand-primary;
+}
+
+.li-pname-selected {
+  color: $brand-primary;
+}

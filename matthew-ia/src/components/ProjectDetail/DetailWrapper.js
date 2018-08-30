@@ -9,7 +9,6 @@
 
 import React, {Component} from "react";
 import { Helmet } from "react-helmet";
-import { Redirect} from "react-router-dom";
 
 import FloatingList from "../ProjectList/FloatingList";
 import Brief from "./Brief";
@@ -139,14 +138,6 @@ class DetailWrapper extends Component {
   }
 
   render() {
-    // Updates the page if a jump table link was clicked
-    /*
-    if (this.props.location.pathname !== this.state.currentPath) {
-      let path = this.props.location.pathname;
-      let id = path.substr((path.lastIndexOf('/')+1), path.length);
-      return <Redirect to={'/projects/' + id} />
-    }*/
-
     let projectData = {
       id: padNum(this.state.projectId),
       info: this.state.projectInfo, // name, tags
