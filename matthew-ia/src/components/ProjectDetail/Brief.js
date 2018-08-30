@@ -7,7 +7,8 @@
  */
 
 import React, {Component} from "react";
-import SpectraBrief from "./SpectraBrief";
+import {_Brief as Spectra} from "./projects/Spectra/_Brief";
+import {_Brief as OS1} from "./projects/OS1/_Brief";
 
 class Brief extends Component {
   // eslint-disable-next-line require-jsdoc
@@ -86,9 +87,11 @@ class Brief extends Component {
           switch(p.id) {
             case '01':
               console.log("it worked");
-              return <SpectraBrief p={p} handleScroll={this.handleScroll}/>;
+              return <Spectra p={p} handleScroll={this.handleScroll}/>;
+            case '02':
+              return <OS1 p={p} handleScroll={this.handleScroll}/>;
             default:
-              return <SpectraBrief p={p} handleScroll={this.handleScroll}/>;
+              return <Spectra p={p} handleScroll={this.handleScroll}/>;
           }
         })()}
       </section>

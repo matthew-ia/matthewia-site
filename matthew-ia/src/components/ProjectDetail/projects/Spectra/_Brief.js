@@ -9,7 +9,7 @@
 import React, {Component} from "react";
 import ReactTooltip from 'react-tooltip';
 
-class SpectraBrief extends Component {
+export class _Brief extends Component {
   render() {
     let {p} = this.props;
     return (
@@ -33,9 +33,7 @@ class SpectraBrief extends Component {
   }
 }
 
-SpectraBrief.defaultProps = {
+_Brief.defaultProps = {
   p: {}, // project data,
   handleScroll: () => {},
 };
-
-export default SpectraBrief;

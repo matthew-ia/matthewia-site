@@ -8,7 +8,7 @@
 
 import React, {Component} from "react";
 
-class SpectraGallery extends Component {
+export class _Gallery extends Component {
   render() {
     let {p} = this.props;
     return (
@@ -51,7 +51,7 @@ class SpectraGallery extends Component {
   }
 }
 
-SpectraGallery.defaultProps = {
+_Gallery.defaultProps = {
   p: {}, // project data,
   handleSmoothScroll: () => {},
   /**
@@ -61,5 +61,3 @@ SpectraGallery.defaultProps = {
    */
   setColumnWidth: ()=>{}
 };
-
-export default SpectraGallery;

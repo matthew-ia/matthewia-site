@@ -7,8 +7,8 @@
  */
 
 import React, {Component} from "react";
-import SpectraGallery from "./SpectraGallery";
-import {setDynamicColumnWidth} from "../../tools";
+import {_Gallery as Spectra} from "./projects/Spectra/_Gallery";
+import {_Gallery as OS1} from "./projects/OS1/_Gallery";
 
 class Gallery extends Component {
   // eslint-disable-next-line require-jsdoc
@@ -42,12 +42,11 @@ class Gallery extends Component {
     //TODO: Dynamically set the gallery width based on the number of images to display
 
     window.addEventListener('load', this.refreshView);
-    //window.addEventListener('load', this.setDynamicColumnWidth);
   }
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.updateWindowSize);
-    window.removeEventListener('load', this.setDynamicColumnWidth);
+    window.removeEventListener('load', this.refreshView);
   }
 
   refreshView() {
@@ -268,11 +267,15 @@ class Gallery extends Component {
           switch(p.id) {
             case '01':
               console.log("gallery it worked");
-              return <SpectraGallery p={p}
+              return <Spectra p={p}
                                      handleSmoothScroll={this.handleSmoothScroll}
                                      setColumnWidth={this.setDynamicColumnWidth}/>;
+            case '02':
+              return <OS1 p={p}
+                                      handleSmoothScroll={this.handleSmoothScroll}
+                                      setColumnWidth={this.setDynamicColumnWidth}/>;
             default:
-              return <SpectraGallery p={p} handleSmoothScroll={this.handleSmoothScroll}/>;
+              return <Spectra p={p} handleSmoothScroll={this.handleSmoothScroll}/>;
           }
         })()}
       </section>
