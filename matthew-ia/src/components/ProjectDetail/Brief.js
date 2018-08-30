@@ -7,7 +7,8 @@
  */
 
 import React, {Component} from "react";
-import ReactTooltip from 'react-tooltip';
+import {_Brief as Spectra} from "./projects/Spectra/_Brief";
+import {_Brief as OS1} from "./projects/OS1/_Brief";
 
 class Brief extends Component {
   // eslint-disable-next-line require-jsdoc
@@ -23,8 +24,10 @@ class Brief extends Component {
    * @param e – event fired on scroll (mousewheel or trackpad)
    */
   handleScroll(e) {
-    if (e.deltaY >= 15) {
-      console.log("yeah");
+    e.preventDefault();
+    if (e.deltaY >= 15) { // GOING DOWN ---> GALLERY
+      this.props.updateCurrentView(1);
+      /*
       document.getElementById("scroll-arrow").className = "top";
       document.getElementById("scroll-arrow").dataset.tip = "scroll up";
       document.getElementById("p-name").style.opacity = "1.0";
@@ -32,20 +35,24 @@ class Brief extends Component {
         document.getElementById("timeline").style.visibility = "visible";
         document.getElementById("timeline").style.opacity = "1.0";
       }, 700);
+      */
       window.scroll({
         top: document.body.scrollHeight,
         left: this.props.p.getScrollX(),
         behavior: "smooth",
       });
-      document.getElementById("detail").className = "showscroll";
+      //document.getElementById("detail").className = "showscroll";
     } else {
       // If user clicks the scroll-arrow when they're in the GALLERY section
+      // GOING UP (from Gallery) ---> BRIEF
       if (e.type === 'click' && document.getElementById("scroll-arrow").className === 'top') {
-        document.getElementById("scroll-arrow").className = 'bottom';
+        this.props.updateCurrentView(0);
+        /*document.getElementById("scroll-arrow").className = 'bottom';
         document.getElementById("scroll-arrow").dataset.tip = "scroll down";
         document.getElementById("p-name").style.opacity = "0";
         document.getElementById("timeline").style.opacity = "0";
         document.getElementById("timeline").style.visibility = "hidden";
+        */
         window.scroll({
           top: 0,
           left: 0,
@@ -57,12 +64,16 @@ class Brief extends Component {
 
         //document.addEventListener('wheel', this.handleScroll);
       }
+      // GOING DOWN ---> GALLERY
       // If user clicks the scroll-arrow when they're in the BRIEF section
       else if (e.type === 'click') {
-        console.log("getXScrollPos", this.props.p.getScrollX());
+        this.props.updateCurrentView(1);
+        //console.log("getXScrollPos", this.props.p.getScrollX());
+        /*
         document.getElementById("scroll-arrow").className = "top";
         document.getElementById("scroll-arrow").dataset.tip = "scroll up";
         document.getElementById("p-name").style.opacity = "1.0";
+        */
         setTimeout(()=>{
           document.getElementById("timeline").style.visibility = "visible";
           document.getElementById("timeline").style.opacity = "1.0";
@@ -75,30 +86,32 @@ class Brief extends Component {
         //(document.removeEventListener('wheel', this.handleScroll), 1000);
       }
     }
-    e.preventDefault();
   }
 
   render() {
     let {p} = this.props;
     return (
       <section id="brief" onWheel={this.handleScroll}>
-        <div className="p-desc">
-          <h1 className="p-title"> {p.info.name }</h1>
-          <span className="p-tags">{p.info.tags.join(" // ") }</span>
-          <p className="p-content">Inspired by Spike Jonze’s film <i>Her</i>, I created a mock informational brochure documenting the fictional operating system, OS One (OS1). I took creative liberty in writing the copy for the document, as I imagined how the OS could be used. This project was the final product of a culmination of mini personal projects related to Her, as well as the starting point of my interest in technical writing.</p>
-        </div>
-        <img className="p-image" src={p.publicPath + "ab.jpg"}/>
-        <a data-tip="scroll down" href="#" id="scroll-arrow" onClick={this.handleScroll} className="bottom" >
-          <img alt="scroll down arrow" src={window.location.origin + '/images/icons/2x/arrow.png'}/>
-        </a>
-        <ReactTooltip className="tooltip" effect="solid"/>
+        {(() => {
+          switch(p.id) {
+            case '01':
+              console.log("it worked");
+              return <Spectra p={p} handleScroll={this.handleScroll}/>;
+            case '02':
+              return <OS1 p={p} handleScroll={this.handleScroll}/>;
+            default:
+              return <Spectra p={p} handleScroll={this.handleScroll}/>;
+          }
+        })()}
       </section>
     );
   }
 }
 
 Brief.defaultProps = {
-  p: {}, // project data (object); id, info.name, info.tags, publicPath
+  p: {}, // project data (object); id, info.name, info.tags, publicPath,
+  currentView: 0,
+  updateCurrentView: ()=>{},
 };
 
 export default Brief;

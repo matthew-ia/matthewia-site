@@ -12,13 +12,11 @@ import { Helmet } from "react-helmet";
 import { Redirect} from "react-router-dom";
 
 import FloatingList from "../ProjectList/FloatingList";
-
-// Project detail Components
-import Spectra from "./projects/Spectra/Spectra";
-import OS1 from "./projects/OS1/OS1";
+import Brief from "./Brief";
+import Gallery from "./Gallery";
 
 
-import {adjustNavbar, padNum, setDynamicColumnWidth} from "../../tools";
+import {adjustNavbar, padNum} from "../../tools";
 const data = require("../../projectlist.json");
 const plist = data.plist;
 
@@ -42,10 +40,6 @@ class DetailWrapper extends Component {
 
     let path = this.props.location.pathname;
     let id = path.substr((path.lastIndexOf('/')+1), path.length);
-    //let name = projects.id.name;
-    //let tags = projects.id.tags;
-    //let content = projects.id.content;
-    let images = this.props.projects["p"+id].images;
 
     this.state = {
       currentPath: this.props.location.pathname,
@@ -55,33 +49,93 @@ class DetailWrapper extends Component {
       publicPath: window.location.origin + '/images/p' + id + "/",
       scrollPosX: 0,
       navbarOffset: 0,
+      currentView: 0,
     };
 
     this.saveXScrollPosition = this.saveXScrollPosition.bind(this);
     this.getXScrollPosition = this.getXScrollPosition.bind(this);
+    this.refreshView = this.refreshView.bind(this);
+    this.updateCurrentView = this.updateCurrentView.bind(this);
   }
 
   componentDidMount() {
     // Adjusts navbar with offset and saves the returned default value to state.
     // The state is used when the component unmounts to reset it.
     this.setState({navbarOffset: adjustNavbar()});
-    window.addEventListener('load', ()=> {
-      setDynamicColumnWidth();
-    });
+    window.scroll(0,0);
+    window.addEventListener('load', this.refreshView);
   }
 
   componentWillUnmount() {
     // Reset the navbar and scrollbar height spacing when leaving to another route
     adjustNavbar(this.state.navbarOffset);
-    window.removeEventListener('load', setDynamicColumnWidth)
+    window.removeEventListener('load', this.refreshView);
   }
 
   saveXScrollPosition(xPos) {
-    this.setState({scrollPosX: xPos});
+    if (xPos !== this.state.scrollPosX) {
+      console.log("saving X");
+      this.setState({scrollPosX: xPos});
+    }
   }
 
   getXScrollPosition() {
     return this.state.scrollPosX;
+  }
+
+  refreshView() {
+    let y = document.getElementById('gallery').getBoundingClientRect().y;
+    console.log("GALLERY Y: ", y);
+    if (y <= 0) {
+      this.updateCurrentView(1);
+    } else console.log("default: 0, also at 0");
+    /*
+    if (this.state.currentView === 0) {
+      console.log('gallery')
+    }
+    else if (this.state.currentView === 1) {
+      document.getElementById("p-name").style.opacity = "0";
+      document.getElementById("scroll-arrow").className = "bottom";
+      document.getElementById("scroll-arrow").dataset.tip = "scroll down";
+      document.getElementById("detail").className = "hidescroll";
+    }
+
+    // FIXME: project specific
+    //document.getElementById("timeline").style.opacity = "0";
+    //document.getElementById("timeline").style.visibility = "hidden";
+     */
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (nextState.currentView !== this.state.currentView) {
+      return false;
+    } // Don't re-render jfc
+    return true;
+  }
+
+  updateCurrentView(newState) {
+    let state;
+    if (newState) state = 'GALLERY';
+    else state = 'BRIEF';
+    console.log("==========================" +
+      "\nTHE NEW STATE IS: ", state);
+    setTimeout(this.setState({currentView: newState}) ,1000);
+    if (newState) {
+      let scrollArrow = document.getElementById('scroll-arrow');
+      scrollArrow.className = "top";
+      scrollArrow.dataset.tip = "scroll up";
+      document.getElementById("p-name").style.opacity = "1.0";
+      setTimeout(()=>{
+        document.getElementById("timeline").style.visibility = "visible";
+        document.getElementById("timeline").style.opacity = "1.0";
+      }, 700);
+    } else {
+      document.getElementById('scroll-arrow').className = 'bottom';
+      document.getElementById('scroll-arrow').dataset.tip = "scroll down";
+      document.getElementById("p-name").style.opacity = "0";
+      document.getElementById("timeline").style.opacity = "0";
+      document.getElementById("timeline").style.visibility = "hidden";
+    }
   }
 
   render() {
@@ -108,16 +162,14 @@ class DetailWrapper extends Component {
           <span>{projectData.id}</span>
           <span id="p-name">{projectData.info.name}</span>
         </div>
-        {(() => {
-          switch(projectData.id) {
-            case '1':
-              return <Spectra p={projectData}/>;
-            case '2':
-              return <OS1 p={projectData}/>;
-            default:
-              return <Spectra p={projectData}/>;
-          }
-        })()}
+        <Brief p={projectData}
+               currentView={this.state.currentView}
+               updateCurrentView={this.updateCurrentView}/>
+        <Gallery p={projectData}
+                 currentView={this.state.currentView}
+                 updateCurrentView={this.updateCurrentView}
+                 galleryPos={this.state.galleryPos}
+                 setGalleryPos={this.setGalleryPos}/>
         <FloatingList plist={this.state.plistJumpTable} currentProjectPath={this.props.location.pathname}/>
       </main>
     );
