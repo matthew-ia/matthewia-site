@@ -16,7 +16,7 @@ import Brief from "./Brief";
 import Gallery from "./Gallery";
 
 
-import {adjustNavbar, padNum, setDynamicColumnWidth} from "../../tools";
+import {adjustNavbar, padNum} from "../../tools";
 const data = require("../../projectlist.json");
 const plist = data.plist;
 
@@ -40,10 +40,6 @@ class DetailWrapper extends Component {
 
     let path = this.props.location.pathname;
     let id = path.substr((path.lastIndexOf('/')+1), path.length);
-    //let name = projects.id.name;
-    //let tags = projects.id.tags;
-    //let content = projects.id.content;
-    let images = this.props.projects["p"+id].images;
 
     this.state = {
       currentPath: this.props.location.pathname,
@@ -63,13 +59,11 @@ class DetailWrapper extends Component {
     // Adjusts navbar with offset and saves the returned default value to state.
     // The state is used when the component unmounts to reset it.
     this.setState({navbarOffset: adjustNavbar()});
-    window.addEventListener('load', setDynamicColumnWidth);
   }
 
   componentWillUnmount() {
     // Reset the navbar and scrollbar height spacing when leaving to another route
     adjustNavbar(this.state.navbarOffset);
-    window.removeEventListener('load', setDynamicColumnWidth);
   }
 
   saveXScrollPosition(xPos) {

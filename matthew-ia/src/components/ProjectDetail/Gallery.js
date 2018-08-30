@@ -8,6 +8,7 @@
 
 import React, {Component} from "react";
 import SpectraGallery from "./SpectraGallery";
+import {setDynamicColumnWidth} from "../../tools";
 
 class Gallery extends Component {
   // eslint-disable-next-line require-jsdoc
@@ -41,10 +42,12 @@ class Gallery extends Component {
     //TODO: Dynamically set the gallery width based on the number of images to display
 
     window.addEventListener('load', this.refreshView);
+    //window.addEventListener('load', this.setDynamicColumnWidth);
   }
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.updateWindowSize);
+    window.removeEventListener('load', this.setDynamicColumnWidth);
   }
 
   refreshView() {
@@ -87,12 +90,14 @@ class Gallery extends Component {
   }
 
   setDynamicColumnWidth() {
+    console.log("setDynamicColumnWidth");
     let columns = document.getElementsByClassName('col');
     if (columns) { // exists
       for (let col of columns) {
         let firstImage;
         for (let child of col.childNodes) {
           if (child.tagName === 'IMG') {
+            console.log("found image", child, window.getComputedStyle(child).getPropertyValue('width'));
             firstImage = child;
             break;
           }
@@ -101,12 +106,15 @@ class Gallery extends Component {
         let text;
         for (let child of col.childNodes) {
           if (child.tagName === 'P') {
+            console.log("found text");
             text = child;
           }
         }
         if (firstImage) { // exists
+          console.log("Setting col width: image");
           col.style.width = window.getComputedStyle(firstImage).getPropertyValue('width');
         } else if (text) { // if text exists, a p tag was found, so set a max-width value.
+          console.log("Setting col width: 25vw");
           col.style.maxWidth = "25vw";
         }
       }
@@ -260,7 +268,9 @@ class Gallery extends Component {
           switch(p.id) {
             case '01':
               console.log("gallery it worked");
-              return <SpectraGallery p={p} handleSmoothScroll={this.handleSmoothScroll}/>;
+              return <SpectraGallery p={p}
+                                     handleSmoothScroll={this.handleSmoothScroll}
+                                     setColumnWidth={this.setDynamicColumnWidth}/>;
             default:
               return <SpectraGallery p={p} handleSmoothScroll={this.handleSmoothScroll}/>;
           }
