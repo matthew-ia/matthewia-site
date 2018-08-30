@@ -16,15 +16,17 @@ import Home from '../Home/Home';
 class Main extends Component {
   render() {
     return (
-      <Switch>
-        <Route exact path="/" render={() => ( /* Handles default route */
-          <Redirect to="/info"/>
-        )}/>
-        <Route exact path='/info' component={Home} />
-        <Route exact path='/projects' component={ProjectList} />
-        <Route path='/projects/:number' component={DetailWrapper} />
-        <Route component={Home} /> {/* Handles garbage slugs */}
-      </Switch>
+      <main id="main-content">
+        <Switch>
+          <Route exact path="/" render={() => ( /* Handles default route */
+            <Redirect to="/info"/>
+          )}/>
+          <Route exact path='/info' component={Home} />
+          <Route exact path='/projects' component={ProjectList} />
+          <Route path='/projects/:number' component={DetailWrapper} />
+          <Route component={Home} /> {/* Handles garbage slugs */}
+        </Switch>
+      </main>
     );
   }
 }

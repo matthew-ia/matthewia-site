@@ -56,7 +56,7 @@ class Gallery extends Component {
         let firstImage;
         for (let child of col.childNodes) {
           if (child.tagName === 'IMG') {
-            console.log("found image", child, window.getComputedStyle(child).getPropertyValue('width'));
+            //console.log("found image", child, window.getComputedStyle(child).getPropertyValue('width'));
             firstImage = child;
             break;
           }
@@ -65,15 +65,15 @@ class Gallery extends Component {
         let text;
         for (let child of col.childNodes) {
           if (child.tagName === 'P') {
-            console.log("found text");
+            //console.log("found text");
             text = child;
           }
         }
         if (firstImage) { // exists
-          console.log("Setting col width: image");
+          //console.log("Setting col width: image");
           col.style.width = window.getComputedStyle(firstImage).getPropertyValue('width');
         } else if (text) { // if text exists, a p tag was found, so set a max-width value.
-          console.log("Setting col width: 25vw");
+          //console.log("Setting col width: 25vw");
           col.style.maxWidth = "25vw";
         }
       }

@@ -73,7 +73,6 @@ export function adjustNavbar(defaultMargin) {
   //
 
   if (defaultMargin !== undefined) {
-    console.log("state: ", defaultMargin);
     document.getElementById('bottom-nav').style.marginBottom = defaultMargin + "px";
     return; // Return nothing, ignore rest of code.
   }
@@ -155,3 +154,36 @@ export function indexOf_HTMLNodes(node) {
   }
   return index;
 }
+
+export function loadPage(timeOffset) {
+
+  //setTimeout(console.log('.'),1000);
+  //console.log("========= >> > > > >>>> loading page...");
+  let pageContent = document.getElementById('main-content');
+  if (timeOffset) {
+    pageContent.classList.remove('load');
+    pageContent.classList.remove('load-done');
+    pageContent.classList.remove('long-load');
+  } else {
+    pageContent.classList.remove('load');
+    pageContent.classList.remove('load-done');
+  }
+
+  // https://css-tricks.com/restart-css-animation/
+  void pageContent.offsetWidth; // for some reason very necessary
+  if (timeOffset) {
+    document.getElementById('brief').classList.add('hidden');
+    document.getElementById('gallery').classList.add('hidden');
+    setTimeout(()=>{
+      pageContent.classList.add('long-load');
+      pageContent.classList.add('load-done');
+      document.getElementById('brief').classList.remove('hidden');
+      document.getElementById('gallery').classList.remove('hidden');
+    }, 200);
+  } else {
+    pageContent.classList.add('load');
+    pageContent.classList.add('load-done');
+  }
+  console.log("yeah!");
+}
+
