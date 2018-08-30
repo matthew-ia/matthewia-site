@@ -9,6 +9,7 @@
 import React, {Component} from "react";
 import {_Brief as Spectra} from "./projects/Spectra/_Brief";
 import {_Brief as OS1} from "./projects/OS1/_Brief";
+import {loadPage} from "../../tools";
 
 class Brief extends Component {
   // eslint-disable-next-line require-jsdoc
@@ -17,6 +18,21 @@ class Brief extends Component {
     this.state = {};
 
     this.handleScroll = this.handleScroll.bind(this);
+  }
+
+  componentDidMount() {
+    console.log("=========\nBrief is mounting");
+    loadPage(1);
+  }
+
+  shouldComponentUpdate(nextProps) {
+    console.log("=========\nBrief is updating");
+    console.log(this.props.p.id);
+    if (this.props.p.id !== nextProps.p.id) {
+      console.log("nextProps found new id: ", nextProps.p.id);
+      loadPage(1);
+    }
+    return true;
   }
 
   /**

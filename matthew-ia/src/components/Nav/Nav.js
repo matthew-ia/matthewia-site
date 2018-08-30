@@ -8,6 +8,7 @@
 
 import React, {Component} from 'react';
 import { NavLink } from 'react-router-dom'
+import {loadPage} from '../../tools';
 
 class Nav extends Component {
   render() {
@@ -15,11 +16,14 @@ class Nav extends Component {
       <nav id="bottom-nav">
         <ul>
           <li><NavLink activeClassName="selected"
-                       to='/info'>info</NavLink></li>
+                       to='/info'
+                       onClick={loadPage}>info</NavLink></li>
           <li><NavLink activeClassName="selected"
-                       to='/projects'>projects</NavLink></li>
+                       to='/projects'
+                       onClick={loadPage}>projects</NavLink></li>
           <li><NavLink activeClassName="selected"
-                       to='/resume'>resume</NavLink></li>
+                       to='/resume'
+                       onClick={loadPage}>resume</NavLink></li>
         </ul>
       </nav>
     );

@@ -9,7 +9,6 @@
 
 import React, {Component} from "react";
 import { Helmet } from "react-helmet";
-import { Redirect} from "react-router-dom";
 
 import FloatingList from "../ProjectList/FloatingList";
 import Brief from "./Brief";
@@ -139,13 +138,6 @@ class DetailWrapper extends Component {
   }
 
   render() {
-    // Updates the page if a jump table link was clicked
-    if (this.props.location.pathname !== this.state.currentPath) {
-      let path = this.props.location.pathname;
-      let id = path.substr((path.lastIndexOf('/')+1), path.length);
-      return <Redirect to={'/projects/' + id} />
-    }
-
     let projectData = {
       id: padNum(this.state.projectId),
       info: this.state.projectInfo, // name, tags
@@ -154,7 +146,7 @@ class DetailWrapper extends Component {
       getScrollX: this.getXScrollPosition,
     };
     return (
-      <main id="detail" className="hidescroll">
+      <div id="detail" className="hidescroll">
         <Helmet>
           <title>matthew.ia > projects > {projectData.id}</title>
         </Helmet>
@@ -167,11 +159,11 @@ class DetailWrapper extends Component {
                updateCurrentView={this.updateCurrentView}/>
         <Gallery p={projectData}
                  currentView={this.state.currentView}
-                 updateCurrentView={this.updateCurrentView}
-                 galleryPos={this.state.galleryPos}
-                 setGalleryPos={this.setGalleryPos}/>
-        <FloatingList plist={this.state.plistJumpTable} currentProjectPath={this.props.location.pathname}/>
-      </main>
+                 updateCurrentView={this.updateCurrentView}/>
+        <FloatingList plist={this.state.plistJumpTable}
+                      currentProjectPath={this.props.location.pathname}
+                      shouldRedirect={false}/>
+      </div>
     );
   }
 }

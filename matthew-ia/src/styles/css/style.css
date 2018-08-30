@@ -1120,6 +1120,25 @@ dd {
 #root > div {
   margin: 0 0 0 10%; }
 
+@keyframes loadAnimation {
+  0% {
+    visibility: visible;
+    opacity: 0; }
+  100% {
+    opacity: 1.0; } }
+
+.long-load {
+  visibility: hidden;
+  animation: loadAnimation 1s;
+  animation-fill-mode: backwards; }
+
+.load {
+  visibility: hidden;
+  animation: loadAnimation 1s; }
+
+.load-done {
+  visibility: visible; }
+
 .tooltip {
   transition: visibility 0.2s ease-in-out, opacity 0.4s ease-in-out;
   background-color: #2B271E;
@@ -1349,6 +1368,12 @@ button:focus {
   border: 3px solid #2B271E;
   border-radius: 12px;
   margin: 0 24px 0 0; }
+
+.li-node-selected {
+  background-color: #2B271E; }
+
+.li-pname-selected {
+  color: #2B271E; }
 
 #detail {
   overflow: visible; }

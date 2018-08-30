@@ -73,7 +73,6 @@ export function adjustNavbar(defaultMargin) {
   //
 
   if (defaultMargin !== undefined) {
-    console.log("state: ", defaultMargin);
     document.getElementById('bottom-nav').style.marginBottom = defaultMargin + "px";
     return; // Return nothing, ignore rest of code.
   }
@@ -138,8 +137,7 @@ export function setDynamicColumnWidth() {
         }
       }
       if (firstImage) { // exists
-        let imgWidth = window.getComputedStyle(firstImage).getPropertyValue('width');
-        col.style.width = imgWidth;
+        col.style.width = window.getComputedStyle(firstImage).getPropertyValue('width');;
       } else if (text) { // if text exists, a p tag was found, so set a max-width value.
         col.style.maxWidth = "25vw";
       }
@@ -147,11 +145,13 @@ export function setDynamicColumnWidth() {
   }
 }
 
-export function indexOf_HTMLNodes(node) {
-  let index = 0;
-  while ( (node = node.previousElementSibling) ) {
-    console.log(node.previousElementSibling);
-    index++;
-  }
-  return index;
+export function loadPage() {
+  let pageContent = document.getElementById('main-content');
+  pageContent.classList.remove('load');
+  pageContent.classList.remove('load-done');
+  // https://css-tricks.com/restart-css-animation/
+  void pageContent.offsetWidth; // for some reason very necessary
+  pageContent.classList.add('load');
+  pageContent.classList.add('load-done');
+  console.log("yeah!");
 }
