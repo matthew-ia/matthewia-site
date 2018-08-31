@@ -119,21 +119,27 @@ class DetailWrapper extends Component {
     console.log("==========================" +
       "\nTHE NEW STATE IS: ", state);
     setTimeout(this.setState({currentView: newState}) ,1000);
+    let galleryNav = document.getElementById("gallery-nav");
     if (newState) {
       let scrollArrow = document.getElementById('scroll-arrow');
       scrollArrow.className = "top";
       scrollArrow.dataset.tip = "scroll up";
       document.getElementById("p-name").style.opacity = "1.0";
-      setTimeout(()=>{
-        document.getElementById("gallery-nav").style.visibility = "visible";
-        document.getElementById("gallery-nav").style.opacity = "1.0";
-      }, 700);
+      if (galleryNav !== null) {
+        setTimeout(()=>{
+          document.getElementById("gallery-nav").style.visibility = "visible";
+          document.getElementById("gallery-nav").style.opacity = "1.0";
+        }, 700);
+      }
+
     } else {
       document.getElementById('scroll-arrow').className = 'bottom';
       document.getElementById('scroll-arrow').dataset.tip = "scroll down";
       document.getElementById("p-name").style.opacity = "0";
-      document.getElementById("gallery-nav").style.opacity = "0";
-      document.getElementById("gallery-nav").style.visibility = "hidden";
+      if (galleryNav !== null) {
+        document.getElementById("gallery-nav").style.opacity = "0";
+        document.getElementById("gallery-nav").style.visibility = "hidden";
+      }
     }
   }
 
@@ -146,7 +152,7 @@ class DetailWrapper extends Component {
       getScrollX: this.getXScrollPosition,
     };
     return (
-      <div id="detail" className="hidescroll">
+      <div id="detail">
         <Helmet>
           <title>matthew.ia > projects > {projectData.id}</title>
         </Helmet>

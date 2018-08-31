@@ -43,32 +43,16 @@ class Brief extends Component {
     e.preventDefault();
     if (e.deltaY >= 15) { // GOING DOWN ---> GALLERY
       this.props.updateCurrentView(1);
-      /*
-      document.getElementById("scroll-arrow").className = "top";
-      document.getElementById("scroll-arrow").dataset.tip = "scroll up";
-      document.getElementById("p-name").style.opacity = "1.0";
-      setTimeout(()=>{
-        document.getElementById("timeline").style.visibility = "visible";
-        document.getElementById("timeline").style.opacity = "1.0";
-      }, 700);
-      */
       window.scroll({
         top: document.body.scrollHeight,
         left: this.props.p.getScrollX(),
         behavior: "smooth",
       });
-      //document.getElementById("detail").className = "showscroll";
     } else {
       // If user clicks the scroll-arrow when they're in the GALLERY section
       // GOING UP (from Gallery) ---> BRIEF
       if (e.type === 'click' && document.getElementById("scroll-arrow").className === 'top') {
         this.props.updateCurrentView(0);
-        /*document.getElementById("scroll-arrow").className = 'bottom';
-        document.getElementById("scroll-arrow").dataset.tip = "scroll down";
-        document.getElementById("p-name").style.opacity = "0";
-        document.getElementById("timeline").style.opacity = "0";
-        document.getElementById("timeline").style.visibility = "hidden";
-        */
         window.scroll({
           top: 0,
           left: 0,
@@ -77,29 +61,16 @@ class Brief extends Component {
         console.log("windowScrollX: ", window.scrollX);
         this.props.p.saveScrollX(window.scrollX);
         console.log("Saving wsX: ", window.scrollX);
-
-        //document.addEventListener('wheel', this.handleScroll);
       }
       // GOING DOWN ---> GALLERY
       // If user clicks the scroll-arrow when they're in the BRIEF section
       else if (e.type === 'click') {
         this.props.updateCurrentView(1);
-        //console.log("getXScrollPos", this.props.p.getScrollX());
-        /*
-        document.getElementById("scroll-arrow").className = "top";
-        document.getElementById("scroll-arrow").dataset.tip = "scroll up";
-        document.getElementById("p-name").style.opacity = "1.0";
-        */
-        setTimeout(()=>{
-          document.getElementById("gallery-nav").style.visibility = "visible";
-          document.getElementById("gallery-nav").style.opacity = "1.0";
-        }, 700);
         window.scroll({
           top: document.body.scrollHeight,
           left: this.props.p.getScrollX(),
           behavior: "smooth",
         });
-        //(document.removeEventListener('wheel', this.handleScroll), 1000);
       }
     }
   }
@@ -111,7 +82,6 @@ class Brief extends Component {
         {(() => {
           switch(p.id) {
             case '01':
-              console.log("it worked");
               return <Spectra p={p} handleScroll={this.handleScroll}/>;
             case '02':
               return <OS1 p={p} handleScroll={this.handleScroll}/>;

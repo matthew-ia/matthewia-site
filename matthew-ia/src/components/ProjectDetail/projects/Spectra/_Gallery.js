@@ -7,25 +7,14 @@
  */
 
 import React, {Component} from "react";
+import GalleryNav from "../../GalleryNav";
 
 export class _Gallery extends Component {
   render() {
     let {p} = this.props;
     return (
       <div>
-        <div id="gallery-nav">
-          <ul>
-            <li><a onClick={this.props.handleSmoothScroll}
-                   className="gallery-link active"
-                   href="#t2016">2016</a></li>
-            <li><a onClick={this.props.handleSmoothScroll}
-                   className="gallery-link"
-                   href="#t2017">2017</a></li>
-            <li><a onClick={this.props.handleSmoothScroll}
-                   className="gallery-link"
-                   href="#t2018">2018</a></li>
-          </ul>
-        </div>
+        <GalleryNav handleScroll={this.props.handleSmoothScroll}/>
         <div>
           <div id="t2016" className="col gallery-marker">
             <img onLoad={this.props.setColumnWidth}

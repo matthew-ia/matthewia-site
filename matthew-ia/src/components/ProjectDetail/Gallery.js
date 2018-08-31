@@ -228,7 +228,6 @@ class Gallery extends Component {
         {(() => {
           switch(p.id) {
             case '01':
-              console.log("gallery it worked");
               return <Spectra p={p}
                                      handleSmoothScroll={this.handleSmoothScroll}
                                      setColumnWidth={this.setDynamicColumnWidth}/>;
