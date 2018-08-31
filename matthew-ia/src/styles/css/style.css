@@ -1230,7 +1230,7 @@ button:focus {
   position: fixed;
   left: 0;
   bottom: 0;
-  margin: 0 0 3% 10%; }
+  margin: 0 0 5% 10%; }
 
 #bottom-nav ul {
   padding: 0;
@@ -1260,6 +1260,10 @@ button:focus {
   top: 0;
   left: 0;
   right: 0; }
+
+@media screen and (max-width: 1689px) {
+  #bottom-nav {
+    margin: 0 0 3% 10%; } }
 
 #projects {
   margin: 120px 0 0 0; }
