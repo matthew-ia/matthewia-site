@@ -114,6 +114,10 @@ class Gallery extends Component {
    * @param e – event fired from clicking on anchor
    */
   handleScrollUp() {
+    if (document.getElementById('image-expanded') !== null) {
+      console.log("In exapnded mode");
+      return;
+    }
     //console.log("xDefault: ", this.state.scrollLeftDefault);
     // Smooth scroll up to Brief section.
     window.scroll({

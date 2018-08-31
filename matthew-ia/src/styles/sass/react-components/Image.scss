@@ -1,0 +1,76 @@
+/*
+ * Image Component Stylesheet
+ * --------------------------------------------------
+ */
+@import '../custom-variables';
+
+//== Style
+//
+//## A group of styles
+
+#image-container {
+  cursor: pointer;
+  &.expanded {
+   cursor: zoom-out;
+    img:hover {
+      transition: none;
+      filter: none;
+    }
+  }
+  img {
+    transition: filter 0.2s ease-in-out;
+  }
+  img:hover {
+    filter: grayscale(55%);
+  }
+}
+.image-expanded {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(white, 0.98);
+  z-index: 100;
+  animation: loadExpandImage 0.2s;
+  #full-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    max-width: 60% !important;
+    border: none !important;
+    box-shadow: 6px 6px 24px rgba($brand-primary, 0.5);
+    width: 100%;
+    //margin: 3% auto !important;
+  }
+}
+.close-expand-wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 2% 3%;
+}
+#close-expand {
+  width: 20px;
+  height: 20px;
+  border: none !important;
+  background-color: transparent !important;
+  cursor: pointer;
+  margin: 0 0 10px 0 !important;
+}
+
+.hidescroll {
+  //overflow: hidden !important;
+}
+
+@keyframes loadExpandImage {
+  0% {
+    visibility: visible;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1.0;
+  }
+}

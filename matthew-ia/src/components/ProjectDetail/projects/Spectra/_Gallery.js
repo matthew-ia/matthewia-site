@@ -8,6 +8,7 @@
 
 import React, {Component} from "react";
 import GalleryNav from "../../GalleryNav";
+import Image from "../../../Image";
 
 export class _Gallery extends Component {
   render() {
@@ -17,8 +18,15 @@ export class _Gallery extends Component {
         <GalleryNav handleScroll={this.props.handleSmoothScroll}/>
         <div>
           <div id="t2016" className="col gallery-marker">
-            <img onLoad={this.props.setColumnWidth}
+            {/*<img onLoad={this.props.setColumnWidth}
                  className="sm" id="1" src={p.publicPath + "ab.jpg"}/>
+             */}
+            <Image onLoad={this.props.setColumnWidth}
+                   className='sm'
+                   id='1'
+                   path={p.publicPath}
+                   previewFile={'ab.png'}
+                   fullscreenFile={'ab.jpg'}/>
             <img className="sm" src={p.publicPath + "bbb.jpg"}/>
           </div>
           <div className="col">
