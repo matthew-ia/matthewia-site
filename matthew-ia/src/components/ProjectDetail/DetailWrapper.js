@@ -125,15 +125,15 @@ class DetailWrapper extends Component {
       scrollArrow.dataset.tip = "scroll up";
       document.getElementById("p-name").style.opacity = "1.0";
       setTimeout(()=>{
-        document.getElementById("timeline").style.visibility = "visible";
-        document.getElementById("timeline").style.opacity = "1.0";
+        document.getElementById("gallery-nav").style.visibility = "visible";
+        document.getElementById("gallery-nav").style.opacity = "1.0";
       }, 700);
     } else {
       document.getElementById('scroll-arrow').className = 'bottom';
       document.getElementById('scroll-arrow').dataset.tip = "scroll down";
       document.getElementById("p-name").style.opacity = "0";
-      document.getElementById("timeline").style.opacity = "0";
-      document.getElementById("timeline").style.visibility = "hidden";
+      document.getElementById("gallery-nav").style.opacity = "0";
+      document.getElementById("gallery-nav").style.visibility = "hidden";
     }
   }
 

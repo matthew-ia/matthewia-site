@@ -91,8 +91,8 @@ class Brief extends Component {
         document.getElementById("p-name").style.opacity = "1.0";
         */
         setTimeout(()=>{
-          document.getElementById("timeline").style.visibility = "visible";
-          document.getElementById("timeline").style.opacity = "1.0";
+          document.getElementById("gallery-nav").style.visibility = "visible";
+          document.getElementById("gallery-nav").style.opacity = "1.0";
         }, 700);
         window.scroll({
           top: document.body.scrollHeight,

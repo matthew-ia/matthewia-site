@@ -1378,9 +1378,6 @@ button:focus {
 #detail {
   overflow: visible; }
 
-#detail.showscroll {
-  overflow: visible; }
-
 #detail #p-id span {
   font-family: Inconsolata,Menlo,Monaco,Consolas,"Courier New",monospace;
   position: fixed;
@@ -1499,10 +1496,7 @@ button:focus {
   color: #5F5F5F;
   max-width: 100%; }
 
-#gallery {
-  padding-top: 20vh; }
-
-#timeline {
+#gallery-nav {
   visibility: hidden;
   transition: opacity 0.4s ease-in-out;
   opacity: 0;
@@ -1514,28 +1508,31 @@ button:focus {
   font-size: 18px;
   font-weight: 500; }
 
-#timeline ul {
+#gallery-nav ul {
   margin: 0;
   padding: 0;
   list-style: none; }
 
-#timeline ul li {
+#gallery-nav ul li {
   display: inline-block;
   padding: 5px;
   margin-right: 20px; }
 
-#timeline ul li a {
+#gallery-nav ul li a {
   transition: color 0.2s ease-in;
   color: #D0D0D0; }
 
-#timeline ul li a:hover {
+#gallery-nav ul li a:hover {
   color: #5F5F5F; }
 
-#timeline ul li a.active {
+#gallery-nav ul li a.active {
   color: #2B271E; }
 
-#timeline ul li:first-of-type {
+#gallery-nav ul li:first-of-type {
   padding-left: 6px; }
+
+#gallery {
+  padding-top: 20vh; }
 
 #dimensions {
   position: fixed;

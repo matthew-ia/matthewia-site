@@ -13,21 +13,21 @@ export class _Gallery extends Component {
     let {p} = this.props;
     return (
       <div>
-        <div id="timeline">
+        <div id="gallery-nav">
           <ul>
             <li><a onClick={this.props.handleSmoothScroll}
-                   className="time-link active"
+                   className="gallery-link active"
                    href="#t2016">2016</a></li>
             <li><a onClick={this.props.handleSmoothScroll}
-                   className="time-link"
+                   className="gallery-link"
                    href="#t2017">2017</a></li>
             <li><a onClick={this.props.handleSmoothScroll}
-                   className="time-link"
+                   className="gallery-link"
                    href="#t2018">2018</a></li>
           </ul>
         </div>
         <div>
-          <div id="t2016" className="col time-marker">
+          <div id="t2016" className="col gallery-marker">
             <img onLoad={this.props.setColumnWidth}
                  className="sm" id="1" src={p.publicPath + "ab.jpg"}/>
             <img className="sm" src={p.publicPath + "bbb.jpg"}/>
@@ -39,11 +39,11 @@ export class _Gallery extends Component {
           </div>
           <img className="lg"  src={p.publicPath + "dd.jpg"}/>
           <img className="lg"  src={p.publicPath + "dd.jpg"}/>
-          <img id="t2017" className="md time-marker" src={p.publicPath + "cd.jpg"}/>
+          <img id="t2017" className="md gallery-marker" src={p.publicPath + "cd.jpg"}/>
           <img className="md" src={p.publicPath + "cd.jpg"}/>
           <img className="md" src={p.publicPath + "cd.jpg"}/>
           <img className="md" src={p.publicPath + "cd.jpg"}/>
-          <img id="t2018" className="md time-marker" src={p.publicPath + "cd.jpg"}/>
+          <img id="t2018" className="md gallery-marker" src={p.publicPath + "cd.jpg"}/>
           <img className="md" src={p.publicPath + "cd.jpg"}/>
         </div>
       </div>

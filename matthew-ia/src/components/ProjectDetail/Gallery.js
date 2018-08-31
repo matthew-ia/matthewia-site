@@ -174,13 +174,13 @@ class Gallery extends Component {
     });
 
     // FIXME: project specific
-    let timelineList = Array.prototype.slice.call(document.getElementsByClassName('time-link'));
+    let timelineList = Array.prototype.slice.call(document.getElementsByClassName('gallery-link'));
     for (let link of timelineList) {
       console.log("hmm: ", link.getAttribute('href').slice(1,), id);
       if (link.getAttribute('href').slice(1,) === id) {
-        link.className = 'time-link active';
+        link.className = 'gallery-link active';
       } else {
-        link.className = 'time-link';
+        link.className = 'gallery-link';
       }
     }
     e.preventDefault(); // This is very necessary so the normal anchor snapping doesn't occur.
@@ -192,7 +192,7 @@ class Gallery extends Component {
    */
   handleTimeline() {
     // Get the elements with class that indicates it starts a time period section.
-    let periodStartElements = Array.prototype.slice.call(document.getElementsByClassName('time-marker'));
+    let periodStartElements = Array.prototype.slice.call(document.getElementsByClassName('gallery-marker'));
     // Calculate about 50% of the view width
     let halfWidth = this.state.windowWidth / 2;
 
@@ -206,15 +206,15 @@ class Gallery extends Component {
         // Get index of the period that is in view
         let i = periodStartElements.indexOf(period);
         // Get an array of the timeline links (which jump to the period-start elements)
-        let timelineList = Array.prototype.slice.call(document.getElementsByClassName('time-link'));
+        let timelineList = Array.prototype.slice.call(document.getElementsByClassName('gallery-link'));
         // For each link in the timeline link list
         for (let link of timelineList) {
           // Match the link to the current period.
           if (timelineList.indexOf(link) === i) {
-            if (link.className !== 'time-link active') // only overwrite if not set
-              link.className = 'time-link active';
+            if (link.className !== 'gallery-link active') // only overwrite if not set
+              link.className = 'gallery-link active';
           } else { // Not a match, set to the the default style
-            link.className = 'time-link';
+            link.className = 'gallery-link';
           }
         }
       }

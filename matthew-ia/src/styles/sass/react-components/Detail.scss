@@ -11,12 +11,6 @@
 #detail {
   //transition: opacity 0.5s ease-in-out;
   overflow: visible;
-  &.hidescroll {
-    //overflow: auto;
-  }
-  &.showscroll {
-    overflow: visible;
-  }
 }
 
 // Floating project ID
@@ -145,6 +139,42 @@
       margin: 0 0 35px 0;
       color: $brand-gray;
       max-width: 100%;
+    }
+  }
+}
+
+#gallery-nav {
+  visibility: hidden;
+  transition: opacity 0.4s ease-in-out;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  margin-top: 115px;
+  margin-bottom: 40px;
+  font-size: $font-size-medium;
+  font-weight: $fw-medium;
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      display: inline-block;
+      padding: 5px;
+      margin-right: 20px;
+      a {
+        transition: color 0.2s ease-in;
+        color: $brand-gray-lighter;
+        &:hover {
+          color: $brand-gray;
+        }
+      }
+      a.active {
+        color: $brand-primary;
+      }
+      &:first-of-type {
+        padding-left: 6px;
+      }
     }
   }
 }

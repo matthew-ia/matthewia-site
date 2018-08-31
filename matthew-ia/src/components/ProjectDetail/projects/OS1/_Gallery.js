@@ -13,7 +13,7 @@ export class _Gallery extends Component {
     let {p} = this.props;
     return (
       <div>
-        <div id="timeline">
+        <div id="gallery-nav">
           <ul>
             <li><a onClick={this.props.handleSmoothScroll}
                    className="time-link active"
