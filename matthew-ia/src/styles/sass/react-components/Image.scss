@@ -39,11 +39,11 @@
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
-    max-width: 60% !important;
+    max-width: 100% !important;
+    max-height: 80%;
     border: none !important;
     box-shadow: 6px 6px 24px rgba($brand-primary, 0.5);
-    width: 100%;
-    //margin: 3% auto !important;
+    height: 100%;
   }
 }
 .close-expand-wrapper {
