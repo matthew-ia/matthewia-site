@@ -8,7 +8,8 @@
 
 import React, {Component} from "react";
 import GalleryNav from "../../GalleryNav";
-import Image from "../../../Image";
+import Image from "../../../Image/Image";
+import Label from "../../../Label/Label";
 
 export class _Gallery extends Component {
   render() {
@@ -27,23 +28,31 @@ export class _Gallery extends Component {
                    path={p.publicPath}
                    previewFile={'ab.png'}
                    fullscreenFile={'ab.jpg'}/>
-            <p className='label'>I'm a label!</p>
+            <Label text="I'm a label"/>
             <img className="sm" src={p.publicPath + "bbb.jpg"}/>
-            <p className='label'>I'm a label!</p>
+            <Label text="I'm a label too!"/>
           </div>
           <div className="col">
             <img onLoad={this.props.setColumnWidth}
                  className="md" src={p.publicPath + "cd.jpg"}/>
             <p className="stacked">I'm a full column of text. I'm a full column of text. I'm a full column of text. I'm a full column of text. I'm a full column of text. I'm a full column of text. I'm a full column of text.I'm a full column of text. I'm a full column of text. I'm a full column of text.</p>
           </div>
-          <img className="lg"  src={p.publicPath + "dd.jpg"}/>
-          <img className="lg"  src={p.publicPath + "dd.jpg"}/>
-          <img id="t2017" className="md gallery-marker" src={p.publicPath + "cd.jpg"}/>
-          <img className="md" src={p.publicPath + "cd.jpg"}/>
-          <img className="md" src={p.publicPath + "cd.jpg"}/>
-          <img className="md" src={p.publicPath + "cd.jpg"}/>
-          <img id="t2018" className="md gallery-marker" src={p.publicPath + "cd.jpg"}/>
-          <img className="md" src={p.publicPath + "cd.jpg"}/>
+          <div className='col'>
+            <img className="lg"  src={p.publicPath + "dd.jpg"}/>
+            <Label text="I'm a label too!"/>
+          </div>
+          <div className='col'>
+            <img className="md"  src={p.publicPath + "bbb.jpg"}/>
+            <Label text="I'm a label too!"/>
+          </div>
+          <div className='col'>
+            <img className="lg"  src={p.publicPath + "cd.jpg"}/>
+            <Label text="I'm a label too!"/>
+          </div>
+          <div className='col'>
+            <img className="md"  src={p.publicPath + "main.png"}/>
+            <Label text="I'm a label too!"/>
+          </div>
         </div>
       </div>
     );
