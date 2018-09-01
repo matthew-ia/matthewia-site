@@ -27,7 +27,9 @@ export class _Gallery extends Component {
                    path={p.publicPath}
                    previewFile={'ab.png'}
                    fullscreenFile={'ab.jpg'}/>
+            <p className='label'>I'm a label!</p>
             <img className="sm" src={p.publicPath + "bbb.jpg"}/>
+            <p className='label'>I'm a label!</p>
           </div>
           <div className="col">
             <img onLoad={this.props.setColumnWidth}

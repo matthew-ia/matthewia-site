@@ -92,7 +92,8 @@
       margin-bottom: 0;
     }
     a {
-      font-weight: $fw-medium;
+      font-family: $font-family-monospace;
+      font-weight: $fw-normal;
       color: $brand-gray-lighter;
       &:hover {
         color: $brand-primary;
