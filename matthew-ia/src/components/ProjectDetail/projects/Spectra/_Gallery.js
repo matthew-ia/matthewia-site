@@ -24,41 +24,60 @@ export class _Gallery extends Component {
              */}
             <Image onLoad={this.props.setColumnWidth}
                    className='sm'
-                   id='1'
+                   id='t2016'
                    path={p.publicPath}
                    previewFile={'ab.png'}
                    fullscreenFile={'ab.jpg'}/>
             <Label text="I'm a label"/>
-            <img className="sm" src={p.publicPath + "bbb.jpg"}/>
+            <Image className='md'
+                   path={p.publicPath}
+                   previewFile={'bbb.jpg'}
+                   fullscreenFile={'bbb.jpg'}/>
             <Label text="I'm a label too!"/>
           </div>
           <div className="col">
             <Image onLoad={this.props.setColumnWidth}
                    className='md'
-                   id='1'
                    path={p.publicPath}
                    previewFile={'cd.jpg'}
                    fullscreenFile={'cd.jpg'}/>
             <p className="stacked">I'm a full column of text. I'm a full column of text. I'm a full column of text. I'm a full column of text. I'm a full column of text. I'm a full column of text. I'm a full column of text.I'm a full column of text. I'm a full column of text. I'm a full column of text.</p>
           </div>
-          <div className='col'>
-            <img className="lg"  src={p.publicPath + "dd.jpg"}/>
+          <div className='col gallery-marker'>
+            <Image className='lg'
+                   id='t2017'
+                   path={p.publicPath}
+                   previewFile={'dd.jpg'}
+                   fullscreenFile={'dd.jpg'}/>
             <Label text="I'm a label too!"/>
           </div>
           <div className='col'>
-            <img className="md"  src={p.publicPath + "bbb.jpg"}/>
+            <Image className='md'
+                   path={p.publicPath}
+                   previewFile={'main.png'}
+                   fullscreenFile={'main.png'}/>
             <Label text="I'm a label too!"/>
           </div>
           <div className='col'>
-            <img className="lg"  src={p.publicPath + "cd.jpg"}/>
+            <Image className='md'
+                   path={p.publicPath}
+                   previewFile={'main.png'}
+                   fullscreenFile={'main.png'}/>
             <Label text="I'm a label too!"/>
           </div>
           <div className='col'>
-            <img className="md"  src={p.publicPath + "main.png"}/>
+            <Image className='md'
+                   path={p.publicPath}
+                   previewFile={'main.png'}
+                   fullscreenFile={'main.png'}/>
             <Label text="I'm a label too!"/>
           </div>
-          <div className='col'>
-            <img className="md"  src={p.publicPath + "main.png"}/>
+          <div className='col gallery-marker'>
+            <Image className='md'
+                   id='t2018'
+                   path={p.publicPath}
+                   previewFile={'ab.png'}
+                   fullscreenFile={'ab.png'}/>
             <Label text="I'm a label too!"/>
           </div>
         </div>

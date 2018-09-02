@@ -23,7 +23,7 @@ class Gallery extends Component {
     this.handleScrollUp = this.handleScrollUp.bind(this);
     this.handleScrollHorizontal = this.handleScrollHorizontal.bind(this);
     this.updateWindowSize = this.updateWindowSize.bind(this);
-    this.handleTimeline = this.handleTimeline.bind(this);
+    this.handleGalleryNav = this.handleGalleryNav.bind(this);
     this.handleSmoothScroll = this.handleSmoothScroll.bind(this);
     this.setDynamicColumnWidth = this.setDynamicColumnWidth.bind(this);
     this.setColumnWidth = this.setColumnWidth.bind(this);
@@ -97,7 +97,7 @@ class Gallery extends Component {
     e.preventDefault();
     // X Position of the first element in the Gallery.
     // TODO: update the element selector to not rely on an ID
-    let xPos = document.getElementById("1").getBoundingClientRect().x;
+    // let xPos = document.getElementById("1").getBoundingClientRect().x;
     // Y Position of the Gallery section (top left corner)
     let yPos = this.state.galleryPosY;
     //console.log("w.sY: ", window.scrollY, ", yPos: ", yPos);
@@ -167,7 +167,7 @@ class Gallery extends Component {
     document.documentElement.scrollLeft -= delta;
     // Call helper for timeline nav link updates
     // FIXME: project specific
-    this.handleTimeline();
+    this.handleGalleryNav();
     e.preventDefault();
   }
 
@@ -187,8 +187,8 @@ class Gallery extends Component {
     });
 
     // FIXME: project specific
-    let timelineList = Array.prototype.slice.call(document.getElementsByClassName('gallery-link'));
-    for (let link of timelineList) {
+    let galleryNavList = Array.prototype.slice.call(document.getElementsByClassName('gallery-link'));
+    for (let link of galleryNavList) {
       console.log("hmm: ", link.getAttribute('href').slice(1,), id);
       if (link.getAttribute('href').slice(1,) === id) {
         link.className = 'gallery-link active';
@@ -203,7 +203,7 @@ class Gallery extends Component {
    * Handles the timeline link updating behavior so that when the user is scrolling
    * through a period, the timeline links appropriately indicate they're in that period.
    */
-  handleTimeline() {
+  handleGalleryNav() {
     // Get the elements with class that indicates it starts a time period section.
     let periodStartElements = Array.prototype.slice.call(document.getElementsByClassName('gallery-marker'));
     // Calculate about 50% of the view width
