@@ -26,6 +26,7 @@ class Gallery extends Component {
     this.handleTimeline = this.handleTimeline.bind(this);
     this.handleSmoothScroll = this.handleSmoothScroll.bind(this);
     this.setDynamicColumnWidth = this.setDynamicColumnWidth.bind(this);
+    this.setColumnWidth = this.setColumnWidth.bind(this);
   }
 
   componentDidMount() {
@@ -51,12 +52,12 @@ class Gallery extends Component {
 
   setDynamicColumnWidth() {
     let columns = document.getElementsByClassName('col');
-    if (columns) { // exists
+    if (columns.length) { // exists
       for (let col of columns) {
-        let firstImage;
+        let firstImage = undefined;
         for (let child of col.childNodes) {
           if (child.tagName === 'IMG') {
-            //console.log("found image", child, window.getComputedStyle(child).getPropertyValue('width'));
+            console.log("found image", child, window.getComputedStyle(child).getPropertyValue('width'));
             firstImage = child;
             break;
           }
@@ -69,8 +70,9 @@ class Gallery extends Component {
             text = child;
           }
         }
-        if (firstImage) { // exists
+        if (firstImage !== undefined) { // exists
           //console.log("Setting col width: image");
+          console.log(firstImage);
           col.style.width = window.getComputedStyle(firstImage).getPropertyValue('width');
         } else if (text) { // if text exists, a p tag was found, so set a max-width value.
           //console.log("Setting col width: 25vw");
@@ -78,6 +80,13 @@ class Gallery extends Component {
         }
       }
     }
+  }
+
+  setColumnWidth(e) {
+    console.log("*dabs* ", e.target.parentElement.parentElement);
+    let image = e.target;
+    let col = image.parentElement.parentElement;
+    col.style.width = window.getComputedStyle(image).getPropertyValue('width');
   }
 
   /**
@@ -234,7 +243,7 @@ class Gallery extends Component {
             case '01':
               return <Spectra p={p}
                                      handleSmoothScroll={this.handleSmoothScroll}
-                                     setColumnWidth={this.setDynamicColumnWidth}/>;
+                                     setColumnWidth={this.setColumnWidth}/>;
             case '02':
               return <OS1 p={p}
                                       handleSmoothScroll={this.handleSmoothScroll}

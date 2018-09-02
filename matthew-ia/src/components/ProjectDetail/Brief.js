@@ -21,16 +21,16 @@ class Brief extends Component {
   }
 
   componentDidMount() {
-    console.log("=========\nBrief is mounting");
-    loadPage(1);
+    //console.log("=========\nBrief is mounting");
+    loadPage();
   }
 
   shouldComponentUpdate(nextProps) {
-    console.log("=========\nBrief is updating");
-    console.log(this.props.p.id);
+    //console.log("=========\nBrief is updating");
+    //console.log(this.props.p.id);
     if (this.props.p.id !== nextProps.p.id) {
-      console.log("nextProps found new id: ", nextProps.p.id);
-      loadPage(1);
+      //console.log("nextProps found new id: ", nextProps.p.id);
+      loadPage();
     }
     return true;
   }
