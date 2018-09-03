@@ -44,7 +44,6 @@ class FloatingList extends Component {
   }
 
   render() {
-    console.log(this.props.shouldRedirect);
     return (
       <div id='floating-list'>
         <ul>

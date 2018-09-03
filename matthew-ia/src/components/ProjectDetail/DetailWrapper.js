@@ -18,6 +18,8 @@ import Gallery from "./Gallery";
 import {adjustNavbar, padNum} from "../../tools";
 const data = require("../../projectlist.json");
 const plist = data.plist;
+const BRIEF = 0;
+const GALLERY = 1;
 
 class DetailWrapper extends Component {
 
@@ -49,6 +51,7 @@ class DetailWrapper extends Component {
       scrollPosX: 0,
       navbarOffset: 0,
       currentView: 0,
+      windowHeight: window.innerHeight,
     };
 
     this.saveXScrollPosition = this.saveXScrollPosition.bind(this);
@@ -56,6 +59,8 @@ class DetailWrapper extends Component {
     this.refreshView = this.refreshView.bind(this);
     this.updateCurrentView = this.updateCurrentView.bind(this);
     this.preventDefaultScrolling = this.preventDefaultScrolling.bind(this);
+    this.updateWindowHeight = this.updateWindowHeight.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
   }
 
   componentDidMount() {
@@ -65,6 +70,9 @@ class DetailWrapper extends Component {
     //window.scroll(0,0);
     window.addEventListener('load', this.refreshView);
     window.addEventListener('wheel', this.preventDefaultScrolling);
+    window.addEventListener('resize', this.updateWindowHeight);
+    window.addEventListener('focus', this.handleFocus);
+    //window.addEventListener('blur', this.handleBlur);
   }
 
   componentWillUnmount() {
@@ -72,11 +80,12 @@ class DetailWrapper extends Component {
     adjustNavbar(this.state.navbarOffset);
     window.removeEventListener('load', this.refreshView);
     window.removeEventListener('wheel', this.preventDefaultScrolling);
+    window.removeEventListener('resize', this.updateWindowHeight);
+    window.removeEventListener('focus', this.handleFocus);
   }
 
   saveXScrollPosition(xPos) {
     if (xPos !== this.state.scrollPosX) {
-      console.log("saving X");
       this.setState({scrollPosX: xPos});
     }
   }
@@ -86,51 +95,41 @@ class DetailWrapper extends Component {
   }
 
   preventDefaultScrolling(e) {
-    //console.log("preventing scroll haha");
     e.preventDefault();
   }
 
   refreshView() {
     let y = document.getElementById('gallery').getBoundingClientRect().y;
-    console.log("GALLERY Y: ", y);
     if (y <= 0) {
       this.updateCurrentView(1);
-    } else console.log("default: 0, also at 0");
-    /*
-    if (this.state.currentView === 0) {
-      console.log('gallery')
     }
-    else if (this.state.currentView === 1) {
-      document.getElementById("p-name").style.opacity = "0";
-      document.getElementById("scroll-arrow").className = "bottom";
-      document.getElementById("scroll-arrow").dataset.tip = "scroll down";
-      document.getElementById("detail").className = "hidescroll";
-    }
-
-    // FIXME: project specific
-    //document.getElementById("timeline").style.opacity = "0";
-    //document.getElementById("timeline").style.visibility = "hidden";
-     */
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    if (nextState.currentView !== this.state.currentView) {
-      return false;
-    } // Don't re-render jfc
-    return true;
+  handleFocus() {
+    if (document.getElementById('detail') === null) return; // First load, skip
+
+    if (this.state.currentView === GALLERY) {
+      let top = document.getElementById('gallery').getBoundingClientRect().top;
+      let height = this.state.windowHeight;
+      if (document.body.scrollHeight !== height) {
+        setTimeout(()=>{
+          // console.log("scrolling to fix ", top, height, document.body.scrollHeight);
+          window.scrollTo({
+            top:  document.body.scrollHeight,
+          });
+        }, 300);
+      }
+    }
+  }
+
+  updateWindowHeight() {
+    // Note: gets called twice for every window focus event
+    this.setState({windowHeight: window.innerHeight});
   }
 
   updateCurrentView(newState) {
-    /*
-    let state;
-    if (newState) state = 'GALLERY';
-    else state = 'BRIEF';
-    console.log("==========================" +
-      "\nTHE NEW STATE IS: ", state);
-      */
-    setTimeout(this.setState({currentView: newState}) ,1000);
     let galleryNav = document.getElementById("gallery-nav");
-    if (newState) {
+    if (newState) { // newState == GALLERY
       let scrollArrow = document.getElementById('scroll-arrow');
       scrollArrow.className = "top";
       scrollArrow.dataset.tip = "scroll up";
@@ -151,6 +150,7 @@ class DetailWrapper extends Component {
         document.getElementById("gallery-nav").style.visibility = "hidden";
       }
     }
+    this.setState({currentView: newState});
   }
 
   render() {

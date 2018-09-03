@@ -10,6 +10,9 @@ import React, {Component} from "react";
 import {_Gallery as Spectra} from "./projects/Spectra/_Gallery";
 import {_Gallery as OS1} from "./projects/OS1/_Gallery";
 
+const BRIEF = 0;
+const GALLERY = 1;
+
 class Gallery extends Component {
   // eslint-disable-next-line require-jsdoc
   constructor(props) {
@@ -22,7 +25,7 @@ class Gallery extends Component {
     this.handleScroll = this.handleScroll.bind(this);
     this.handleScrollUp = this.handleScrollUp.bind(this);
     this.handleScrollHorizontal = this.handleScrollHorizontal.bind(this);
-    this.updateWindowSize = this.updateWindowSize.bind(this);
+    this.updateWindowWidth = this.updateWindowWidth.bind(this);
     this.handleGalleryNav = this.handleGalleryNav.bind(this);
     this.handleSmoothScroll = this.handleSmoothScroll.bind(this);
     this.setDynamicColumnWidth = this.setDynamicColumnWidth.bind(this);
@@ -35,18 +38,18 @@ class Gallery extends Component {
     this.setState({
       galleryPosY: document.getElementById("gallery").getBoundingClientRect().y
     });
-    window.addEventListener('resize', this.updateWindowSize);
+    window.addEventListener('resize', this.updateWindowWidth);
     //TODO: Dynamically set the gallery width based on the number of images to display
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.updateWindowSize);
+    window.removeEventListener('resize', this.updateWindowWidth);
   }
 
   /**
    * Get current window size. Needs to be saved/used for the timeline nav updating.
    */
-  updateWindowSize() {
+  updateWindowWidth() {
     this.setState({windowWidth: window.innerWidth});
   }
 
@@ -154,10 +157,8 @@ class Gallery extends Component {
    * @param e – event fired on scroll (mousewheel or trackpad)
    */
   handleScrollHorizontal(e) {
-    if (this.props.currentView === 0) {
-      console.log("Blocking hori scroll");
-      return;
-    }
+    if (this.props.currentView === BRIEF) return; // Blocking horizontal scroll
+
     let delta = 0;
     // Trackpads will use X or Y delta depending on which one is greater.
     if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
