@@ -55,6 +55,7 @@ class DetailWrapper extends Component {
     this.getXScrollPosition = this.getXScrollPosition.bind(this);
     this.refreshView = this.refreshView.bind(this);
     this.updateCurrentView = this.updateCurrentView.bind(this);
+    this.preventDefaultScrolling = this.preventDefaultScrolling.bind(this);
   }
 
   componentDidMount() {
@@ -63,12 +64,14 @@ class DetailWrapper extends Component {
     this.setState({navbarOffset: adjustNavbar()});
     window.scroll(0,0);
     window.addEventListener('load', this.refreshView);
+    window.addEventListener('wheel', this.preventDefaultScrolling);
   }
 
   componentWillUnmount() {
     // Reset the navbar and scrollbar height spacing when leaving to another route
     adjustNavbar(this.state.navbarOffset);
     window.removeEventListener('load', this.refreshView);
+    window.removeEventListener('wheel', this.preventDefaultScrolling);
   }
 
   saveXScrollPosition(xPos) {
@@ -80,6 +83,10 @@ class DetailWrapper extends Component {
 
   getXScrollPosition() {
     return this.state.scrollPosX;
+  }
+
+  preventDefaultScrolling(e) {
+    e.preventDefault();
   }
 
   refreshView() {
