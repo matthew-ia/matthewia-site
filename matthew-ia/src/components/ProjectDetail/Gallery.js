@@ -109,7 +109,10 @@ class Gallery extends Component {
     if (window.scrollX === 0) {
       if (e.deltaY < -30) { // If it is, scroll up (animate) when user scrolls up.
         this.props.p.saveScrollX(window.scrollX);
-        this.handleScrollUp(e);
+        let saveFunc = this.handleScrollHorizontal;
+        this.handleScrollHorizontal = ()=>{};
+        this.handleScrollUp();
+        this.handleScrollHorizontal = saveFunc;
       } else { // Else scroll horizontally
         this.handleScrollHorizontal(e);
       }
@@ -123,10 +126,7 @@ class Gallery extends Component {
    * @param e – event fired from clicking on anchor
    */
   handleScrollUp() {
-    if (document.getElementById('image-expanded') !== null) {
-      console.log("In exapnded mode");
-      return;
-    }
+    console.log("SCROLLING UP");
     //console.log("xDefault: ", this.state.scrollLeftDefault);
     // Smooth scroll up to Brief section.
     window.scroll({
@@ -134,6 +134,7 @@ class Gallery extends Component {
       top: 0,
       behavior: "smooth"
     });
+
     this.props.updateCurrentView(0);
     // Set styles that need updating based on the section in view
     /*
