@@ -83,7 +83,7 @@ class Gallery extends Component {
   }
 
   setColumnWidth(e) {
-    console.log("*dabs* ", e.target.parentElement.parentElement);
+    //console.log("*dabs* ", e.target.parentElement.parentElement);
     let image = e.target;
     let col = image.parentElement.parentElement;
     col.style.width = window.getComputedStyle(image).getPropertyValue('width');
@@ -109,10 +109,7 @@ class Gallery extends Component {
     if (window.scrollX === 0) {
       if (e.deltaY < -30) { // If it is, scroll up (animate) when user scrolls up.
         this.props.p.saveScrollX(window.scrollX);
-        let saveFunc = this.handleScrollHorizontal;
-        this.handleScrollHorizontal = ()=>{};
         this.handleScrollUp();
-        this.handleScrollHorizontal = saveFunc;
       } else { // Else scroll horizontally
         this.handleScrollHorizontal(e);
       }
@@ -126,7 +123,7 @@ class Gallery extends Component {
    * @param e – event fired from clicking on anchor
    */
   handleScrollUp() {
-    console.log("SCROLLING UP");
+    //console.log("SCROLLING UP");
     //console.log("xDefault: ", this.state.scrollLeftDefault);
     // Smooth scroll up to Brief section.
     window.scroll({
@@ -157,6 +154,10 @@ class Gallery extends Component {
    * @param e – event fired on scroll (mousewheel or trackpad)
    */
   handleScrollHorizontal(e) {
+    if (this.props.currentView === 0) {
+      console.log("Blocking hori scroll");
+      return;
+    }
     let delta = 0;
     // Trackpads will use X or Y delta depending on which one is greater.
     if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {

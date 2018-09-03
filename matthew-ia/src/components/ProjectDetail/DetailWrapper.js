@@ -86,7 +86,7 @@ class DetailWrapper extends Component {
   }
 
   preventDefaultScrolling(e) {
-    console.log("preventing scroll haha");
+    //console.log("preventing scroll haha");
     e.preventDefault();
   }
 
@@ -121,11 +121,13 @@ class DetailWrapper extends Component {
   }
 
   updateCurrentView(newState) {
+    /*
     let state;
     if (newState) state = 'GALLERY';
     else state = 'BRIEF';
     console.log("==========================" +
       "\nTHE NEW STATE IS: ", state);
+      */
     setTimeout(this.setState({currentView: newState}) ,1000);
     let galleryNav = document.getElementById("gallery-nav");
     if (newState) {
