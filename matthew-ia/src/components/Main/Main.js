@@ -9,7 +9,7 @@
 import React, {Component} from "react";
 import { Switch, Route, Redirect } from 'react-router-dom';
 import ProjectList from '../ProjectList/ProjectList';
-import DetailWrapper from '../ProjectDetail/DetailWrapper';
+import DetailWrapper from '../ProjectDetail/Detail';
 import Home from '../Home/Home';
 
 

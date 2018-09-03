@@ -17,7 +17,6 @@ class FloatingList extends Component {
     let currentPid = 0;
     if (this.props.currentProjectPath) {
       currentPid = this.props.currentProjectPath.slice(-1);
-      console.log(currentPid);
     }
 
     let nodeStyle = "";
@@ -27,7 +26,6 @@ class FloatingList extends Component {
       nameStyle = "li-pname";
       if (currentPid !== 0)
         if (p.loc.slice(-1) === currentPid) {
-          console.log("Match ", p.loc.slice(-1), currentPid);
           nodeStyle += " li-node-selected";
           nameStyle += " li-pname-selected";
         }
@@ -35,8 +33,6 @@ class FloatingList extends Component {
         <a href={p.loc} onClick={props.scroll}><div className={nodeStyle}/>
           <div className={nameStyle}>{p.name}</div></a></li>)
     });
-
-    console.log(this.props.currentProjectPath);
 
     this.state = {
       projectList: projects

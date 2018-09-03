@@ -21,7 +21,7 @@ const plist = data.plist;
 const BRIEF = 0;
 const GALLERY = 1;
 
-class DetailWrapper extends Component {
+class Detail extends Component {
 
   constructor(props) {
     super(props);
@@ -109,7 +109,6 @@ class DetailWrapper extends Component {
     if (document.getElementById('detail') === null) return; // First load, skip
 
     if (this.state.currentView === GALLERY) {
-      let top = document.getElementById('gallery').getBoundingClientRect().top;
       let height = this.state.windowHeight;
       if (document.body.scrollHeight !== height) {
         setTimeout(()=>{
@@ -184,8 +183,8 @@ class DetailWrapper extends Component {
   }
 }
 
-DetailWrapper.defaultProps = {
+Detail.defaultProps = {
   projects: plist // project list set using the json data; doesn't change state
 };
 
-export default DetailWrapper;
+export default Detail;

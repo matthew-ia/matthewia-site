@@ -79,7 +79,6 @@ export function adjustNavbar(defaultMargin) {
 
   // Get scroll bar height using tools.getScrollBarSizes (works for all browsers).
   let scrollBarHeight = getScrollBarSizes()[0];
-  console.log("scrollBarHeight: ", scrollBarHeight);
   if (scrollBarHeight === 0) return; // Return nothing, ignore rest of code.
   // Store navbar element.
   let navbar = document.querySelector('#bottom-nav');
@@ -153,5 +152,4 @@ export function loadPage() {
   void pageContent.offsetWidth; // for some reason very necessary
   pageContent.classList.add('load');
   pageContent.classList.add('load-done');
-  console.log("yeah!");
 }
