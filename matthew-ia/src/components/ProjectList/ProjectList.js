@@ -103,8 +103,8 @@ class ProjectList extends Component {
   handleSmoothScroll(e) {
     let id = e.target.parentNode.getAttribute("href").slice(1,);
     let anchorXPos = document.getElementById(id).getBoundingClientRect().x + window.scrollX - 60;
-    console.log(document.getElementById(id));
-    console.log("X: ", anchorXPos);
+    //console.log(document.getElementById(id));
+    //console.log("X: ", anchorXPos);
     window.scroll({
       left: anchorXPos,
       behavior: "smooth"

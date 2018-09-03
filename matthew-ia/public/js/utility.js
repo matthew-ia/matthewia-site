@@ -1,3 +1,4 @@
+/*
 window.onload = () => {
   document.getElementById('dimensions').textContent =
     window.innerWidth + "x" + window.innerHeight;
@@ -16,3 +17,5 @@ window.onresize = () => {
   dimensions.textContent = window.innerWidth + "x" + window.innerHeight;
   console.log(dimensions);
 };
+
+*/
