@@ -1126,6 +1126,11 @@ dd {
 #root > div {
   margin: 0 0 0 10%; }
 
+code {
+  font-family: Inconsolata,Menlo,Monaco,Consolas,"Courier New",monospace;
+  background-color: rgba(208, 208, 208, 0.3);
+  padding: 1px 2px; }
+
 @keyframes loadAnimation {
   0% {
     visibility: visible;
@@ -1513,11 +1518,16 @@ button:focus {
   font-family: Inconsolata,Menlo,Monaco,Consolas,"Courier New",monospace;
   font-size: 12px;
   color: #95989A;
-  width: 100%; }
+  width: 100%;
+  max-width: 100% !important;
+  z-index: -1; }
 
 #gallery .col p.stacked {
   margin-top: -16px !important;
   margin-bottom: 16px !important; }
+
+#gallery .col p.stacked.withLabel {
+  margin-top: 0 !important; }
 
 #gallery .gallery-marker:before {
   position: absolute;
@@ -1714,10 +1724,6 @@ button:focus {
   font-size: 12px;
   color: red;
   width: 100%; }
-
-.label {
-  max-width: 100% !important;
-  z-index: -1; }
 
 #dimensions {
   position: fixed;

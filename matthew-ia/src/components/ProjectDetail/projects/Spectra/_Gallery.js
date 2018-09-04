@@ -21,30 +21,24 @@ export class _Gallery extends Component {
         <div>
           <div id="t2016" className="col gallery-marker">
             <Image onLoad={this.props.setColumnWidth}
-                   className='md'
+                   className='sm'
                    id='t2016'
                    path={p.publicPath}
                    previewFile={'spectra-v0.0-a.png'}
                    fullscreenFile={'spectra-v0.0-a.png'}/>
-            <p className="stacked">From the beginning, we knew we wanted the interface to feel like a space to explore. Thus, we also needed to think about organizing that space in an intuitive way.</p>
-          </div>
-          <div className='col'>
-            <Image onLoad={this.props.setColumnWidth}
-                   className='sm'
+            <Image className='sm'
                    path={p.publicPath}
                    previewFile={'spectra-v0.0-b.png'}
                    fullscreenFile={'spectra-v0.0-b.png'}/>
-            <Image className='sm'
-                   path={p.publicPath}
-                   previewFile={'spectra-v0.0-c.png'}
-                   fullscreenFile={'spectra-v0.0-c.png'}/>
           </div>
           <div className='col'>
-            <Image className='md'
+            <Image onLoad={this.props.setColumnWidth}
+                   className='md'
                    path={p.publicPath}
                    previewFile={'spectra-v0.0-d.png'}
                    fullscreenFile={'spectra-v0.0-d.png'}/>
-            <Label text="Early mockup of Spectrum Search view"/>
+            <Label text="Early mockup of Current Spectrum view"/>
+            <p className="stacked withLabel">From the beginning, we knew we wanted the interface to feel like a space to explore. Thus, we also needed to think about organizing that space in an intuitive way.</p>
           </div>
           <div id="t2017" className="col gallery-marker">
             <Image onLoad={this.props.setColumnWidth}
@@ -58,27 +52,6 @@ export class _Gallery extends Component {
           </div>
           <div className='col'>
             <Image onLoad={this.props.setColumnWidth}
-                   className='xs'
-                   path={p.publicPath}
-                   previewFile={'spectra-interaction-spectrum.png'}
-                   fullscreenFile={'spectra-interaction-spectrum.png'}/>
-            <Label text="Spectrum interaction"/>
-            <Image className='xs'
-                   path={p.publicPath}
-                   previewFile={'spectra-interaction-article.png'}
-                   fullscreenFile={'spectra-interaction-article.png'}/>
-            <Label text="Article interaction (previously referred to as &quot;Items&quot;)"/>
-          </div>
-          <div className='col'>
-            <Image onLoad={this.props.setColumnWidth}
-                   className='md'
-                   path={p.publicPath}
-                   previewFile={'dashboard.png'}
-                   fullscreenFile={'dashboard.png'}/>
-            <Label text="Dashboard view"/>
-          </div>
-          <div className='col'>
-            <Image onLoad={this.props.setColumnWidth}
                    className='sm'
                    path={p.publicPath}
                    previewFile={'dashboard-my-spectra.png'}
@@ -88,14 +61,61 @@ export class _Gallery extends Component {
                    path={p.publicPath}
                    previewFile={'dashboard-my-spectra-iteration.png'}
                    fullscreenFile={'dashboard-my-spectra-iteration.png'}/>
-            <Label text="Settings view iteration"/>
+            <Label text="My Spectrum view iteration"/>
+          </div>
+          <div className='col'>
+            <Image className='md'
+                   path={p.publicPath}
+                   previewFile={'dashboard.png'}
+                   fullscreenFile={'dashboard.png'}/>
+            <Label text="Dashboard view"/>
+          </div>
+          <div className='col'>
+            <Image className='md'
+                   path={p.publicPath}
+                   previewFile={'social-mode.png'}
+                   fullscreenFile={'social-mode.png'}/>
+            <Label text="Social Mode view"/>
           </div>
           <div className='col gallery-marker' id='t2018'>
+            <Image onLoad={this.props.setColumnWidth}
+                   className='md'
+                   path={p.publicPath}
+                   previewFile={'current-spectrum.png'}
+                   fullscreenFile={'current-spectrum.png'}/>
+            <Label text="Current Spectrum view iteration"/>
+            <p className="stacked withLabel"><i>Refine and build the base camp.</i> For my senior capstone project, I built an early prototype of Spectra, <code>spectra-cp</code>. This introduced new design challenges, both in developing and redesigning the interface and its functionality under a new, more limited scope. The working prototype of Spectra (v0.3) was developed using React.
+            </p>
+          </div>
+          <div className='col'>
             <Video videoSrc='https://www.youtube.com/embed/cdeOKFJA3MU?rel=0&amp;showinfo=0&mute=1'
                    previewFile={'spectra-title.png'}
                    path={p.publicPath}
                    className='lg'/>
-            <Label text="Video (with sound)"/>
+            <Label text="Spectra Capstone 0.2 (video w/ sound)"/>
+          </div>
+          <div className='col'>
+            <Image onLoad={this.props.setColumnWidth}
+                   className='md'
+                   path={p.publicPath}
+                   previewFile={'current-spectrum-spectra-cp.png'}
+                   fullscreenFile={'current-spectrum-spectra-cp.png'}/>
+            <Label text="Current Spectrum view (Capstone Project iteration)"/>
+            <p className="stacked withLabel">The design for <code>spectra-cp</code> focused on the results, as the scope of the project had to be constrained to just the basic searching experience.
+            </p>
+          </div>
+          <div className='col'>
+            <Image onLoad={this.props.setColumnWidth}
+                   className='sm'
+                   path={p.publicPath}
+                   previewFile={'spectra-v0.1.png'}
+                   fullscreenFile={'spectra-v0.1.png'}/>
+            <Label text="Spectra Capstone v0.1 (screenshot)"/>
+            <Image className='sm'
+                   path={p.publicPath}
+                   previewFile={'spectra-v0.3.png'}
+                   fullscreenFile={'spectra-v0.3.png'}/>
+            <Label text="Spectra Capstone v0.3 (screenshot)"/>
           </div>
         </div>
       </div>
