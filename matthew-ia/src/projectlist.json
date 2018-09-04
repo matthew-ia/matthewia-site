@@ -2,27 +2,23 @@
   "plist": {
     "p1": {
       "name": "Spectra",
-      "tags": ["WIP", "UI", "Programming"]
+      "tags": ["WIP", "UI", "Programming", "Web"]
     },
     "p2": {
-      "name": "OS1 Brochure",
-      "tags": ["2015", "graphic", "print"]
+      "name": "ChaseUI",
+      "tags": ["2018", "UI", "Programming","Web"]
     },
     "p3": {
-      "name": "Project 3",
-      "tags": ["tag_0", "tag_1", "tag_2"]
+      "name": "DashUI",
+      "tags": ["2018", "UI"]
     },
     "p4": {
-      "name": "Project 4",
-      "tags": ["tag_3", "tag_4", "tag_5"]
+      "name": "ProLo Systems",
+      "tags": ["2017", "UI", "Programming", "Web"]
     },
     "p5": {
-      "name": "Project 5",
-      "tags": ["tag_3", "tag_4", "tag_5"]
-    },
-    "p6": {
-      "name": "Project 6",
-      "tags": ["tag_3", "tag_4", "tag_5"]
+      "name": "DGSF Website",
+      "tags": ["2013-2018", "UI", "Web"]
     }
   }
 }
