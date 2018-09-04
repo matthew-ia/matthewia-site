@@ -70,6 +70,27 @@ export class _Gallery extends Component {
                    fullscreenFile={'spectra-interaction-article.png'}/>
             <Label text="Article interaction (previously referred to as &quot;Items&quot;)"/>
           </div>
+          <div className='col'>
+            <Image onLoad={this.props.setColumnWidth}
+                   className='md'
+                   path={p.publicPath}
+                   previewFile={'dashboard.png'}
+                   fullscreenFile={'dashboard.png'}/>
+            <Label text="Dashboard view"/>
+            <Image className='sm'
+                   path={p.publicPath}
+                   previewFile={'dashboard-settings-a.png'}
+                   fullscreenFile={'dashboard-settings-a.png'}/>
+            <Label text="Settings view iteration"/>
+          </div>
+          <div className='col'>
+            <Image onLoad={this.props.setColumnWidth}
+                   className='sm'
+                   path={p.publicPath}
+                   previewFile={'dashboard-my-spectra.png'}
+                   fullscreenFile={'dashboard-my-spectra.png'}/>
+            <Label text="My Spectrum view"/>
+          </div>
           <div className='col gallery-marker' id='t2018'>
             <Video videoSrc='https://www.youtube.com/embed/cdeOKFJA3MU?rel=0&amp;showinfo=0&mute=1'
                    previewFile={'spectra-title.png'}

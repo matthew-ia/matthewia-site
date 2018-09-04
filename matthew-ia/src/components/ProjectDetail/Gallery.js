@@ -89,6 +89,7 @@ class Gallery extends Component {
     //console.log("*dabs* ", e.target.parentElement.parentElement);
     let image = e.target;
     let col = image.parentElement.parentElement;
+    console.log(image, window.getComputedStyle(image).getPropertyValue('width'));
     col.style.width = window.getComputedStyle(image).getPropertyValue('width');
   }
 

@@ -119,10 +119,6 @@
     &.lg{
       max-height: 65vh;
     }
-    &.stacked {
-      vertical-align: baseline;
-      display: block;
-    }
   }
   .col {
     vertical-align: top;
@@ -150,6 +146,10 @@
       color: $brand-gray-light;
       width: 100%;
     }
+    p.stacked {
+      margin-top: -16px !important;
+      margin-bottom: 16px !important;
+    }
   }
 
   .gallery-marker {
@@ -162,7 +162,6 @@
       background-color: $brand-primary;
       line-height: 1px;
     }
-    //box-shadow: -10px 0px 0px 12px $brand-primary;
   }
 }
 

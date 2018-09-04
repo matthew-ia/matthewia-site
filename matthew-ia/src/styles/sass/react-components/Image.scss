@@ -8,10 +8,10 @@
 //
 //## A group of styles
 
-#image-container {
+.image-container {
   cursor: pointer;
   &.expanded {
-   cursor: zoom-out;
+    cursor: zoom-out;
     img:hover {
       transition: none;
       filter: none;
@@ -20,7 +20,7 @@
   img {
     transition: filter 0.2s ease-in-out;
   }
-  img:hover {
+  & > img:hover {
     filter: grayscale(55%);
   }
 }

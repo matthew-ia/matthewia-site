@@ -31,12 +31,14 @@ class Image extends Component {
     if (isExpanded) { // Close it
       console.log(imageExpanded);
       //document.getElementById('detail').classList.remove('hidescroll');
-      document.getElementById('image-container').classList.remove('expanded');
+      imageExpanded.parentElement.classList.remove('expanded');
+      console.log(imageExpanded.parentElement);
       this.setState({isExpanded: false});
     } else { // Expand it
       void imageExpanded.offsetWidth;
       //document.getElementById('detail').classList.add('hidescroll');
-      document.getElementById('image-container').classList.add('expanded');
+      imageExpanded.parentElement.classList.add('expanded');
+      console.log(imageExpanded.parentElement);
       this.setState({isExpanded: true});
     }
 
@@ -46,7 +48,7 @@ class Image extends Component {
     let {isExpanded} = this.state;
     let {className, id, path, previewFile, fullscreenFile, onLoad} = this.props;
     return (
-      <div id='image-container'
+      <div className='image-container'
            onClick={this.toggleExpanded}>
         <img onLoad={onLoad}
             className={className}
@@ -62,7 +64,6 @@ class Image extends Component {
               </div>
               <ReactTooltip className="tooltip" effect="solid" place="bottom"/>
               <img id='full-image'
-                   onLoad={this.onFullscreenLoad}
                    src={path + fullscreenFile}/>
             </div>
           : <div/>}

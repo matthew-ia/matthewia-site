@@ -1485,10 +1485,6 @@ button:focus {
 #gallery img.lg {
   max-height: 65vh; }
 
-#gallery img.stacked {
-  vertical-align: baseline;
-  display: block; }
-
 #gallery .col {
   vertical-align: top;
   display: inline-block;
@@ -1515,6 +1511,10 @@ button:focus {
   font-size: 12px;
   color: #95989A;
   width: 100%; }
+
+#gallery .col p.stacked {
+  margin-top: -16px !important;
+  margin-bottom: 16px !important; }
 
 #gallery .gallery-marker:before {
   position: absolute;
@@ -1560,20 +1560,20 @@ button:focus {
 #gallery-nav ul li:first-of-type {
   padding-left: 6px; }
 
-#image-container {
+.image-container {
   cursor: pointer; }
 
-#image-container.expanded {
+.image-container.expanded {
   cursor: zoom-out; }
 
-#image-container.expanded img:hover {
+.image-container.expanded img:hover {
   transition: none;
   filter: none; }
 
-#image-container img {
+.image-container img {
   transition: filter 0.2s ease-in-out; }
 
-#image-container img:hover {
+.image-container > img:hover {
   filter: grayscale(55%); }
 
 .image-expanded {
