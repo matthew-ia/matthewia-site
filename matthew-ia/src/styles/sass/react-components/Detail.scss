@@ -110,6 +110,10 @@
     //background-color: #f3f3f3;
     border: 1px solid $brand-primary;
 
+    &.xs{
+      max-height: 22vh;
+    }
+
     &.sm{
       max-height: 30vh;
     }

@@ -1476,6 +1476,9 @@ button:focus {
   margin: 0 35px 35px 0;
   border: 1px solid #2B271E; }
 
+#gallery img.xs {
+  max-height: 22vh; }
+
 #gallery img.sm {
   max-height: 30vh; }
 
@@ -1571,10 +1574,10 @@ button:focus {
   filter: none; }
 
 .image-container img {
-  transition: filter 0.2s ease-in-out; }
+  transition: box-shadow 0.2s ease-in-out; }
 
 .image-container > img:hover {
-  filter: grayscale(55%); }
+  box-shadow: 3px 3px 6px rgba(43, 39, 30, 0.2); }
 
 .image-expanded {
   position: fixed;
@@ -1703,6 +1706,9 @@ button:focus {
   font-size: 12px;
   color: red;
   width: 100%; }
+
+.label {
+  max-width: 100% !important; }
 
 #dimensions {
   position: fixed;

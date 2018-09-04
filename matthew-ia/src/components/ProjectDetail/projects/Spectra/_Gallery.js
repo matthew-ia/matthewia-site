@@ -38,7 +38,6 @@ export class _Gallery extends Component {
                    path={p.publicPath}
                    previewFile={'spectra-v0.0-c.png'}
                    fullscreenFile={'spectra-v0.0-c.png'}/>
-            <Label text="I'm a label too!"/>
           </div>
           <div className='col'>
             <Image className='md'
@@ -59,12 +58,12 @@ export class _Gallery extends Component {
           </div>
           <div className='col'>
             <Image onLoad={this.props.setColumnWidth}
-                   className='sm'
+                   className='xs'
                    path={p.publicPath}
                    previewFile={'spectra-interaction-spectrum.png'}
                    fullscreenFile={'spectra-interaction-spectrum.png'}/>
             <Label text="Spectrum interaction"/>
-            <Image className='sm'
+            <Image className='xs'
                    path={p.publicPath}
                    previewFile={'spectra-interaction-article.png'}
                    fullscreenFile={'spectra-interaction-article.png'}/>
@@ -77,11 +76,6 @@ export class _Gallery extends Component {
                    previewFile={'dashboard.png'}
                    fullscreenFile={'dashboard.png'}/>
             <Label text="Dashboard view"/>
-            <Image className='sm'
-                   path={p.publicPath}
-                   previewFile={'dashboard-settings-a.png'}
-                   fullscreenFile={'dashboard-settings-a.png'}/>
-            <Label text="Settings view iteration"/>
           </div>
           <div className='col'>
             <Image onLoad={this.props.setColumnWidth}
@@ -90,6 +84,11 @@ export class _Gallery extends Component {
                    previewFile={'dashboard-my-spectra.png'}
                    fullscreenFile={'dashboard-my-spectra.png'}/>
             <Label text="My Spectrum view"/>
+            <Image className='sm'
+                   path={p.publicPath}
+                   previewFile={'dashboard-my-spectra-iteration.png'}
+                   fullscreenFile={'dashboard-my-spectra-iteration.png'}/>
+            <Label text="Settings view iteration"/>
           </div>
           <div className='col gallery-marker' id='t2018'>
             <Video videoSrc='https://www.youtube.com/embed/cdeOKFJA3MU?rel=0&amp;showinfo=0&mute=1'
