@@ -17,9 +17,11 @@ export class _Brief extends Component {
         <div className="p-desc">
           <h1 className="p-title"> {p.info.name }</h1>
           <span className="p-tags">{p.info.tags.join(" // ") }</span>
-          <p className="p-content">Inspired by Spike Jonze’s film <i>Her</i>, I created a mock informational brochure documenting the fictional operating system, OS One (OS1). I took creative liberty in writing the copy for the document, as I imagined how the OS could be used. This project was the final product of a culmination of mini personal projects related to Her, as well as the starting point of my interest in technical writing.</p>
+          <p className="p-content">Spectra is a search engine that visualizes ideas in a way that popular search engines do not. With Spectra, you search the web for ideas and concepts. This is a search engine for knowledge; not just for websites, or images, but for exploring entire systems of thought. I’ve worked on Spectra for over 2 years with another designer, slowly conceptualizing and iterating.<br/><br/>
+            For my senior capstone, I developed an early version of Spectra.
+          </p>
         </div>
-        <img className="p-image" src={p.publicPath + "ab.png"}/>
+        <img className="p-image" src={p.publicPath + "spectra-preview.png"}/>
         <button
           data-tip="scroll down"
           id="scroll-arrow"

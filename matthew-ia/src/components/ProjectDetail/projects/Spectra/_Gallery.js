@@ -20,70 +20,39 @@ export class _Gallery extends Component {
         <GalleryNav handleScroll={this.props.handleSmoothScroll}/>
         <div>
           <div id="t2016" className="col gallery-marker">
-            {/*<img onLoad={this.props.setColumnWidth}
-                 className="sm" id="1" src={p.publicPath + "ab.jpg"}/>
-             */}
-            <Image onLoad={this.props.setColumnWidth}
-                   className='sm'
-                   id='t2016'
-                   path={p.publicPath}
-                   previewFile={'ab.png'}
-                   fullscreenFile={'ab.jpg'}/>
-            <Label text="I'm a label"/>
-            <Image className='md'
-                   path={p.publicPath}
-                   previewFile={'bbb.jpg'}
-                   fullscreenFile={'bbb.jpg'}/>
-            <Label text="I'm a label too!"/>
-          </div>
-          <div className="col">
             <Image onLoad={this.props.setColumnWidth}
                    className='md'
+                   id='t2016'
                    path={p.publicPath}
-                   previewFile={'cd.jpg'}
-                   fullscreenFile={'cd.jpg'}/>
-            <p className="stacked">I'm a full column of text. I'm a full column of text. I'm a full column of text. I'm a full column of text. I'm a full column of text. I'm a full column of text. I'm a full column of text.I'm a full column of text. I'm a full column of text. I'm a full column of text.</p>
-          </div>
-          <div className='col gallery-marker'>
-            <Image className='lg'
-                   id='t2017'
-                   path={p.publicPath}
-                   previewFile={'dd.jpg'}
-                   fullscreenFile={'dd.jpg'}/>
-            <Label text="I'm a label too!"/>
+                   previewFile={'spectra-v0.0-a.png'}
+                   fullscreenFile={'spectra-v0.0-a.png'}/>
+            <p className="stacked">From the beginning, we knew we wanted the interface to feel like a space to explore. Thus, we also needed to think about organizing that space in an intuitive way.</p>
           </div>
           <div className='col'>
-            <Image className='md'
+            <Image onLoad={this.props.setColumnWidth}
+                   className='sm'
                    path={p.publicPath}
-                   previewFile={'main.png'}
-                   fullscreenFile={'main.png'}/>
+                   previewFile={'spectra-v0.0-b.png'}
+                   fullscreenFile={'spectra-v0.0-b.png'}/>
+            <Image className='sm'
+                   path={p.publicPath}
+                   previewFile={'spectra-v0.0-c.png'}
+                   fullscreenFile={'spectra-v0.0-c.png'}/>
             <Label text="I'm a label too!"/>
           </div>
-          <div className='col'>
-            <Image className='md'
+          <div id="t2017" className="col gallery-marker">
+            <Image onLoad={this.props.setColumnWidth}
+                   className='md'
+                   id='t2016'
                    path={p.publicPath}
-                   previewFile={'main.png'}
-                   fullscreenFile={'main.png'}/>
-            <Label text="I'm a label too!"/>
+                   previewFile={'spectra-uikit.png'}
+                   fullscreenFile={'spectra-uikit.png'}/>
+            <p className="stacked"><i>Iterate. Iterate. Iterate.</i> We took a step back from creating any more UI views to establish a design language. Then, we began designing the views core to the experience as a whole.
+            </p>
           </div>
-          <div className='col'>
-            <Image className='md'
-                   path={p.publicPath}
-                   previewFile={'main.png'}
-                   fullscreenFile={'main.png'}/>
-            <Label text="I'm a label too!"/>
-          </div>
-          <div className='col gallery-marker'>
-            <Image className='md'
-                   id='t2018'
-                   path={p.publicPath}
-                   previewFile={'ab.png'}
-                   fullscreenFile={'ab.png'}/>
-            <Label text="I'm a label too!"/>
-          </div>
-          <div className='col'>
+          <div className='col gallery-marker' id='t2018'>
             <Video videoSrc='https://www.youtube.com/embed/cdeOKFJA3MU?rel=0&amp;showinfo=0&mute=1'
-                   previewFile={'dd.jpg'}
+                   previewFile={'spectra-title.png'}
                    path={p.publicPath}
                    className='lg'/>
             <Label text="Video (with sound)"/>
