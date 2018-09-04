@@ -19,6 +19,7 @@ class Video extends Component {
     };
 
     this.toggleExpanded = this.toggleExpanded.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
   toggleExpanded(e) {
@@ -35,12 +36,16 @@ class Video extends Component {
       document.getElementById('video-container').classList.add('expanded');
       this.setState({isExpanded: true});
     }
+  }
 
+  handleScroll(e) {
+    e.preventDefault();
   }
 
   render() {
     let {isExpanded} = this.state;
     let {className, id, path, previewFile, videoSrc, onLoad, hasSound} = this.props;
+    let iconPath = window.location.origin + '/images/icons/2x/';
     return (
       <div id='video-container'
            onClick={this.toggleExpanded}>
@@ -48,13 +53,15 @@ class Video extends Component {
              id={id}
              className={className}
              src={path + previewFile}/>
-        <div className='video-icon'>Video</div>
+        <div className='video-icon'>
+          <img id="icon" src={iconPath + 'video-white.png'}/>
+        </div>
         {isExpanded
-          ? <div className='video-expanded'>
+          ? <div className='video-expanded' onWheel={this.handleScroll}>
               <div className='close-expand-wrapper'
                    onClick={this.toggleExpanded} data-tip='close'>
                 <img id='close-expand'
-                     src={window.location.origin + '/images/icons/2x/close.png'}/>
+                     src={iconPath + 'close-white.png'}/>
 
               </div>
               <ReactTooltip className="tooltip" effect="solid" place="bottom"/>

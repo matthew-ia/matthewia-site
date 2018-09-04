@@ -157,7 +157,10 @@ class Gallery extends Component {
    * @param e – event fired on scroll (mousewheel or trackpad)
    */
   handleScrollHorizontal(e) {
-    if (this.props.currentView === BRIEF) return; // Blocking horizontal scroll
+    // Blocking horizontal scroll
+    if (this.props.currentView === BRIEF) return;
+    if (document.getElementsByClassName('video-expanded').length !== 0
+      || document.getElementsByClassName('image-expanded').length !== 0) return;
 
     let delta = 0;
     // Trackpads will use X or Y delta depending on which one is greater.

@@ -1667,10 +1667,17 @@ button:focus {
 .video-icon {
   position: absolute;
   z-index: 10;
-  bottom: 0;
-  right: 0;
+  top: 0;
+  left: 0;
   color: red;
-  border: 2px solid red; }
+  padding: 8px 24px;
+  background-color: #2B271E; }
+
+.video-icon img#icon {
+  margin: 0;
+  width: 25px;
+  height: 25px;
+  background-color: transparent; }
 
 @keyframes loadExpandVideo {
   0% {
