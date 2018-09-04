@@ -149,10 +149,15 @@
       font-size: $font-size-exsmall;
       color: $brand-gray-light;
       width: 100%;
+      max-width: 100% !important;
+      z-index: -1;
     }
     p.stacked {
       margin-top: -16px !important;
       margin-bottom: 16px !important;
+      &.withLabel {
+        margin-top: 0 !important;
+      }
     }
   }
 
