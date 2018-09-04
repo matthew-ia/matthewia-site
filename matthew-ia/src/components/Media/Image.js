@@ -25,18 +25,20 @@ class Image extends Component {
     console.log("lol!!!");
   }
 
+  // FIXME: This could be simpler and just setState, and add the class to the render
+  // Right now it's only being rendered when it should be seen, so it will always have
+  // the expanded class. If I wanted to add a close animation, I would need this more so.
   toggleExpanded(e) {
     let {isExpanded} = this.state;
     let imageExpanded = e.currentTarget.childNodes[1];
     if (isExpanded) { // Close it
-      console.log(imageExpanded);
-      //document.getElementById('detail').classList.remove('hidescroll');
-      document.getElementById('image-container').classList.remove('expanded');
+      // Don't need to handle the class because the the div is just not rendered on close.
+      // imageExpanded.parentElement.classList.remove('expanded');
       this.setState({isExpanded: false});
     } else { // Expand it
       void imageExpanded.offsetWidth;
-      //document.getElementById('detail').classList.add('hidescroll');
-      document.getElementById('image-container').classList.add('expanded');
+      imageExpanded.parentElement.classList.add('expanded');
+      console.log(imageExpanded.parentElement);
       this.setState({isExpanded: true});
     }
 
@@ -46,7 +48,7 @@ class Image extends Component {
     let {isExpanded} = this.state;
     let {className, id, path, previewFile, fullscreenFile, onLoad} = this.props;
     return (
-      <div id='image-container'
+      <div className='image-container'
            onClick={this.toggleExpanded}>
         <img onLoad={onLoad}
             className={className}
@@ -62,7 +64,6 @@ class Image extends Component {
               </div>
               <ReactTooltip className="tooltip" effect="solid" place="bottom"/>
               <img id='full-image'
-                   onLoad={this.onFullscreenLoad}
                    src={path + fullscreenFile}/>
             </div>
           : <div/>}

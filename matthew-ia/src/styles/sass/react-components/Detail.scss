@@ -107,8 +107,12 @@
     vertical-align: top;
     display: inline-block;
     margin: 0 35px 35px 0;
-    background-color: #f3f3f3;
+    //background-color: #f3f3f3;
     border: 1px solid $brand-primary;
+
+    &.xs{
+      max-height: 22vh;
+    }
 
     &.sm{
       max-height: 30vh;
@@ -118,10 +122,6 @@
     }
     &.lg{
       max-height: 65vh;
-    }
-    &.stacked {
-      vertical-align: baseline;
-      display: block;
     }
   }
   .col {
@@ -149,6 +149,22 @@
       font-size: $font-size-exsmall;
       color: $brand-gray-light;
       width: 100%;
+    }
+    p.stacked {
+      margin-top: -16px !important;
+      margin-bottom: 16px !important;
+    }
+  }
+
+  .gallery-marker {
+    &:before {
+      position: absolute;
+      content: "\a0";
+      margin-top: 0px;
+      margin-left: -7px;
+      padding: 12px 2px;
+      background-color: $brand-primary;
+      line-height: 1px;
     }
   }
 }

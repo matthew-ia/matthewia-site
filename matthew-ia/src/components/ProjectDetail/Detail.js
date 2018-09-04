@@ -67,7 +67,7 @@ class Detail extends Component {
     // Adjusts navbar with offset and saves the returned default value to state.
     // The state is used when the component unmounts to reset it.
     this.setState({navbarOffset: adjustNavbar()});
-    //window.scroll(0,0);
+    window.scroll(0,0);
     window.addEventListener('load', this.refreshView);
     window.addEventListener('wheel', this.preventDefaultScrolling);
     window.addEventListener('resize', this.updateWindowHeight);
