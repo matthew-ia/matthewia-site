@@ -40,6 +40,13 @@ export class _Gallery extends Component {
                    fullscreenFile={'spectra-v0.0-c.png'}/>
             <Label text="I'm a label too!"/>
           </div>
+          <div className='col'>
+            <Image className='md'
+                   path={p.publicPath}
+                   previewFile={'spectra-v0.0-d.png'}
+                   fullscreenFile={'spectra-v0.0-d.png'}/>
+            <Label text="Early mockup of Spectrum Search view"/>
+          </div>
           <div id="t2017" className="col gallery-marker">
             <Image onLoad={this.props.setColumnWidth}
                    className='md'
@@ -49,6 +56,19 @@ export class _Gallery extends Component {
                    fullscreenFile={'spectra-uikit.png'}/>
             <p className="stacked"><i>Iterate. Iterate. Iterate.</i> We took a step back from creating any more UI views to establish a design language. Then, we began designing the views core to the experience as a whole.
             </p>
+          </div>
+          <div className='col'>
+            <Image onLoad={this.props.setColumnWidth}
+                   className='sm'
+                   path={p.publicPath}
+                   previewFile={'spectra-interaction-spectrum.png'}
+                   fullscreenFile={'spectra-interaction-spectrum.png'}/>
+            <Label text="Spectrum interaction"/>
+            <Image className='sm'
+                   path={p.publicPath}
+                   previewFile={'spectra-interaction-article.png'}
+                   fullscreenFile={'spectra-interaction-article.png'}/>
+            <Label text="Article interaction (previously referred to as &quot;Items&quot;)"/>
           </div>
           <div className='col gallery-marker' id='t2018'>
             <Video videoSrc='https://www.youtube.com/embed/cdeOKFJA3MU?rel=0&amp;showinfo=0&mute=1'

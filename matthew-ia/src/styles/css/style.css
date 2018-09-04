@@ -1516,6 +1516,15 @@ button:focus {
   color: #95989A;
   width: 100%; }
 
+#gallery .gallery-marker:before {
+  position: absolute;
+  content: "\a0";
+  margin-top: 0px;
+  margin-left: -7px;
+  padding: 12px 2px;
+  background-color: #2B271E;
+  line-height: 1px; }
+
 #gallery-nav {
   visibility: hidden;
   transition: opacity 0.4s ease-in-out;

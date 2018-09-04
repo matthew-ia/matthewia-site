@@ -151,6 +151,19 @@
       width: 100%;
     }
   }
+
+  .gallery-marker {
+    &:before {
+      position: absolute;
+      content: "\a0";
+      margin-top: 0px;
+      margin-left: -7px;
+      padding: 12px 2px;
+      background-color: $brand-primary;
+      line-height: 1px;
+    }
+    //box-shadow: -10px 0px 0px 12px $brand-primary;
+  }
 }
 
 #gallery-nav {
