@@ -25,18 +25,18 @@ class Image extends Component {
     console.log("lol!!!");
   }
 
+  // FIXME: This could be simpler and just setState, and add the class to the render
+  // Right now it's only being rendered when it should be seen, so it will always have
+  // the expanded class. If I wanted to add a close animation, I would need this more so. 
   toggleExpanded(e) {
     let {isExpanded} = this.state;
     let imageExpanded = e.currentTarget.childNodes[1];
     if (isExpanded) { // Close it
-      console.log(imageExpanded);
-      //document.getElementById('detail').classList.remove('hidescroll');
-      imageExpanded.parentElement.classList.remove('expanded');
-      console.log(imageExpanded.parentElement);
+      // Don't need to handle the class because the the div is just not rendered on close.
+      // imageExpanded.parentElement.classList.remove('expanded');
       this.setState({isExpanded: false});
     } else { // Expand it
       void imageExpanded.offsetWidth;
-      //document.getElementById('detail').classList.add('hidescroll');
       imageExpanded.parentElement.classList.add('expanded');
       console.log(imageExpanded.parentElement);
       this.setState({isExpanded: true});
