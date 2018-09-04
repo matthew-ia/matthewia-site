@@ -27,7 +27,7 @@ class Image extends Component {
 
   // FIXME: This could be simpler and just setState, and add the class to the render
   // Right now it's only being rendered when it should be seen, so it will always have
-  // the expanded class. If I wanted to add a close animation, I would need this more so. 
+  // the expanded class. If I wanted to add a close animation, I would need this more so.
   toggleExpanded(e) {
     let {isExpanded} = this.state;
     let imageExpanded = e.currentTarget.childNodes[1];

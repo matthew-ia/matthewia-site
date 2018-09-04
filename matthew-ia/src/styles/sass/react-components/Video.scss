@@ -19,11 +19,15 @@
     }
   }
   img {
-    transition: filter 0.2s ease-in-out;
+    transition: box-shadow 0.2s ease-in-out;
   }
   img:hover {
-    filter: grayscale(55%);
-
+    box-shadow: 3px 3px 6px rgba($brand-primary, 0.2);
+  }
+  &:hover {
+    .video-icon {
+      background-color: rgba(#ad0505, 0.95);
+    }
   }
 }
 .video-expanded {
@@ -66,19 +70,22 @@
 
 .video-icon {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
   z-index: 10;
-  top: 0;
-  left: 0;
   color: red;
-  padding: 8px 24px;
-  background-color: $brand-primary;
-  //border-left: 1px solid rgba(white, 0.2);
-  //border-top: 1px solid rgba(white, 0.2);
+  padding: 12px 28px;
+  background-color: rgba($brand-primary, 0.95);
+  border: 1px solid rgba(white, 0.2);
+  transition: all 0.2s ease-in-out;
   img#icon {
     margin: 0;
     width: 25px;
     height: 25px;
     background-color: transparent;
+    border: none;
   }
 }
 
