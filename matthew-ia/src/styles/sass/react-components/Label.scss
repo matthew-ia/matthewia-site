@@ -1,0 +1,21 @@
+/*
+ * Label Component Stylesheet
+ * --------------------------------------------------
+ */
+@import '../custom-variables';
+
+//== Style
+//
+//## A group of styles
+
+
+#fullscreen-label {
+  position: absolute;
+  padding: 0;
+  margin-top: 30px !important;
+  margin-bottom: 0;
+  font-family: $font-family-monospace;
+  font-size: $font-size-exsmall;
+  color: red;
+  width: 100%;
+}

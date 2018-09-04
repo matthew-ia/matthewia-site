@@ -53,7 +53,7 @@ class Image extends Component {
             id={id}
             src={path + previewFile}/>
         {isExpanded
-          ? <div className='image-expanded' id='image-expanded'>
+          ? <div className='image-expanded'>
               <div className='close-expand-wrapper'
                    onClick={this.toggleExpanded} data-tip='close'>
                 <img id='close-expand'

@@ -11,13 +11,14 @@ import React, {Component} from "react";
 class Label extends Component {
   render() {
     return (
-      <p className='label'>{this.props.text}</p>
+      <p id={this.props.id} className={'label'}>{this.props.text}</p>
     );
   }
 }
 
 Label.defaultProps = {
   text: '',
+  id: '' // additional class name
 };
 
 export default Label;

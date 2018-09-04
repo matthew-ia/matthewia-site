@@ -140,16 +140,16 @@
       color: $brand-gray;
       max-width: 100%;
     }
-  }
-  p.label {
-    position: absolute;
-    padding: 0;
-    margin-top: -30px;
-    margin-bottom: 0;
-    font-family: $font-family-monospace;
-    font-size: $font-size-exsmall;
-    color: $brand-gray-light;
-    width: 100%;
+    p.label {
+      position: absolute;
+      padding: 0;
+      margin-top: -30px;
+      margin-bottom: 0;
+      font-family: $font-family-monospace;
+      font-size: $font-size-exsmall;
+      color: $brand-gray-light;
+      width: 100%;
+    }
   }
 }
 

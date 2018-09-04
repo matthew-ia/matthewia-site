@@ -8,8 +8,9 @@
 
 import React, {Component} from "react";
 import GalleryNav from "../../GalleryNav";
-import Image from "../../../Image/Image";
-import Label from "../../../Label/Label";
+import Image from "../../../Media/Image";
+import Label from "../../../Media/Label";
+import Video from "../../../Media/Video";
 
 export class _Gallery extends Component {
   render() {
@@ -79,6 +80,13 @@ export class _Gallery extends Component {
                    previewFile={'ab.png'}
                    fullscreenFile={'ab.png'}/>
             <Label text="I'm a label too!"/>
+          </div>
+          <div className='col'>
+            <Video videoSrc='https://www.youtube.com/embed/cdeOKFJA3MU?rel=0&amp;showinfo=0&mute=1'
+                   previewFile={'dd.jpg'}
+                   path={p.publicPath}
+                   className='lg'/>
+            <Label text="Video (with sound)"/>
           </div>
         </div>
       </div>

@@ -1,0 +1,84 @@
+/*
+ * Image Component Stylesheet
+ * --------------------------------------------------
+ */
+@import '../custom-variables';
+
+//== Style
+//
+//## A group of styles
+
+#video-container {
+  cursor: pointer;
+  position: relative;
+  &.expanded {
+   cursor: zoom-out;
+    img:hover {
+      transition: none;
+      filter: none;
+    }
+  }
+  img {
+    transition: filter 0.2s ease-in-out;
+  }
+  img:hover {
+    filter: grayscale(55%);
+
+  }
+}
+.video-expanded {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(black, 0.92);
+  z-index: 100;
+  animation: loadExpandVideo 0.2s;
+  #full-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    //max-width: 100% !important;
+    max-height: 80%;
+    width: 80%;
+    border: none !important;
+    box-shadow: 6px 6px 24px rgba(black, 0.5);
+    height: 100%;
+  }
+  .close-expand-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 2% 3%;
+  }
+  #close-expand {
+    width: 20px;
+    height: 20px;
+    border: none !important;
+    background-color: transparent !important;
+    cursor: pointer;
+    margin: 0 0 10px 0 !important;
+  }
+}
+
+.video-icon {
+  position: absolute;
+  z-index: 10;
+  bottom: 0;
+  right: 0;
+  color: red;
+  border: 2px solid red;
+}
+
+@keyframes loadExpandVideo {
+  0% {
+    visibility: visible;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1.0;
+  }
+}
