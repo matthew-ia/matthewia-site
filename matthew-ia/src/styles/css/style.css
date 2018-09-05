@@ -1314,7 +1314,11 @@ button:focus {
 #projects .p-item a {
   float: left;
   clear: both;
-  line-height: 0; }
+  line-height: 0;
+  color: #2B271E; }
+
+#projects .p-item.light a {
+  color: white; }
 
 #projects .p-item:hover {
   box-shadow: 3px 3px 6px rgba(43, 39, 30, 0.2); }
