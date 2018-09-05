@@ -18,7 +18,7 @@ export class _Brief extends Component {
         <div className="p-desc">
           <h1 className="p-title"> {p.info.name }</h1>
           <span className="p-tags">{p.info.tags.join(" // ") }</span>
-          <p className="p-content">For Team Sunergy, Appalachian State University’s Solar Vehicle Team, I designed a digital dashboard interface for their 2018 vehicle, ROSE. We wanted to have a dashboard that evoked the feeling of being in a modern vehicle, but with additional tools fit for a solar-powered electric vehicle. The default screen needed to be easy for the driver to use, but also provide alternate views for testing purposes.
+          <p className="p-content">For Team Sunergy, Appalachian State University’s Solar Vehicle Team, I designed a digital dashboard interface for their 2018 vehicle, <a href="https://sunergy.appstate.edu/rose/" target='_blank'>ROSE</a>. We wanted to have a dashboard that evoked the feeling of being in a modern vehicle, but with additional tools fit for a solar-powered electric vehicle. The default screen needed to be easy for the driver to use, but also provide alternate views for testing purposes.
           </p>
         </div>
         <Image onLoad={this.props.setColumnWidth}

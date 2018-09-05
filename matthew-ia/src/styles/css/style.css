@@ -1452,6 +1452,14 @@ button:focus {
   font-size: 20px;
   color: #5F5F5F; }
 
+#brief p.p-content a {
+  font-weight: 500;
+  color: #95989A;
+  transition: all 0.2s ease-in-out; }
+
+#brief p.p-content a:hover {
+  color: #2B271E; }
+
 #brief img.p-image {
   margin: 172px 0 0 30px;
   width: 50%;

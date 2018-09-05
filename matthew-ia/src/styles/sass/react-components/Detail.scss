@@ -59,6 +59,14 @@
     margin: 10px 0 0;
     font-size: 20px;
     color: $brand-gray;
+    a {
+      font-weight: $fw-medium;
+      color: $brand-gray-light;
+      transition: all 0.2s ease-in-out;
+      &:hover {
+        color: $brand-primary;
+      }
+    }
   }
 
   img.p-image {
