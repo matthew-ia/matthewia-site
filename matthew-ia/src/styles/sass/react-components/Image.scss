@@ -61,6 +61,11 @@
   margin: 0 0 10px 0 !important;
 }
 
+#full-image.constrain-width {
+  //max-width: 80% !important;
+  max-height: 50% !important;
+}
+
 @keyframes loadExpandImage {
   0% {
     visibility: visible;

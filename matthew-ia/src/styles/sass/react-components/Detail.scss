@@ -117,8 +117,16 @@
     &.sm{
       max-height: 30vh;
     }
+    &.sm.sm-width{
+      max-height: none;
+      max-width: 35vw;
+    }
     &.md{
       max-height: 50vh;
+    }
+    &.md.md-width{
+      max-height: none;
+      max-width: 45vw;
     }
     &.lg{
       max-height: 65vh;

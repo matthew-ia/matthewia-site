@@ -8,7 +8,7 @@
 
 import React, {Component} from "react";
 import {_Gallery as Spectra} from "./projects/Spectra/_Gallery";
-import {_Gallery as OS1} from "./projects/OS1/_Gallery";
+import {_Gallery as ChaseUI} from "./projects/ChaseUI/_Gallery";
 
 const BRIEF = 0;
 const GALLERY = 1;
@@ -39,13 +39,15 @@ class Gallery extends Component {
       galleryPosY: document.getElementById("gallery").getBoundingClientRect().y
     });
     window.addEventListener('resize', this.updateWindowWidth);
+    // FIXME: Goofs on refresh/hard-refresh
     setTimeout(()=>{
       let cols = document.getElementsByClassName('col');
       let lastEl = cols[cols.length - 1];
       let xPos = lastEl.getBoundingClientRect().x;
+      //console.log(cols, lastEl, xPos);
       document.getElementById('gallery').style.width = xPos + parseInt(lastEl.style.width.slice(0,-2)) + 'px';
-      console.log(document.getElementById('gallery').style.width);
-    }, 1000);
+      //console.log(xPos, parseInt(lastEl.style.width.slice(0,-2)), lastEl);
+    }, 1250);
   }
 
   componentWillUnmount() {
@@ -95,7 +97,6 @@ class Gallery extends Component {
     //console.log("*dabs* ", e.target.parentElement.parentElement);
     let image = e.target;
     let col = image.parentElement.parentElement;
-    console.log(image, window.getComputedStyle(image).getPropertyValue('width'));
     col.style.width = window.getComputedStyle(image).getPropertyValue('width');
   }
 
@@ -255,14 +256,16 @@ class Gallery extends Component {
           switch(p.id) {
             case '01':
               return <Spectra p={p}
-                                     handleSmoothScroll={this.handleSmoothScroll}
-                                     setColumnWidth={this.setColumnWidth}/>;
+                              handleSmoothScroll={this.handleSmoothScroll}
+                              setColumnWidth={this.setColumnWidth}/>;
             case '02':
-              return <OS1 p={p}
-                                      handleSmoothScroll={this.handleSmoothScroll}
-                                      setColumnWidth={this.setDynamicColumnWidth}/>;
+              return <ChaseUI p={p}
+                              handleSmoothScroll={this.handleSmoothScroll}
+                              setColumnWidth={this.setColumnWidth}/>;
             default:
-              return <Spectra p={p} handleSmoothScroll={this.handleSmoothScroll}/>;
+              return <Spectra p={p}
+                              handleSmoothScroll={this.handleSmoothScroll}
+                              setColumnWidth={this.setColumnWidth}/>;
           }
         })()}
       </section>

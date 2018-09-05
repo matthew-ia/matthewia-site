@@ -8,7 +8,7 @@
 
 import React, {Component} from "react";
 import {_Brief as Spectra} from "./projects/Spectra/_Brief";
-import {_Brief as OS1} from "./projects/OS1/_Brief";
+import {_Brief as ChaseUI} from "./projects/ChaseUI/_Brief";
 import {loadPage} from "../../tools";
 
 class Brief extends Component {
@@ -84,7 +84,7 @@ class Brief extends Component {
             case '01':
               return <Spectra p={p} handleScroll={this.handleScroll}/>;
             case '02':
-              return <OS1 p={p} handleScroll={this.handleScroll}/>;
+              return <ChaseUI p={p} handleScroll={this.handleScroll}/>;
             default:
               return <Spectra p={p} handleScroll={this.handleScroll}/>;
           }
