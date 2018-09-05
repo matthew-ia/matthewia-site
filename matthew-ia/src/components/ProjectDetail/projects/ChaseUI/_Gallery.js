@@ -21,45 +21,42 @@ export class _Gallery extends Component {
                     links={galleryNavLinks}/>
         <div>
           <div id="t1" className='col gallery-marker'>
-            <Image onLoad={this.props.setColumnWidth}
-                   className='sm sm-width'
+            <Image onLoad={(e)=>{this.props.setColumnWidth(e, true)}}
+                   className='md md-width'
+                   id='t2016'
                    path={p.publicPath}
-                   previewFile={'widget-ui-guide.png'}
-                   fullscreenFile={'widget-ui-guide.png'}/>
-            <Label text="Another label"/>
-            <p className="stacked withLabel">As the only designer on the telemetry team, I started by designing ChaseUI for the other developer assigned to this project to work from. Our main goals with this project was to create an interface that allowed race strategists on the team to view real time data, in order to make important decisions about the race, the car, and the driver. We also wanted the interface to look clean and be simple enough for anyone on the team to use. </p>
+                   previewFile={'chaseui-flow-chart.png'}
+                   fullscreenFile={'chaseui-flow-chart.png'}/>
+            <p className="stacked">As the only designer on the telemetry team, I took lead on designing ChaseUI. I periodically met with the telemetry lead to review the layout and discuss the values that needed to be presented, as well as their level of priority. In the early stage of the project, I designed while another developer worked to create a basic prototype with backend code.</p>
           </div>
           <div className="col">
             <Image onLoad={this.props.setColumnWidth}
                    className='md'
-                   id='t2016'
                    path={p.publicPath}
                    previewFile={'widget-primary.png'}
                    fullscreenFile={'widget-primary.png'}/>
-            <Label text="A label"/>
+            <Label text="Widget wireframe & mockup"/>
           </div>
           <div id="t2" className="col gallery-marker">
             <Image onLoad={this.props.setColumnWidth}
                    className='sm'
-                   id='t2016'
                    path={p.publicPath}
                    previewFile={'overview-wifeframe.png'}
                    fullscreenFile={'overview-wifeframe.png'}/>
+            <Label text="Dashboard – Wireframe"/>
             <Image className='sm'
-                   id='t2016'
                    path={p.publicPath}
                    previewFile={'chaseui-graph-clip.gif'}
                    fullscreenFile={'overview-production-2.png'}/>
-            <Label text="A label"/>
+            <Label text="Dashboard – Production"/>
           </div>
           <div className="col">
-            <Image onLoad={(e)=>{this.props.setColumnWidth(e, true)}}
+            <Image onLoad={this.props.setColumnWidth}
                    className='md'
-                   id='t2016'
                    path={p.publicPath}
                    previewFile={'overview-sidepanel.png'}
                    fullscreenFile={'overview-sidepanel.png'}/>
-            <p className="stacked">Once the foundation for the project was built, I started refining the code, which included reorganizing the project structure, styling the app to match the wireframes and mockups, building the Nav and StatusBar from scratch, and implementing a real-time updating graph component. We developed the app using React and various JS libraries. Beyond the interface, we also built a backend that was capable of connecting to our companion software running on a remote computer (RaspberryPi) via WebSockets.</p>
+            <p className="stacked">Once the foundation for the project was built, I started refining the front-end, which included reorganizing the project structure, styling the app to match the wireframes and mockups, and implementing a real-time updating graph component. We developed the app using React and various JS libraries and node modules. Beyond the interface, we also built a backend that was capable of connecting to our companion software running on a remote computer (RaspberryPi) via WebSockets.</p>
           </div>
         </div>
       </div>

@@ -1505,6 +1505,10 @@ button:focus {
 #gallery img.md {
   max-height: 50vh; }
 
+#gallery img.md.md-width {
+  max-height: none;
+  max-width: 45vw; }
+
 #gallery img.lg {
   max-height: 65vh; }
 

@@ -18,7 +18,7 @@ export class _Brief extends Component {
         <div className="p-desc">
           <h1 className="p-title"> {p.info.name }</h1>
           <span className="p-tags">{p.info.tags.join(" // ") }</span>
-          <p className="p-content">For Team Sunergy, Appalachian State University’s Solar Vehicle Team, I designed and developed a telemetry dashboard interface for race strategy.
+          <p className="p-content">For Team Sunergy, Appalachian State University’s Solar Vehicle Team, I designed and developed a telemetry dashboard interface for race strategy. Our main goal with this project was to create an interface that allowed race strategists on the team to view real time data, in order to make important decisions about the race, the car, and the driver. We also wanted the interface to look clean and be simple enough for anyone on the team to use.
           </p>
         </div>
         <Image onLoad={this.props.setColumnWidth}
