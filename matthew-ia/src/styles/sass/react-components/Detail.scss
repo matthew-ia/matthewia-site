@@ -148,7 +148,7 @@
       font-family: $font-family-monospace;
       font-size: $font-size-exsmall;
       color: $brand-gray-light;
-      width: 100%;
+      width: inherit;
       max-width: 100% !important;
       z-index: -1;
     }

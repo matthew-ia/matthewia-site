@@ -39,7 +39,13 @@ class Gallery extends Component {
       galleryPosY: document.getElementById("gallery").getBoundingClientRect().y
     });
     window.addEventListener('resize', this.updateWindowWidth);
-    //TODO: Dynamically set the gallery width based on the number of images to display
+    setTimeout(()=>{
+      let cols = document.getElementsByClassName('col');
+      let lastEl = cols[cols.length - 1];
+      let xPos = lastEl.getBoundingClientRect().x;
+      document.getElementById('gallery').style.width = xPos + parseInt(lastEl.style.width.slice(0,-2)) + 'px';
+      console.log(document.getElementById('gallery').style.width);
+    }, 1000);
   }
 
   componentWillUnmount() {

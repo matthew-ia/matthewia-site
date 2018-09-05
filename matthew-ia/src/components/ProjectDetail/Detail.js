@@ -72,7 +72,18 @@ class Detail extends Component {
     window.addEventListener('wheel', this.preventDefaultScrolling);
     window.addEventListener('resize', this.updateWindowHeight);
     window.addEventListener('focus', this.handleFocus);
-    //window.addEventListener('blur', this.handleBlur);
+
+    /*let cols = document.getElementsByClassName('col');
+    let width = 0;
+    let margin = parseInt(window.getComputedStyle(cols[0]).getPropertyValue('margin-right').slice(0, -2));
+    console.log(margin);
+    for (let col of cols) {
+      width += parseInt(getComputedStyle(col).getPropertyValue('width').slice(0, -2)) + margin;
+      console.log(getComputedStyle(col).getPropertyValue('width'));
+    }
+    document.getElementById('gallery').style.width = (width + 60) + 'px';
+    console.log(document.getElementById('gallery').style.width);
+    */
   }
 
   componentWillUnmount() {

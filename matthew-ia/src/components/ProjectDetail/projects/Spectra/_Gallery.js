@@ -26,7 +26,8 @@ export class _Gallery extends Component {
                    path={p.publicPath}
                    previewFile={'spectra-v0.0-a.png'}
                    fullscreenFile={'spectra-v0.0-a.png'}/>
-            <Image className='sm'
+            <Image onLoad={this.props.setColumnWidth}
+                   className='sm'
                    path={p.publicPath}
                    previewFile={'spectra-v0.0-b.png'}
                    fullscreenFile={'spectra-v0.0-b.png'}/>
@@ -64,14 +65,16 @@ export class _Gallery extends Component {
             <Label text="My Spectrum view iteration"/>
           </div>
           <div className='col'>
-            <Image className='md'
+            <Image onLoad={this.props.setColumnWidth}
+                   className='md'
                    path={p.publicPath}
                    previewFile={'dashboard.png'}
                    fullscreenFile={'dashboard.png'}/>
             <Label text="Dashboard view"/>
           </div>
           <div className='col'>
-            <Image className='md'
+            <Image onLoad={this.props.setColumnWidth}
+                   className='md'
                    path={p.publicPath}
                    previewFile={'social-mode.png'}
                    fullscreenFile={'social-mode.png'}/>
@@ -88,7 +91,8 @@ export class _Gallery extends Component {
             </p>
           </div>
           <div className='col'>
-            <Video videoSrc='https://www.youtube.com/embed/cdeOKFJA3MU?rel=0&amp;showinfo=0&mute=1'
+            <Video onLoad={this.props.setColumnWidth}
+                   videoSrc='https://www.youtube.com/embed/cdeOKFJA3MU?rel=0&amp;showinfo=0&mute=1'
                    previewFile={'spectra-title.png'}
                    path={p.publicPath}
                    className='lg'/>
