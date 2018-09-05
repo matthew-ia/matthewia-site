@@ -97,7 +97,7 @@ export class _Gallery extends Component {
                    previewFile={'spectra-title.png'}
                    path={p.publicPath}
                    className='lg'/>
-            <Label text="Spectra Capstone 0.2 (video w/ sound)"/>
+            <Label text="Spectra-CP Demo w/ voiceover (v0.2)"/>
           </div>
           <div className='col'>
             <Image onLoad={this.props.setColumnWidth}

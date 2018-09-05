@@ -8,6 +8,7 @@
 
 import React, {Component} from "react";
 import ReactTooltip from 'react-tooltip';
+import Image from "../../../Media/Image";
 
 export class _Brief extends Component {
   render() {
@@ -22,7 +23,11 @@ export class _Brief extends Component {
             For my senior capstone, I developed an early version of Spectra.
           </p>
         </div>
-        <img className="p-image" src={p.publicPath + "spectra-preview.png"}/>
+        <Image onLoad={this.props.setColumnWidth}
+               className='p-image'
+               path={p.publicPath}
+               previewFile={'spectra-preview.png'}
+               fullscreenFile={'spectra-preview.png'}/>
         <button
           data-tip="scroll down"
           id="scroll-arrow"
