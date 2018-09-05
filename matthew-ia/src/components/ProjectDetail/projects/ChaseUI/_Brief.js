@@ -8,6 +8,7 @@
 
 import React, {Component} from "react";
 import ReactTooltip from 'react-tooltip';
+import Image from "../../../Media/Image";
 
 export class _Brief extends Component {
   render() {
@@ -20,7 +21,11 @@ export class _Brief extends Component {
           <p className="p-content">For Team Sunergy, Appalachian State University’s Solar Vehicle Team, I designed and developed a telemetry dashboard interface for race strategy.
           </p>
         </div>
-        <img className="p-image" src={p.publicPath + "widget_primary_cluster.png"}/>
+        <Image onLoad={this.props.setColumnWidth}
+               className='p-image'
+               path={p.publicPath}
+               previewFile={'battery-production.png'}
+               fullscreenFile={'battery-production.png'}/>
         <button
           data-tip="scroll down"
           id="scroll-arrow"

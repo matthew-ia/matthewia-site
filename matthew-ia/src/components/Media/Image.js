@@ -52,6 +52,10 @@ class Image extends Component {
   render() {
     let {isExpanded} = this.state;
     let {className, id, path, previewFile, fullscreenFile, onLoad} = this.props;
+    let expandedClass;
+    if (className.slice(-6) === '-width') {
+      expandedClass = 'constrain-width';
+    }
     return (
       <div className='image-container'
            onClick={this.toggleExpanded}>
@@ -69,6 +73,7 @@ class Image extends Component {
               </div>
               <ReactTooltip className="tooltip" effect="solid" place="bottom"/>
               <img id='full-image'
+                   className={expandedClass}
                    src={path + fullscreenFile}/>
             </div>
           : <div/>}

@@ -39,12 +39,15 @@ class Gallery extends Component {
       galleryPosY: document.getElementById("gallery").getBoundingClientRect().y
     });
     window.addEventListener('resize', this.updateWindowWidth);
+    // FIXME: Goofs on refresh/hard-refresh
     setTimeout(()=>{
       let cols = document.getElementsByClassName('col');
       let lastEl = cols[cols.length - 1];
       let xPos = lastEl.getBoundingClientRect().x;
+      //console.log(cols, lastEl, xPos);
       document.getElementById('gallery').style.width = xPos + parseInt(lastEl.style.width.slice(0,-2)) + 'px';
-    }, 1000);
+      //console.log(xPos, parseInt(lastEl.style.width.slice(0,-2)), lastEl);
+    }, 1250);
   }
 
   componentWillUnmount() {
@@ -94,7 +97,6 @@ class Gallery extends Component {
     //console.log("*dabs* ", e.target.parentElement.parentElement);
     let image = e.target;
     let col = image.parentElement.parentElement;
-    console.log(image, window.getComputedStyle(image).getPropertyValue('width'));
     col.style.width = window.getComputedStyle(image).getPropertyValue('width');
   }
 

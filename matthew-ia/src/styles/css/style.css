@@ -1494,6 +1494,10 @@ button:focus {
 #gallery img.sm {
   max-height: 30vh; }
 
+#gallery img.sm.sm-width {
+  max-height: none;
+  max-width: 35vw; }
+
 #gallery img.md {
   max-height: 50vh; }
 
@@ -1631,6 +1635,9 @@ button:focus {
   background-color: transparent !important;
   cursor: pointer;
   margin: 0 0 10px 0 !important; }
+
+#full-image.constrain-width {
+  max-height: 50% !important; }
 
 @keyframes loadExpandImage {
   0% {
