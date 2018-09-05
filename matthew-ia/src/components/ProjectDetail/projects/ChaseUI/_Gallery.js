@@ -27,7 +27,7 @@ export class _Gallery extends Component {
                    path={p.publicPath}
                    previewFile={'chaseui-flow-chart.png'}
                    fullscreenFile={'chaseui-flow-chart.png'}/>
-            <p className="stacked">As the only designer on the telemetry team, I took lead on designing ChaseUI. I periodically met with the telemetry lead to review the layout and discuss the values that needed to be presented, as well as their level of priority. In the early stage of the project, I designed while another developer worked to create a basic prototype with backend code.</p>
+            <p className="stacked">As the only designer on the telemetry team, I took lead on designing ChaseUI. I periodically met with the telemetry lead to review the layout and discuss the data values that needed to be presented, as well as their level of priority. In the early stage of the project, I designed while another developer worked to create a basic prototype with backend code.</p>
           </div>
           <div className="col">
             <Image onLoad={this.props.setColumnWidth}
@@ -51,12 +51,13 @@ export class _Gallery extends Component {
             <Label text="Dashboard – Production"/>
           </div>
           <div className="col">
-            <Image onLoad={this.props.setColumnWidth}
-                   className='md'
-                   path={p.publicPath}
+            <Video onLoad={this.props.setColumnWidth}
+                   videoSrc='https://www.youtube.com/embed/TFvsfI66YnU?rel=0&amp;showinfo=0'
                    previewFile={'overview-sidepanel.png'}
-                   fullscreenFile={'overview-sidepanel.png'}/>
-            <p className="stacked">Once the foundation for the project was built, I started refining the front-end, which included reorganizing the project structure, styling the app to match the wireframes and mockups, and implementing a real-time updating graph component. We developed the app using React and various JS libraries and node modules. Beyond the interface, we also built a backend that was capable of connecting to our companion software running on a remote computer (RaspberryPi) via WebSockets.</p>
+                   path={p.publicPath}
+                   className='md'/>
+            <Label text="Spectra-CP Demo w/ voiceover (v0.2)"/>
+            <p className="stacked withLabel">Once the foundation for the project was built, I started refining the front-end, which included reorganizing the project structure, styling the app to match the wireframes and mockups, and implementing a real-time updating graph component. We developed the app using React and various JS libraries and node modules. Beyond the interface, we also built a backend that was capable of connecting to our companion software running on a remote computer (RaspberryPi) via WebSockets.</p>
           </div>
         </div>
       </div>
