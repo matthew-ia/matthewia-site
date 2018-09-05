@@ -25,8 +25,8 @@ export class _Gallery extends Component {
                    className='lg'
                    id='t2016'
                    path={p.publicPath}
-                   previewFile={'widget_primary_cluster.png'}
-                   fullscreenFile={'widget_primary_cluster.png'}/>
+                   previewFile={'chaseui-graph-clip.gif'}
+                   fullscreenFile={'chaseui-graph-clip.gif'}/>
             <Label text="A label"/>
           </div>
           <div className='col'>

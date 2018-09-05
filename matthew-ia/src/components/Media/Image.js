@@ -33,7 +33,12 @@ class Image extends Component {
     let imageExpanded = e.currentTarget.childNodes[1];
     if (isExpanded) { // Close it
       // Don't need to handle the class because the the div is just not rendered on close.
-      // imageExpanded.parentElement.classList.remove('expanded');
+      if (e.target.id !== 'close-expand') {
+        imageExpanded.parentElement.classList.remove('expanded');
+      } else {
+        // Need to get to parent from close-expand element
+        e.target.parentElement.parentElement.parentElement.classList.remove('expanded');
+      }
       this.setState({isExpanded: false});
     } else { // Expand it
       void imageExpanded.offsetWidth;
