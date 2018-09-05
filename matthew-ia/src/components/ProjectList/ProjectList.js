@@ -31,7 +31,7 @@ class ProjectList extends Component {
       projects.push(<li id={ "" + key } className="p-item">
         <Link to={ '/projects/' + pid }>
           <div id="p-id">{ padNum(pid)} </div>
-          <img className="p-image" src={ window.location.origin + '/images/p-placeholder.png'} alt={ "Project " + pid } />
+          <img className="p-image" src={ window.location.origin + '/images/p' + pid + '/list-preview.png'} alt={ "Project " + pid } />
           <div className="p-label">
             <h3>{ props.projects[key].name }</h3>
             <p> { props.projects[key].tags.join(" // ") }</p>

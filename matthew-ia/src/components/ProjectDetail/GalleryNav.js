@@ -12,7 +12,7 @@ class GalleryNav extends Component {
   // eslint-disable-next-line require-jsdoc
   constructor(props) {
     super(props);
-    
+
     let links = [];
     for (let l of this.props.links) {
       links.push(<li>

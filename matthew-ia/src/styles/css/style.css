@@ -1300,18 +1300,24 @@ button:focus {
   color: white;
   z-index: 1;
   position: absolute;
-  margin: -6px -6px; }
+  margin: -6px -6px;
+  line-height: 1.42857; }
 
 #projects .p-item {
-  display: inline-block;
   border: 1px solid #2B271E;
+  display: inline-block;
   margin-right: 64px;
   position: relative;
   text-align: center; }
 
+#projects .p-item a {
+  float: left;
+  clear: both;
+  line-height: 0; }
+
 #projects .p-image {
-  height: 550px;
-  width: 650px; }
+  max-height: 550px;
+  max-width: 650px; }
 
 #projects .p-label {
   position: absolute;
@@ -1320,7 +1326,8 @@ button:focus {
   transform: translate(-50%, -50%); }
 
 #projects .p-label p {
-  font-family: Inconsolata,Menlo,Monaco,Consolas,"Courier New",monospace; }
+  font-family: Inconsolata,Menlo,Monaco,Consolas,"Courier New",monospace;
+  line-height: 1.42857; }
 
 #scrollContainer > div {
   overflow: hidden; }

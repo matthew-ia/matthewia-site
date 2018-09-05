@@ -37,19 +37,25 @@
     z-index: 1;
     position: absolute;
     margin: -6px -6px;
+    line-height: $line-height-base;
   }
 
   .p-item {
-    display: inline-block;
+    a {
+      float: left;
+      clear: both;
+      line-height: 0;
+    }
     border: 1px solid $brand-primary;
+    display: inline-block;
     margin-right: 64px;
     position: relative;
     text-align: center;
   }
 
   .p-image {
-    height: 550px;
-    width: 650px;
+    max-height: 550px;
+    max-width: 650px;
   }
 
   .p-label {
@@ -59,6 +65,7 @@
     transform: translate(-50%, -50%);
     p {
       font-family: $font-inconsolata;
+      line-height: $line-height-base;
     }
   }
 
