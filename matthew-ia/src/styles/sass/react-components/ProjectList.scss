@@ -45,6 +45,12 @@
       float: left;
       clear: both;
       line-height: 0;
+      color: $brand-primary;
+    }
+    &.light {
+      a {
+        color: white;
+      }
     }
     border: 1px solid $brand-primary;
     display: inline-block;

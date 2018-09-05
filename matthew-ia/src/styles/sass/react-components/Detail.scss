@@ -131,6 +131,10 @@
     &.lg{
       max-height: 65vh;
     }
+    &.two-up {
+      float: left;
+      max-width: none !important;
+    }
   }
   .col {
     vertical-align: top;
@@ -148,6 +152,10 @@
       color: $brand-gray;
       max-width: 100%;
     }
+    p.stacked.controlWidth {
+      max-width: 35vw;
+    }
+
     p.label {
       position: absolute;
       padding: 0;

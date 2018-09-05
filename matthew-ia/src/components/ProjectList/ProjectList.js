@@ -28,7 +28,9 @@ class ProjectList extends Component {
     Object.keys(this.props.projects).forEach(function(key) { // Iterates over project list to define the above vars
       counter++;
       pid = key.substr(1);
-      projects.push(<li id={ "" + key } className="p-item">
+      console.log(props.projects[key]);
+      projects.push(<li id={ "" + key }
+                        className={"p-item" + ' ' + props.projects[key].listTextStyle}>
         <Link to={ '/projects/' + pid }>
           <div id="p-id">{ padNum(pid)} </div>
           <img className="p-image" src={ window.location.origin + '/images/p' + pid + '/list-preview.png'} alt={ "Project " + pid } />
