@@ -14,10 +14,11 @@ import Video from "../../../Media/Video";
 
 export class _Gallery extends Component {
   render() {
-    let {p} = this.props;
+    let {p, galleryNavLinks} = this.props;
     return (
       <div id='spectra'>
-        <GalleryNav handleScroll={this.props.handleSmoothScroll}/>
+        <GalleryNav handleScroll={this.props.handleSmoothScroll}
+                    links={galleryNavLinks}/>
         <div>
           <div id="t2016" className="col gallery-marker">
             <Image onLoad={this.props.setColumnWidth}
@@ -136,4 +137,21 @@ _Gallery.defaultProps = {
    * Otherwise, it's unnecessary.
    */
   setColumnWidth: ()=>{},
+  galleryNavLinks: [
+    {
+      href: '#t2016',
+      text: '2016',
+      activeClass: 'active',
+    },
+    {
+      href: '#t2017',
+      text: '2017',
+      activeClass: '',
+    },
+    {
+      href: '#t2018',
+      text: '2018',
+      activeClass: '',
+    }
+  ],
 };

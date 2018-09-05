@@ -9,20 +9,29 @@
 import React, {Component} from "react";
 
 class GalleryNav extends Component {
+  // eslint-disable-next-line require-jsdoc
+  constructor(props) {
+    super(props);
+    
+    let links = [];
+    for (let l of this.props.links) {
+      links.push(<li>
+        <a onClick={props.handleScroll}
+           className={'gallery-link' + ' ' + l.activeClass}
+           href={l.href}>{l.text}
+         </a>
+      </li>);
+    }
+
+    this.state = {
+      links: links,
+    };
+  }
   render() {
-    let {handleScroll} = this.props;
     return (
       <div id="gallery-nav">
         <ul>
-          <li><a onClick={handleScroll}
-                 className="gallery-link active"
-                 href="#t2016">2016</a></li>
-          <li><a onClick={handleScroll}
-                 className="gallery-link"
-                 href="#t2017">2017</a></li>
-          <li><a onClick={handleScroll}
-                 className="gallery-link"
-                 href="#t2018">2018</a></li>
+          {this.state.links}
         </ul>
       </div>
     );
@@ -30,8 +39,8 @@ class GalleryNav extends Component {
 }
 
 GalleryNav.defaultProps = {
-  handleScroll: ()=>{} // click handler for scrolling to gallery-marker elements
-
+  handleScroll: ()=>{}, // click handler for scrolling to gallery-marker elements
+  links: [],
 };
 
 export default GalleryNav;
