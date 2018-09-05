@@ -20,44 +20,59 @@ export class _Gallery extends Component {
         <GalleryNav handleScroll={this.props.handleSmoothScroll}
                     links={galleryNavLinks}/>
         <div>
-          <div id="t1" className='col gallery-marker'>
+          <div id="t1" className="col gallery-marker">
+            <Image onLoad={this.props.setColumnWidth}
+                   className='md'
+                   path={p.publicPath}
+                   previewFile={'dashui-wireframe-2.png'}
+                   fullscreenFile={'dashui-wireframe-2-full.png'}/>
+            <p className="stacked">Not being a developer on this project allowed me to focus my effort in the design. I began by researching existing digital dashboard designs, particularly in EVs such as Teslas. From there, I started sketching wireframes ranging from relatively traditional twin-dial layouts to those befitting a sci-fi film.</p>
+          </div>
+          <div className='col'>
             <Image onLoad={(e)=>{this.props.setColumnWidth(e, true)}}
-                   className='md md-width'
+                   className='md'
                    id='t2016'
                    path={p.publicPath}
-                   previewFile={'chaseui-flow-chart.png'}
-                   fullscreenFile={'chaseui-flow-chart.png'}/>
-            <p className="stacked">As the only designer on the telemetry team, I took lead on designing ChaseUI. I periodically met with the telemetry lead to review the layout and discuss the data values that needed to be presented, as well as their level of priority. In the early stage of the project, I designed while another developer worked to create a basic prototype with backend code.</p>
+                   previewFile={'dashui-wireframe.png'}
+                   fullscreenFile={'dashui-wireframe-full.png'}/>
+          </div>
+          <div id="t2" className="col gallery-marker">
+            <Video onLoad={this.props.setColumnWidth}
+                   videoSrc='https://www.youtube.com/embed/PYYzwzRVV3I?rel=0&amp;showinfo=0'
+                   previewFile={'standard-mode.png'}
+                   path={p.publicPath}
+                   className='sm'/>
+            <Label text="DashUI interaction demo"/>
+            <p className="stacked withLabel">I had numerous meetings with the telemetry lead and various directors from the sub-teams, in order to determine what data values are most necessary to display for the driver. In solar vehicle racing introduces a new set of measurements to be monitoring compared to a standard EV, let alone a traditional gasoline car. However, I wanted the design to be approachable to the average user and avoid overwhelming them with too many dials or moving parts. To accomplish that I focused on designing the layout while thinking about the hierarchy of priority of each data field.</p>
+          </div>
+          <div className="col">
+            <Image onLoad={this.props.setColumnWidth}
+                   className='sm'
+                   path={p.publicPath}
+                   previewFile={'dev-mode.png'}
+                   fullscreenFile={'dev-mode.png'}/>
+            <Image onLoad={this.props.setColumnWidth}
+                   className='sm'
+                   path={p.publicPath}
+                   previewFile={'error-log.png'}
+                   fullscreenFile={'error-log.png'}/>
+            <Label text="Error Log view"/>
+          </div>
+          <div id="t3" className="col gallery-marker">
+            <Image onLoad={this.props.setColumnWidth}
+                   className='lg'
+                   path={p.publicPath}
+                   previewFile={'handoff-typography.png'}
+                   fullscreenFile={'handoff-typography.png'}/>
+            <Label text="Handoff – Typography"/>
           </div>
           <div className="col">
             <Image onLoad={this.props.setColumnWidth}
                    className='md'
                    path={p.publicPath}
-                   previewFile={'widget-primary.png'}
-                   fullscreenFile={'widget-primary.png'}/>
-            <Label text="Widget wireframe & mockup"/>
-          </div>
-          <div id="t2" className="col gallery-marker">
-            <Image onLoad={this.props.setColumnWidth}
-                   className='sm'
-                   path={p.publicPath}
-                   previewFile={'overview-wifeframe.png'}
-                   fullscreenFile={'overview-wifeframe.png'}/>
-            <Label text="Dashboard – Wireframe"/>
-            <Image className='sm'
-                   path={p.publicPath}
-                   previewFile={'chaseui-graph-clip.gif'}
-                   fullscreenFile={'overview-production-2.png'}/>
-            <Label text="Dashboard – Production"/>
-          </div>
-          <div className="col">
-            <Video onLoad={this.props.setColumnWidth}
-                   videoSrc='https://www.youtube.com/embed/TFvsfI66YnU?rel=0&amp;showinfo=0'
-                   previewFile={'overview-sidepanel.png'}
-                   path={p.publicPath}
-                   className='md'/>
-            <Label text="Spectra-CP Demo w/ voiceover (v0.2)"/>
-            <p className="stacked withLabel">Once the foundation for the project was built, I started refining the front-end, which included reorganizing the project structure, styling the app to match the wireframes and mockups, and implementing a real-time updating graph component. We developed the app using React and various JS libraries and node modules. Beyond the interface, we also built a backend that was capable of connecting to our companion software running on a remote computer (RaspberryPi) via WebSockets.</p>
+                   previewFile={'handoff-icons.png'}
+                   fullscreenFile={'handoff-icons.png'}/>
+            <p className="stacked">Another aspect of this project required me to effectively communicate my design to the developer working on building the interface. I created a design handoff for the developer to use a reference, as well as had meetings about implementing the design in code.</p>
           </div>
         </div>
       </div>
@@ -77,12 +92,17 @@ _Gallery.defaultProps = {
   galleryNavLinks: [
     {
       href: '#t1',
-      text: 'Design',
+      text: 'Wireframe',
       activeClass: 'active',
     },
     {
       href: '#t2',
-      text: 'Develop',
+      text: 'Mockup',
+      activeClass: '',
+    },
+    {
+      href: '#t3',
+      text: 'Handoff',
       activeClass: '',
     },
   ],
