@@ -18,7 +18,7 @@ Self-brand website for Matthew Alicea
 ```
 |-- info
 |-- work
-	|-- OS1 (Brochure, Bi-fold, etc)
+	|-- ChaseUI (Brochure, Bi-fold, etc)
 	|-- Newleaf
 	|-- Spectra
 	|-- TGDSF Website
