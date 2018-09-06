@@ -12,6 +12,7 @@ import {_Gallery as ChaseUI} from "./projects/ChaseUI/_Gallery";
 import {_Gallery as DashUI} from "./projects/DashUI/_Gallery";
 import {_Gallery as ProLo} from "./projects/ProLo/_Gallery";
 import {_Gallery as DGSF} from "./projects/DGSF/_Gallery";
+import {_Gallery as Citrus} from "./projects/Citrus/_Gallery";
 
 const BRIEF = 0;
 const GALLERY = 1;
@@ -277,6 +278,10 @@ class Gallery extends Component {
               return <DGSF p={p}
                             handleSmoothScroll={this.handleSmoothScroll}
                             setColumnWidth={this.setColumnWidth}/>;
+            case '06':
+              return <Citrus p={p}
+                           handleSmoothScroll={this.handleSmoothScroll}
+                           setColumnWidth={this.setColumnWidth}/>;
             default:
               return <Spectra p={p}
                               handleSmoothScroll={this.handleSmoothScroll}

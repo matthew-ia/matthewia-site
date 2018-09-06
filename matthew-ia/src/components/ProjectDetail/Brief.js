@@ -12,6 +12,7 @@ import {_Brief as ChaseUI} from "./projects/ChaseUI/_Brief";
 import {_Brief as DashUI} from "./projects/DashUI/_Brief";
 import {_Brief as ProLo} from "./projects/ProLo/_Brief";
 import {_Brief as DGSF} from "./projects/DGSF/_Brief";
+import {_Brief as Citrus} from "./projects/Citrus/_Brief";
 
 import {loadPage} from "../../tools";
 
@@ -95,6 +96,8 @@ class Brief extends Component {
               return <ProLo p={p} handleScroll={this.handleScroll}/>;
             case '05':
               return <DGSF p={p} handleScroll={this.handleScroll}/>;
+            case '06':
+              return <Citrus p={p} handleScroll={this.handleScroll}/>;
             default:
               return <Spectra p={p} handleScroll={this.handleScroll}/>;
           }
