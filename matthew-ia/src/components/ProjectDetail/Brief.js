@@ -10,6 +10,8 @@ import React, {Component} from "react";
 import {_Brief as Spectra} from "./projects/Spectra/_Brief";
 import {_Brief as ChaseUI} from "./projects/ChaseUI/_Brief";
 import {_Brief as DashUI} from "./projects/DashUI/_Brief";
+import {_Brief as ProLo} from "./projects/ProLo/_Brief";
+
 import {loadPage} from "../../tools";
 
 class Brief extends Component {
@@ -88,6 +90,8 @@ class Brief extends Component {
               return <ChaseUI p={p} handleScroll={this.handleScroll}/>;
             case '03':
               return <DashUI p={p} handleScroll={this.handleScroll}/>;
+            case '04':
+              return <ProLo p={p} handleScroll={this.handleScroll}/>;
             default:
               return <Spectra p={p} handleScroll={this.handleScroll}/>;
           }
