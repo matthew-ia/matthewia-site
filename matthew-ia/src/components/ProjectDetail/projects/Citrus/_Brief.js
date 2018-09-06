@@ -18,7 +18,9 @@ export class _Brief extends Component {
         <div className="p-desc">
           <h1 className="p-title"> {p.info.name }</h1>
           <span className="p-tags">{p.info.tags.join(" // ") }</span>
-          <p className="p-content">Citrus
+          <p className="p-content">Citrus started as brainstorm session with some friends on the beaches of NC. It would be a citrus-fruit-themed design brand, with each artist assuming the alias of a different citrus fruit. We’d sell prints on posters, shirts, etc. For now, it’s just some mockups of the website. Stay tuned.<br/><br/>
+            The photos used in the mockups are not my own.<br/>
+            Attribution: <a href="https://www.eyeofscottie.com/" target="_blank">EYEOFSCOTTIE</a> (first two), and <a href="http://www.kennethcappello.com/" target="_blank">Kenneth Cappello</a>.
           </p>
         </div>
         <img className='p-image' src={p.publicPath + 'citrus-2.png'}/>
