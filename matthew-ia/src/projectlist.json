@@ -29,6 +29,11 @@
       "name": "Citrus",
       "tags": ["WIP", "UI", "Web"],
       "listTextStyle": ""
+    },
+    "p7": {
+      "name": "MondrianSim",
+      "tags": ["2017", "Android App"],
+      "listTextStyle": ""
     }
   }
 }
