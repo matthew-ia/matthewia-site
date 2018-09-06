@@ -121,7 +121,7 @@ class ProjectList extends Component {
           <title>matthew.ia > projects</title>
         </Helmet>
         <h1>matthew.ia</h1>
-        <div id='filter-button'>Filter</div>
+        {/* <div id='filter-button'>Filter</div> */}
         <FloatingList plist={this.state.plistNames} scroll={this.handleSmoothScroll}/>
         <div className="content">
           <ul id="p-list">

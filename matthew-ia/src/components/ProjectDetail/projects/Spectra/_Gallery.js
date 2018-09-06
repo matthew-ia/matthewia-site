@@ -16,7 +16,7 @@ export class _Gallery extends Component {
   render() {
     let {p, galleryNavLinks} = this.props;
     return (
-      <div id='spectra'>
+      <div>
         <GalleryNav handleScroll={this.props.handleSmoothScroll}
                     links={galleryNavLinks}/>
         <div>

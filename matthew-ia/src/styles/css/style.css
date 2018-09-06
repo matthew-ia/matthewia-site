@@ -23,6 +23,8 @@
 @import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700");
 @import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700");
+@import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -1340,10 +1342,18 @@ button:focus {
 #scrollContainer > div {
   overflow: hidden; }
 
+#filter-button {
+  position: fixed;
+  top: 15px;
+  right: 10%;
+  margin-top: 22px;
+  cursor: pointer; }
+
 #floating-list {
   position: fixed;
   left: 0;
-  top: 40%;
+  top: 50%;
+  transform: translate(0, -50%);
   z-index: 10;
   background-color: transparent;
   font-size: 18px; }
@@ -1362,13 +1372,16 @@ button:focus {
   display: inline-block;
   opacity: 0; }
 
+#floating-list ul .li-pname-selected {
+  color: #2B271E; }
+
 #floating-list ul li:last-child {
   margin-bottom: 0; }
 
 #floating-list ul a {
   font-family: Inconsolata,Menlo,Monaco,Consolas,"Courier New",monospace;
   font-weight: 400;
-  color: #D0D0D0; }
+  color: #95989A; }
 
 #floating-list ul a:hover {
   color: #2B271E; }
@@ -1382,13 +1395,6 @@ button:focus {
 #floating-list:hover {
   background-color: rgba(255, 255, 255, 0.9); }
 
-#filter-button {
-  position: fixed;
-  top: 15px;
-  right: 10%;
-  margin-top: 22px;
-  cursor: pointer; }
-
 .li-node {
   position: relative;
   top: 3px;
@@ -1398,13 +1404,11 @@ button:focus {
   background-color: white;
   border: 3px solid #2B271E;
   border-radius: 12px;
-  margin: 0 24px 0 0; }
+  margin: 0 24px 0 0;
+  transition: all 0.1s ease-in; }
 
 .li-node-selected {
   background-color: #2B271E; }
-
-.li-pname-selected {
-  color: #2B271E; }
 
 #detail {
   overflow: visible; }

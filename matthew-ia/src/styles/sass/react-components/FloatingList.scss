@@ -1,0 +1,75 @@
+/*
+ * FloatingList Component Stylesheet
+ * --------------------------------------------------
+ */
+@import '../custom-variables';
+
+//== Style
+//
+//## A group of styles
+
+#floating-list {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  z-index: 10;
+  background-color: transparent;
+  font-size: $font-size-medium;
+  ul {
+    transition: all 0.2s ease-out;
+    list-style: none;
+    padding: 20px 24px ;
+    margin: 0;
+    li {
+      margin-bottom: 10px;
+    }
+    .li-pname {
+      transition: all 0.2s ease-out;
+      display: inline-block;
+      opacity: 0;
+    }
+    .li-pname-selected {
+      color: $brand-primary;
+    }
+    li:last-child {
+      margin-bottom: 0;
+    }
+    a {
+      font-family: $font-family-monospace;
+      font-weight: $fw-normal;
+      color: $brand-gray-light;
+      &:hover {
+        color: $brand-primary;
+        .li-node {
+          background-color: $brand-primary;
+        }
+      }
+    }
+    &:hover {
+      .li-pname {
+        opacity: 1;
+      }
+    }
+  }
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+}
+
+.li-node {
+  position: relative;
+  top: 3px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border: 3px solid $brand-primary;
+  border-radius: 12px;
+  margin: 0 24px 0 0;
+  transition: all 0.1s ease-in;
+}
+
+.li-node-selected {
+  background-color: $brand-primary;
+}

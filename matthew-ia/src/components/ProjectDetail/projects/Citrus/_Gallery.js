@@ -15,7 +15,7 @@ export class _Gallery extends Component {
   render() {
     let {p} = this.props;
     return (
-      <div id='dgsf'>
+      <div>
         <GalleryNav handleScroll={this.props.handleSmoothScroll}
                     links={this.props.galleryNavLinks}/>
         <div>

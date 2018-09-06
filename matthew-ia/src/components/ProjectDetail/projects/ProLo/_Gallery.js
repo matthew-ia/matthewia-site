@@ -15,7 +15,7 @@ export class _Gallery extends Component {
   render() {
     let {p} = this.props;
     return (
-      <div id='chaseui'>
+      <div>
         <div>
           <div className="col">
             <Image onLoad={this.props.setColumnWidth}
