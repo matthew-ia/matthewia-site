@@ -1476,7 +1476,7 @@ button:focus {
 
 #brief img.p-image {
   margin: 172px 0 0 30px;
-  width: 50%;
+  max-width: 50%;
   max-height: 635px;
   color: #5F5F5F;
   border: 1px solid black; }

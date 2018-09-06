@@ -25,11 +25,7 @@ export class _Brief extends Component {
                    target='_blank'>>> Redesign_Proposal.pdf</a></li>
           </ul>
         </div>
-        <Image onLoad={this.props.setColumnWidth}
-               className='p-image'
-               path={p.publicPath}
-               previewFile={'dashboard-mockup.png'}
-               fullscreenFile={'standard-mode-full.png'}/>
+        <img className='p-image' src={p.publicPath + 'dgsf-redesign-2-cropped.png'}/>
         <button
           data-tip="scroll down"
           id="scroll-arrow"

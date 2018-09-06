@@ -86,7 +86,7 @@
 
   img.p-image {
     margin: 172px 0 0 30px;
-    width: 50%;
+    max-width: 50%;
     max-height: 635px;
     color: $brand-gray;
     border: 1px solid black;
