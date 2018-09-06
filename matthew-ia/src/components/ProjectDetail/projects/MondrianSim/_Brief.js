@@ -18,7 +18,7 @@ export class _Brief extends Component {
         <div className="p-desc">
           <h1 className="p-title"> {p.info.name }</h1>
           <span className="p-tags">{p.info.tags.join(" // ") }</span>
-          <p className="p-content">I wrote a small Android application for a short assignment in my Mobile Programming course. While I was testing the application I was reminded of Mondrain’s work, and decided to brand it accordingly.
+          <p className="p-content">I wrote a small Android application for a short assignment in my Mobile Programming course. While I was testing the application I was reminded of Mondrian’s work, and decided to brand it accordingly.
           </p>
         </div>
         <img className='p-image' src={p.publicPath + 'screenshot-2-cropped.png'}/>

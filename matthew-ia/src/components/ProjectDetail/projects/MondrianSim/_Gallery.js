@@ -8,6 +8,7 @@
 
 import React, {Component} from "react";
 import Image from "../../../Media/Image";
+import Video from "../../../Media/Video";
 import Label from "../../../Media/Label";
 import GalleryNav from "../../GalleryNav";
 
@@ -15,41 +16,31 @@ export class _Gallery extends Component {
   render() {
     let {p} = this.props;
     return (
-      <div id='dgsf'>
-        <GalleryNav handleScroll={this.props.handleSmoothScroll}
-                    links={this.props.galleryNavLinks}/>
+      <div id='mondrian-sim'>
         <div>
-          <div id='t1' className="col gallery-marker">
-            <Image onLoad={this.props.setColumnWidth}
-                   className='md'
+          <div className="col">
+            <Video onLoad={this.props.setColumnWidth}
+                   videoSrc='https://www.youtube.com/embed/PYYzwzRVV3I?rel=0&amp;showinfo=0'
+                   previewFile={'screenshot-1-cropped.png'}
                    path={p.publicPath}
-                   previewFile={'citrus-0.png'}
-                   fullscreenFile={'citrus-0.png'}/>
-            <Label text="Original site design (2013)"/>
-            <p className='stacked withLabel'>I want to create a web experience for Citrus that evokes the feeling of being in a space rather than just browsing a website. I took inspiration from sites like <a href="https://hoverstat.es/features/leroy-nguyen" target='_blank'>Leeroy Nguyen’s</a>, <a href="http://thexx.info/home/" target='_blank'>The XX</a>, <a href="https://www.lushusa.com" target='_blank'>LUSH</a>, and <a href="https://www.glossier.com/" target='_blank'>Glossier</a>.</p>
-          </div>
-          <div id='t2' className="col gallery-marker">
-            <Image onLoad={this.props.setColumnWidth}
-                   className='md'
-                   path={p.publicPath}
-                   previewFile={'citrus-1.png'}
-                   fullscreenFile={'citrus-1.png'}/>
-            <Label text="Proposed design (2017), screenshot of Redesign_Proposal.pdf"/>
-            <p className='stacked withLabel'>The original design began to haunt me every time I had to update the site. So, I decided to put some effort into thinking about a redesign.</p>
+                   className='md'/>
+            <Label text="MondrianSim Demo (video)"/>
+            <p className='stacked withLabel'>Users can draw rectangles, change the brush color, and clear the canvas. A simple time passer!
+            </p>
           </div>
           <div className="col">
             <Image onLoad={this.props.setColumnWidth}
-                   className='sm'
+                   className='md'
                    path={p.publicPath}
-                   previewFile={'citrus-product-1.png'}
-                   fullscreenFile={'citrus-product-1.png'}/>
-            <Label text="Updated proposed design (2018), cont."/>
+                   previewFile={'screenshot-2.png'}
+                   fullscreenFile={'screenshot-2.png'}/>
+          </div>
+          <div className="col">
             <Image onLoad={this.props.setColumnWidth}
-                   className='sm'
+                   className='md'
                    path={p.publicPath}
-                   previewFile={'citrus-product-2.png'}
-                   fullscreenFile={'citrus-product-2.png'}/>
-            <Label text="Updated proposed design (2018), cont."/>
+                   previewFile={'screenshot-1.png'}
+                   fullscreenFile={'screenshot-1.png'}/>
           </div>
         </div>
       </div>
@@ -66,21 +57,4 @@ _Gallery.defaultProps = {
    * Otherwise, it's unnecessary.
    */
   setColumnWidth: ()=>{},
-  galleryNavLinks: [
-    {
-      href: '#t1',
-      text: '2013',
-      activeClass: 'active',
-    },
-    {
-      href: '#t2',
-      text: '2017',
-      activeClass: '',
-    },
-    {
-      href: '#t3',
-      text: '2018',
-      activeClass: '',
-    }
-  ],
 };
