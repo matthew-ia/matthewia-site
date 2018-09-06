@@ -1559,6 +1559,14 @@ button:focus {
   color: #5F5F5F;
   max-width: 100%; }
 
+#gallery .col p a {
+  font-weight: 500;
+  color: #2B271E;
+  transition: all 0.2s ease-in-out; }
+
+#gallery .col p a:hover {
+  color: #95989A; }
+
 #gallery .col p.stacked.controlWidth {
   max-width: 35vw; }
 
