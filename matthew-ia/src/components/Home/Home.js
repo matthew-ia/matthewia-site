@@ -29,95 +29,68 @@ class Home extends Component {
     // Throttled handler wrapper for handleMouseMove
     const tHandler = throttle((e)=>{
       this.handleMouseMove(e);
-    }, 250);
+    }, 150);
     window.addEventListener('mousemove', tHandler);
   }
 
   handleMouseMove(e) {
     let xMax = window.innerWidth;
     let yMax = window.innerHeight;
-    console.log(xMax, yMax);
+    //console.log(xMax, yMax);
     let halfX = Math.round(xMax / 2);
     let halfY = Math.round(yMax / 2);
-    console.log("calcs: ", halfX, halfY);
+    //console.log("calcs: ", halfX, halfY);
 
     let x = e.clientX;
     let y = e.clientY;
     let angle = this.calculateAngle([halfX, halfY], [x, y]);
-    if (x < halfX && y < halfY) {
+    // DEFAULT, 1, 2, 3, 4
+    let colors = ['#000', '#111', "222", "333", "444"];
+
+    if (x < halfX && y < halfY && this.state.prevMouseRegion !== 1) {
       // 1
       console.log("In 1");
-      let color1, color2;
       let mR = this.state.prevMouseRegion;
-      console.log("mR: ", mR);
-      color1 = "#111";
-      if (mR === 2) color2 = '#222';
-      else if (mR === 3) color2 = '#333';
-      else if (mR === 4) color2 = '#444';
-      else color2 = '#555';
+      console.log("pMR: ", mR);
+      let color1 = "#111";
+      let color2 = colors[mR];
       this.updateGradient([color1, color2], angle);
-      if (this.state.prevMouseRegion !== 1) {
-        this.setState({
-          prevMouseRegion: mR,
-          mouseRegion: 1
-        });
-      }
-
-      //console.log(x + "/" + xMax, ", ", y + "/" + yMax, " half: ", halfX, halfY);
-    } else if (x >= halfX && y < halfY) {
+      this.setState({
+        prevMouseRegion: 1,
+      });
+    } else if (x >= halfX && y < halfY && this.state.prevMouseRegion !== 2) {
       // 2
       console.log("In 2");
-      let color1, color2;
-      let mR = this.state.mouseRegion;
-      console.log("mR: ", mR);
-      color1 = "#222";
-      if (mR === 1) color2 = '#111';
-      else if (mR === 3) color2 = '#333';
-      else if (mR === 4) color2 = '#444';
-      else color2 = '#555';
+      let mR = this.state.prevMouseRegion;
+      console.log("pMR: ", mR);
+      let color1 = "#222";
+      let color2 = colors[mR];
       this.updateGradient([color1, color2], angle);
-      if (this.state.prevMouseRegion !== 2) {
-        this.setState({
-          prevMouseRegion: mR,
-          mouseRegion: 2
-        });
-      }
-      //console.log(x + "/" + xMax, ", ", y + "/" + yMax, " half: ", halfX, halfY);
-    } else if (x < halfX && y >= halfY) {
+      this.setState({
+        prevMouseRegion: 2,
+      });
+    } else if (x < halfX && y >= halfY && this.state.prevMouseRegion !== 3) {
       // 3
       console.log("In 3");
-      let color1, color2;
-      let mR = this.state.mouseRegion;
-      color1 = "#333";
-      if (mR === 1) color2 = '#111';
-      else if (mR === 2) color2 = '#222';
-      else if (mR === 4) color2 = '#444';
-      else color2 = '#555';
+      let mR = this.state.prevMouseRegion;
+      console.log("pMR: ", mR);
+      let color1 = "#333";
+      let color2 = colors[mR];
       this.updateGradient([color1, color2], angle);
-      if (this.state.prevMouseRegion !== 3) {
-        this.setState({
-          prevMouseRegion: mR,
-          mouseRegion: 3
-        });
-      }
-      //console.log(x + "/" + xMax, ", ", y + "/" + yMax, " half: ", halfX, halfY);
-    } else if (x >= halfX && y >= halfY) {
+      this.setState({
+        prevMouseRegion: 3,
+      });
+    } else if (x >= halfX && y >= halfY && this.state.prevMouseRegion !== 4) {
       // 4
       console.log("In 4");
-      let color1, color2;
-      let mR = this.state.mouseRegion;
-      color1 = "#444";
-      if (mR === 1) color2 = '#111';
-      else if (mR === 2) color2 = '#222';
-      else if (mR === 3) color2 = '#333';
-      else color2 = '#555';
+      let mR = this.state.prevMouseRegion;
+      console.log("pMR: ", mR);
+      let color1 = "#444";
+      let color2 = colors[mR];
       this.updateGradient([color1, color2], angle);
-      if (this.state.prevMouseRegion !== 4) {
-        this.setState({
-          prevMouseRegion: mR,
-          mouseRegion: 4
-        });
-      }
+      this.setState({
+        prevMouseRegion: 4,
+      });
       //console.log(x + "/" + xMax, ", ", y + "/" + yMax, " half: ", halfX, halfY);
     }
   }
