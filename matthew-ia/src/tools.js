@@ -61,6 +61,23 @@ export function debounce(func, wait, immediate) {
   };
 }
 
+export function throttle(callback, wait, context = this) {
+  let timeout = null;
+  let callbackArgs = null;
+
+  const later = () => {
+    callback.apply(context, callbackArgs);
+    timeout = null;
+  };
+
+  return function() {
+    if (!timeout) {
+      callbackArgs = arguments;
+      timeout = setTimeout(later, wait);
+    }
+  }
+}
+
 /**
  * Adjust the white space between the bottom navbar and the scrollbar. This prevents
  * the content from visually shifting upwards on load when the page has a scrollbar.

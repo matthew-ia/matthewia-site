@@ -28,3 +28,32 @@
     max-width: 65%;
   }
 }
+
+#logotype {
+  //color: #000;
+
+  background: linear-gradient(220deg, #23e3b1, #e34623);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  -webkit-animation: AnimateLogotype 10s ease infinite;
+  -moz-animation: AnimateLogotype 5s ease infinite;
+  animation: AnimateLogotype 10s ease infinite;
+
+  @-webkit-keyframes AnimateLogotype {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 51%}
+    100%{background-position:0% 50%}
+  }
+  @-moz-keyframes AnimateLogotype {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 51%}
+    100%{background-position:0% 50%}
+  }
+  @keyframes AnimateLogotype {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 51%}
+    100%{background-position:0% 50%}
+  }
+}
