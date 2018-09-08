@@ -30,7 +30,7 @@ class Gallery extends Component {
     this.handleScroll = this.handleScroll.bind(this);
     this.handleScrollUp = this.handleScrollUp.bind(this);
     this.handleScrollHorizontal = this.handleScrollHorizontal.bind(this);
-    this.updateWindowWidth = this.updateWindowWidth.bind(this);
+    this.updateGalleryWidth = this.updateGalleryWidth.bind(this);
     this.handleGalleryNav = this.handleGalleryNav.bind(this);
     this.handleSmoothScroll = this.handleSmoothScroll.bind(this);
     this.setDynamicColumnWidth = this.setDynamicColumnWidth.bind(this);
@@ -43,8 +43,19 @@ class Gallery extends Component {
     this.setState({
       galleryPosY: document.getElementById("gallery").getBoundingClientRect().y
     });
-    window.addEventListener('resize', this.updateWindowWidth);
-    // FIXME: Goofs on refresh/hard-refresh
+    window.addEventListener('resize', this.updateGalleryWidth);
+    window.addEventListener('load', this.updateGalleryWidth);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateGalleryWidth);
+    window.removeEventListener('load', this.updateGalleryWidth);
+  }
+
+  /**
+   * Get current window size. Needs to be saved/used for the timeline nav updating.
+   */
+  updateGalleryWidth() {
     setTimeout(()=>{
       let cols = document.getElementsByClassName('col');
       let lastEl = cols[cols.length - 1];
@@ -53,17 +64,6 @@ class Gallery extends Component {
       document.getElementById('gallery').style.width = xPos + parseInt(lastEl.style.width.slice(0,-2)) + 'px';
       //console.log(xPos, parseInt(lastEl.style.width.slice(0,-2)), lastEl);
     }, 1250);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.updateWindowWidth);
-  }
-
-  /**
-   * Get current window size. Needs to be saved/used for the timeline nav updating.
-   */
-  updateWindowWidth() {
-    this.setState({windowWidth: window.innerWidth});
   }
 
   setDynamicColumnWidth() {
