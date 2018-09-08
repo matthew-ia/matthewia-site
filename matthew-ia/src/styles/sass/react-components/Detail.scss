@@ -36,6 +36,10 @@
   }
 }
 
+.hidden {
+  display: none;
+}
+
 //** For the BRIEF section.
 #brief {
   height: 100vh;
@@ -45,9 +49,14 @@
     background-color: rgba(red, 0.15);
   }
   .image-container {
-    float: left;
-    clear: both;
+    display: inline-block;
+    width: 55%;
     background-color: rgba(blue, 0.15);
+  }
+  img.p-image {
+    margin: 172px 0 0 30px;
+    max-width: 90%;
+    border: 1px solid $brand-primary;
   }
   h1.p-title {
     font-weight: $fw-black;
@@ -88,14 +97,6 @@
         color: $brand-gray;
       }
     }
-  }
-
-  img.p-image {
-    margin: 172px 0 0 30px;
-    max-width: 50%;
-    max-height: 635px;
-    color: $brand-gray;
-    border: 1px solid black;
   }
 
   button#scroll-arrow {
