@@ -24,11 +24,10 @@ export class _Brief extends Component {
             <li><a href="https://github.com/matthew-ia/matthewia-site/issues/57">>> GitHub –  ProLo Systems</a></li>
           </ul>
         </div>
-        <Image onLoad={this.props.setColumnWidth}
-               className='p-image'
+        <Image className='p-image'
                path={p.publicPath}
                previewFile={'dashboard-mockup.png'}
-               fullscreenFile={'standard-mode-full.png'}/>
+               fullscreenFile={'dashboard-mockup.png'}/>
         <button
           data-tip="scroll down"
           id="scroll-arrow"

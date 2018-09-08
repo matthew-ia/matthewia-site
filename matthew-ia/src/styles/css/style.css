@@ -1439,12 +1439,24 @@ button:focus {
   color: #2B271E;
   text-transform: uppercase; }
 
+.hidden {
+  display: none; }
+
 #brief {
   height: 100vh; }
 
 #brief .p-desc {
   float: left;
   width: 45%; }
+
+#brief .image-container {
+  display: inline-block;
+  width: 55%; }
+
+#brief img.p-image {
+  margin: 172px 0 0 30px;
+  max-width: 90%;
+  border: 1px solid #2B271E; }
 
 #brief h1.p-title {
   font-weight: 900;
@@ -1484,13 +1496,6 @@ button:focus {
 
 #brief #project-links li a:hover {
   color: #5F5F5F; }
-
-#brief img.p-image {
-  margin: 172px 0 0 30px;
-  max-width: 50%;
-  max-height: 635px;
-  color: #5F5F5F;
-  border: 1px solid black; }
 
 #brief button#scroll-arrow {
   padding: 5px;

@@ -76,7 +76,7 @@ class Image extends Component {
                    className={expandedClass}
                    src={path + fullscreenFile}/>
             </div>
-          : <div/>}
+          : <div className='hidden'/>}
 
       </div>
     );
