@@ -27,7 +27,8 @@ export class _Gallery extends Component {
                    path={p.publicPath}
                    previewFile={'chaseui-flow-chart.png'}
                    fullscreenFile={'chaseui-flow-chart.png'}/>
-            <p className="stacked">As the only designer on the telemetry team, I took lead on designing ChaseUI. I periodically met with the telemetry lead to review the layout and discuss the data values that needed to be presented, as well as their level of priority. In the early stage of the project, I designed while another developer worked to create a basic prototype with backend code.</p>
+            <Label text="Data flow reference for ChaseUI"/>
+            <p className="stacked withLabel">As the only designer on the telemetry team, I took lead on designing ChaseUI. I periodically met with the telemetry lead to review the layout and discuss the data values that needed to be presented, as well as their level of priority. In the early stage of the project, I designed while another developer worked to create a basic prototype with backend code.</p>
           </div>
           <div className="col">
             <Image onLoad={this.props.setColumnWidth}
