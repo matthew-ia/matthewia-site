@@ -29,18 +29,43 @@
   }
 }
 
+#root {
+  //width: 100vw;
+  //height: 100vh;
+  /*
+  background: linear-gradient(135deg, rgba(red, 0.75), transparent),
+  linear-gradient(225deg, rgba(magenta, 0.75), transparent),
+  linear-gradient(45deg, rgba(green, 0.75), transparent),
+  linear-gradient(315deg, rgba(cyan, 0.75), transparent);
+  */
+  //background: linear-gradient(135deg, rgba(red, 0.75), transparent 65%),
+  //linear-gradient(225deg, rgba(magenta, 0.75), transparent 65%),
+  //linear-gradient(45deg, rgba(green, 0.75), transparent 65%),
+  //linear-gradient(315deg, rgba(cyan, 0.75), transparent 65%);
+}
+/*
+  linear-gradient(135deg, red, transparent)
+  linear-gradient(225deg, magenta, transparent)
+  linear-gradient(45deg, green, transparent)
+  linear-gradient(315deg, cyan, transparent);
+ */
 #logotype {
   //color: #000;
   display: inline-block;
-  background: linear-gradient(220deg, #23e3b1, #e34623);
-  background-size: 200% 200%;
+  //background: linear-gradient(220deg, #23e3b1, #e34623);
+  background: linear-gradient(135deg, rgba(red, 0.75), transparent 65%),
+  linear-gradient(225deg, rgba(magenta, 0.75), transparent 65%),
+  linear-gradient(45deg, rgba(green, 0.75), transparent 65%),
+  linear-gradient(315deg, rgba(cyan, 0.75), transparent 65%);
+  background-size: 400% 400%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  transition: all 0.5s ease-in-out;
 
-  -webkit-animation: AnimateLogotype 3s ease infinite;
-  -moz-animation: AnimateLogotype 5s ease infinite;
-  animation: AnimateLogotype 3s ease infinite;
-  animation-delay: -1.5s;
+  //-webkit-animation: AnimateLogotype 3s ease infinite;
+  //-moz-animation: AnimateLogotype 5s ease infinite;
+  //animation: AnimateLogotype 3s ease infinite;
+  //animation-delay: -1.5s;
 
   @-webkit-keyframes AnimateLogotype {
     0%{background-position:0% 50%}

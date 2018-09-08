@@ -43,73 +43,25 @@ class Home extends Component {
 
     let x = e.clientX;
     let y = e.clientY;
+    let xPercent = Math.round((x / xMax) * 100);
+    let yPercent = Math.round((y / yMax) * 100);
     let angle = this.calculateAngle([halfX, halfY], [x, y]);
     // DEFAULT, 1, 2, 3, 4
     // Black, Blue, Green, Red, Pink
     let colors = ['#000', '#4286f4', "#2ebc21", "#d82727", "#d527d8"];
-
-    if (x < halfX && y < halfY && this.state.prevMouseRegion !== 1) {
-      // 1
-      console.log("In 1");
-      let mR = this.state.prevMouseRegion;
-      console.log("pMR: ", mR);
-      let color1 = colors[1];
-      let color2 = colors[mR];
-      this.updateGradient([color1, color2], angle);
-      this.setState({
-        prevMouseRegion: 1,
-      });
-    } else if (x >= halfX && y < halfY && this.state.prevMouseRegion !== 2) {
-      // 2
-      console.log("In 2");
-      let mR = this.state.prevMouseRegion;
-      console.log("pMR: ", mR);
-      let color1 = colors[2];
-      let color2 = colors[mR];
-      this.updateGradient([color1, color2], angle);
-      this.setState({
-        prevMouseRegion: 2,
-      });
-    } else if (x < halfX && y >= halfY && this.state.prevMouseRegion !== 3) {
-      // 3
-      console.log("In 3");
-      let mR = this.state.prevMouseRegion;
-      console.log("pMR: ", mR);
-      let color1 = colors[3];
-      let color2 = colors[mR];
-      this.updateGradient([color1, color2], angle);
-      this.setState({
-        prevMouseRegion: 3,
-      });
-    } else if (x >= halfX && y >= halfY && this.state.prevMouseRegion !== 4) {
-      // 4
-      console.log("In 4");
-      let mR = this.state.prevMouseRegion;
-      console.log("pMR: ", mR);
-      let color1 = colors[4];
-      let color2 = colors[mR];
-      this.updateGradient([color1, color2], angle);
-      this.setState({
-        prevMouseRegion: 4,
-      });
-      //console.log(x + "/" + xMax, ", ", y + "/" + yMax, " half: ", halfX, halfY);
-    }
+    this.updateGradient({x: xPercent, y: yPercent});
   }
 
   /**
    * Update the gradient for the CSS animation based on mouse position and angle.
-   * @param colors – array of two hex color codes
-   * @param angle – degree of rotation
+   * @param position – object with x & y as percents
    */
-  updateGradient(colors, angle) {
+  updateGradient(position) {
     let logotype = document.getElementById('logotype');
-    let background = '-webkit-linear-gradient(' + angle + 'deg, '
-      + colors[0] + ', ' + colors[1] + ')';
-    console.log(colors);
-    console.log(background);
-    logotype.style.backgroundImage = background;
+    console.log(position.x, position.y);
+    logotype.style.backgroundPositionX = position.x + "%";
+    logotype.style.backgroundPositionY = position.y + "%";
     console.log(logotype);
-    console.log(colors, angle);
   }
 
   calculateAngle(originPair, positionPair) {

@@ -1212,14 +1212,11 @@ button:focus {
 
 #logotype {
   display: inline-block;
-  background: linear-gradient(220deg, #23e3b1, #e34623);
-  background-size: 200% 200%;
+  background: linear-gradient(135deg, rgba(255, 0, 0, 0.75), transparent 65%), linear-gradient(225deg, rgba(255, 0, 255, 0.75), transparent 65%), linear-gradient(45deg, rgba(0, 128, 0, 0.75), transparent 65%), linear-gradient(315deg, rgba(0, 255, 255, 0.75), transparent 65%);
+  background-size: 400% 400%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  -webkit-animation: AnimateLogotype 3s ease infinite;
-  -moz-animation: AnimateLogotype 5s ease infinite;
-  animation: AnimateLogotype 3s ease infinite;
-  animation-delay: -1.5s; }
+  transition: all 0.5s ease-in-out; }
 
 @-webkit-keyframes AnimateLogotype {
   0% {
