@@ -42,6 +42,12 @@
   .p-desc {
     float: left;
     width: 45%;
+    background-color: rgba(red, 0.15);
+  }
+  .image-container {
+    float: left;
+    clear: both;
+    background-color: rgba(blue, 0.15);
   }
   h1.p-title {
     font-weight: $fw-black;
