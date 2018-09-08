@@ -56,10 +56,12 @@ class Gallery extends Component {
    * Get current window size. Needs to be saved/used for the timeline nav updating.
    */
   updateGalleryWidth() {
+    if (window.scrollX !== 0) console.log("not left");
     setTimeout(()=>{
       let cols = document.getElementsByClassName('col');
       let lastEl = cols[cols.length - 1];
       let xPos = lastEl.getBoundingClientRect().x;
+      if (window.scrollX !== 0) xPos += window.scrollX;
       //console.log(cols, lastEl, xPos);
       document.getElementById('gallery').style.width = xPos + parseInt(lastEl.style.width.slice(0,-2)) + 'px';
       //console.log(xPos, parseInt(lastEl.style.width.slice(0,-2)), lastEl);
