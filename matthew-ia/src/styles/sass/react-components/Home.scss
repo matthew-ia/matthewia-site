@@ -28,3 +28,14 @@
     max-width: 65%;
   }
 }
+
+#logotype {
+  background: linear-gradient(135deg, rgba(#FF006C, 0.75), transparent 65%),
+  linear-gradient(225deg, rgba(#0093FF, 0.75), transparent 65%),
+  linear-gradient(45deg, rgba(#FFD800, 0.75), transparent 65%),
+  linear-gradient(315deg, rgba(#50115F, 0.95), transparent 65%);
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0s ease-in-out;
+}

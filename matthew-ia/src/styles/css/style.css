@@ -1210,6 +1210,13 @@ button:focus {
   font-weight: 500;
   max-width: 65%; }
 
+#logotype {
+  background: linear-gradient(135deg, rgba(255, 0, 108, 0.75), transparent 65%), linear-gradient(225deg, rgba(0, 147, 255, 0.75), transparent 65%), linear-gradient(45deg, rgba(255, 216, 0, 0.75), transparent 65%), linear-gradient(315deg, rgba(80, 17, 95, 0.95), transparent 65%);
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0s ease-in-out; }
+
 #message {
   position: fixed;
   bottom: 0;
