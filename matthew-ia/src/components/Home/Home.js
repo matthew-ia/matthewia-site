@@ -45,14 +45,15 @@ class Home extends Component {
     let y = e.clientY;
     let angle = this.calculateAngle([halfX, halfY], [x, y]);
     // DEFAULT, 1, 2, 3, 4
-    let colors = ['#000', '#111', "222", "333", "444"];
+    // Black, Blue, Green, Red, Pink
+    let colors = ['#000', '#4286f4', "#2ebc21", "#d82727", "#d527d8"];
 
     if (x < halfX && y < halfY && this.state.prevMouseRegion !== 1) {
       // 1
       console.log("In 1");
       let mR = this.state.prevMouseRegion;
       console.log("pMR: ", mR);
-      let color1 = "#111";
+      let color1 = colors[1];
       let color2 = colors[mR];
       this.updateGradient([color1, color2], angle);
       this.setState({
@@ -63,7 +64,7 @@ class Home extends Component {
       console.log("In 2");
       let mR = this.state.prevMouseRegion;
       console.log("pMR: ", mR);
-      let color1 = "#222";
+      let color1 = colors[2];
       let color2 = colors[mR];
       this.updateGradient([color1, color2], angle);
       this.setState({
@@ -74,7 +75,7 @@ class Home extends Component {
       console.log("In 3");
       let mR = this.state.prevMouseRegion;
       console.log("pMR: ", mR);
-      let color1 = "#333";
+      let color1 = colors[3];
       let color2 = colors[mR];
       this.updateGradient([color1, color2], angle);
       this.setState({
@@ -85,7 +86,7 @@ class Home extends Component {
       console.log("In 4");
       let mR = this.state.prevMouseRegion;
       console.log("pMR: ", mR);
-      let color1 = "#444";
+      let color1 = colors[4];
       let color2 = colors[mR];
       this.updateGradient([color1, color2], angle);
       this.setState({
@@ -96,11 +97,18 @@ class Home extends Component {
   }
 
   /**
-   *
+   * Update the gradient for the CSS animation based on mouse position and angle.
    * @param colors – array of two hex color codes
    * @param angle – degree of rotation
    */
   updateGradient(colors, angle) {
+    let logotype = document.getElementById('logotype');
+    let background = '-webkit-linear-gradient(' + angle + 'deg, '
+      + colors[0] + ', ' + colors[1] + ')';
+    console.log(colors);
+    console.log(background);
+    logotype.style.backgroundImage = background;
+    console.log(logotype);
     console.log(colors, angle);
   }
 

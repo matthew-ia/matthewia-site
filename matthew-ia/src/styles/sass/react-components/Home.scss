@@ -31,15 +31,16 @@
 
 #logotype {
   //color: #000;
-
+  display: inline-block;
   background: linear-gradient(220deg, #23e3b1, #e34623);
   background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  -webkit-animation: AnimateLogotype 10s ease infinite;
+  -webkit-animation: AnimateLogotype 3s ease infinite;
   -moz-animation: AnimateLogotype 5s ease infinite;
-  animation: AnimateLogotype 10s ease infinite;
+  animation: AnimateLogotype 3s ease infinite;
+  animation-delay: -1.5s;
 
   @-webkit-keyframes AnimateLogotype {
     0%{background-position:0% 50%}
