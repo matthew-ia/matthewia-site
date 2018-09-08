@@ -23,8 +23,7 @@ export class _Brief extends Component {
             For my senior capstone, I developed an early version of Spectra.
           </p>
         </div>
-        <Image onLoad={this.props.setColumnWidth}
-               className='p-image'
+        <Image className='p-image'
                path={p.publicPath}
                previewFile={'spectra-preview.png'}
                fullscreenFile={'spectra-preview.png'}/>

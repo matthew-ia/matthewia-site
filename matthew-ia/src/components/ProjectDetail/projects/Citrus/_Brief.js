@@ -23,7 +23,10 @@ export class _Brief extends Component {
             Attribution: <a href="https://www.eyeofscottie.com/" target="_blank">EYEOFSCOTTIE</a> (first two), and <a href="http://www.kennethcappello.com/" target="_blank">Kenneth Cappello</a>.
           </p>
         </div>
-        <img className='p-image' src={p.publicPath + 'citrus-2.png'}/>
+        <Image className='p-image'
+               path={p.publicPath}
+               previewFile={'citrus-2.png'}
+               fullscreenFile={'citrus-2.png'}/>
         <button
           data-tip="scroll down"
           id="scroll-arrow"

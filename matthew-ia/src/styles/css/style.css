@@ -1447,13 +1447,11 @@ button:focus {
 
 #brief .p-desc {
   float: left;
-  width: 45%;
-  background-color: rgba(255, 0, 0, 0.15); }
+  width: 45%; }
 
 #brief .image-container {
   display: inline-block;
-  width: 55%;
-  background-color: rgba(0, 0, 255, 0.15); }
+  width: 55%; }
 
 #brief img.p-image {
   margin: 172px 0 0 30px;

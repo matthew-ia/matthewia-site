@@ -21,7 +21,10 @@ export class _Brief extends Component {
           <p className="p-content">I wrote a small Android application for a short assignment in my Mobile Programming course. While I was testing the application I was reminded of Mondrian’s work, and decided to brand it accordingly.
           </p>
         </div>
-        <img className='p-image' src={p.publicPath + 'screenshot-2-cropped.png'}/>
+        <Image className='p-image'
+               path={p.publicPath}
+               previewFile={'screenshot-2-cropped.png'}
+               fullscreenFile={'screenshot-2-cropped.png'}/>
         <button
           data-tip="scroll down"
           id="scroll-arrow"
