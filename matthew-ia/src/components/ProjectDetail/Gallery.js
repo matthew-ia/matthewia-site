@@ -45,6 +45,7 @@ class Gallery extends Component {
     });
     window.addEventListener('resize', this.updateGalleryWidth);
     window.addEventListener('load', this.updateGalleryWidth);
+    this.updateGalleryWidth();
   }
 
   componentWillUnmount() {
