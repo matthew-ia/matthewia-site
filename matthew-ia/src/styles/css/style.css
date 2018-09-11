@@ -1454,14 +1454,14 @@ button:focus {
   width: 55%; }
 
 #brief img.p-image {
-  margin: 172px 0 0 30px;
+  margin: 16vh 0 0 30px;
   max-width: 90%;
   border: 1px solid #2B271E; }
 
 #brief h1.p-title {
   font-weight: 900;
   font-size: 64px;
-  margin-top: 172px; }
+  margin-top: 16vh; }
 
 #brief span.p-tags {
   font-family: Inconsolata,Menlo,Monaco,Consolas,"Courier New",monospace;
@@ -1512,13 +1512,13 @@ button:focus {
   transition: transform 0.6s ease-in-out; }
 
 #brief button#scroll-arrow.top {
-  bottom: 95%; }
+  bottom: 90vh; }
 
 #brief button#scroll-arrow.top img {
   transform: rotate(-180deg); }
 
 #brief button#scroll-arrow.bottom {
-  bottom: 5%; }
+  bottom: 9vh; }
 
 #brief button#scroll-arrow span {
   margin-right: 8px; }
@@ -1621,8 +1621,7 @@ button:focus {
   position: fixed;
   top: 0;
   width: 100vw;
-  margin-top: 115px;
-  margin-bottom: 40px;
+  margin-top: 12vh;
   font-size: 18px;
   font-weight: 500; }
 
@@ -1648,6 +1647,14 @@ button:focus {
 
 #gallery-nav ul li:first-of-type {
   padding-left: 6px; }
+
+@media screen and (max-width: 1689px) {
+  #brief p.p-content {
+    font-size: 16px; }
+  #brief h1.p-title {
+    font-size: 48px; }
+  #brief span.p-tags {
+    font-size: 18px; } }
 
 .image-container {
   cursor: pointer; }

@@ -52,14 +52,14 @@
     width: 55%;
   }
   img.p-image {
-    margin: 172px 0 0 30px;
+    margin: 16vh 0 0 30px;
     max-width: 90%;
     border: 1px solid $brand-primary;
   }
   h1.p-title {
     font-weight: $fw-black;
     font-size: 64px;
-    margin-top: 172px;
+    margin-top: 16vh;
   }
   span.p-tags {
     font-family: $font-inconsolata;
@@ -111,13 +111,13 @@
       transition: transform 0.6s ease-in-out;
     }
     &.top {
-      bottom: 95%;
+      bottom: 90vh;
       img {
         transform: rotate(-180deg);
       }
     }
     &.bottom {
-      bottom: 5%;
+      bottom: 9vh;
     }
     span {
       margin-right: 8px;
@@ -233,8 +233,7 @@
   position: fixed;
   top: 0;
   width: 100vw;
-  margin-top: 115px;
-  margin-bottom: 40px;
+  margin-top: 12vh;
   font-size: $font-size-medium;
   font-weight: $fw-medium;
   ul {
@@ -258,6 +257,20 @@
       &:first-of-type {
         padding-left: 6px;
       }
+    }
+  }
+}
+
+@media screen and (max-width: $screen-lg-max) {
+  #brief {
+    p.p-content {
+      font-size: 16px;
+    }
+    h1.p-title {
+      font-size: 48px;
+    }
+    span.p-tags {
+      font-size: 18px;
     }
   }
 }
