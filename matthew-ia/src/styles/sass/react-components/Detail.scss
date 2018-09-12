@@ -105,6 +105,7 @@
     transition: all 0.55s ease-in-out;
     position: fixed;
     left: 50%;
+    transform: translate(-50%, 0);
     cursor: pointer;
     img {
       width: 20px;

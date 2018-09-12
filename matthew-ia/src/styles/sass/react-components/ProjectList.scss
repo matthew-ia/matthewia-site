@@ -9,7 +9,7 @@
 //## A group of styles
 
 #projects {
-  margin: 120px 0 0 0;
+  //margin: 120px 0 0 0;
 
   h1 {
     font-size: $font-size-large;
@@ -27,6 +27,8 @@
 
   #p-list {
     padding: 0;
+    margin-top: 48vh;
+    transform: translate(0, -50%);
   }
 
   #p-id {

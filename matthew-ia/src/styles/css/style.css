@@ -1283,9 +1283,6 @@ button:focus {
   #bottom-nav {
     margin: 0 0 3% 10%; } }
 
-#projects {
-  margin: 120px 0 0 0; }
-
 #projects h1 {
   font-size: 22px;
   font-weight: 900;
@@ -1300,7 +1297,9 @@ button:focus {
   display: inline-block; }
 
 #projects #p-list {
-  padding: 0; }
+  padding: 0;
+  margin-top: 48vh;
+  transform: translate(0, -50%); }
 
 #projects #p-id {
   font-family: Inconsolata,Menlo,Monaco,Consolas,"Courier New",monospace;
@@ -1502,6 +1501,7 @@ button:focus {
   transition: all 0.55s ease-in-out;
   position: fixed;
   left: 50%;
+  transform: translate(-50%, 0);
   cursor: pointer; }
 
 #brief button#scroll-arrow.stopAnimation {

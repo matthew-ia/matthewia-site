@@ -120,14 +120,12 @@ class ProjectList extends Component {
         <Helmet>
           <title>matthew.ia > projects</title>
         </Helmet>
-        <h1>matthew.ia</h1>
+        <h1><Link to='/projects'>matthew.ia</Link></h1>
         {/* <div id='filter-button'>Filter</div> */}
         <FloatingList plist={this.state.plistNames} scroll={this.handleSmoothScroll}/>
-        <div className="content">
-          <ul id="p-list">
-            { this.state.plist }
-          </ul>
-        </div>
+        <ul id="p-list">
+          { this.state.plist }
+        </ul>
       </div>
     );
   }

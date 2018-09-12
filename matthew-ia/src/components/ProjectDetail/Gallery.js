@@ -61,6 +61,9 @@ class Gallery extends Component {
     setTimeout(()=>{
       let cols = document.getElementsByClassName('col');
       let lastEl = cols[cols.length - 1];
+      // Prevents error when user navigates away from page and the setTimeout
+      // still runs, but now the element is undefined.
+      if (lastEl === undefined) return;
       let xPos = lastEl.getBoundingClientRect().x;
       if (window.scrollX !== 0) xPos += window.scrollX;
       //console.log(cols, lastEl, xPos);
