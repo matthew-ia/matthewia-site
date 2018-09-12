@@ -27,7 +27,7 @@ export class _Brief extends Component {
           className="bottom" type="button">
           <img alt="scroll down arrow" src={window.location.origin + '/images/icons/2x/arrow.png'}/>
         </button>
-        <ReactTooltip className="tooltip" effect="solid"/>
+        <ReactTooltip place="bottom" className="tooltip" effect="solid"/>
       </div>
     );
   }
