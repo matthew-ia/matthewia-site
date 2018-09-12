@@ -20,7 +20,7 @@ export class _Gallery extends Component {
         <div>
           <div className="col">
             <Video onLoad={this.props.setColumnWidth}
-                   videoSrc='https://www.youtube.com/embed/PYYzwzRVV3I?rel=0&amp;showinfo=0'
+                   videoSrc='https://www.youtube.com/embed/gsIvtHAc20g?rel=0&amp;showinfo=0'
                    previewFile={'screenshot-1-cropped.png'}
                    path={p.publicPath}
                    className='md'/>
