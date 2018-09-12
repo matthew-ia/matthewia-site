@@ -17,6 +17,12 @@
     display: inline-block;
     position: fixed;
     top: 15px;
+    a {
+      transition: all 0.2s ease-in-out;
+      &:hover {
+        color: $brand-gray;
+      }
+    }
   }
   h2 {
     color: $brand-gray-light;

@@ -9,7 +9,7 @@
 //## A group of styles
 
 #video-container {
-  cursor: pointer;
+  cursor: zoom-in;
   position: relative;
   &.expanded {
    cursor: zoom-out;
@@ -22,7 +22,7 @@
     transition: box-shadow 0.2s ease-in-out;
   }
   img:hover {
-    box-shadow: 3px 3px 6px rgba($brand-primary, 0.2);
+    box-shadow: 3px 3px 10px rgba($brand-primary, 0.3);
   }
   &:hover {
     .video-icon {

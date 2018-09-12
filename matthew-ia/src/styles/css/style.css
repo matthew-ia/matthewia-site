@@ -1290,6 +1290,12 @@ button:focus {
   position: fixed;
   top: 15px; }
 
+#projects h1 a {
+  transition: all 0.2s ease-in-out; }
+
+#projects h1 a:hover {
+  color: #5F5F5F; }
+
 #projects h2 {
   color: #95989A;
   font-size: 22px;
@@ -1658,7 +1664,7 @@ button:focus {
     font-size: 18px; } }
 
 .image-container {
-  cursor: pointer; }
+  cursor: zoom-in; }
 
 .image-container.expanded {
   cursor: zoom-out; }
@@ -1671,7 +1677,7 @@ button:focus {
   transition: box-shadow 0.2s ease-in-out; }
 
 .image-container > img:hover {
-  box-shadow: 3px 3px 6px rgba(43, 39, 30, 0.2); }
+  box-shadow: 3px 3px 10px rgba(43, 39, 30, 0.3); }
 
 .image-expanded {
   position: fixed;
@@ -1720,7 +1726,7 @@ button:focus {
     opacity: 1.0; } }
 
 #video-container {
-  cursor: pointer;
+  cursor: zoom-in;
   position: relative; }
 
 #video-container.expanded {
@@ -1734,7 +1740,7 @@ button:focus {
   transition: box-shadow 0.2s ease-in-out; }
 
 #video-container img:hover {
-  box-shadow: 3px 3px 6px rgba(43, 39, 30, 0.2); }
+  box-shadow: 3px 3px 10px rgba(43, 39, 30, 0.3); }
 
 #video-container:hover .video-icon {
   background-color: rgba(173, 5, 5, 0.95); }
