@@ -16,6 +16,7 @@
   z-index: 10;
   background-color: transparent;
   font-size: $font-size-medium;
+  transition: all 0.2s ease-in-out;
   ul {
     transition: all 0.2s ease-out;
     list-style: none;
@@ -53,7 +54,7 @@
     }
   }
   &:hover {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(white, 0.9);
   }
 }
 

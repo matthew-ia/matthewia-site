@@ -8,7 +8,7 @@
 
 import React, {Component} from "react";
 import { Helmet } from "react-helmet";
-import MessageButton from "../Message/MessageButton";
+import ReactTooltip from 'react-tooltip';
 
 import {throttle} from "../../tools";
 
@@ -62,7 +62,13 @@ class Home extends Component {
             I’m Matthew Alicea, a multidisciplinary designer with a B.S. in Computer Science from Appalachian State University. I create digital interfaces and user experiences, graphic designs, and print designs.
           </p>
         </div>
-        <MessageButton />
+        <button
+          data-tip="README"
+          id="question-button"
+          className="hidden" type="button">
+          <img alt="scroll down arrow" src={window.location.origin + '/images/icons/2x/arrow.png'}/>
+        </button>
+        <ReactTooltip className="tooltip" effect="solid"/>
       </div>
 
     );

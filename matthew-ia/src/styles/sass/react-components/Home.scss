@@ -8,11 +8,11 @@
 //
 //## Info block in Home component
 #info {
-  margin: 10% 0;
+  margin: 15vh 0 0 0;
   h1{
     font-size: 145px;
     font-weight: $fw-black;
-    margin-bottom: 0;
+    margin: 0;
   }
 
   h2 {
@@ -27,6 +27,13 @@
     font-weight: $fw-medium;
     max-width: 65%;
   }
+}
+
+#question-button {
+  position: fixed;
+  margin: 15vh 10% 0 0;
+  top: 0;
+  right: 0;
 }
 
 #logotype {

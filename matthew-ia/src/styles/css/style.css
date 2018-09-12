@@ -1192,12 +1192,12 @@ button:focus {
     transform: rotate(360deg); } }
 
 #info {
-  margin: 10% 0; }
+  margin: 15vh 0 0 0; }
 
 #info h1 {
   font-size: 145px;
   font-weight: 900;
-  margin-bottom: 0; }
+  margin: 0; }
 
 #info h2 {
   font-size: 60px;
@@ -1209,6 +1209,12 @@ button:focus {
   font-size: 22px;
   font-weight: 500;
   max-width: 65%; }
+
+#question-button {
+  position: fixed;
+  margin: 15vh 10% 0 0;
+  top: 0;
+  right: 0; }
 
 #logotype {
   background: linear-gradient(135deg, rgba(255, 0, 108, 0.75), transparent 65%), linear-gradient(225deg, rgba(0, 147, 255, 0.75), transparent 65%), linear-gradient(45deg, rgba(255, 216, 0, 0.75), transparent 65%), linear-gradient(315deg, rgba(80, 17, 95, 0.95), transparent 65%);
@@ -1262,16 +1268,18 @@ button:focus {
 #bottom-nav a {
   font-size: 22px;
   font-weight: 500;
-  padding: 4px 8px 4px;
-  border: 4px solid transparent; }
+  padding: 5px 8px;
+  border: 3px solid transparent;
+  transition: all 0.2s ease-in-out;
+  background-color: transparent; }
 
 #bottom-nav a:hover {
-  background-color: #2B271E;
-  border: 4px solid #2B271E;
-  color: white; }
+  background-color: white;
+  border: 3px solid #2B271E;
+  box-shadow: 3px 3px 10px rgba(43, 39, 30, 0.3); }
 
 .selected {
-  border: 4px solid #2B271E !important; }
+  border: 3px solid #2B271E !important; }
 
 .collapse-nav {
   position: fixed;
@@ -1335,7 +1343,7 @@ button:focus {
   color: white; }
 
 #projects .p-item:hover {
-  box-shadow: 3px 3px 6px rgba(43, 39, 30, 0.2); }
+  box-shadow: 3px 3px 10px rgba(43, 39, 30, 0.3); }
 
 #projects .p-image {
   max-height: 550px;
@@ -1368,7 +1376,8 @@ button:focus {
   transform: translate(0, -50%);
   z-index: 10;
   background-color: transparent;
-  font-size: 18px; }
+  font-size: 18px;
+  transition: all 0.2s ease-in-out; }
 
 #floating-list ul {
   transition: all 0.2s ease-out;
