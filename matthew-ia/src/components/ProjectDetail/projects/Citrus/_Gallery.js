@@ -16,10 +16,8 @@ export class _Gallery extends Component {
     let {p} = this.props;
     return (
       <div>
-        <GalleryNav handleScroll={this.props.handleSmoothScroll}
-                    links={this.props.galleryNavLinks}/>
         <div>
-          <div id='t1' className="col gallery-marker">
+          <div className="col">
             <Image onLoad={this.props.setColumnWidth}
                    className='md'
                    path={p.publicPath}
@@ -28,7 +26,7 @@ export class _Gallery extends Component {
             <Label text="Original site design (2013)"/>
             <p className='stacked withLabel'>I want to create a web experience for Citrus that evokes the feeling of being in a space rather than just browsing a website. I took inspiration from sites like <a href="https://hoverstat.es/features/leroy-nguyen" target='_blank'>Leeroy Nguyen’s</a>, <a href="http://thexx.info/home/" target='_blank'>The XX</a>, <a href="https://www.lushusa.com" target='_blank'>LUSH</a>, and <a href="https://www.glossier.com/" target='_blank'>Glossier</a>.</p>
           </div>
-          <div id='t2' className="col gallery-marker">
+          <div className="col">
             <Image onLoad={this.props.setColumnWidth}
                    className='md'
                    path={p.publicPath}
