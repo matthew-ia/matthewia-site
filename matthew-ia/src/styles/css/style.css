@@ -1650,7 +1650,8 @@ button:focus {
 
 @media screen and (max-width: 1689px) {
   #brief p.p-content {
-    font-size: 16px; }
+    font-size: 16px;
+    line-height: 1.5; }
   #brief h1.p-title {
     font-size: 48px; }
   #brief span.p-tags {
