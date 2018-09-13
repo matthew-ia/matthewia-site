@@ -47,83 +47,25 @@
 //** <= 1690px
 @media screen and (max-width: $screen-xl) {
   #info p { max-width: 85%; }
-  #detail {
-    .description {
-      // width: 40%;
-    }
-    .main-image {
-      width: 50%;
-    }
-  }
 }
 
 //** <= 1480px
 @media screen and (max-width: 1480px) {
-  #detail .main-image {
-    //width: 40%;
-  }
 }
 
 //** <= 1406px
 @media screen and (max-width: 1406px) {
-  #detail .main-image {
-    //width: 30%;
-  }
 }
+
 //   TABLETS
 //** <= 1280px
 @media screen and (max-width: $screen-lg) {
-  #detail {
-    .description {
-      display: block;
-      width: 80%;
-    }
-    .main-image {
-      width: auto;
-      padding-right: 40px;
-      img {
-        width: 60%;
-        float: right;
-      }
-      display: block;
-      margin: 60px 0 0 0;
-    }
-  }
-  #detail {
-    .spacer {
-      margin: 0;
-    }
-    img {
-      margin-bottom: 5%;
-    }
-    .copy {
-      margin-bottom: 12%;
-    }
-  }
+
 }
 
 //   SMARTPHONES
 //** <= 980px
 @media screen and (max-width: $screen-md) {
-  #detail {
-    .detail-header {
-      margin-left: 60px;
-    }
-    .main-image {
-      img {
-        width: 100%;
-      }
-    }
-  }
-  #p1-content {
-    margin-top: 5%;
-  }
-  #floating-list {
-    visibility: hidden;
-  }
-  nav {
-    visibility: hidden;
-  }
   #info {
     margin: 8%;
     p { max-width: 100%; }
@@ -133,6 +75,12 @@
       margin-top: 8px;
       margin-bottom: 45px;
     }
+  }
+  #bottom-nav {
+    visibility: hidden;
+  }
+  #mobile-nav {
+    visibility: visible;
   }
 }
 //** <= 736px
