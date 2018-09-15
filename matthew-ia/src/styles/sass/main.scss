@@ -12,10 +12,17 @@
   margin: 0 0 0 10%;
 }
 
+#root {
+  // FIXME: Goofs with overflow of ProjectList
+}
+
 code {
   font-family: $font-family-monospace;
   background-color: rgba($brand-gray-lighter, 0.3);
   padding: 1px 2px;
+}
+
+#main-content {
 }
 
 @keyframes loadAnimation {

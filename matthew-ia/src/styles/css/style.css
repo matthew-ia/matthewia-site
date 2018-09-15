@@ -1290,9 +1290,7 @@ button:focus {
 #mobile-nav {
   visibility: hidden;
   position: fixed;
-  bottom: 2vh;
-  left: 65vw;
-  transform: translateX(-50vw); }
+  top: 1px; }
 
 #mobile-nav ul {
   padding: 0;
@@ -1316,9 +1314,10 @@ button:focus {
   border: 3px solid #2B271E;
   box-shadow: 3px 3px 10px rgba(43, 39, 30, 0.3); }
 
-@media screen and (max-width: 1689px) {
-  #bottom-nav {
-    margin: 0 0 3% 10%; } }
+#projects {
+  float: left;
+  clear: both;
+  position: relative; }
 
 #projects h1 {
   font-size: 22px;
@@ -1341,8 +1340,7 @@ button:focus {
 
 #projects #p-list {
   padding: 0;
-  margin-top: 48vh;
-  transform: translate(0, -50%); }
+  margin-top: 20vh; }
 
 #projects #p-id {
   font-family: Inconsolata,Menlo,Monaco,Consolas,"Courier New",monospace;
@@ -1401,7 +1399,7 @@ button:focus {
 #floating-list {
   position: fixed;
   left: 0;
-  top: 50%;
+  top: 50vh;
   transform: translate(0, -50%);
   z-index: 10;
   background-color: transparent;
@@ -1898,9 +1896,12 @@ button:focus {
     margin-top: 8px;
     margin-bottom: 45px; }
   #bottom-nav {
-    visibility: hidden; }
+    visibility: hidden;
+    display: none; }
   #mobile-nav {
-    visibility: visible; } }
+    visibility: visible; }
+  #floating-list {
+    display: none; } }
 
 @media screen and (max-width: 736px) {
   #info {

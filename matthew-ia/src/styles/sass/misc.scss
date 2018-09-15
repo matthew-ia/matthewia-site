@@ -78,9 +78,13 @@
   }
   #bottom-nav {
     visibility: hidden;
+    display: none;
   }
   #mobile-nav {
     visibility: visible;
+  }
+  #floating-list {
+    display: none;
   }
 }
 //** <= 736px
