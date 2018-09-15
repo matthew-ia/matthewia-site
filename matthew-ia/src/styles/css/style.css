@@ -1315,9 +1315,7 @@ button:focus {
   box-shadow: 3px 3px 10px rgba(43, 39, 30, 0.3); }
 
 #projects {
-  float: left;
-  clear: both;
-  position: relative; }
+  clear: both; }
 
 #projects h1 {
   font-size: 22px;
@@ -1360,6 +1358,9 @@ button:focus {
   text-align: center;
   transition: box-shadow 0.2s ease-in-out; }
 
+#projects .p-item:hover {
+  box-shadow: 3px 3px 10px rgba(43, 39, 30, 0.3); }
+
 #projects .p-item a {
   float: left;
   clear: both;
@@ -1368,9 +1369,6 @@ button:focus {
 
 #projects .p-item.light a {
   color: white; }
-
-#projects .p-item:hover {
-  box-shadow: 3px 3px 10px rgba(43, 39, 30, 0.3); }
 
 #projects .p-image {
   max-height: 550px;
@@ -1385,9 +1383,6 @@ button:focus {
 #projects .p-label p {
   font-family: Inconsolata,Menlo,Monaco,Consolas,"Courier New",monospace;
   line-height: 1.42857; }
-
-#scrollContainer > div {
-  overflow: hidden; }
 
 #filter-button {
   position: fixed;
@@ -1883,6 +1878,11 @@ button:focus {
 @media screen and (max-width: 1690px) {
   #info p {
     max-width: 85%; } }
+
+@media screen and (max-width: 1280px) {
+  #projects .p-image {
+    max-height: 350px;
+    max-width: 450px; } }
 
 @media screen and (max-width: 980px) {
   #info {

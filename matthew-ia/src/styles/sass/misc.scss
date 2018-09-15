@@ -60,7 +60,12 @@
 //   TABLETS
 //** <= 1280px
 @media screen and (max-width: $screen-lg) {
-
+  #projects {
+    .p-image {
+      max-height: 350px;
+      max-width: 450px;
+    }
+  }
 }
 
 //   SMARTPHONES

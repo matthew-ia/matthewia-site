@@ -9,9 +9,8 @@
 //## A group of styles
 
 #projects {
-  float: left;
+  //float: left;
   clear: both;
-  position: relative;
 
   h1 {
     font-size: $font-size-large;
@@ -51,6 +50,15 @@
   }
 
   .p-item {
+    border: 1px solid $brand-primary;
+    display: inline-block;
+    margin-right: 64px;
+    position: relative;
+    text-align: center;
+    transition: box-shadow 0.2s ease-in-out;
+    &:hover {
+      box-shadow: 3px 3px 10px rgba($brand-primary, 0.3);
+    }
     a {
       float: left;
       clear: both;
@@ -61,15 +69,6 @@
       a {
         color: white;
       }
-    }
-    border: 1px solid $brand-primary;
-    display: inline-block;
-    margin-right: 64px;
-    position: relative;
-    text-align: center;
-    transition: box-shadow 0.2s ease-in-out;
-    &:hover {
-      box-shadow: 3px 3px 10px rgba($brand-primary, 0.3);
     }
   }
 
@@ -89,10 +88,6 @@
     }
   }
 
-}
-
-#scrollContainer > div {
-  overflow: hidden;
 }
 
 #filter-button {
