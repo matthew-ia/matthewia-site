@@ -15,8 +15,8 @@
     font-weight: $fw-black;
     display: inline-block;
     margin: 6vh 0 10vh;
-    //position: fixed;
-    //top: 15px;
+    position: fixed;
+    top: 0;
     a {
       transition: all 0.2s ease-in-out;
       &:hover {
@@ -33,7 +33,7 @@
 
   #p-list {
     padding: 0;
-    //margin-top: 20vh;
+    margin-top: 20vh;
     //transform: translate(0, -50%);
   }
 

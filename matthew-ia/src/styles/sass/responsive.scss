@@ -62,6 +62,7 @@
   #root > div {
     margin: 0;
   }
+
   #info {
     margin: 7%;
     h1 {
@@ -75,9 +76,12 @@
   #projects {
     width: 78%;
     margin: auto;
-    // Paired with ProjectList.js code for width
+    #p-list {
+      margin-top: 0;
+    }
     h1 {
       margin: 3vh 0 5vh;
+      position: static;
     }
     .p-item {
       display: block;

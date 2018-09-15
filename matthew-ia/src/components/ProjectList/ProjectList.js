@@ -59,7 +59,12 @@ class ProjectList extends Component {
 
   componentDidMount() {
     // Dynamically set the projects div width based on the number of projects to display
-    let width = ((this.state.count * (650 + 64)) + 200);
+    let pImage = document.querySelector('.p-image:first-of-type');
+    let w = parseInt(window.getComputedStyle(pImage)
+      .getPropertyValue('max-width').slice(0, -2));
+    console.log(w);
+    //window.getComputedStyle()
+    let width = ((this.state.count * (w + 64)) + w/5);
     console.log(width);
     if (window.innerWidth > 736) {
       document.getElementById('projects').style.width = width + "px";
