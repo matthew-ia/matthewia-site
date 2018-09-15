@@ -59,6 +59,9 @@
 }
 //** <= 736px
 @media screen and (max-width: $screen-sm) {
+  #root > div {
+    margin: 0;
+  }
   #info {
     margin: 7%;
     h1 {
@@ -70,6 +73,8 @@
     }
   }
   #projects {
+    width: 78%;
+    margin: auto;
     // Paired with ProjectList.js code for width
     h1 {
       margin: 3vh 0 5vh;
@@ -78,6 +83,7 @@
       display: block;
       float: left;
       margin-bottom: 64px;
+      margin-right: 0;
       &:last-of-type {
         margin-bottom: 120px;
       }
@@ -91,7 +97,7 @@
 //** <= 480px
 @media screen and (max-width: $screen-xs) {
   #info {
-    margin: 6%;
+    width: 90%;
     h1 {
       font-size: 60px;
     }
