@@ -52,12 +52,15 @@
 #mobile-nav {
   visibility: hidden;
   position: fixed;
-  top: 1px;
-  //left: 65vw;
-  //transform: translateX(-50vw);
+  bottom: 0;
+  left: 0;
+  background-color: rgba(white, 0.75);
+  padding: 16px 10px;
+  width: 100vw;
   ul {
     padding: 0;
-    margin: 0;
+    width: 80vw;
+    margin: 0 auto;
   }
   li {
     list-style-type: none;
@@ -78,11 +81,5 @@
     border: 3px solid $brand-primary;
     //color: white;
     box-shadow: 3px 3px 10px rgba($brand-primary, 0.3);
-  }
-}
-
-@media screen and (max-width: $screen-lg-max) {
-  #bottom-nav {
-    //margin: 0 0 3% 10%;
   }
 }

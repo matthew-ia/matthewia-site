@@ -1,0 +1,113 @@
+/*
+ * Responsive Styles
+ * --------------------------------------------------
+ */
+@import './custom-variables';
+
+//== Media queries
+//
+//##
+
+//   SMALLER DESKTOPS / LAPTOPS
+//** <= 1690px
+@media screen and (max-width: $screen-xl) {
+  #info p { max-width: 85%; }
+}
+
+//** <= 1480px
+@media screen and (max-width: 1480px) {
+}
+
+//** <= 1406px
+@media screen and (max-width: 1406px) {
+}
+
+//   TABLETS
+//** <= 1280px
+@media screen and (max-width: $screen-lg) {
+  #projects {
+    .p-image {
+      max-height: 350px;
+      max-width: 450px;
+    }
+  }
+}
+
+//   SMARTPHONES
+//** <= 980px
+@media screen and (max-width: $screen-md) {
+  #info {
+    margin: 8%;
+    p { max-width: 100%; }
+    h1 { font-size: 90px;}
+    h2 {
+      font-size: 36px;
+      margin-top: 8px;
+      margin-bottom: 45px;
+    }
+  }
+  #bottom-nav {
+    visibility: hidden;
+    display: none;
+  }
+  #mobile-nav {
+    visibility: visible;
+  }
+  #floating-list {
+    display: none;
+  }
+}
+//** <= 736px
+@media screen and (max-width: $screen-sm) {
+  #info {
+    margin: 7%;
+    h1 {
+      font-size: 75px;
+    }
+    h2 {
+      font-size: 32px;
+      margin-top: 4px;
+    }
+  }
+  #projects {
+    // Paired with ProjectList.js code for width
+    h1 {
+      margin: 3vh 0 5vh;
+    }
+    .p-item {
+      display: block;
+      float: left;
+      margin-bottom: 64px;
+      &:last-of-type {
+        margin-bottom: 120px;
+      }
+    }
+    .p-image {
+      max-height: 300px;
+      max-width: 400px;
+    }
+  }
+}
+//** <= 480px
+@media screen and (max-width: $screen-xs) {
+  #info {
+    margin: 6%;
+    h1 {
+      font-size: 60px;
+    }
+    h2 {
+      font-size: 28px;
+      // margin-top: 4px;
+    }
+    p {
+      // max-width: 100%;
+      font-size: $font-size-medium;
+    }
+  }
+  #projects {
+    .p-image {
+      max-height: 250px;
+      max-width: 350px;
+    }
+  }
+}

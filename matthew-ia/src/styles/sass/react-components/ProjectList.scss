@@ -9,15 +9,14 @@
 //## A group of styles
 
 #projects {
-  //float: left;
   clear: both;
-
   h1 {
     font-size: $font-size-large;
     font-weight: $fw-black;
     display: inline-block;
-    position: fixed;
-    top: 15px;
+    margin: 6vh 0 10vh;
+    //position: fixed;
+    //top: 15px;
     a {
       transition: all 0.2s ease-in-out;
       &:hover {
@@ -34,7 +33,7 @@
 
   #p-list {
     padding: 0;
-    margin-top: 20vh;
+    //margin-top: 20vh;
     //transform: translate(0, -50%);
   }
 

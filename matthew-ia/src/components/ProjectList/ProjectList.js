@@ -60,7 +60,10 @@ class ProjectList extends Component {
   componentDidMount() {
     // Dynamically set the projects div width based on the number of projects to display
     let width = ((this.state.count * (650 + 64)) + 200);
-    document.getElementById('projects').style.width = width + "px";
+    console.log(width);
+    if (window.innerWidth > 736) {
+      document.getElementById('projects').style.width = width + "px";
+    }
 
     // Adjusts navbar with offset and saves the returned default value to state.
     // The state is used when the component unmounts to reset it.
@@ -86,6 +89,7 @@ class ProjectList extends Component {
   handleScroll(e) {
     console.log('the scroll things', e);
     if(e.type !== 'wheel') return; // If scrolling with scroll bar ignore this code
+    if (window.innerWidth <= 736) return;
     let delta = 0;
     // Trackpads will use X or Y delta depending on which one is greater.
     if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
