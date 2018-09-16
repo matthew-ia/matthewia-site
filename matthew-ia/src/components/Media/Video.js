@@ -23,6 +23,10 @@ class Video extends Component {
   }
 
   toggleExpanded(e) {
+    if (window.innerWidth <= 980) {
+      window.open(this.props.videoSrc);
+      return;
+    }
     let {isExpanded} = this.state;
     let imageExpanded = e.currentTarget.childNodes[1];
     if (isExpanded) { // Close it

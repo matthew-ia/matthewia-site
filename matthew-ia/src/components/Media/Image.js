@@ -29,6 +29,7 @@ class Image extends Component {
   // Right now it's only being rendered when it should be seen, so it will always have
   // the expanded class. If I wanted to add a close animation, I would need this more so.
   toggleExpanded(e) {
+    if (window.innerWidth <= 980) return;
     let {isExpanded} = this.state;
     let imageExpanded = e.currentTarget.childNodes[1];
     if (isExpanded) { // Close it
