@@ -1886,14 +1886,16 @@ button:focus {
   #detail #gallery .col {
     display: block;
     width: 80%;
-    margin-bottom: 64px; }
+    margin-bottom: 64px;
+    margin-right: 0; }
   #detail #gallery .col:last-of-type {
     margin-bottom: 124px; }
   #detail #gallery img.sm, #detail #gallery img.md, #detail #gallery img.lg {
     max-width: 80%;
     max-height: none; }
   #detail #gallery .gallery-marker:before {
-    display: none; }
+    display: none;
+    content: none; }
   #detail #gallery-nav {
     display: none; }
   #detail button#scroll-arrow {
@@ -1927,7 +1929,7 @@ button:focus {
   #detail #gallery {
     padding-top: 0; }
   #detail #gallery .col {
-    width: 100%; }
+    width: auto; }
   #detail #gallery img.sm, #detail #gallery img.md, #detail #gallery img.lg {
     max-width: 100%; } }
 
