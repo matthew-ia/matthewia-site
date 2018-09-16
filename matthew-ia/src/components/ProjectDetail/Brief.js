@@ -46,6 +46,7 @@ class Brief extends Component {
    * @param e – event fired on scroll (mousewheel or trackpad)
    */
   handleScroll(e) {
+    if (window.innerWidth <= 1280) return; // handle mobile
     e.preventDefault();
     if (e.deltaY >= 15) { // GOING DOWN ---> GALLERY
       this.props.updateCurrentView(1);

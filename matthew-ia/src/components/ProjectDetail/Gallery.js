@@ -106,6 +106,7 @@ class Gallery extends Component {
 
   setColumnWidth(e) {
     //console.log("*dabs* ", e.target.parentElement.parentElement);
+    if (window.innerWidth <= 1280) return; // handle mobile
     let image = e.target;
     let col = image.parentElement.parentElement;
     col.style.width = window.getComputedStyle(image).getPropertyValue('width');
@@ -116,6 +117,7 @@ class Gallery extends Component {
    * @param e – the scroll event
    */
   handleScroll(e) {
+    if (window.innerWidth <= 1280) return; // handle mobile
     e.preventDefault();
     // X Position of the first element in the Gallery.
     // TODO: update the element selector to not rely on an ID

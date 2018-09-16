@@ -106,7 +106,10 @@ class Detail extends Component {
   }
 
   preventDefaultScrolling(e) {
-    e.preventDefault();
+    if (window.innerWidth > 1280) { // handle mobile
+      e.preventDefault();
+    }
+
   }
 
   refreshView() {
