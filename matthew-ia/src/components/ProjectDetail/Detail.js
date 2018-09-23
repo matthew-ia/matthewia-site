@@ -13,7 +13,7 @@ import { Helmet } from "react-helmet";
 import FloatingList from "../ProjectList/FloatingList";
 import Brief from "./Brief";
 import Gallery from "./Gallery";
-
+import Popup from "../Media/Popup";
 
 import {adjustNavbar, padNum} from "../../tools";
 const data = require("../../projectlist.json");
@@ -72,7 +72,14 @@ class Detail extends Component {
     window.addEventListener('wheel', this.preventDefaultScrolling);
     window.addEventListener('resize', this.updateWindowHeight);
     window.addEventListener('focus', this.handleFocus);
-
+    let shouldShowPopup = localStorage.getItem("shouldShowPopup");
+    console.log("yeet", shouldShowPopup);
+    if (shouldShowPopup === false || shouldShowPopup === null) {
+      setTimeout(()=>{
+        localStorage.setItem("shouldShowPopup", "true");
+        document.getElementById('popup').className = 'show';
+      }, 2000);
+    }
     /*let cols = document.getElementsByClassName('col');
     let width = 0;
     let margin = parseInt(window.getComputedStyle(cols[0]).getPropertyValue('margin-right').slice(0, -2));
@@ -192,6 +199,7 @@ class Detail extends Component {
         <FloatingList plist={this.state.plistJumpTable}
                       currentProjectPath={this.props.location.pathname}
                       shouldRedirect={false}/>
+        <Popup/>
       </div>
     );
   }

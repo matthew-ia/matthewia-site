@@ -1,0 +1,55 @@
+/*
+ * Popup Component Stylesheet
+ * --------------------------------------------------
+ */
+@import '../custom-variables';
+
+//== Style
+//
+//## A group of styles
+
+#popup {
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  right: 2vw;
+  bottom: 3vh;
+  width: 15vw;
+  padding: 10px 20px;
+  background-color: rgba(white, 0.75);
+  border: 1px solid $brand-gray-lighter;
+  transition: all 0.7s ease-in-out;
+  //animation: showPopup 5s;
+  //animation-delay: 3s;
+  img {
+    display: block;
+    float: left;
+  }
+  p {
+    float: left;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 64px;
+  }
+  &.show {
+    visibility: visible;
+    opacity: 1.0;
+  }
+}
+
+@keyframes showPopup {
+  0% {
+    visibility: visible;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1.0;
+  }
+  90% {
+    opacity: 1.0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
