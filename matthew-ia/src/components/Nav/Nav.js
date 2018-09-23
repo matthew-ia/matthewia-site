@@ -22,9 +22,11 @@ class Nav extends Component {
             <li><NavLink activeClassName="selected"
                          to='/projects'
                          onClick={loadPage}>projects</NavLink></li>
+            {/*
             <li><NavLink activeClassName="selected"
                          to='/resume'
                          onClick={loadPage}>resume</NavLink></li>
+            */}
           </ul>
         </nav>
         <nav id="mobile-nav">
@@ -35,9 +37,11 @@ class Nav extends Component {
             <li><NavLink activeClassName="selected"
                          to='/projects'
                          onClick={loadPage}>projects</NavLink></li>
+            {/*
             <li><NavLink activeClassName="selected"
                          to='/resume'
                          onClick={loadPage}>resume</NavLink></li>
+            */}
           </ul>
         </nav>
       </div>

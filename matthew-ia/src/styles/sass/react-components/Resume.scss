@@ -1,0 +1,54 @@
+/*
+ * Resume Component Stylesheet
+ * --------------------------------------------------
+ */
+@import '../custom-variables';
+
+//== Style
+//
+//## A group of styles
+
+#resume {
+  h1 {
+    font-size: $font-size-large;
+    font-weight: $fw-black;
+    display: inline-block;
+    margin: 6vh 0 10vh;
+    position: fixed;
+    top: 0;
+    a {
+      transition: all 0.2s ease-in-out;
+      &:hover {
+        color: $brand-gray;
+      }
+    }
+  }
+  #resume-content {
+    margin-top: 20vh;
+  }
+
+  .r-item {
+    border: 1px solid $brand-primary;
+    display: inline-block;
+    margin-right: 64px;
+    position: relative;
+    text-align: center;
+    padding: 32px;
+    max-width: 40vw;
+    /*transition: box-shadow 0.2s ease-in-out;
+    &:hover {
+      box-shadow: 3px 3px 10px rgba($brand-primary, 0.3);
+    }
+    a {
+      float: left;
+      clear: both;
+      line-height: 0;
+      color: $brand-primary;
+    }
+    &.light {
+      a {
+        color: white;
+      }
+    }*/
+  }
+}

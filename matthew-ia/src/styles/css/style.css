@@ -29,6 +29,8 @@
 @import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700");
 @import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700");
+@import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -1214,6 +1216,35 @@ button:focus {
   font-weight: 500;
   max-width: 65%; }
 
+#info ul#contact {
+  margin-top: 72px;
+  padding: 0;
+  list-style: none; }
+
+#info ul#contact li {
+  margin-right: 64px;
+  display: inline-block; }
+
+#info ul#contact li a {
+  transition: all 0.2s ease-in;
+  font-weight: 500;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px; }
+
+#info ul#contact li a:hover {
+  border-bottom: 2px solid #5F5F5F; }
+
+#info ul#contact li p.label {
+  font-family: Inconsolata,Menlo,Monaco,Consolas,"Courier New",monospace;
+  font-size: 16px;
+  color: #95989A; }
+
+#info ul#contact li#headshot img {
+  margin-top: -24px;
+  vertical-align: middle;
+  width: 90px;
+  height: 90px; }
+
 #question-button {
   position: fixed;
   margin: 15vh 10% 0 0;
@@ -1525,10 +1556,12 @@ button:focus {
 #brief p.p-content a {
   font-weight: 500;
   color: #5F5F5F;
-  transition: all 0.2s ease-in-out; }
+  transition: all 0.2s ease-in-out;
+  border-bottom: 2px solid transparent; }
 
 #brief p.p-content a:hover {
-  color: #2B271E; }
+  color: #2B271E;
+  border-bottom: 2px solid #5F5F5F; }
 
 #brief #project-links {
   list-style: none;
@@ -1539,10 +1572,13 @@ button:focus {
   transition: all 0.2s ease-in-out;
   font-size: 18px;
   font-weight: 700;
-  color: #2B271E; }
+  color: #2B271E;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 4px; }
 
 #brief #project-links li a:hover {
-  color: #5F5F5F; }
+  color: #5F5F5F;
+  border-bottom: 2px solid #5F5F5F; }
 
 #brief button#scroll-arrow {
   padding: 5px;
@@ -1704,6 +1740,32 @@ button:focus {
     font-size: 48px; }
   #brief span.p-tags {
     font-size: 18px; } }
+
+#resume h1 {
+  font-size: 22px;
+  font-weight: 900;
+  display: inline-block;
+  margin: 6vh 0 10vh;
+  position: fixed;
+  top: 0; }
+
+#resume h1 a {
+  transition: all 0.2s ease-in-out; }
+
+#resume h1 a:hover {
+  color: #5F5F5F; }
+
+#resume #resume-content {
+  margin-top: 20vh; }
+
+#resume .r-item {
+  border: 1px solid #2B271E;
+  display: inline-block;
+  margin-right: 64px;
+  position: relative;
+  text-align: center;
+  padding: 32px;
+  max-width: 40vw; }
 
 .image-container {
   cursor: zoom-in; }
@@ -1962,6 +2024,15 @@ button:focus {
     font-size: 36px;
     margin-top: 8px;
     margin-bottom: 45px; }
+  #info ul#contact li {
+    margin-top: 20px;
+    display: block; }
+  #info ul#contact li:last-of-type {
+    margin-bottom: 20vh; }
+  #info li#headshot img {
+    margin-top: -18px;
+    width: 60px;
+    height: 60px; }
   #detail #brief .p-desc {
     width: 100%; }
   #detail #brief .image-container {

@@ -76,8 +76,10 @@
       font-weight: $fw-medium;
       color: $brand-gray;
       transition: all 0.2s ease-in-out;
+      border-bottom: 2px solid transparent;
       &:hover {
         color: $brand-primary;
+        border-bottom: 2px solid $brand-gray;
       }
     }
   }
@@ -91,8 +93,11 @@
       font-size: $font-size-medium;
       font-weight: $fw-bold;
       color: $brand-primary;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 4px;
       &:hover {
         color: $brand-gray;
+        border-bottom: 2px solid $brand-gray;
       }
     }
   }

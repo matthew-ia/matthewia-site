@@ -27,6 +27,37 @@
     font-weight: $fw-medium;
     max-width: 65%;
   }
+  ul#contact {
+    margin-top: 72px;
+    padding: 0;
+    list-style: none;
+    li {
+      margin-right: 64px;
+      display: inline-block;
+      a {
+        transition: all 0.2s ease-in;
+        font-weight: $fw-medium;
+        border-bottom: 2px solid transparent;
+        padding-bottom: 2px;
+        &:hover {
+          border-bottom: 2px solid $brand-gray;
+        }
+      }
+      p.label {
+        font-family: $font-family-monospace;
+        font-size: $font-size-base;
+        color: $brand-gray-light;
+      }
+    }
+    li#headshot {
+      img {
+        margin-top: -24px;
+        vertical-align: middle;
+        width: 90px;
+        height: 90px;
+      }
+    }
+  }
 }
 
 #question-button {

@@ -61,6 +61,19 @@ class Home extends Component {
           <p>
             I’m Matthew Alicea, a multidisciplinary designer with a B.S. in Computer Science from Appalachian State University. I create digital interfaces and user experiences, graphic designs, and print designs.
           </p>
+          <ul id="contact">
+            <li id="headshot">
+              <img src={window.location.origin + "/images/headshot.png"}/>
+            </li>
+            <li>
+              <p className='label'>contact</p>
+              <a href="mailto:info@matthewia.com">info@matthewia.com</a>
+            </li>
+            <li>
+              <p className='label'>resume</p>
+              <a href={window.location.origin + "/docs/matthew-alicea.pdf"}>matthew-alicea.pdf</a>
+            </li>
+          </ul>
         </div>
         <button
           data-tip="README"

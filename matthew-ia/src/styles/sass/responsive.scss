@@ -116,6 +116,24 @@
       margin-bottom: 45px;
     }
   }
+  #info {
+    ul#contact {
+      li {
+        margin-top: 20px;
+        display: block;
+      }
+      li:last-of-type {
+        margin-bottom: 20vh;
+      }
+    }
+    li#headshot {
+      img {
+        margin-top: -18px;
+        width: 60px;
+        height: 60px;
+      }
+    }
+  }
   #detail {
     #brief {
       //margin-bottom: 64px;
