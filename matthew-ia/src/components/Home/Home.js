@@ -21,7 +21,7 @@ class Home extends Component {
       mouseRegion: 0,
       prevMouseRegion: 0,
     };
-    this.handleMouseMove = this.handleMouseMove.bind(this);
+    this.handleGradientShift = this.handleGradientShift.bind(this);
   }
   componentDidMount() {
     // Throttled handler wrapper for handleMouseMove
@@ -30,14 +30,14 @@ class Home extends Component {
       this.handleMouseMove(e);
     }, 0);
     */
-    window.addEventListener('mousemove', this.handleMouseMove);
+    window.addEventListener('mousemove', this.handleGradientShift);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('mousemove', this.handleMouseMove);
+    window.removeEventListener('mousemove', this.handleGradientShift);
   }
 
-  handleMouseMove(e) {
+  handleGradientShift(e) {
     let xMax = window.innerWidth;
     let yMax = window.innerHeight;
     let x = e.clientX;
