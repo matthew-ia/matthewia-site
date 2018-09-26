@@ -1343,6 +1343,9 @@ button:focus {
   display: inline;
   margin-right: 42px; }
 
+#mobile-nav li:last-of-type {
+  margin-right: 0; }
+
 #mobile-nav a {
   font-size: 18px;
   font-weight: 500;
