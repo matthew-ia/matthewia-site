@@ -94,6 +94,12 @@
   }
   #mobile-nav {
     visibility: visible;
+    a:hover {
+      background-color: transparent;
+      border: 3px solid $brand-primary;
+      //color: white;
+      box-shadow: none;
+    }
   }
   #floating-list {
     display: none;
@@ -172,7 +178,9 @@
   }
   #projects {
     #p-list {
-      margin-top: 0;
+      margin: 0 auto;
+      clear: both;
+      overflow: hidden;
     }
     h1 {
       margin: 3vh 0 5vh;
@@ -180,16 +188,15 @@
     }
     .p-item {
       display: block;
-      float: left;
-      margin-bottom: 64px;
-      margin-right: 0;
+      overflow: hidden;
+      margin: 0 auto 64px auto;
       &:last-of-type {
         margin-bottom: 120px;
       }
-    }
-    .p-image {
       max-height: 300px;
       max-width: 400px;
+    }
+    .p-image {
     }
   }
 }

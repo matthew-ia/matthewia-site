@@ -1330,11 +1330,12 @@ button:focus {
   left: 0;
   background-color: rgba(255, 255, 255, 0.75);
   padding: 20px 10px;
-  width: 100vw; }
+  width: 100vw;
+  text-align: center; }
 
 #mobile-nav ul {
+  display: inline-block;
   padding: 0;
-  width: 80%;
   margin: auto; }
 
 #mobile-nav li {
@@ -2009,6 +2010,10 @@ button:focus {
     display: none; }
   #mobile-nav {
     visibility: visible; }
+  #mobile-nav a:hover {
+    background-color: transparent;
+    border: 3px solid #2B271E;
+    box-shadow: none; }
   #floating-list {
     display: none; } }
 
@@ -2051,20 +2056,20 @@ button:focus {
     font-size: 32px;
     margin-top: 4px; }
   #projects #p-list {
-    margin-top: 0; }
+    margin: 0 auto;
+    clear: both;
+    overflow: hidden; }
   #projects h1 {
     margin: 3vh 0 5vh;
     position: static; }
   #projects .p-item {
     display: block;
-    float: left;
-    margin-bottom: 64px;
-    margin-right: 0; }
-  #projects .p-item:last-of-type {
-    margin-bottom: 120px; }
-  #projects .p-image {
+    overflow: hidden;
+    margin: 0 auto 64px auto;
     max-height: 300px;
-    max-width: 400px; } }
+    max-width: 400px; }
+  #projects .p-item:last-of-type {
+    margin-bottom: 120px; } }
 
 @media screen and (max-width: 480px) {
   #info h1 {
