@@ -73,12 +73,9 @@ class Detail extends Component {
     window.addEventListener('resize', this.updateWindowHeight);
     window.addEventListener('focus', this.handleFocus);
     let shouldShowPopup = localStorage.getItem("shouldShowPopup");
-    console.log("yeet", shouldShowPopup);
     if (shouldShowPopup === false || shouldShowPopup === null) {
-      setTimeout(()=>{
-        localStorage.setItem("shouldShowPopup", "true");
-        document.getElementById('popup').className = 'show';
-      }, 2000);
+      localStorage.setItem("shouldShowPopup", "true");
+      document.getElementById('popup').className = 'show';
     }
     /*let cols = document.getElementsByClassName('col');
     let width = 0;
