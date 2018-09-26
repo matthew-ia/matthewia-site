@@ -1386,7 +1386,7 @@ button:focus {
   padding: 0;
   margin-top: 20vh; }
 
-#projects #p-id {
+#projects .p-id {
   font-family: Inconsolata,Menlo,Monaco,Consolas,"Courier New",monospace;
   padding: 10px 12px;
   background-color: #2B271E;
@@ -2058,21 +2058,25 @@ button:focus {
   #info h2 {
     font-size: 32px;
     margin-top: 4px; }
+  #projects {
+    margin: 0 auto; }
   #projects #p-list {
-    margin: 0 auto;
-    clear: both;
-    overflow: hidden; }
+    display: inline-block;
+    margin: 0 auto; }
   #projects h1 {
     margin: 3vh 0 5vh;
     position: static; }
   #projects .p-item {
-    display: block;
-    overflow: hidden;
-    margin: 0 auto 64px auto;
-    max-height: 300px;
-    max-width: 400px; }
+    display: inline-block;
+    margin: 0 auto 64px auto; }
   #projects .p-item:last-of-type {
-    margin-bottom: 120px; } }
+    margin-bottom: 120px; }
+  #projects .p-item .p-id {
+    position: absolute;
+    margin: 0; }
+  #projects .p-image {
+    max-width: 100%;
+    max-height: 100%; } }
 
 @media screen and (max-width: 480px) {
   #info h1 {
@@ -2080,10 +2084,7 @@ button:focus {
   #info h2 {
     font-size: 28px; }
   #info p {
-    font-size: 18px; }
-  #projects .p-image {
-    max-height: 250px;
-    max-width: 350px; } }
+    font-size: 18px; } }
 
 #dimensions {
   position: fixed;
