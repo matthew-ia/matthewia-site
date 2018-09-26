@@ -2053,6 +2053,8 @@ button:focus {
     max-width: 100%; } }
 
 @media screen and (max-width: 736px) {
+  #info {
+    margin-top: 8vh; }
   #info h1 {
     font-size: 75px; }
   #info h2 {
