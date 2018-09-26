@@ -58,6 +58,7 @@ class ProjectList extends Component {
   }
 
   componentDidMount() {
+    window.scroll(0,0); // Reset scroll to top
     // Dynamically set the projects div width based on the number of projects to display
     let pImage = document.querySelector('.p-image:first-of-type');
     let w = parseInt(window.getComputedStyle(pImage)

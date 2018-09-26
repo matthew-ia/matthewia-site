@@ -30,6 +30,7 @@ class Home extends Component {
       this.handleMouseMove(e);
     }, 0);
     */
+    window.scroll(0,0); // Reset scroll to top
     window.addEventListener('mousemove', this.handleGradientShift);
   }
 
