@@ -8,14 +8,26 @@
 //
 //##
 
-//   SMALLER DESKTOPS / LAPTOPS
+//   SMALLER DESKTOPS
 //** <= 1690px
 @media screen and (max-width: $screen-xl) {
   #info p { max-width: 85%; }
 }
 
+//   LAPTOPS
 //** <= 1480px
 @media screen and (max-width: 1480px) {
+  #info {
+    margin: 10vh 0 0;
+  }
+  #projects {
+    #p-list {
+      margin-top: 15vh;
+    }
+  }
+  #bottom-nav {
+
+  }
 }
 
 //** <= 1406px
