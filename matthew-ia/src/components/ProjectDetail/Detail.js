@@ -74,8 +74,10 @@ class Detail extends Component {
     window.addEventListener('focus', this.handleFocus);
     let shouldShowPopup = localStorage.getItem("shouldShowPopup");
     if (shouldShowPopup === false || shouldShowPopup === null) {
-      localStorage.setItem("shouldShowPopup", "true");
-      document.getElementById('popup').className = 'show';
+      if (window.innerWidth > 1280) { // Larger than mobile styles
+        localStorage.setItem("shouldShowPopup", "true");
+        document.getElementById('popup').className = 'show';
+      }
     }
     /*let cols = document.getElementsByClassName('col');
     let width = 0;

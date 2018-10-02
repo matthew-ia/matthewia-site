@@ -36,6 +36,7 @@
 
 //   TABLETS
 //** <= 1280px
+// Shift everything to mobile (vertical scrolling) style
 @media screen and (max-width: $screen-lg) {
   #projects {
     .p-image {
