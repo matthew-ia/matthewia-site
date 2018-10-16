@@ -54,7 +54,7 @@ class Gallery extends Component {
   }
 
   /**
-   * Get current window size. Needs to be saved/used for the timeline nav updating.
+   * Sets the Gallery width based on the content.
    */
   updateGalleryWidth() {
     if (window.scrollX !== 0) console.log("not left");
@@ -69,7 +69,7 @@ class Gallery extends Component {
       //console.log(cols, lastEl, xPos);
       document.getElementById('gallery').style.width = xPos + parseInt(lastEl.style.width.slice(0,-2)) + 'px';
       //console.log(xPos, parseInt(lastEl.style.width.slice(0,-2)), lastEl);
-    }, 1250);
+    }, 1450);
   }
 
   setDynamicColumnWidth() {
