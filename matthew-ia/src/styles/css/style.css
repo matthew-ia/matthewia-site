@@ -1976,6 +1976,25 @@ button:focus {
   #bottom-nav {
     margin: 0 0 6vh 10%; } }
 
+@media screen and (max-width: 1406px) and (max-height: 732px) {
+  #info p {
+    max-width: 100%;
+    font-size: 18px; }
+  #info h1 {
+    font-size: 90px; }
+  #info h2 {
+    font-size: 36px;
+    margin-top: 8px;
+    margin-bottom: 45px; }
+  #info ul#contact li {
+    margin-top: 20px; }
+  #info ul#contact li:last-of-type {
+    margin-bottom: 20vh; }
+  #info ul#contact li#headshot img {
+    margin-top: -18px;
+    width: 75px;
+    height: 75px; } }
+
 @media screen and (max-width: 1280px) {
   #projects .p-image {
     max-height: 350px;
