@@ -25,7 +25,7 @@ export class _Brief extends Component {
         </div>
         <Image className='p-image'
                path={p.publicPath}
-               previewFile={'citrus-2.png'}
+               previewFile={'citrus-2-small.png'}
                fullscreenFile={'citrus-2.png'}/>
         <button
           data-tip="scroll down"

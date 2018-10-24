@@ -41,7 +41,7 @@ export class _Gallery extends Component {
             <Image onLoad={this.props.setColumnWidth}
                    className='md'
                    path={p.publicPath}
-                   previewFile={'dgsf-redesign-1.png'}
+                   previewFile={'dgsf-redesign-1-small.png'}
                    fullscreenFile={'dgsf-redesign-1.png'}/>
             <Label text="Updated proposed design (2018)"/>
           </div>
@@ -49,7 +49,7 @@ export class _Gallery extends Component {
             <Image onLoad={this.props.setColumnWidth}
                    className='md'
                    path={p.publicPath}
-                   previewFile={'dgsf-redesign-2.png'}
+                   previewFile={'dgsf-redesign-2-small.png'}
                    fullscreenFile={'dgsf-redesign-2.png'}/>
             <Label text="Updated proposed design (2018), cont."/>
           </div>

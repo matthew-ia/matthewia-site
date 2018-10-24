@@ -21,7 +21,7 @@ export class _Gallery extends Component {
             <Image onLoad={this.props.setColumnWidth}
                    className='md'
                    path={p.publicPath}
-                   previewFile={'citrus-0.png'}
+                   previewFile={'citrus-0-small.png'}
                    fullscreenFile={'citrus-0.png'}/>
             <Label text="Home page mockup 1"/>
             <p className='stacked withLabel'>I want to create a web experience for Citrus that evokes the feeling of being in a space rather than just browsing a website. I took inspiration from sites like <a href="https://hoverstat.es/features/leroy-nguyen" target='_blank'>Leeroy Nguyen’s</a>, <a href="http://thexx.info/home/" target='_blank'>The XX</a>, <a href="https://www.lushusa.com" target='_blank'>LUSH</a>, and <a href="https://www.glossier.com/" target='_blank'>Glossier</a>.</p>
@@ -30,7 +30,7 @@ export class _Gallery extends Component {
             <Image onLoad={this.props.setColumnWidth}
                    className='md'
                    path={p.publicPath}
-                   previewFile={'citrus-1.png'}
+                   previewFile={'citrus-1-small.png'}
                    fullscreenFile={'citrus-1.png'}/>
             <Label text="Home page mockup 2"/>
             <p className='stacked withLabel'>The original design began to haunt me every time I had to update the site. So, I decided to put some effort into thinking about a redesign.</p>
