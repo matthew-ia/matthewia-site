@@ -57,7 +57,7 @@ export class _Gallery extends Component {
                    previewFile={'overview-sidepanel.png'}
                    path={p.publicPath}
                    className='md'/>
-            <Label text="Spectra-CP Demo w/ voiceover (v0.2)"/>
+            <Label text="Dashboard – Demo (video)"/>
             <p className="stacked withLabel">Once the foundation for the project was built, I started refining the front-end, which included reorganizing the project structure, styling the app to match the wireframes and mockups, and implementing a real-time updating graph component. We developed the app using React and various JS libraries and node modules. Beyond the interface, we also built a backend that was capable of connecting to our companion software running on a remote computer (RaspberryPi) via WebSockets.</p>
           </div>
         </div>
