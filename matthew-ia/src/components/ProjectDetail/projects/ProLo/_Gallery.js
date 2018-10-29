@@ -31,7 +31,7 @@ export class _Gallery extends Component {
                    previewFile={'dashboard-mockup.png'}
                    path={p.publicPath}
                    className='md'/>
-            <Label text="Dashboard mockup // Video of demo"/>
+            <Label text="Dashboard mockup // Demo (video)"/>
           </div>
           <div className="col">
             <Image onLoad={this.props.setColumnWidth}

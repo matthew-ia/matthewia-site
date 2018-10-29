@@ -28,7 +28,7 @@ export class _Brief extends Component {
         <Image onLoad={this.props.setColumnWidth}
                className='p-image'
                path={p.publicPath}
-               previewFile={'dgsf-redesign-2-cropped.png'}
+               previewFile={'dgsf-redesign-2-cropped-small.png'}
                fullscreenFile={'dgsf-redesign-2-cropped.png'}/>
         <button
           data-tip="scroll down"

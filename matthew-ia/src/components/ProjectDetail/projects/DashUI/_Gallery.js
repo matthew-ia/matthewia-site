@@ -42,7 +42,7 @@ export class _Gallery extends Component {
                    previewFile={'standard-mode.png'}
                    path={p.publicPath}
                    className='sm'/>
-            <Label text="DashUI interaction demo"/>
+            <Label text="DashUI interaction demo (video)"/>
             <p className="stacked withLabel">Solar vehicle racing introduces a new set of measurements to be monitoring compared to a standard EV, let alone a traditional gasoline car. However, I wanted the design to be approachable to the average user and avoid overwhelming them with too many dials or moving parts. To accomplish that I focused on designing the layout while thinking about the hierarchy of priority of each data field.</p>
           </div>
           <div className="col">

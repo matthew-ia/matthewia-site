@@ -32,6 +32,46 @@
 
 //** <= 1406px
 @media screen and (max-width: 1406px) {
+  @media screen and (max-height: 732px) {
+    #info {
+      p {
+        max-width: 100%;
+        font-size: 18px;
+      }
+      h1 { font-size: 90px;}
+      h2 {
+        font-size: 36px;
+        margin-top: 8px;
+        margin-bottom: 45px;
+      }
+      ul#contact {
+        li {
+          margin-top: 20px;
+        }
+        li:last-of-type {
+          margin-bottom: 20vh;
+        }
+        li#headshot {
+          img {
+            margin-top: -18px;
+            width: 75px;
+            height: 75px;
+          }
+        }
+      }
+    }
+    #projects {
+      .p-image {
+        max-height: 450px;
+        max-width: 550px;
+      }
+    }
+    #detail {
+      p {
+        font-size: 14px;
+      }
+    }
+  }
 }
 
 //   TABLETS
