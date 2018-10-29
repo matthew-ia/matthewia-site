@@ -103,7 +103,8 @@ class ProjectList extends Component {
     } else delta = e.deltaY; // Mousewheel will always use the deltaY.
     console.log(delta);
     delta = delta * (-3);
-    document.documentElement.scrollLeft -= delta;
+    //document.documentElement.scrollLeft -= delta;
+    window.scrollBy(-delta, 0);
     e.preventDefault();
   }
 
