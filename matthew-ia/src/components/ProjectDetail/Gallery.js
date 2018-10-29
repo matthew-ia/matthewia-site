@@ -14,6 +14,9 @@ import {_Gallery as ProLo} from "./projects/ProLo/_Gallery";
 import {_Gallery as DGSF} from "./projects/DGSF/_Gallery";
 import {_Gallery as Citrus} from "./projects/Citrus/_Gallery";
 import {_Gallery as MondrianSim} from "./projects/MondrianSim/_Gallery";
+import jump from "jump.js";
+
+import {debounce} from "../../tools";
 
 const BRIEF = 0;
 const GALLERY = 1;
@@ -133,7 +136,11 @@ class Gallery extends Component {
     if (window.scrollX === 0) {
       if (e.deltaY < -30) { // If it is, scroll up (animate) when user scrolls up.
         this.props.p.saveScrollX(window.scrollX);
-        this.handleScrollUp();
+        let dbScrollUp = debounce(()=>{
+          this.handleScrollUp();
+          console.log("debouncing...(UP)");
+        }, 1270);
+        dbScrollUp();
       } else { // Else scroll horizontally
         this.handleScrollHorizontal(e);
       }
@@ -144,16 +151,20 @@ class Gallery extends Component {
 
   /**
    * Handles scrolling the screen up (back to the Brief section)
-   * @param e – event fired from clicking on anchor
+   * @param e – event fired from scrolling up with mousepad/trackpad
    */
   handleScrollUp() {
     //console.log("SCROLLING UP");
     //console.log("xDefault: ", this.state.scrollLeftDefault);
     // Smooth scroll up to Brief section.
-    window.scroll({
+    /*window.scroll({
       left: 0,
       top: 0,
       behavior: "smooth"
+    });
+    */
+    jump(-document.body.scrollHeight, {
+      duration: 1250,
     });
 
     this.props.updateCurrentView(0);
@@ -191,7 +202,8 @@ class Gallery extends Component {
     // Simulate a little extra force to scroll more significantly
     delta = delta * (-3);
     // Scroll the view
-    document.documentElement.scrollLeft -= delta;
+    //document.documentElement.scrollLeft -= delta;
+    window.scrollBy(-delta, 0);
     // Call helper for timeline nav link updates
     // FIXME: project specific
     this.handleGalleryNav();
