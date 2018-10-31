@@ -148,11 +148,7 @@ class Gallery extends Component {
     if (window.scrollX === 0) {
       if (e.deltaY < -30) { // If it is, scroll up (animate) when user scrolls up.
         this.props.p.saveScrollX(window.scrollX);
-        let dbScrollUp = debounce(()=>{
-          this.handleScrollUp();
-          console.log("debouncing...(UP)");
-        }, 1270);
-        dbScrollUp();
+        this.handleScrollUp();
       } else { // Else scroll horizontally
         this.handleScrollHorizontal(e);
       }
