@@ -217,9 +217,8 @@ class Gallery extends Component {
     // Simulate a little extra force to scroll more significantly
     delta = delta * (-3);
     // Scroll the view
-    document.documentElement.scrollLeft -= delta;
+    window.scrollBy(-delta, 0);
     // Call helper for timeline nav link updates
-    // FIXME: project specific
     this.handleGalleryNav();
     e.preventDefault();
   }

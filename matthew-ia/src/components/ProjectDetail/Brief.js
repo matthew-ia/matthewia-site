@@ -32,8 +32,7 @@ class Brief extends Component {
   componentDidMount() {
     //console.log("=========\nBrief is mounting");
     loadPage();
-    let smoothScroll = false;
-    if ('smoothScroll' in document.body.style) smoothScroll = true;
+    let smoothScroll = 'scrollBehavior' in document.documentElement.style;
     this.setState({
       hasNativeSmoothScroll: smoothScroll,
     });
@@ -70,11 +69,19 @@ class Brief extends Component {
       // GOING UP (from Gallery) ---> BRIEF
       if (e.type === 'click' && document.getElementById("scroll-arrow").className === 'top') {
         this.props.updateCurrentView(0);
-        window.scroll({
-          top: 0,
-          left: 0,
-          behavior: "smooth",
-        });
+        if (this.state.hasNativeSmoothScroll) {
+          window.scroll({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+          });
+        } else {
+          let scrollBarHeight = window.innerHeight - document.documentElement.clientHeight;
+          console.log(scrollBarHeight);
+          window.scrollBy(0, -scrollBarHeight);
+          zenscroll.toY(0);
+        }
+
         console.log("windowScrollX: ", window.scrollX);
         this.props.p.saveScrollX(window.scrollX);
         console.log("Saving wsX: ", window.scrollX);
@@ -83,11 +90,13 @@ class Brief extends Component {
       // If user clicks the scroll-arrow when they're in the BRIEF section
       else if (e.type === 'click') {
         this.props.updateCurrentView(1);
-        window.scroll({
-          top: document.body.scrollHeight,
-          left: this.props.p.getScrollX(),
-          behavior: "smooth",
-        });
+        if (this.state.hasNativeSmoothScroll) {
+          window.scroll({
+            top: document.body.scrollHeight,
+            left: this.props.p.getScrollX(),
+            behavior: "smooth",
+          });
+        } else zenscroll.toY(document.body.scrollHeight);
       }
     }
   }
