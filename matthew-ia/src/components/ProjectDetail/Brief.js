@@ -15,6 +15,7 @@ import {_Brief as DGSF} from "./projects/DGSF/_Brief";
 import {_Brief as Citrus} from "./projects/Citrus/_Brief";
 import {_Brief as MondrianSim} from "./projects/MondrianSim/_Brief";
 
+import zenscroll from 'zenscroll';
 import {loadPage} from "../../tools";
 
 class Brief extends Component {
@@ -50,11 +51,14 @@ class Brief extends Component {
     e.preventDefault();
     if (e.deltaY >= 15) { // GOING DOWN ---> GALLERY
       this.props.updateCurrentView(1);
+      /*
       window.scroll({
         top: document.body.scrollHeight,
         left: this.props.p.getScrollX(),
         behavior: "smooth",
       });
+      */
+      zenscroll.toY(document.body.scrollHeight);
     } else {
       // If user clicks the scroll-arrow when they're in the GALLERY section
       // GOING UP (from Gallery) ---> BRIEF

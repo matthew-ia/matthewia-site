@@ -15,6 +15,8 @@ import {_Gallery as DGSF} from "./projects/DGSF/_Gallery";
 import {_Gallery as Citrus} from "./projects/Citrus/_Gallery";
 import {_Gallery as MondrianSim} from "./projects/MondrianSim/_Gallery";
 
+import zenscroll from "zenscroll";
+
 const BRIEF = 0;
 const GALLERY = 1;
 
@@ -127,7 +129,10 @@ class Gallery extends Component {
     //console.log("w.sY: ", window.scrollY, ", yPos: ", yPos);
     //console.log("Saving wsX: ", window.scrollX);
     // Ignore scroll events if we're in the middle of handleScrollUp's scroll behavior
-    if (window.scrollY < yPos) return;
+    if (zenscroll.moving()) {
+      console.log("is moving");
+      return;
+    }
     //console.log("handling");
     // Check if the first element in Gallery is scrolled all the way to the left
     if (window.scrollX === 0) {
@@ -147,14 +152,18 @@ class Gallery extends Component {
    * @param e – event fired from clicking on anchor
    */
   handleScrollUp() {
-    //console.log("SCROLLING UP");
+    console.log("SCROLLING UP");
     //console.log("xDefault: ", this.state.scrollLeftDefault);
     // Smooth scroll up to Brief section.
-    window.scroll({
+    /*window.scroll({
       left: 0,
       top: 0,
       behavior: "smooth"
-    });
+    });*/
+    let scrollBarHeight = window.innerHeight - document.documentElement.clientHeight;
+    console.log(scrollBarHeight);
+    window.scrollBy(0, -50);
+    zenscroll.toY(0);
 
     this.props.updateCurrentView(0);
     // Set styles that need updating based on the section in view
