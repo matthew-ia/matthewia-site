@@ -15,14 +15,16 @@ import {_Brief as DGSF} from "./projects/DGSF/_Brief";
 import {_Brief as Citrus} from "./projects/Citrus/_Brief";
 import {_Brief as MondrianSim} from "./projects/MondrianSim/_Brief";
 
-import jump from 'jump.js';
-import {loadPage, debounce} from "../../tools";
+import {loadPage} from "../../tools";
+import zenscroll from '../../zenscroll';
 
 class Brief extends Component {
   // eslint-disable-next-line require-jsdoc
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      hasNativeSmoothScroll: false,
+    };
 
     this.handleScroll = this.handleScroll.bind(this);
     this.helpJump = this.helpJump.bind(this);
@@ -31,6 +33,10 @@ class Brief extends Component {
   componentDidMount() {
     //console.log("=========\nBrief is mounting");
     loadPage();
+    let smoothScroll = 'scrollBehavior' in document.documentElement.style;
+    this.setState({
+      hasNativeSmoothScroll: smoothScroll,
+    });
   }
 
   shouldComponentUpdate(nextProps) {
@@ -52,44 +58,30 @@ class Brief extends Component {
     e.preventDefault();
     if (e.deltaY >= 15) { // GOING DOWN ---> GALLERY
       this.props.updateCurrentView(1);
-      console.log("handling Scroll: ", e.deltaY);
-      /*
-      window.scroll({
-        top: document.body.scrollHeight,
-        left: this.props.p.getScrollX(),
-        behavior: "smooth",
-      });
-      */
-      /*jump(document.body.scrollHeight, {
-        //duration: 1000,
-        offset: 0,
-        //callback: this.helpJump,
-        //easing: easeInOutQuad,
-        a11y: false
-      });*/
-      let efficientJump = debounce(()=>{
-        jump(document.body.scrollHeight, {
-          duration: 1250,
+      if (this.state.hasNativeSmoothScroll) {
+        window.scroll({
+          top: document.body.scrollHeight,
+          left: this.props.p.getScrollX(),
+          behavior: "smooth",
         });
-        console.log("efficient jump successful");
-      }, 1270);
-      //debounce(this.helpJump, 500);
-      efficientJump();
-
-
+      } else zenscroll.toY(document.body.scrollHeight);
     } else {
       // If user clicks the scroll-arrow when they're in the GALLERY section
       // GOING UP (from Gallery) ---> BRIEF
       if (e.type === 'click' && document.getElementById("scroll-arrow").className === 'top') {
         this.props.updateCurrentView(0);
-        /*window.scroll({
-          top: 0,
-          left: 0,
-          behavior: "smooth",
-        });*/
-        jump(-document.body.scrollHeight, {
-          duration: 2000,
-        });
+        if (this.state.hasNativeSmoothScroll) {
+          window.scroll({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+          });
+        } else {
+          let scrollBarHeight = window.innerHeight - document.documentElement.clientHeight;
+          console.log(scrollBarHeight);
+          window.scrollBy(0, -scrollBarHeight);
+          zenscroll.toY(0);
+        }
         console.log("windowScrollX: ", window.scrollX);
         this.props.p.saveScrollX(window.scrollX);
         console.log("Saving wsX: ", window.scrollX);
@@ -98,14 +90,13 @@ class Brief extends Component {
       // If user clicks the scroll-arrow when they're in the BRIEF section
       else if (e.type === 'click') {
         this.props.updateCurrentView(1);
-        /*window.scroll({
-          top: document.body.scrollHeight,
-          left: this.props.p.getScrollX(),
-          behavior: "smooth",
-        });*/
-        jump(document.body.scrollHeight, {
-          duration: 2000,
-        });
+        if (this.state.hasNativeSmoothScroll) {
+          window.scroll({
+            top: document.body.scrollHeight,
+            left: this.props.p.getScrollX(),
+            behavior: "smooth",
+          });
+        } else zenscroll.toY(document.body.scrollHeight);
       }
     }
   }
