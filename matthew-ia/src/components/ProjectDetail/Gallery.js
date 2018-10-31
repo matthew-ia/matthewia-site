@@ -14,6 +14,9 @@ import {_Gallery as ProLo} from "./projects/ProLo/_Gallery";
 import {_Gallery as DGSF} from "./projects/DGSF/_Gallery";
 import {_Gallery as Citrus} from "./projects/Citrus/_Gallery";
 import {_Gallery as MondrianSim} from "./projects/MondrianSim/_Gallery";
+import jump from "jump.js";
+
+import {debounce} from "../../tools";
 
 import zenscroll from "../../zenscroll";
 
@@ -146,7 +149,11 @@ class Gallery extends Component {
     if (window.scrollX === 0) {
       if (e.deltaY < -30) { // If it is, scroll up (animate) when user scrolls up.
         this.props.p.saveScrollX(window.scrollX);
-        this.handleScrollUp();
+        let dbScrollUp = debounce(()=>{
+          this.handleScrollUp();
+          console.log("debouncing...(UP)");
+        }, 1270);
+        dbScrollUp();
       } else { // Else scroll horizontally
         this.handleScrollHorizontal(e);
       }
@@ -157,7 +164,7 @@ class Gallery extends Component {
 
   /**
    * Handles scrolling the screen up (back to the Brief section)
-   * @param e – event fired from clicking on anchor
+   * @param e – event fired from scrolling up with mousepad/trackpad
    */
   handleScrollUp() {
     console.log("SCROLLING UP");
@@ -175,11 +182,6 @@ class Gallery extends Component {
       window.scrollBy(0, -scrollBarHeight);
       zenscroll.toY(0);
     }
-    /*
-    let scrollBarHeight = window.innerHeight - document.documentElement.clientHeight;
-    console.log(scrollBarHeight);
-    window.scrollBy(0, -50);
-    zenscroll.toY(0);*/
 
     this.props.updateCurrentView(0);
     // Set styles that need updating based on the section in view

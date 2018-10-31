@@ -27,6 +27,7 @@ class Brief extends Component {
     };
 
     this.handleScroll = this.handleScroll.bind(this);
+    this.helpJump = this.helpJump.bind(this);
   }
 
   componentDidMount() {
@@ -81,7 +82,6 @@ class Brief extends Component {
           window.scrollBy(0, -scrollBarHeight);
           zenscroll.toY(0);
         }
-
         console.log("windowScrollX: ", window.scrollX);
         this.props.p.saveScrollX(window.scrollX);
         console.log("Saving wsX: ", window.scrollX);
@@ -99,6 +99,17 @@ class Brief extends Component {
         } else zenscroll.toY(document.body.scrollHeight);
       }
     }
+  }
+
+  helpJump() {
+    jump(document.body.scrollHeight, {
+      //duration: 1000,
+      offset: 0,
+      //callback: this.helpJump,
+      //easing: easeInOutQuad,
+      a11y: false
+    });
+    console.log("hmmm");
   }
 
   render() {
