@@ -14,7 +14,6 @@ import {_Gallery as ProLo} from "./projects/ProLo/_Gallery";
 import {_Gallery as DGSF} from "./projects/DGSF/_Gallery";
 import {_Gallery as Citrus} from "./projects/Citrus/_Gallery";
 import {_Gallery as MondrianSim} from "./projects/MondrianSim/_Gallery";
-import jump from "jump.js";
 
 import {debounce} from "../../tools";
 
