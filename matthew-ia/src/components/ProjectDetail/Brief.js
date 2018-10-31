@@ -15,8 +15,8 @@ import {_Brief as DGSF} from "./projects/DGSF/_Brief";
 import {_Brief as Citrus} from "./projects/Citrus/_Brief";
 import {_Brief as MondrianSim} from "./projects/MondrianSim/_Brief";
 
-import zenscroll from 'zenscroll';
 import {loadPage} from "../../tools";
+import zenscroll from '../../zenscroll';
 
 class Brief extends Component {
   // eslint-disable-next-line require-jsdoc

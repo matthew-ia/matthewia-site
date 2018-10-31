@@ -15,7 +15,7 @@ import {_Gallery as DGSF} from "./projects/DGSF/_Gallery";
 import {_Gallery as Citrus} from "./projects/Citrus/_Gallery";
 import {_Gallery as MondrianSim} from "./projects/MondrianSim/_Gallery";
 
-import zenscroll from "zenscroll";
+import zenscroll from "../../zenscroll";
 
 const BRIEF = 0;
 const GALLERY = 1;
