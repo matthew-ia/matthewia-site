@@ -22,7 +22,9 @@ class Brief extends Component {
   // eslint-disable-next-line require-jsdoc
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      hasNativeSmoothScroll: false,
+    };
 
     this.handleScroll = this.handleScroll.bind(this);
   }
@@ -30,6 +32,11 @@ class Brief extends Component {
   componentDidMount() {
     //console.log("=========\nBrief is mounting");
     loadPage();
+    let smoothScroll = false;
+    if ('smoothScroll' in document.body.style) smoothScroll = true;
+    this.setState({
+      hasNativeSmoothScroll: smoothScroll,
+    });
   }
 
   shouldComponentUpdate(nextProps) {
@@ -51,14 +58,13 @@ class Brief extends Component {
     e.preventDefault();
     if (e.deltaY >= 15) { // GOING DOWN ---> GALLERY
       this.props.updateCurrentView(1);
-      /*
-      window.scroll({
-        top: document.body.scrollHeight,
-        left: this.props.p.getScrollX(),
-        behavior: "smooth",
-      });
-      */
-      zenscroll.toY(document.body.scrollHeight);
+      if (this.state.hasNativeSmoothScroll) {
+        window.scroll({
+          top: document.body.scrollHeight,
+          left: this.props.p.getScrollX(),
+          behavior: "smooth",
+        });
+      } else zenscroll.toY(document.body.scrollHeight);
     } else {
       // If user clicks the scroll-arrow when they're in the GALLERY section
       // GOING UP (from Gallery) ---> BRIEF

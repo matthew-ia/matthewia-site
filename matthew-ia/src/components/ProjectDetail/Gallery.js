@@ -27,6 +27,7 @@ class Gallery extends Component {
     this.state = {
       galleryPosY: 0,
       windowWidth: window.innerWidth,
+      hasNativeSmoothScroll: false,
     };
 
     this.handleScroll = this.handleScroll.bind(this);
@@ -42,8 +43,10 @@ class Gallery extends Component {
   componentDidMount() {
     // Saves the x position of the first child of Gallery on load
     // This helps determine the far left scroll position of the Gallery component
+    let smoothScroll = 'scrollBehavior' in document.documentElement.style;
     this.setState({
-      galleryPosY: document.getElementById("gallery").getBoundingClientRect().y
+      galleryPosY: document.getElementById("gallery").getBoundingClientRect().y,
+      hasNativeSmoothScroll: smoothScroll,
     });
     window.addEventListener('resize', this.updateGalleryWidth);
     window.addEventListener('load', this.updateGalleryWidth);
@@ -129,10 +132,15 @@ class Gallery extends Component {
     //console.log("w.sY: ", window.scrollY, ", yPos: ", yPos);
     //console.log("Saving wsX: ", window.scrollX);
     // Ignore scroll events if we're in the middle of handleScrollUp's scroll behavior
-    if (zenscroll.moving()) {
-      console.log("is moving");
-      return;
-    }
+    console.log(this.state.hasNativeSmoothScroll);
+    if (this.state.hasNativeSmoothScroll) {
+      // FIXME: This check might not even be needed; seems to only hurt FF and doesn't affect Chrome
+      if (window.scrollY < yPos) {
+        console.log("yeeting that scroll AWAY");
+        //return;
+      }
+    } else if (zenscroll.moving()) return;
+
     //console.log("handling");
     // Check if the first element in Gallery is scrolled all the way to the left
     if (window.scrollX === 0) {
@@ -155,15 +163,23 @@ class Gallery extends Component {
     console.log("SCROLLING UP");
     //console.log("xDefault: ", this.state.scrollLeftDefault);
     // Smooth scroll up to Brief section.
-    /*window.scroll({
-      left: 0,
-      top: 0,
-      behavior: "smooth"
-    });*/
+    if (this.state.hasNativeSmoothScroll) {
+      window.scroll({
+        left: 0,
+        top: 0,
+        behavior: "smooth"
+      });
+    } else {
+      let scrollBarHeight = window.innerHeight - document.documentElement.clientHeight;
+      console.log(scrollBarHeight);
+      window.scrollBy(0, -scrollBarHeight);
+      zenscroll.toY(0);
+    }
+    /*
     let scrollBarHeight = window.innerHeight - document.documentElement.clientHeight;
     console.log(scrollBarHeight);
     window.scrollBy(0, -50);
-    zenscroll.toY(0);
+    zenscroll.toY(0);*/
 
     this.props.updateCurrentView(0);
     // Set styles that need updating based on the section in view
@@ -187,6 +203,7 @@ class Gallery extends Component {
    * @param e – event fired on scroll (mousewheel or trackpad)
    */
   handleScrollHorizontal(e) {
+    // FIXME: Safari needs same fix from Projects page for horizontal scrolling to work.
     // Blocking horizontal scroll
     if (this.props.currentView === BRIEF) return;
     if (document.getElementsByClassName('video-expanded').length !== 0
