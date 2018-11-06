@@ -59,20 +59,11 @@ class Brief extends Component {
     e.preventDefault();
     if (e.deltaY >= 15) { // GOING DOWN ---> GALLERY
       this.props.updateCurrentView(1);
-      let scrollDownPixels = document.documentElement.clientHeight;
-      if (this.state.hasNativeSmoothScroll) {
-        console.log("scrolling down", scrollDownPixels, window.scrollY, "delta: ", e.deltaY);
-        if (window.scrollY > 0 && window.scrollY < scrollDownPixels) return;
-        let myEfcn = debounce(()=>{
-          window.scroll({
-            top: scrollDownPixels,
-            left: this.props.p.getScrollX(),
-            behavior: "smooth",
-          });
-        }, 750);
-        myEfcn();
-      } else zenscroll.toY(scrollDownPixels);
+      let scrollDownPixels = this.state.galleryPosY;
+      console.log("should b scrolling");
+      zenscroll.toY(scrollDownPixels, 500);
     } else {
+
       // If user clicks the scroll-arrow when they're in the GALLERY section
       // GOING UP (from Gallery) ---> BRIEF
       if (e.type === 'click' && document.getElementById("scroll-arrow").className === 'top') {

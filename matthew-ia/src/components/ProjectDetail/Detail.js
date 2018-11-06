@@ -112,8 +112,8 @@ class Detail extends Component {
   }
 
   preventDefaultScrolling(e) {
-    if (window.innerWidth > 1280) { // handle mobile
-      e.preventDefault();
+    if (window.innerWidth > 1280) { // handle larger than mobile???
+      //e.preventDefault();
     }
 
   }
