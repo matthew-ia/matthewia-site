@@ -61,7 +61,7 @@ class Brief extends Component {
       this.props.updateCurrentView(1);
       let scrollDownPixels = this.state.galleryPosY;
       console.log("should b scrolling");
-      if (this.state.hasNativeSmoothScroll) {
+      if (!this.state.hasNativeSmoothScroll) {
         console.log("scrolling down", scrollDownPixels, window.scrollY, "delta: ", e.deltaY);
         //if (window.scrollY > 0 && window.scrollY < scrollDownPixels) return;
         window.scroll({
@@ -69,7 +69,7 @@ class Brief extends Component {
           left: this.props.p.getScrollX(),
           behavior: "smooth",
         });
-      } else zenscroll.toY(scrollDownPixels);
+      } else zenscroll.toY(scrollDownPixels, 500);
     } else {
 
       // If user clicks the scroll-arrow when they're in the GALLERY section

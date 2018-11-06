@@ -138,7 +138,8 @@ class Gallery extends Component {
       if (window.scrollY < yPos) {
         console.log("GALLERY->BRIEF : blocking scroll with return : ", window.scrollY, yPos);
         //console.log("yeeting that scroll AWAY");
-        return;
+        if (zenscroll.moving()) return;
+        //return;
       }
     } else if (zenscroll.moving()) return;
 
@@ -164,7 +165,7 @@ class Gallery extends Component {
     console.log("SCROLLING UP");
     //console.log("xDefault: ", this.state.scrollLeftDefault);
     // Smooth scroll up to Brief section.
-    if (this.state.hasNativeSmoothScroll) {
+    if (!this.state.hasNativeSmoothScroll) {
       window.scroll({
         left: 0,
         top: 0,
@@ -174,7 +175,7 @@ class Gallery extends Component {
       let scrollBarHeight = window.innerHeight - document.documentElement.clientHeight;
       console.log(scrollBarHeight);
       window.scrollBy(0, -scrollBarHeight);
-      zenscroll.toY(0);
+      zenscroll.toY(0, 500);
     }
 
     this.props.updateCurrentView(0);
