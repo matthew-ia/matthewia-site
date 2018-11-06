@@ -134,14 +134,7 @@ class Gallery extends Component {
     //console.log("w.sY: ", window.scrollY, ", yPos: ", yPos);
     //console.log("Saving wsX: ", window.scrollX);
     // Ignore scroll events if we're in the middle of handleScrollUp's scroll behavior
-    if (this.state.hasNativeSmoothScroll) {
-      if (window.scrollY < yPos) {
-        console.log("GALLERY->BRIEF : blocking scroll with return : ", window.scrollY, yPos);
-        //console.log("yeeting that scroll AWAY");
-        if (zenscroll.moving()) return;
-        //return;
-      }
-    } else if (zenscroll.moving()) return;
+    if (zenscroll.moving()) return;
 
     //console.log("handling");
     // Check if the first element in Gallery is scrolled all the way to the left
@@ -165,19 +158,10 @@ class Gallery extends Component {
     console.log("SCROLLING UP");
     //console.log("xDefault: ", this.state.scrollLeftDefault);
     // Smooth scroll up to Brief section.
-    if (!this.state.hasNativeSmoothScroll) {
-      window.scroll({
-        left: 0,
-        top: 0,
-        behavior: "smooth"
-      });
-    } else {
-      let scrollBarHeight = window.innerHeight - document.documentElement.clientHeight;
-      console.log(scrollBarHeight);
-      window.scrollBy(0, -scrollBarHeight);
-      zenscroll.toY(0, 500);
-    }
-
+    let scrollBarHeight = window.innerHeight - document.documentElement.clientHeight;
+    console.log(scrollBarHeight);
+    window.scrollBy(0, -scrollBarHeight);
+    zenscroll.toY(0, 500);
     this.props.updateCurrentView(0);
     // Set styles that need updating based on the section in view
     /*
