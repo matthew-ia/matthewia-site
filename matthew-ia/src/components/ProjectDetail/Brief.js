@@ -15,7 +15,7 @@ import {_Brief as DGSF} from "./projects/DGSF/_Brief";
 import {_Brief as Citrus} from "./projects/Citrus/_Brief";
 import {_Brief as MondrianSim} from "./projects/MondrianSim/_Brief";
 
-import {loadPage} from "../../tools";
+import {loadPage, debounce} from "../../tools";
 import zenscroll from '../../zenscroll';
 
 class Brief extends Component {
@@ -24,6 +24,7 @@ class Brief extends Component {
     super(props);
     this.state = {
       hasNativeSmoothScroll: false,
+      galleryPosY: 0,
     };
 
     this.handleScroll = this.handleScroll.bind(this);
@@ -34,6 +35,7 @@ class Brief extends Component {
     loadPage();
     let smoothScroll = 'scrollBehavior' in document.documentElement.style;
     this.setState({
+      galleryPosY: document.getElementById("gallery").getBoundingClientRect().y,
       hasNativeSmoothScroll: smoothScroll,
     });
   }
@@ -57,13 +59,19 @@ class Brief extends Component {
     e.preventDefault();
     if (e.deltaY >= 15) { // GOING DOWN ---> GALLERY
       this.props.updateCurrentView(1);
+      let scrollDownPixels = document.documentElement.clientHeight;
       if (this.state.hasNativeSmoothScroll) {
-        window.scroll({
-          top: document.body.scrollHeight,
-          left: this.props.p.getScrollX(),
-          behavior: "smooth",
-        });
-      } else zenscroll.toY(document.body.scrollHeight);
+        console.log("scrolling down", scrollDownPixels, window.scrollY, "delta: ", e.deltaY);
+        if (window.scrollY > 0 && window.scrollY < scrollDownPixels) return;
+        let myEfcn = debounce(()=>{
+          window.scroll({
+            top: scrollDownPixels,
+            left: this.props.p.getScrollX(),
+            behavior: "smooth",
+          });
+        }, 750);
+        myEfcn();
+      } else zenscroll.toY(scrollDownPixels);
     } else {
       // If user clicks the scroll-arrow when they're in the GALLERY section
       // GOING UP (from Gallery) ---> BRIEF
@@ -87,6 +95,7 @@ class Brief extends Component {
       }
       // GOING DOWN ---> GALLERY
       // If user clicks the scroll-arrow when they're in the BRIEF section
+      // FIXME: change document.body.scrollHeight to y position of gallery?????
       else if (e.type === 'click') {
         this.props.updateCurrentView(1);
         if (this.state.hasNativeSmoothScroll) {

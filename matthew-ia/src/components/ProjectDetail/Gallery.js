@@ -134,12 +134,11 @@ class Gallery extends Component {
     //console.log("w.sY: ", window.scrollY, ", yPos: ", yPos);
     //console.log("Saving wsX: ", window.scrollX);
     // Ignore scroll events if we're in the middle of handleScrollUp's scroll behavior
-    console.log(this.state.hasNativeSmoothScroll);
     if (this.state.hasNativeSmoothScroll) {
-      // FIXME: This check might not even be needed; seems to only hurt FF and doesn't affect Chrome
       if (window.scrollY < yPos) {
-        console.log("yeeting that scroll AWAY");
-        //return;
+        console.log("GALLERY: blocking scroll with return: ", window.scrollY, yPos);
+        //console.log("yeeting that scroll AWAY");
+        return;
       }
     } else if (zenscroll.moving()) return;
 
