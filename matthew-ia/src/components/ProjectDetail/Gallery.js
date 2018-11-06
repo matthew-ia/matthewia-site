@@ -136,7 +136,7 @@ class Gallery extends Component {
     // Ignore scroll events if we're in the middle of handleScrollUp's scroll behavior
     if (this.state.hasNativeSmoothScroll) {
       if (window.scrollY < yPos) {
-        console.log("GALLERY: blocking scroll with return: ", window.scrollY, yPos);
+        console.log("GALLERY->BRIEF : blocking scroll with return : ", window.scrollY, yPos);
         //console.log("yeeting that scroll AWAY");
         return;
       }
