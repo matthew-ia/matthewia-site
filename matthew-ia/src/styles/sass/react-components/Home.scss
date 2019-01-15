@@ -43,6 +43,11 @@
           border-bottom: 2px solid $brand-gray;
         }
       }
+      p.link-divider {
+        font-size: $font-size-base;
+        margin: 0 8px 0;
+        display: inline-block;
+      }
       p.label {
         font-family: $font-family-monospace;
         font-size: $font-size-base;
