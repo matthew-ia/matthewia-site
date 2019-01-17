@@ -1234,6 +1234,11 @@ button:focus {
 #info ul#contact li a:hover {
   border-bottom: 2px solid #5F5F5F; }
 
+#info ul#contact li p.link-divider {
+  font-size: 16px;
+  margin: 0 8px 0;
+  display: inline-block; }
+
 #info ul#contact li p.label {
   font-family: Inconsolata,Menlo,Monaco,Consolas,"Courier New",monospace;
   font-size: 16px;

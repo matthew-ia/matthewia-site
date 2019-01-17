@@ -74,6 +74,12 @@ class Home extends Component {
               <p className='label'>resume</p>
               <a href={window.location.origin + "/docs/matthew-alicea.pdf"}>matthew-alicea.pdf</a>
             </li>
+            <li>
+              <p className='label'>links</p>
+              <a href="https://www.behance.net/matthewiva4e97">Behance</a>
+              <p className='link-divider'>/</p>
+              <a href="https://github.com/matthew-ia">GitHub</a>
+            </li>
           </ul>
         </div>
         <button
